@@ -1,0 +1,19 @@
+{
+  "name": "cykelbanor",
+  "version": "0.0.0",
+  "description": "Bike routing in Sweden",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Per Liedman <per@liedman.net>",
+  "license": "ISC",
+  "dependencies": {
+    "leaflet": "0.7.2",
+    "leaflet-control-geocoder": "^0.2.1",
+    "leaflet-routing-machine": "^0.2.0"
+  },
+  "devDependencies": {
+    "browserify": "^4.1.5"
+  }
+}
