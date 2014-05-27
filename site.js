@@ -1,25 +1,282 @@
-;(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var L = require('leaflet'),
     lrm = require('leaflet-routing-machine'),
     lcg = require('leaflet-control-geocoder'),
-    map = L.map('map');
+    eio = require('Leaflet.EditInOSM'),
+    map = L.map('map', {
+        editInOSMControlOptions: {position: 'bottomright', widget: 'attributionBox'}
+    }),
+    routingControl = L.Routing.control({
+        router: L.Routing.osrm({serviceUrl: 'http://tinycat.liedman.net/viaroute'}),
+    	geocoder: L.Control.Geocoder.nominatim()
+    }).addTo(map);
 
 L.Icon.Default.imagePath = 'node_modules/leaflet/dist/images';
 
 L.tileLayer('https://a.tiles.mapbox.com/v3/liedman.ib8andc2/{z}/{x}/{y}.png', {
-	attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-L.Routing.control({
-    router: L.Routing.osrm({serviceUrl: 'http://tinycat.liedman.net/viaroute'}),
-	waypoints: [
-		L.latLng(57.74, 11.94),
-		L.latLng(57.6792, 11.949)
-	],
-	geocoder: L.Control.Geocoder.nominatim()
-}).addTo(map);
 
-},{"leaflet":4,"leaflet-control-geocoder":2,"leaflet-routing-machine":3}],2:[function(require,module,exports){
+map.on('click', function(e) {
+    var content = L.DomUtil.create('div', ''),
+        list = L.DomUtil.create('ul', '', content),
+        fromHere = L.DomUtil.create('button', '', L.DomUtil.create('li', '', list)),
+        toHere = L.DomUtil.create('button', '', L.DomUtil.create('li', '', list));
+
+    fromHere.setAttribute('type', 'button');
+    fromHere.innerHTML = 'Åk härifrån';
+    toHere.setAttribute('type', 'button');
+    toHere.innerHTML = 'Åk hit';
+
+    L.DomEvent.addListener(fromHere, 'click', function() {
+        routingControl.spliceWaypoints(0, 1, e.latlng);
+        map.closePopup();
+    });
+    L.DomEvent.addListener(toHere, 'click', function() {
+        routingControl.spliceWaypoints(routingControl.getWaypoints().length - 1, 1, e.latlng);
+        map.closePopup();
+    });
+
+    map.openPopup(content, e.latlng);
+});
+
+map.on('locationerror', function() {
+    map.fitBounds(L.latLngBounds([55.3,9.6],[69.3,26.6]));
+});
+
+map.locate({
+    setView: true,
+    timeout: 1000
+});
+},{"Leaflet.EditInOSM":2,"leaflet":5,"leaflet-control-geocoder":3,"leaflet-routing-machine":4}],2:[function(require,module,exports){
+(function (factory) {
+    var L;
+    if (typeof define === 'function' && define.amd) {
+        // AMD
+        define(['leaflet'], function(L) {
+            factory(L, setTimeout);
+        });
+    } else if (typeof module !== 'undefined') {
+        // Node/CommonJS
+        L = require('leaflet');
+        module.exports = factory(L, setTimeout);
+    } else {
+        // Browser globals
+        if (typeof window.L === 'undefined')
+            throw 'Leaflet must be loaded first';
+        factory(window.L, setTimeout);
+    }
+}(function (L, setTimeout) {
+    var _controlContainer,
+        _map,
+        _zoomThreshold,
+        _hideClass = 'leaflet-control-edit-hidden',
+        _anchorClass = 'leaflet-control-edit-in-osm-toggle',
+
+        _Widgets =  {
+            MultiButton: function (config) {
+                var className = 'leaflet-control-edit-in-osm',
+                    helpText = "Open this map extent in a map editor to provide more accurate data to OpenStreetMap",
+                    addEditors = function (container, editors) {
+                        for (var i in editors) {
+                            addEditorToWidget(container, editors[i]);
+                        }
+                    };
+
+                return {
+                    className: (config && config.className) || className,
+                    helpText: (config && config.helpText) || helpText,
+                    addEditors: (config && config.addEditors) || addEditors
+                };
+            },
+            AttributionBox: function (config) {
+                var className = 'leaflet-control-attribution',
+                    helpText = "Edit in OSM",
+                    addEditors = function (container, editors) {
+                        addEditorToWidget(container, editors[0], helpText);
+                    };
+
+                return {
+                    className: (config && config.className) || className,
+                    helpText: (config && config.helpText) || helpText,
+                    addEditors: (config && config.addEditors) || addEditors
+                };
+            }
+        },
+
+        _Editors = {
+            Id: function (config) {
+                var url = 'https://www.openstreetmap.org/edit?editor=id#map=',
+                    displayName = "iD",
+                    buildUrl = function (map) {
+                        return this.url + [
+                            map.getZoom(),
+                            map.getCenter().wrap().lat,
+                            map.getCenter().wrap().lng
+                        ].join('/');
+                    };
+                return {
+                    url: (config && config.url) || url,
+                    displayName: (config && config.displayName) || displayName,
+                    buildUrl: (config && config.buildUrl) || buildUrl
+                };
+            },
+            Josm: function (config) {
+                var url = 'http://127.0.0.1:8111/load_and_zoom',
+                    timeout = 1000,
+                    displayName = "JOSM",
+                    buildUrl = function (map) {
+                        var bounds = map.getBounds();
+                        return this.url + L.Util.getParamString({
+                            left: bounds.getNorthWest().lng,
+                            right: bounds.getSouthEast().lng,
+                            top: bounds.getNorthWest().lat,
+                            bottom: bounds.getSouthEast().lat
+                        });
+                    };
+
+                return {
+                    url: (config && config.url) || url,
+                    timeout: (config && config.timeout) || timeout,
+                    displayName: (config && config.displayName) || displayName,
+                    buildUrl: (config && config.buildUrl) || buildUrl
+                };
+            },
+            Potlatch: function (config) {
+                var url = 'http://open.mapquestapi.com/dataedit/index_flash.html',
+                    displayName = "P2",
+                    buildUrl = function (map) {
+                        return this.url + L.Util.getParamString({
+                            lon: map.getCenter().wrap().lng,
+                            lat: map.getCenter().wrap().lat,
+                            zoom: map.getZoom()
+                        });
+                    };
+                return {
+                    url: (config && config.url) || url,
+                    displayName: (config && config.displayName) || displayName,
+                    buildUrl: (config && config.buildUrl) || buildUrl
+                };
+            }
+        };
+
+
+    // Takes an editor, calls their buildUrl method
+    // and opens the url in the browser
+    function openRemote (editor) {
+        var url = editor.buildUrl(_map),
+            w = window.open(url);
+        if (editor.timeout) {
+            setTimeout(function() {w.close();}, editor.timeout);
+        }
+    }
+
+    function addEditorToWidget(widgetContainer, editor, text) {
+        var editorWidget = L.DomUtil.create('a', "osm-editor", widgetContainer);
+        editorWidget.href = "#";
+        editorWidget.innerHTML = text || editor.displayName;
+        L.DomEvent.on(editorWidget, "click", function (e) {
+            openRemote(editor);
+            L.DomEvent.stop(e);
+        });
+    }
+
+    // Make the EditInOSM widget visible or invisible after each
+    // zoom event.
+    //
+    // configurable by setting the *zoomThreshold* option.
+    function showOrHideUI() {
+        var zoom = _map.getZoom();
+        if (zoom < _zoomThreshold) {
+            L.DomUtil.addClass(_controlContainer, _hideClass);
+        } else {
+            L.DomUtil.removeClass(_controlContainer, _hideClass);
+        }
+    }
+
+    L.Control.EditInOSM = L.Control.extend({
+
+        options: {
+            position: "topright",
+            zoomThreshold: 0,
+            widget: "multiButton",
+            editors: ["id", "josm"]
+        },
+
+        initialize: function (options) {
+            var newEditors = [],
+                widget,
+                widgetSmallName,
+                editor,
+                editorSmallName;
+
+            L.setOptions(this, options);
+
+            _zoomThreshold = this.options.zoomThreshold;
+
+            widget = this.options.widget;
+            widgetSmallName = typeof(widget) === 'string' ? widget.toLowerCase() : '';
+
+            // setup widget from string or object
+            if (widgetSmallName === "multibutton") {
+                this.options.widget = new _Widgets.MultiButton(this.options.widgetOptions);
+            } else if (widgetSmallName === "attributionbox") {
+                this.options.widget = new _Widgets.AttributionBox(this.options.widgetOptions);
+            }
+
+            // setup editors from strings or objects
+            for (var i in this.options.editors) {
+                editor = this.options.editors[i],
+                editorSmallName = typeof(editor) === "string" ? editor.toLowerCase() : null;
+
+                if (editorSmallName === "id") {
+                    newEditors.push(new _Editors.Id());
+                } else if (editorSmallName === "josm") {
+                    newEditors.push(new _Editors.Josm());
+                } else if (editorSmallName === "potlatch") {
+                    newEditors.push(new _Editors.Potlatch());
+                } else {
+                    newEditors.push(editor);
+                }
+            }
+            this.options.editors = newEditors;
+
+        },
+
+        onAdd: function (map) {
+            _map = map;
+            map.on('zoomend', showOrHideUI);
+
+            _controlContainer = L.DomUtil.create('div', this.options.widget.className);
+
+            _controlContainer.title = this.options.widget.helpText || '';
+
+            L.DomUtil.create('a', _anchorClass, _controlContainer);
+
+            this.options.widget.addEditors(_controlContainer, this.options.editors);
+            return _controlContainer;
+        },
+
+        onRemove: function (map) {
+            map.off('zoomend', this._onZoomEnd);
+        }
+
+    });
+
+    L.Control.EditInOSM.Widgets = _Widgets;
+    L.Control.EditInOSM.Editors = _Editors;
+
+    L.Map.addInitHook(function () {
+        if (this.options.editInOSMControlOptions) {
+            var options = this.options.editInOSMControlOptions || {};
+            this.editInOSMControl = (new L.Control.EditInOSM(options)).addTo(this);
+        }
+    });
+
+}));
+
+},{"leaflet":5}],3:[function(require,module,exports){
 (function (factory) {
 	// Packaging/modules magic dance
 	var L;
@@ -486,7 +743,7 @@ L.Routing.control({
 	return L.Control.Geocoder;
 }));
 
-},{"leaflet":4}],3:[function(require,module,exports){
+},{"leaflet":5}],4:[function(require,module,exports){
 // Packaging/modules magic dance. This code is inserted before all other
 // code when the dist is built.
 (function (factory) {
@@ -1646,8 +1903,8 @@ L.Routing.control({
 // Packaging/modules magic dance end. This code is inserted after all other
 // code when the dist is built.
 
-},{"leaflet":4}],4:[function(require,module,exports){
-(function(){/*
+},{"leaflet":5}],5:[function(require,module,exports){
+/*
  Leaflet, a JavaScript library for mobile-friendly interactive maps. http://leafletjs.com
  (c) 2010-2013, Vladimir Agafonkin
  (c) 2010-2011, CloudMade
@@ -3753,12 +4010,12 @@ L.Map = L.Class.extend({
 		var loading = !this._loaded;
 		this._loaded = true;
 
+		this.fire('viewreset', {hard: !preserveMapOffset});
+
 		if (loading) {
 			this.fire('load');
 			this.eachLayer(this._layerAdd, this);
 		}
-
-		this.fire('viewreset', {hard: !preserveMapOffset});
 
 		this.fire('move');
 
@@ -6732,7 +6989,8 @@ L.Path = (L.Path.SVG && !window.L_PREFER_CANVAS) || !L.Browser.canvas ? L.Path :
 		}
 
 		this._requestUpdate();
-
+		
+		this.fire('remove');
 		this._map = null;
 	},
 
@@ -8254,12 +8512,12 @@ L.DomEvent = {
 		var timeStamp = (e.timeStamp || e.originalEvent.timeStamp),
 			elapsed = L.DomEvent._lastClick && (timeStamp - L.DomEvent._lastClick);
 
-		// are they closer together than 1000ms yet more than 100ms?
+		// are they closer together than 500ms yet more than 100ms?
 		// Android typically triggers them ~300ms apart while multiple listeners
 		// on the same event should be triggered far faster;
 		// or check if click is simulated on the element, and if it is, reject any non-simulated events
 
-		if ((elapsed && elapsed > 100 && elapsed < 1000) || (e.target._simulatedClick && !e._simulated)) {
+		if ((elapsed && elapsed > 100 && elapsed < 500) || (e.target._simulatedClick && !e._simulated)) {
 			L.DomEvent.stop(e);
 			return;
 		}
@@ -8357,6 +8615,7 @@ L.Draggable = L.Class.extend({
 		    offset = newPoint.subtract(this._startPoint);
 
 		if (!offset.x && !offset.y) { return; }
+		if (L.Browser.touch && Math.abs(offset.x) + Math.abs(offset.y) < 3) { return; }
 
 		L.DomEvent.preventDefault(e);
 
@@ -8367,7 +8626,8 @@ L.Draggable = L.Class.extend({
 			this._startPos = L.DomUtil.getPosition(this._element).subtract(offset);
 
 			L.DomUtil.addClass(document.body, 'leaflet-dragging');
-			L.DomUtil.addClass((e.target || e.srcElement), 'leaflet-drag-target');
+			this._lastTarget = e.target || e.srcElement;
+			L.DomUtil.addClass(this._lastTarget, 'leaflet-drag-target');
 		}
 
 		this._newPos = this._startPos.add(offset);
@@ -8383,9 +8643,13 @@ L.Draggable = L.Class.extend({
 		this.fire('drag');
 	},
 
-	_onUp: function (e) {
+	_onUp: function () {
 		L.DomUtil.removeClass(document.body, 'leaflet-dragging');
-		L.DomUtil.removeClass((e.target || e.srcElement), 'leaflet-drag-target');
+
+		if (this._lastTarget) {
+			L.DomUtil.removeClass(this._lastTarget, 'leaflet-drag-target');
+			this._lastTarget = null;
+		}
 
 		for (var i in L.Draggable.MOVE) {
 			L.DomEvent
@@ -9040,7 +9304,7 @@ L.Map.TouchZoom = L.Handler.extend({
 		    center = map.layerPointToLatLng(origin),
 		    zoom = map.getScaleZoom(this._scale);
 
-		map._animateZoom(center, zoom, this._startCenter, this._scale, this._delta);
+		map._animateZoom(center, zoom, this._startCenter, this._scale, this._delta, false, true);
 	},
 
 	_onTouchEnd: function () {
@@ -10025,8 +10289,8 @@ L.Control.Layers = L.Control.extend({
 
 	onRemove: function (map) {
 		map
-		    .off('layeradd', this._onLayerChange)
-		    .off('layerremove', this._onLayerChange);
+		    .off('layeradd', this._onLayerChange, this)
+		    .off('layerremove', this._onLayerChange, this);
 	},
 
 	addBaseLayer: function (layer, name) {
@@ -10567,9 +10831,11 @@ L.Map.include(!L.DomUtil.TRANSITION ? {} : {
 		return true;
 	},
 
-	_animateZoom: function (center, zoom, origin, scale, delta, backwards) {
+	_animateZoom: function (center, zoom, origin, scale, delta, backwards, forTouchZoom) {
 
-		this._animatingZoom = true;
+		if (!forTouchZoom) {
+			this._animatingZoom = true;
+		}
 
 		// put transform transition on all layers with leaflet-zoom-animated class
 		L.DomUtil.addClass(this._mapPane, 'leaflet-zoom-anim');
@@ -10583,14 +10849,16 @@ L.Map.include(!L.DomUtil.TRANSITION ? {} : {
 			L.Draggable._disabled = true;
 		}
 
-		this.fire('zoomanim', {
-			center: center,
-			zoom: zoom,
-			origin: origin,
-			scale: scale,
-			delta: delta,
-			backwards: backwards
-		});
+		L.Util.requestAnimFrame(function () {
+			this.fire('zoomanim', {
+				center: center,
+				zoom: zoom,
+				origin: origin,
+				scale: scale,
+				delta: delta,
+				backwards: backwards
+			});
+		}, this);
 	},
 
 	_onZoomTransitionEnd: function () {
@@ -10816,6 +11084,4 @@ L.Map.include({
 
 
 }(window, document));
-})()
 },{}]},{},[1])
-;
