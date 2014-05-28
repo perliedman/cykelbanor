@@ -16,12 +16,18 @@ L.tileLayer('https://a.tiles.mapbox.com/v3/liedman.ib8andc2/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-
 map.on('click', function(e) {
     var content = L.DomUtil.create('div', ''),
-        list = L.DomUtil.create('ul', '', content),
+        address = L.DomUtil.create('div', 'address', content),
+        list = L.DomUtil.create('ul', 'alternatives', content),
         fromHere = L.DomUtil.create('button', '', L.DomUtil.create('li', '', list)),
         toHere = L.DomUtil.create('button', '', L.DomUtil.create('li', '', list));
+
+    L.Control.Geocoder.nominatim().reverse(e.latlng, map.options.crs.scale(18), function(r) {
+        if (r && r[0]) {
+            address.innerText = r[0].name;
+        }
+    });
 
     fromHere.setAttribute('type', 'button');
     fromHere.innerHTML = 'Åk härifrån';
