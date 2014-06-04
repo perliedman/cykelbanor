@@ -4,18 +4,20 @@
   "description": "Bike routing in Sweden",
   "main": "index.js",
   "scripts": {
-    "install": "./node_modules/.bin/browserify index.js >site.js",
+    "install": "./node_modules/.bin/browserify -t hbsfy index.js >site.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Per Liedman <per@liedman.net>",
   "license": "ISC",
   "dependencies": {
     "Leaflet.EditInOSM": "git+ssh://git@github.com:yohanboniface/Leaflet.EditInOSM.git",
+    "handlebars": "~1.3.0",
     "leaflet": "^0.7.3",
-    "leaflet-control-geocoder": "^0.2.1",
-    "leaflet-routing-machine": "^0.2.1"
+    "leaflet-control-geocoder": "^0.2.2",
+    "leaflet-routing-machine": "^0.2.2"
   },
   "devDependencies": {
+    "brfs": "^1.1.1",
     "browserify": "^4.1.5"
   }
 }

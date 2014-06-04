@@ -2,6 +2,9 @@ var L = require('leaflet'),
     lrm = require('leaflet-routing-machine'),
     lcg = require('leaflet-control-geocoder'),
     eio = require('Leaflet.EditInOSM'),
+    addressPopup = require('./templates/address-popup.hbs'),
+    address = require('./address'),
+    userInfo = require('./user-info'),
     map = L.map('map', {
         editInOSMControlOptions: {position: 'bottomright', widget: 'attributionBox'}
     }),
@@ -10,6 +13,7 @@ var L = require('leaflet'),
     	geocoder: L.Control.Geocoder.nominatim()
     }).addTo(map);
 
+
 L.Icon.Default.imagePath = 'node_modules/leaflet/dist/images';
 
 L.tileLayer('https://a.tiles.mapbox.com/v3/liedman.ib8andc2/{z}/{x}/{y}.png', {
@@ -17,33 +21,36 @@ L.tileLayer('https://a.tiles.mapbox.com/v3/liedman.ib8andc2/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 map.on('click', function(e) {
-    var content = L.DomUtil.create('div', ''),
-        address = L.DomUtil.create('div', 'address', content),
-        list = L.DomUtil.create('ul', 'alternatives', content),
-        fromHere = L.DomUtil.create('button', '', L.DomUtil.create('li', '', list)),
-        toHere = L.DomUtil.create('button', '', L.DomUtil.create('li', '', list));
+    var $content = $(addressPopup()),
+        name;
+
+
+    L.popup().
+        setLatLng(e.latlng).
+        setContent($content[0]).
+        openOn(map);
 
     L.Control.Geocoder.nominatim().reverse(e.latlng, map.options.crs.scale(18), function(r) {
         if (r && r[0]) {
-            address.innerText = r[0].name;
+            name = address(r[0]);
+            $content.find('[data-address]').html(name.html);
         }
     });
 
-    fromHere.setAttribute('type', 'button');
-    fromHere.innerHTML = 'Åk härifrån';
-    toHere.setAttribute('type', 'button');
-    toHere.innerHTML = 'Åk hit';
-
-    L.DomEvent.addListener(fromHere, 'click', function() {
-        routingControl.spliceWaypoints(0, 1, e.latlng);
+    $content.find('[data-from]').click(function() {
+        routingControl.spliceWaypoints(0, 1, {
+            latLng: e.latlng,
+            name: name && name.text ? name.text : ''
+        });
         map.closePopup();
     });
-    L.DomEvent.addListener(toHere, 'click', function() {
-        routingControl.spliceWaypoints(routingControl.getWaypoints().length - 1, 1, e.latlng);
+    $content.find('[data-to]').click(function() {
+        routingControl.spliceWaypoints(routingControl.getWaypoints().length - 1, 1, {
+            latLng: e.latlng,
+            name: name && name.text ? name.text : ''
+        });
         map.closePopup();
     });
-
-    map.openPopup(content, e.latlng);
 });
 
 map.on('locationerror', function() {
@@ -54,3 +61,5 @@ map.locate({
     setView: true,
     timeout: 1000
 });
+
+userInfo();

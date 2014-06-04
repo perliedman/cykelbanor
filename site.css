@@ -3,7 +3,7 @@ html {
     font-size: 11pt;
 }
 
-.map {
+.map-container {
     position: fixed;
     top: 0;
     left: 0;
@@ -20,52 +20,21 @@ ul.alternatives {
     margin-bottom: 4px;
 }
 
-.address {
-    width: 240px;
-    height: 2.1em;
-    padding: .8em 0;
-    overflow: hidden;
-    text-transform: uppercase;
-    line-height: 1;
-    font-weight: 700;
-    font-style: normal;
-    text-decoration: none;
+.address small {
+    display: block;
+    font-size: normal;
+    color: #aaa;
 }
 
-.leaflet-popup button {
-    cursor: pointer;
-    display: inline-block;
-    vertical-align: middle;
-    min-height: 1em;
-    outline: 0;
-    border: none;
-    background-color: #FAFAFA;
-    color: gray;
-    margin: 0;
-    padding: .8em 1.5em;
-    text-transform: uppercase;
-    line-height: 1;
-    font-weight: 700;
-    font-style: normal;
-    text-align: center;
-    text-decoration: none;
-    background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,0)),to(rgba(0,0,0,.05)));
-    background-image: -webkit-linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.05));
-    background-image: -moz-linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.05));
-    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.05));
-    border-radius: .25em;
-    -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.08)inset;
-    box-shadow: 0 0 0 1px rgba(0,0,0,.08)inset;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    -webkit-transition: opacity .25s ease,background-color .25s ease,color .25s ease,background .25s ease,-webkit-box-shadow .25s ease;
-    -moz-transition: opacity .25s ease,background-color .25s ease,color .25s ease,background .25s ease,box-shadow .25s ease;
-    transition: opacity .25s ease,background-color .25s ease,color .25s ease,background .25s ease,box-shadow .25s ease
+.user-info button {
+    display: block;
+    float: right;
+}
+
+.user-info {
+    position: absolute;
+    z-index: 5;
+    top: 10px;
+    left: 44px;
+    max-width: 400px;
 }
