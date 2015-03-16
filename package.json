@@ -16,6 +16,7 @@
     "leaflet-control-geocoder": "^1.1.0",
     "leaflet-editinosm": "^0.2.1",
     "leaflet-routing-machine": "^2.2.3",
+    "leaflet.markercluster": "^0.4.0",
     "sortablejs": "^1.1.1"
   },
   "devDependencies": {

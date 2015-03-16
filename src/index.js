@@ -12,6 +12,7 @@ var L = require('leaflet'),
     map = L.map('map', {
         editInOSMControlOptions: {position: 'bottomright', widget: 'attributionBox'}
     }),
+    layerControl = L.control.layers(undefined, require('./layers'), { position: 'bottomleft'}).addTo(map),
     routingControl = L.Routing.control({
         router: L.Routing.osrm({serviceUrl: 'http://tinycat.liedman.net/viaroute'}),
         geocoder: L.Control.Geocoder.nominatim(),

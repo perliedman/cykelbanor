@@ -1,0 +1,21 @@
+<h3>
+    {{#if properties.tags.capacity}}
+        {{properties.tags.name}}
+    {{else}}
+        Hyrcyklar
+    {{/if}}
+</h3>
+
+{{#if properties.tags.capacity}}
+<p>
+    {{properties.tags.capacity}} cyklar
+</p>
+{{/if}}
+
+<p>
+    {{#if properties.tags.website}}
+        <a href="{{properties.tags.website}}">{{properties.tags.network}}</a>
+    {{else}}
+        {{properties.tags.network}}
+    {{/if}}
+</p>
