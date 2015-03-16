@@ -7,6 +7,7 @@ var L = require('leaflet'),
     userInfo = require('./user-info'),
     State = require('./state'),
     state = new State(window),
+    initialWaypoints = state.getWaypoints(),
     Sortable = require('sortablejs'),
     map = L.map('map', {
         editInOSMControlOptions: {position: 'bottomright', widget: 'attributionBox'}
@@ -23,7 +24,7 @@ var L = require('leaflet'),
                 {color: 'red', opacity: 1, weight: 3}
             ]
         },
-        waypoints: state.getWaypoints(),
+        waypoints: initialWaypoints,
         createGeocoder: function(i) {
             var geocoder = L.Routing.Plan.prototype.options.createGeocoder.call(this, i),
                 handle = L.DomUtil.create('div', 'geocoder-handle');
@@ -106,10 +107,12 @@ routingControl.on('waypointschanged', function() {
     state.setWaypoints(routingControl.getWaypoints());
 });
 
-map.locate({
-    setView: true,
-    timeout: 1000,
-    maxZoom: 14
-});
+if (!initialWaypoints || initialWaypoints.length < 2) {
+    map.locate({
+        setView: true,
+        timeout: 1000,
+        maxZoom: 14
+    });
+}
 
 userInfo();
