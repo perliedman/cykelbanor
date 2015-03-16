@@ -1,18 +1,16 @@
-var L = require('leaflet'),
-    info = require('../messages/info1.hbs');
+var L = require('leaflet');
 
 function showDialog() {
-    var dialog = L.DomUtil.create('div', 'user-info', document.body),
-        container = L.DomUtil.create('div', 'ui teal inverted segment', dialog),
-        closeBtn;
-    container.innerHTML = info();
-    closeBtn = L.DomUtil.create('button', 'ui green button', container);
-    closeBtn.setAttribute('type', 'button');
-    closeBtn.innerText = 'Stäng';
-    L.DomEvent.addListener(closeBtn, 'click', function() {
-        dialog.parentNode.removeChild(dialog);
-        document.cookie = 'userInfo=1';
-    });
+    var dialog = L.DomUtil.get('welcome-popup'),
+        closeBtn = dialog.querySelector('.button'),
+        closeFn = function() {
+            dialog.parentNode.removeChild(dialog);
+            document.cookie = 'userInfo=1';
+            L.DomEvent.off(closeBtn, 'click', closeFn);
+        };
+
+    L.DomEvent.on(closeBtn, 'click', closeFn);
+    L.DomUtil.removeClass(dialog, 'hide');
 }
 
 module.exports = function userInfo() {

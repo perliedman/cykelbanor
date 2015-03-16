@@ -70,3 +70,7 @@ ul.alternatives {
     margin-left: 4px;
     width: 279px;
 }
+
+.hide {
+    display: none;
+}
