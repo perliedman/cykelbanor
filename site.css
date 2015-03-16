@@ -38,3 +38,15 @@ ul.alternatives {
     left: 44px;
     max-width: 400px;
 }
+
+.leaflet-routing-container h2 {
+    font-size: 12px;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+.leaflet-routing-container h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 0;
+}
