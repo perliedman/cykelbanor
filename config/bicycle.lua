@@ -36,7 +36,10 @@ bicycle_speeds = {
 
 type_names = {
   ["footway"] = "gångväg",
-  ["cycleway"] = "cykelbana"
+  ["cycleway"] = "cykelbana",
+  ["track"] = "mindre väg",
+  ["path"] = "stig",
+  ["unclassified"] = "väg"
 }
 
 pedestrian_speeds = {
