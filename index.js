@@ -7,6 +7,7 @@ var L = require('leaflet'),
     userInfo = require('./user-info'),
     State = require('./state'),
     state = new State(window),
+    Sortable = require('sortablejs'),
     map = L.map('map', {
         editInOSMControlOptions: {position: 'bottomright', widget: 'attributionBox'}
     }),
@@ -22,8 +23,33 @@ var L = require('leaflet'),
                 {color: 'red', opacity: 1, weight: 3}
             ]
         },
-        waypoints: state.getWaypoints()
-    }).addTo(map);
+        waypoints: state.getWaypoints(),
+        createGeocoder: function(i) {
+            var geocoder = L.Routing.Plan.prototype.options.createGeocoder.call(this, i),
+                handle = L.DomUtil.create('div', 'geocoder-handle');
+            handle.innerHTML = String.fromCharCode(65 + i);
+            geocoder.container.insertBefore(handle, geocoder.container.firstChild);
+            return geocoder;
+        }
+    }).addTo(map),
+    sortable = Sortable.create(document.querySelector('.leaflet-routing-geocoders'), {
+        handle: '.geocoder-handle',
+        draggable: '.leaflet-routing-geocoder',
+        onUpdate: function(e) {
+            var oldI = e.oldIndex,
+                newI = e.newIndex,
+                wps = routingControl.getWaypoints(),
+                wp = wps[oldI];
+
+            if (oldI === newI || newI === undefined) {
+                return;
+            }
+
+            wps.splice(oldI, 1);
+            wps.splice(newI, 0, wp);
+            routingControl.setWaypoints(wps);
+        }
+    });
 
 
 L.Icon.Default.imagePath = 'assets/vendor/images';

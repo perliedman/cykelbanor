@@ -50,3 +50,23 @@ ul.alternatives {
     font-weight: bold;
     margin-top: 0;
 }
+
+.leaflet-routing-container .geocoder-handle {
+    padding: 0;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    font-size:12px;
+    font-weight: bold;
+    background:#da8;
+    line-height:20px;
+    text-align:center;
+    color:white;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.leaflet-routing-geocoders input {
+    margin-left: 4px;
+    width: 279px;
+}
