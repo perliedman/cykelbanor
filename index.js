@@ -1,22 +1,34 @@
 var L = require('leaflet'),
     lrm = require('leaflet-routing-machine'),
     lcg = require('leaflet-control-geocoder'),
-    eio = require('Leaflet.EditInOSM'),
+    eio = require('leaflet-editinosm'),
     addressPopup = require('./templates/address-popup.hbs'),
     address = require('./address'),
     userInfo = require('./user-info'),
+    State = require('./state'),
+    state = new State(window),
     map = L.map('map', {
         editInOSMControlOptions: {position: 'bottomright', widget: 'attributionBox'}
     }),
     routingControl = L.Routing.control({
-        router: L.Routing.osrm({serviceUrl: 'http://tinycat.liedman.net/viaroute'}),
-    	geocoder: L.Control.Geocoder.nominatim()
+        router: L.Routing.osrm({serviceUrl: 'http://localhost:5000/viaroute'}),
+        geocoder: L.Control.Geocoder.nominatim(),
+        routeWhileDragging: true,
+        language: 'sv',
+        lineOptions: {
+            styles: [
+                {color: 'black', opacity: 0.3, weight: 11},
+                {color: 'white', opacity: 0.9, weight: 9},
+                {color: 'red', opacity: 1, weight: 3}
+            ]
+        },
+        waypoints: state.getWaypoints()
     }).addTo(map);
 
 
-L.Icon.Default.imagePath = 'node_modules/leaflet/dist/images';
+L.Icon.Default.imagePath = 'assets/vendor/images';
 
-L.tileLayer('https://a.tiles.mapbox.com/v3/liedman.ib8andc2/{z}/{x}/{y}.png', {
+L.tileLayer('https://a.tiles.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibGllZG1hbiIsImEiOiI1TXRSbUI4In0.EMQ3W8jAteath85pR800ag', {
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
@@ -56,10 +68,22 @@ map.on('click', function(e) {
 map.on('locationerror', function() {
     map.fitBounds(L.latLngBounds([55.3,9.6],[69.3,26.6]));
 });
+map.on('locationfound', function(e) {
+    L.circleMarker(e.latlng, {
+        radius: 4,
+        fillOpacity: 0.8
+    })
+    .addTo(map);
+});
+
+routingControl.on('waypointschanged', function() {
+    state.setWaypoints(routingControl.getWaypoints());
+});
 
 map.locate({
     setView: true,
-    timeout: 1000
+    timeout: 1000,
+    maxZoom: 14
 });
 
 userInfo();
