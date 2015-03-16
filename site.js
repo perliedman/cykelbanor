@@ -24,7 +24,7 @@ var L = require('leaflet'),
         editInOSMControlOptions: {position: 'bottomright', widget: 'attributionBox'}
     }),
     routingControl = L.Routing.control({
-        router: L.Routing.osrm({serviceUrl: 'http://localhost:5000/viaroute'}),
+        router: L.Routing.osrm({serviceUrl: 'http://tinycat.liedman.net/viaroute'}),
         geocoder: L.Control.Geocoder.nominatim(),
         routeWhileDragging: true,
         language: 'sv',
