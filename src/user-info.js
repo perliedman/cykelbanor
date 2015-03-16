@@ -1,5 +1,5 @@
 var L = require('leaflet'),
-    info = require('./messages/info1.hbs');
+    info = require('../messages/info1.hbs');
 
 function showDialog() {
     var dialog = L.DomUtil.create('div', 'user-info', document.body),
