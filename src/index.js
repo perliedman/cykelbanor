@@ -17,6 +17,7 @@ var L = require('leaflet'),
         router: L.Routing.osrm({serviceUrl: 'http://tinycat.liedman.net/viaroute'}),
         geocoder: L.Control.Geocoder.nominatim(),
         routeWhileDragging: true,
+        reverseWaypoints: true,
         language: 'sv',
         lineOptions: {
             styles: [

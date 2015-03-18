@@ -69,6 +69,7 @@ ul.alternatives {
 .leaflet-routing-geocoders input {
     margin-left: 4px;
     width: 279px;
+    width: calc(100% - 28px);
 }
 
 .hide {
