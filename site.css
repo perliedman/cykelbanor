@@ -75,3 +75,35 @@ ul.alternatives {
 .hide {
     display: none;
 }
+
+.geocoder-geolocate-btn {
+    position: relative;
+    background-color: transparent;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.geocoder-geolocate-btn:after {
+    position: absolute;
+    display: block;
+    width: 15px;
+    height: 1px;
+    z-index: 1;
+    right: 16px;
+    top: 6px;
+    bottom: 0;
+    margin: auto;
+    padding: 2px;
+    font-size: 24px;
+    font-weight: normal;
+    content: "\2316";
+    text-align: center;
+    cursor: pointer;
+    color: #ccc;
+    background: white;
+    padding-bottom: 16px;
+    margin-top: -16px;
+    padding-right: 4px;
+    line-height: 0.5;
+}

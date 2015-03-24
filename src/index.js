@@ -9,6 +9,7 @@ var L = require('leaflet'),
     state = new State(window),
     initialWaypoints = state.getWaypoints(),
     Sortable = require('sortablejs'),
+    geolocate = require('./geolocate'),
     map = L.map('map', {
         editInOSMControlOptions: {position: 'bottomright', widget: 'attributionBox'}
     }),
@@ -29,9 +30,24 @@ var L = require('leaflet'),
         waypoints: initialWaypoints,
         createGeocoder: function(i) {
             var geocoder = L.Routing.Plan.prototype.options.createGeocoder.call(this, i),
-                handle = L.DomUtil.create('div', 'geocoder-handle');
+                handle = L.DomUtil.create('div', 'geocoder-handle'),
+                geolocateBtn = L.DomUtil.create('span', 'geocoder-geolocate-btn', geocoder.container);
+
             handle.innerHTML = String.fromCharCode(65 + i);
             geocoder.container.insertBefore(handle, geocoder.container.firstChild);
+
+            geolocateBtn.title = 'Välj min position';
+            L.DomEvent.on(geolocateBtn, 'click', function() {
+                geolocate(map, function(err, p) {
+                    if (err) {
+                        // TODO: error message
+                        return;
+                    }
+
+                    routingControl.spliceWaypoints(i, 1, p.latlng);
+                });
+            });
+
             return geocoder;
         }
     }).addTo(map),
@@ -94,27 +110,25 @@ map.on('click', function(e) {
     });
 });
 
-map.on('locationerror', function() {
-    map.fitBounds(L.latLngBounds([55.3,9.6],[69.3,26.6]));
-});
-map.on('locationfound', function(e) {
-    L.circleMarker(e.latlng, {
-        radius: 4,
-        fillOpacity: 0.8
-    })
-    .addTo(map);
-});
+geolocate(map, function(err, p) {
+        if (err) {
+            map.fitBounds(L.latLngBounds([55.3,9.6],[69.3,26.6]));
+            return;
+        }
+
+        if (!initialWaypoints || initialWaypoints.length < 2) {
+            map.setView(p.latlng, Math.min(p.zoom, 14));
+        }
+
+        L.circleMarker(p.latlng, {
+            radius: 4,
+            fillOpacity: 0.8
+        })
+        .addTo(map);
+    });
 
 routingControl.on('waypointschanged', function() {
     state.setWaypoints(routingControl.getWaypoints());
 });
-
-if (!initialWaypoints || initialWaypoints.length < 2) {
-    map.locate({
-        setView: true,
-        timeout: 1000,
-        maxZoom: 14
-    });
-}
 
 userInfo();
