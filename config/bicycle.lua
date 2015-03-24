@@ -37,11 +37,6 @@ bicycle_speeds = {
 type_names = {
   ["footway"] = "gångväg",
   ["cycleway"] = "cykelbana",
-  ["track"] = "mindre väg",
-  ["path"] = "stig",
-  ["unclassified"] = "väg",
-  ["service"] = "väg",
-  ["residential"] = "väg"
 }
 
 pedestrian_speeds = {
@@ -226,8 +221,6 @@ function way_function (way, result)
   elseif highway then
     if type_names[highway] then
       result.name = type_names[highway]
-    else
-      result.name = highway
     end
   end
 
