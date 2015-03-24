@@ -16398,7 +16398,7 @@ module.exports = function(map, cb, options) {
     if (options.timeout) {
         // Since timeout will not trigger if the user
         // does not answer for example.
-        setTimeout(function() {
+        timer = setTimeout(function() {
             cb({
                 code: 'TIMEOUT',
                 message: 'Geolocation timed out'
