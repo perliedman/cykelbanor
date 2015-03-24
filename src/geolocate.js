@@ -11,16 +11,24 @@ module.exports = function(map, cb, options) {
                     [lat - latAccuracy, lng - lngAccuracy],
                     [lat + latAccuracy, lng + lngAccuracy]);
 
-            cb(undefined, {
-                latlng: L.latLng(lat, lng),
-                alt: p.coords.altitude,
-                accuracy: p.coords.accuracy,
-                zoom: map.getBoundsZoom(bounds)
-            });
+            if (!completed) {
+                cb(undefined, {
+                    latlng: L.latLng(lat, lng),
+                    alt: p.coords.altitude,
+                    accuracy: p.coords.accuracy,
+                    zoom: map.getBoundsZoom(bounds)
+                });
+                clearTimeout(timer);
+            }
         },
         error = function(e) {
-            cb(e);
-        };
+            if (!completed) {
+                cb(e);
+                clearTimeout(timer);
+            }
+        },
+        timer,
+        completed;
 
     if (!hasGeolocate) {
         cb({
@@ -30,4 +38,16 @@ module.exports = function(map, cb, options) {
     }
 
     navigator.geolocation.getCurrentPosition(success, error, options);
+
+    if (options.timeout) {
+        // Since timeout will not trigger if the user
+        // does not answer for example.
+        setTimeout(function() {
+            cb({
+                code: 'TIMEOUT',
+                message: 'Geolocation timed out'
+            });
+            completed = true;
+        }, options.timeout);
+    }
 };

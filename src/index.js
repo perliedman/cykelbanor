@@ -112,7 +112,7 @@ map.on('click', function(e) {
 
 geolocate(map, function(err, p) {
         if (err) {
-            map.fitBounds(L.latLngBounds([55.3,9.6],[69.3,26.6]));
+            map.fitBounds(L.latLngBounds([56,9.6],[68,26.6]));
             return;
         }
 
@@ -125,6 +125,8 @@ geolocate(map, function(err, p) {
             fillOpacity: 0.8
         })
         .addTo(map);
+    }, {
+        timeout: 5000
     });
 
 routingControl.on('waypointschanged', function() {
