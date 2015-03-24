@@ -30,6 +30,8 @@ module.exports = function(map, cb, options) {
         timer,
         completed;
 
+    options = options || {};
+
     if (!hasGeolocate) {
         cb({
             code: 'NOT_SUPPORTED',

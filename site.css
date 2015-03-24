@@ -107,3 +107,10 @@ ul.alternatives {
     padding-right: 4px;
     line-height: 0.5;
 }
+
+.geolocate-btn:after {
+    position: relative;
+    top: -4px;
+    content: '\2316';
+    font: 28px 'Lucida Console', Monaco, monospace;
+}
