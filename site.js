@@ -16353,7 +16353,36 @@ module.exports = function address (r) {
     };
 };
 
-},{"handlebars":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/lib/index.js"}],"/home/per/Documents/Projects/cykelbanor/src/geolocate.js":[function(require,module,exports){
+},{"handlebars":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/lib/index.js"}],"/home/per/Documents/Projects/cykelbanor/src/geolocate-control.js":[function(require,module,exports){
+var L = require('leaflet'),
+    geolocate = require('./geolocate');
+
+module.exports = L.Control.extend({
+    onAdd: function(map) {
+        var container = L.DomUtil.create('div', 'leaflet-bar'),
+            link = L.DomUtil.create('a', 'geolocate-btn', container);
+
+        link.title = 'Gå till nuvarande position';
+
+        L.DomEvent.disableClickPropagation(container);
+        L.DomEvent.on(link, 'click', function(e) {
+            geolocate(map, function(err, p) {
+                if (err) {
+                    // TODO: error message
+                    return;
+                }
+
+                map.setView(p.latlng, Math.min(p.zoom, 14));
+            });
+
+            L.DomEvent.preventDefault(e);
+        });
+
+        return container;
+    },
+});
+
+},{"./geolocate":"/home/per/Documents/Projects/cykelbanor/src/geolocate.js","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js"}],"/home/per/Documents/Projects/cykelbanor/src/geolocate.js":[function(require,module,exports){
 var L = require('leaflet'),
     hasGeolocate = navigator.geolocation;
 
@@ -16385,6 +16414,8 @@ module.exports = function(map, cb, options) {
         },
         timer,
         completed;
+
+    options = options || {};
 
     if (!hasGeolocate) {
         cb({
@@ -16424,6 +16455,7 @@ var L = require('leaflet'),
     map = L.map('map', {
         editInOSMControlOptions: {position: 'bottomright', widget: 'attributionBox'}
     }),
+    GeolocateControl = require('./geolocate-control'),
     layerControl = L.control.layers(undefined, require('./layers'), { position: 'bottomleft'}).addTo(map),
     routingControl = L.Routing.control({
         router: L.Routing.osrm({serviceUrl: 'http://tinycat.liedman.net/viaroute'}),
@@ -16488,6 +16520,8 @@ L.tileLayer('https://a.tiles.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?acces
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
+new GeolocateControl({ position: 'topleft' }).addTo(map);
+
 map.on('click', function(e) {
     var $content = $(addressPopup()),
         name;
@@ -16546,7 +16580,7 @@ routingControl.on('waypointschanged', function() {
 
 userInfo();
 
-},{"../templates/address-popup.hbs":"/home/per/Documents/Projects/cykelbanor/templates/address-popup.hbs","./address":"/home/per/Documents/Projects/cykelbanor/src/address.js","./geolocate":"/home/per/Documents/Projects/cykelbanor/src/geolocate.js","./layers":"/home/per/Documents/Projects/cykelbanor/src/layers.js","./state":"/home/per/Documents/Projects/cykelbanor/src/state.js","./user-info":"/home/per/Documents/Projects/cykelbanor/src/user-info.js","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js","leaflet-control-geocoder":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/Control.Geocoder.js","leaflet-editinosm":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-editinosm/Leaflet.EditInOSM.js","leaflet-routing-machine":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.Control.js","sortablejs":"/home/per/Documents/Projects/cykelbanor/node_modules/sortablejs/Sortable.js"}],"/home/per/Documents/Projects/cykelbanor/src/layers.js":[function(require,module,exports){
+},{"../templates/address-popup.hbs":"/home/per/Documents/Projects/cykelbanor/templates/address-popup.hbs","./address":"/home/per/Documents/Projects/cykelbanor/src/address.js","./geolocate":"/home/per/Documents/Projects/cykelbanor/src/geolocate.js","./geolocate-control":"/home/per/Documents/Projects/cykelbanor/src/geolocate-control.js","./layers":"/home/per/Documents/Projects/cykelbanor/src/layers.js","./state":"/home/per/Documents/Projects/cykelbanor/src/state.js","./user-info":"/home/per/Documents/Projects/cykelbanor/src/user-info.js","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js","leaflet-control-geocoder":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/Control.Geocoder.js","leaflet-editinosm":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-editinosm/Leaflet.EditInOSM.js","leaflet-routing-machine":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.Control.js","sortablejs":"/home/per/Documents/Projects/cykelbanor/node_modules/sortablejs/Sortable.js"}],"/home/per/Documents/Projects/cykelbanor/src/layers.js":[function(require,module,exports){
 var L = require('leaflet');
 
 require('leaflet.markercluster');
