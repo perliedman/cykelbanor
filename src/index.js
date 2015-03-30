@@ -15,7 +15,9 @@ var L = require('leaflet'),
     }),
     GeolocateControl = require('./geolocate-control'),
     baselayers = require('./baselayers'),
-    layerControl = L.control.layers(baselayers, require('./overlays'), { position: 'bottomleft'}).addTo(map),
+    overlays = require('./overlays'),
+    layerControl = new L.Control.Layers(baselayers, overlays, { position: 'bottomleft' })
+        .addTo(map),
     routingControl = L.Routing.control({
         router: L.Routing.osrm({serviceUrl: 'http://tinycat.liedman.net/viaroute'}),
         geocoder: L.Control.Geocoder.nominatim(),
@@ -82,11 +84,25 @@ new L.Control.EditInOSM({
     position: 'bottomright',
     widget: 'attributionbox'
 }).addTo(map);
-baselayers.Karta.addTo(map);
+
+baselayers[state.getBaseLayer() || 'Karta'].addTo(map);
+state.getOverlays().forEach(function(name) { 
+    overlays[name].addTo(map); 
+});
 
 new GeolocateControl({ position: 'topleft' }).addTo(map);
 
-map.on('click', function(e) {
+map
+    .on('baselayerchange', function(e) {
+        state.setBaseLayer(e.name);
+    })
+    .on('overlayadd', function(e) {
+        state.addOverlay(e.name);
+    })
+    .on('overlayremove', function(e) {
+        state.removeOverlay(e.name);
+    })
+    .on('click', function(e) {
     var $content = $(addressPopup()),
         name;
 

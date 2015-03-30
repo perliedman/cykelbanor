@@ -24,6 +24,10 @@ var MarkerLayer = L.Class.extend({
     },
     onRemove: function(map) {
         map.removeLayer(this._markerCluster);
+    },
+    addTo: function(map) {
+        map.addLayer(this);
+        return this;
     }
 });
 

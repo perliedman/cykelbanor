@@ -6,6 +6,7 @@ module.exports = L.Class.extend({
         this._window = window;
         this._hashState = UrlHash.parse(window.location.hash);
     },
+
     getWaypoints: function() {
         var encWps = this._hashState.wps;
         if (!encWps) {
@@ -23,6 +24,7 @@ module.exports = L.Class.extend({
             }
         }).filter(function(wp) { return !!wp; });
     },
+
     setWaypoints: function(wps) {
         this._hashState.wps = wps
             .map(function(wp) {
@@ -35,7 +37,46 @@ module.exports = L.Class.extend({
             .join(';');
         this._updateHash();
     },
+
+    getBaseLayer: function() {
+        return this._hashState.bl;
+    },
+
+    setBaseLayer: function(name) {
+        this._hashState.bl = name;
+        this._updateHash();
+    },
+
+    getOverlays: function() {
+        var ols = this._hashState.ols;
+        return ols ? ols.split(';') : [];
+    },
+
+    addOverlay: function(name) {
+        var overlays = this.getOverlays();
+        if (overlays.indexOf(name) < 0) {
+            overlays.push(name);
+            this._hashState.ols = overlays.join(';');
+            this._updateHash();
+        }
+    },
+
+    removeOverlay: function(name) {
+        var overlays = this.getOverlays(),
+            i = overlays.indexOf(name);
+        if (i >= 0) {
+            overlays.splice(i, 1);
+            this._hashState.ols = overlays.join(';');
+            this._updateHash();
+        }
+    },
+
     _updateHash: function() {
+        Object.keys(this._hashState).forEach(L.bind(function(k) {
+            if (!this._hashState[k]) {
+                delete this._hashState[k];
+            }
+        }, this));
         this._window.location.hash = '#' + UrlHash.encode(this._hashState);
     }
 });
