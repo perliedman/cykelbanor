@@ -16353,7 +16353,20 @@ module.exports = function address (r) {
     };
 };
 
-},{"handlebars":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/lib/index.js"}],"/home/per/Documents/Projects/cykelbanor/src/geolocate-control.js":[function(require,module,exports){
+},{"handlebars":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/lib/index.js"}],"/home/per/Documents/Projects/cykelbanor/src/baselayers.js":[function(require,module,exports){
+var L = require('leaflet');
+
+module.exports = {
+    'Karta': L.tileLayer('https://a.tiles.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibGllZG1hbiIsImEiOiI1TXRSbUI4In0.EMQ3W8jAteath85pR800ag', {
+        attribution: 'Kartdata &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    }),
+    'Flygfoto': L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Kartdata &copy; <a href="http://www.esri.com/">Esri</a>, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+        maxZoom: 18
+    })
+};
+
+},{"leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js"}],"/home/per/Documents/Projects/cykelbanor/src/geolocate-control.js":[function(require,module,exports){
 var L = require('leaflet'),
     geolocate = require('./geolocate');
 
@@ -16453,10 +16466,13 @@ var L = require('leaflet'),
     Sortable = require('sortablejs'),
     geolocate = require('./geolocate'),
     map = L.map('map', {
-        editInOSMControlOptions: {position: 'bottomright', widget: 'attributionBox'}
+        attributionControl: false
     }),
     GeolocateControl = require('./geolocate-control'),
-    layerControl = L.control.layers(undefined, require('./layers'), { position: 'bottomleft'}).addTo(map),
+    baselayers = require('./baselayers'),
+    overlays = require('./overlays'),
+    layerControl = new L.Control.Layers(baselayers, overlays, { position: 'bottomleft' })
+        .addTo(map),
     routingControl = L.Routing.control({
         router: L.Routing.osrm({serviceUrl: 'http://tinycat.liedman.net/viaroute'}),
         geocoder: L.Control.Geocoder.nominatim(),
@@ -16516,16 +16532,34 @@ var L = require('leaflet'),
 
 L.Icon.Default.imagePath = 'assets/vendor/images';
 
-L.tileLayer('https://a.tiles.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibGllZG1hbiIsImEiOiI1TXRSbUI4In0.EMQ3W8jAteath85pR800ag', {
-    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+L.control.attribution({
+    prefix: '<a href="/om/">Om cykelbanor.se</a>'
 }).addTo(map);
+new L.Control.EditInOSM({
+    position: 'bottomright',
+    widget: 'attributionbox'
+}).addTo(map);
+
+baselayers[state.getBaseLayer() || 'Karta'].addTo(map);
+state.getOverlays().forEach(function(name) { 
+    overlays[name].addTo(map); 
+});
 
 new GeolocateControl({ position: 'topleft' }).addTo(map);
 
-map.on('click', function(e) {
+map
+    .on('baselayerchange', function(e) {
+        state.setBaseLayer(e.name);
+    })
+    .on('overlayadd', function(e) {
+        state.addOverlay(e.name);
+    })
+    .on('overlayremove', function(e) {
+        state.removeOverlay(e.name);
+    })
+    .on('click', function(e) {
     var $content = $(addressPopup()),
         name;
-
 
     L.popup().
         setLatLng(e.latlng).
@@ -16580,7 +16614,7 @@ routingControl.on('waypointschanged', function() {
 
 userInfo();
 
-},{"../templates/address-popup.hbs":"/home/per/Documents/Projects/cykelbanor/templates/address-popup.hbs","./address":"/home/per/Documents/Projects/cykelbanor/src/address.js","./geolocate":"/home/per/Documents/Projects/cykelbanor/src/geolocate.js","./geolocate-control":"/home/per/Documents/Projects/cykelbanor/src/geolocate-control.js","./layers":"/home/per/Documents/Projects/cykelbanor/src/layers.js","./state":"/home/per/Documents/Projects/cykelbanor/src/state.js","./user-info":"/home/per/Documents/Projects/cykelbanor/src/user-info.js","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js","leaflet-control-geocoder":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/Control.Geocoder.js","leaflet-editinosm":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-editinosm/Leaflet.EditInOSM.js","leaflet-routing-machine":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.Control.js","sortablejs":"/home/per/Documents/Projects/cykelbanor/node_modules/sortablejs/Sortable.js"}],"/home/per/Documents/Projects/cykelbanor/src/layers.js":[function(require,module,exports){
+},{"../templates/address-popup.hbs":"/home/per/Documents/Projects/cykelbanor/templates/address-popup.hbs","./address":"/home/per/Documents/Projects/cykelbanor/src/address.js","./baselayers":"/home/per/Documents/Projects/cykelbanor/src/baselayers.js","./geolocate":"/home/per/Documents/Projects/cykelbanor/src/geolocate.js","./geolocate-control":"/home/per/Documents/Projects/cykelbanor/src/geolocate-control.js","./overlays":"/home/per/Documents/Projects/cykelbanor/src/overlays.js","./state":"/home/per/Documents/Projects/cykelbanor/src/state.js","./user-info":"/home/per/Documents/Projects/cykelbanor/src/user-info.js","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js","leaflet-control-geocoder":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/Control.Geocoder.js","leaflet-editinosm":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-editinosm/Leaflet.EditInOSM.js","leaflet-routing-machine":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.Control.js","sortablejs":"/home/per/Documents/Projects/cykelbanor/node_modules/sortablejs/Sortable.js"}],"/home/per/Documents/Projects/cykelbanor/src/overlays.js":[function(require,module,exports){
 var L = require('leaflet');
 
 require('leaflet.markercluster');
@@ -16607,6 +16641,10 @@ var MarkerLayer = L.Class.extend({
     },
     onRemove: function(map) {
         map.removeLayer(this._markerCluster);
+    },
+    addTo: function(map) {
+        map.addLayer(this);
+        return this;
     }
 });
 
@@ -16631,6 +16669,7 @@ module.exports = L.Class.extend({
         this._window = window;
         this._hashState = UrlHash.parse(window.location.hash);
     },
+
     getWaypoints: function() {
         var encWps = this._hashState.wps;
         if (!encWps) {
@@ -16648,6 +16687,7 @@ module.exports = L.Class.extend({
             }
         }).filter(function(wp) { return !!wp; });
     },
+
     setWaypoints: function(wps) {
         this._hashState.wps = wps
             .map(function(wp) {
@@ -16660,7 +16700,46 @@ module.exports = L.Class.extend({
             .join(';');
         this._updateHash();
     },
+
+    getBaseLayer: function() {
+        return this._hashState.bl;
+    },
+
+    setBaseLayer: function(name) {
+        this._hashState.bl = name;
+        this._updateHash();
+    },
+
+    getOverlays: function() {
+        var ols = this._hashState.ols;
+        return ols ? ols.split(';') : [];
+    },
+
+    addOverlay: function(name) {
+        var overlays = this.getOverlays();
+        if (overlays.indexOf(name) < 0) {
+            overlays.push(name);
+            this._hashState.ols = overlays.join(';');
+            this._updateHash();
+        }
+    },
+
+    removeOverlay: function(name) {
+        var overlays = this.getOverlays(),
+            i = overlays.indexOf(name);
+        if (i >= 0) {
+            overlays.splice(i, 1);
+            this._hashState.ols = overlays.join(';');
+            this._updateHash();
+        }
+    },
+
     _updateHash: function() {
+        Object.keys(this._hashState).forEach(L.bind(function(k) {
+            if (!this._hashState[k]) {
+                delete this._hashState[k];
+            }
+        }, this));
         this._window.location.hash = '#' + UrlHash.encode(this._hashState);
     }
 });
