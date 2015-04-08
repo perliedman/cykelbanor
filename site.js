@@ -16474,7 +16474,7 @@ var L = require('leaflet'),
     layerControl = new L.Control.Layers(baselayers, overlays, { position: 'bottomleft' })
         .addTo(map),
     routingControl = L.Routing.control({
-        router: L.Routing.osrm({serviceUrl: 'http://tinycat.liedman.net/viaroute'}),
+        router: L.Routing.osrm({serviceUrl: 'http://route.cykelbanor.se/viaroute'}),
         geocoder: L.Control.Geocoder.nominatim(),
         routeWhileDragging: true,
         reverseWaypoints: true,
@@ -16608,9 +16608,38 @@ geolocate(map, function(err, p) {
         timeout: 5000
     });
 
-routingControl.on('waypointschanged', function() {
-    state.setWaypoints(routingControl.getWaypoints());
-});
+routingControl
+    .on('waypointschanged', function() {
+        state.setWaypoints(routingControl.getWaypoints());
+    })
+    .on('routeselected', function(e) {
+        var r = e.route,
+            geojson = {
+                type: 'FeatureCollection',
+                features: [
+                    {
+                        type: 'Feature',
+                        properties: {
+                        },
+                        geometry: {
+                            type: 'LineString',
+                            coordinates: r.coordinates.map(function(c) { return [c[1], c[0]]; })
+                        }
+                    },
+                    {
+                        type: 'Feature',
+                        properties: {
+                        },
+                        geometry: {
+                            type: 'MultiPoint',
+                            coordinates: r.waypoints.map(function(c) { return [c.latLng.lng, c.latLng.lat]; })
+                        }
+                    }
+                ]
+            };
+
+        console.log(JSON.stringify(geojson));
+    });
 
 userInfo();
 
