@@ -1,5 +1,12 @@
+cjson = require('cjson')
 require("lib/access")
 require("lib/maxspeed")
+require("lib/elevation")
+
+slope_file = io.open( '/home/per/Documents/geodata/sweden_slope.json', "r" )
+contents = slope_file:read( "*a" )
+slope_table = cjson.decode(contents);
+io.close( slope_file )
 
 -- Begin of globals
 barrier_whitelist = { [""] = true, ["cycle_barrier"] = true, ["bollard"] = true, ["entrance"] = true, ["cattle_grid"] = true, ["border_control"] = true, ["toll_booth"] = true, ["sally_port"] = true, ["gate"] = true, ["no"] = true }
@@ -393,6 +400,12 @@ function way_function (way, result)
         result.backward_speed  = surface_speed
       end
     end
+  end
+
+  local way_info = slope_table[tostring(way:id())]
+  if (way_info~=nil) then
+    maxspeed_forward = Elevation.slope_speed(way_info, maxspeed_forward, true)
+    maxspeed_backward = Elevation.slope_speed(way_info, maxspeed_backward, false)
   end
 
   -- maxspeed
