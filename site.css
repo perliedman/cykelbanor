@@ -114,3 +114,22 @@ ul.alternatives {
     content: '\2316';
     font: 28px 'Lucida Console', Monaco, monospace;
 }
+
+.elevation-control {
+    background: white;
+    font-size: 9px;
+}
+
+.elevation-control path { 
+  stroke: steelblue;
+  stroke-width: 1;
+  fill: none;
+}
+ 
+.elevation-control .axis path,
+.elevation-control .axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}

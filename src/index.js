@@ -2,6 +2,8 @@ var L = require('leaflet'),
     lrm = require('leaflet-routing-machine'),
     lcg = require('leaflet-control-geocoder'),
     eio = require('leaflet-editinosm'),
+    ElevationControl = require('./elevation'),
+    reqwest = require('reqwest'),
     addressPopup = require('../templates/address-popup.hbs'),
     address = require('./address'),
     userInfo = require('./user-info'),
@@ -20,6 +22,7 @@ var L = require('leaflet'),
         .addTo(map),
     routingControl = L.Routing.control({
         router: L.Routing.osrm({serviceUrl: 'http://route.cykelbanor.se/viaroute'}),
+        //router: L.Routing.osrm({serviceUrl: 'http://localhost:5000/viaroute'}),
         geocoder: L.Control.Geocoder.nominatim(),
         routeWhileDragging: true,
         reverseWaypoints: true,
@@ -55,6 +58,7 @@ var L = require('leaflet'),
             return geocoder;
         }
     }).addTo(map),
+    elevationControl = new ElevationControl({ position: 'topright' }).addTo(map),
     sortable = Sortable.create(document.querySelector('.leaflet-routing-geocoders'), {
         handle: '.geocoder-handle',
         draggable: '.leaflet-routing-geocoder',
@@ -160,30 +164,19 @@ routingControl
     .on('routeselected', function(e) {
         var r = e.route,
             geojson = {
-                type: 'FeatureCollection',
-                features: [
-                    {
-                        type: 'Feature',
-                        properties: {
-                        },
-                        geometry: {
-                            type: 'LineString',
-                            coordinates: r.coordinates.map(function(c) { return [c[1], c[0]]; })
-                        }
-                    },
-                    {
-                        type: 'Feature',
-                        properties: {
-                        },
-                        geometry: {
-                            type: 'MultiPoint',
-                            coordinates: r.waypoints.map(function(c) { return [c.latLng.lng, c.latLng.lat]; })
-                        }
-                    }
-                ]
+                type: 'LineString',
+                coordinates: r.coordinates.map(function(c) { return [c[1], c[0]]; })
             };
 
-        console.log(JSON.stringify(geojson));
+        reqwest({
+            url: 'http://data.cykelbanor.se/elevation/geojson',
+            method: 'post',
+            contentType: 'application/json',
+            data: JSON.stringify(geojson),
+        }).then(function(resp) {
+            elevationControl.clear();
+            elevationControl.addData(JSON.parse(resp));
+        });
     });
 
 userInfo();
