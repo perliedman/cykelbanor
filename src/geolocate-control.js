@@ -6,7 +6,9 @@ module.exports = L.Control.extend({
         var container = L.DomUtil.create('div', 'leaflet-bar'),
             link = L.DomUtil.create('a', 'geolocate-btn', container);
 
+
         link.title = 'Gå till nuvarande position';
+        link.innerHTML = '<i class="fa fa-location-arrow"></i>';
 
         L.DomEvent.disableClickPropagation(container);
         L.DomEvent.on(link, 'click', function(e) {

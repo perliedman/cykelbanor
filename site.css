@@ -84,20 +84,18 @@ ul.alternatives {
     cursor: pointer;
 }
 
-.geocoder-geolocate-btn:after {
+.geocoder-geolocate-btn i {
     position: absolute;
     display: block;
-    width: 15px;
-    height: 1px;
+    width: 12px;
+    height: 0px;
     z-index: 1;
-    right: 16px;
-    top: 6px;
+    right: 17px;
+    top: 10px;
     bottom: 0;
     margin: auto;
-    padding: 2px;
-    font-size: 24px;
+    padding: 0px;
     font-weight: normal;
-    content: "\2316";
     text-align: center;
     cursor: pointer;
     color: #ccc;
@@ -108,11 +106,8 @@ ul.alternatives {
     line-height: 0.5;
 }
 
-.geolocate-btn:after {
-    position: relative;
-    top: -4px;
-    content: '\2316';
-    font: 28px 'Lucida Console', Monaco, monospace;
+.geocoder-geolocate-btn i:hover {
+    color: black;
 }
 
 .elevation-control {
@@ -132,4 +127,12 @@ ul.alternatives {
     stroke: grey;
     stroke-width: 1;
     shape-rendering: crispEdges;
+}
+
+.leaflet-routing-reverse-waypoints:after {
+    font-weight: normal;
+    font: normal normal normal 14px/1 FontAwesome;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: '\f176\f175';
 }

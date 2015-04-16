@@ -44,6 +44,7 @@ var L = require('leaflet'),
             geocoder.container.insertBefore(handle, geocoder.container.firstChild);
 
             geolocateBtn.title = 'Välj min position';
+            geolocateBtn.innerHTML = '<i class="fa fa-location-arrow"></i>';
             L.DomEvent.on(geolocateBtn, 'click', function() {
                 geolocate(map, function(err, p) {
                     if (err) {
