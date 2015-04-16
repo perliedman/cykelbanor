@@ -10,7 +10,7 @@ module.exports = L.Control.extend({
 
     addData: function(geojson) {
         var margin = {top: 4, right: 10, bottom: 20, left: 24},
-            width = 180 - margin.left - margin.right,
+            width = 320 - margin.left - margin.right,
             height = 80 - margin.top - margin.bottom;
 
         var x = d3.scale.linear().range([0, width]);
