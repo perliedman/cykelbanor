@@ -26501,7 +26501,7 @@ module.exports = L.Control.extend({
 
     addData: function(geojson) {
         var margin = {top: 4, right: 10, bottom: 20, left: 24},
-            width = 180 - margin.left - margin.right,
+            width = 320 - margin.left - margin.right,
             height = 80 - margin.top - margin.bottom;
 
         var x = d3.scale.linear().range([0, width]);
@@ -26582,7 +26582,9 @@ module.exports = L.Control.extend({
         var container = L.DomUtil.create('div', 'leaflet-bar'),
             link = L.DomUtil.create('a', 'geolocate-btn', container);
 
+
         link.title = 'Gå till nuvarande position';
+        link.innerHTML = '<i class="fa fa-location-arrow"></i>';
 
         L.DomEvent.disableClickPropagation(container);
         L.DomEvent.on(link, 'click', function(e) {
@@ -26706,6 +26708,7 @@ var L = require('leaflet'),
             geocoder.container.insertBefore(handle, geocoder.container.firstChild);
 
             geolocateBtn.title = 'Välj min position';
+            geolocateBtn.innerHTML = '<i class="fa fa-location-arrow"></i>';
             L.DomEvent.on(geolocateBtn, 'click', function() {
                 geolocate(map, function(err, p) {
                     if (err) {
