@@ -1,11 +1,10 @@
 var L = require('leaflet'),
     d3 = require('d3');
 
-module.exports = L.Control.extend({
+module.exports = L.Class.extend({
     onAdd: function() {
-        var container = L.DomUtil.create('div', 'leaflet-bar elevation-control');
-
-        return container;
+        this._container = L.DomUtil.create('div', 'elevation-control');
+        return this._container;
     },
 
     addData: function(geojson) {
