@@ -26492,11 +26492,10 @@ module.exports = {
 var L = require('leaflet'),
     d3 = require('d3');
 
-module.exports = L.Control.extend({
+module.exports = L.Class.extend({
     onAdd: function() {
-        var container = L.DomUtil.create('div', 'leaflet-bar elevation-control');
-
-        return container;
+        this._container = L.DomUtil.create('div', 'elevation-control');
+        return this._container;
     },
 
     addData: function(geojson) {
@@ -26666,7 +26665,7 @@ var L = require('leaflet'),
     lrm = require('leaflet-routing-machine'),
     lcg = require('leaflet-control-geocoder'),
     eio = require('leaflet-editinosm'),
-    ElevationControl = require('./elevation'),
+    RoutingControl = require('./routing-control'),
     reqwest = require('reqwest'),
     addressPopup = require('../templates/address-popup.hbs'),
     address = require('./address'),
@@ -26684,46 +26683,7 @@ var L = require('leaflet'),
     overlays = require('./overlays'),
     layerControl = new L.Control.Layers(baselayers, overlays, { position: 'bottomleft' })
         .addTo(map),
-    routingControl = L.Routing.control({
-        router: L.Routing.osrm({serviceUrl: 'http://route.cykelbanor.se/viaroute'}),
-        //router: L.Routing.osrm({serviceUrl: 'http://localhost:5000/viaroute'}),
-        geocoder: L.Control.Geocoder.nominatim(),
-        routeWhileDragging: true,
-        reverseWaypoints: true,
-        language: 'sv',
-        lineOptions: {
-            styles: [
-                {color: 'black', opacity: 0.3, weight: 11},
-                {color: 'white', opacity: 0.9, weight: 9},
-                {color: 'red', opacity: 1, weight: 3}
-            ]
-        },
-        waypoints: initialWaypoints,
-        createGeocoder: function(i) {
-            var geocoder = L.Routing.Plan.prototype.options.createGeocoder.call(this, i),
-                handle = L.DomUtil.create('div', 'geocoder-handle'),
-                geolocateBtn = L.DomUtil.create('span', 'geocoder-geolocate-btn', geocoder.container);
-
-            handle.innerHTML = String.fromCharCode(65 + i);
-            geocoder.container.insertBefore(handle, geocoder.container.firstChild);
-
-            geolocateBtn.title = 'Välj min position';
-            geolocateBtn.innerHTML = '<i class="fa fa-location-arrow"></i>';
-            L.DomEvent.on(geolocateBtn, 'click', function() {
-                geolocate(map, function(err, p) {
-                    if (err) {
-                        // TODO: error message
-                        return;
-                    }
-
-                    routingControl.spliceWaypoints(i, 1, p.latlng);
-                });
-            });
-
-            return geocoder;
-        }
-    }).addTo(map),
-    elevationControl = new ElevationControl({ position: 'topright' }).addTo(map),
+    routingControl = new RoutingControl(map, initialWaypoints).addTo(map),
     sortable = Sortable.create(document.querySelector('.leaflet-routing-geocoders'), {
         handle: '.geocoder-handle',
         draggable: '.leaflet-routing-geocoder',
@@ -26825,28 +26785,11 @@ geolocate(map, function(err, p) {
 routingControl
     .on('waypointschanged', function() {
         state.setWaypoints(routingControl.getWaypoints());
-    })
-    .on('routeselected', function(e) {
-        var r = e.route,
-            geojson = {
-                type: 'LineString',
-                coordinates: r.coordinates.map(function(c) { return [c[1], c[0]]; })
-            };
-
-        reqwest({
-            url: 'http://data.cykelbanor.se/elevation/geojson',
-            method: 'post',
-            contentType: 'application/json',
-            data: JSON.stringify(geojson),
-        }).then(function(resp) {
-            elevationControl.clear();
-            elevationControl.addData(JSON.parse(resp));
-        });
     });
 
 userInfo();
 
-},{"../templates/address-popup.hbs":"/home/per/Documents/Projects/cykelbanor/templates/address-popup.hbs","./address":"/home/per/Documents/Projects/cykelbanor/src/address.js","./baselayers":"/home/per/Documents/Projects/cykelbanor/src/baselayers.js","./elevation":"/home/per/Documents/Projects/cykelbanor/src/elevation.js","./geolocate":"/home/per/Documents/Projects/cykelbanor/src/geolocate.js","./geolocate-control":"/home/per/Documents/Projects/cykelbanor/src/geolocate-control.js","./overlays":"/home/per/Documents/Projects/cykelbanor/src/overlays.js","./state":"/home/per/Documents/Projects/cykelbanor/src/state.js","./user-info":"/home/per/Documents/Projects/cykelbanor/src/user-info.js","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js","leaflet-control-geocoder":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/Control.Geocoder.js","leaflet-editinosm":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-editinosm/Leaflet.EditInOSM.js","leaflet-routing-machine":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.Control.js","reqwest":"/home/per/Documents/Projects/cykelbanor/node_modules/reqwest/reqwest.js","sortablejs":"/home/per/Documents/Projects/cykelbanor/node_modules/sortablejs/Sortable.js"}],"/home/per/Documents/Projects/cykelbanor/src/overlays.js":[function(require,module,exports){
+},{"../templates/address-popup.hbs":"/home/per/Documents/Projects/cykelbanor/templates/address-popup.hbs","./address":"/home/per/Documents/Projects/cykelbanor/src/address.js","./baselayers":"/home/per/Documents/Projects/cykelbanor/src/baselayers.js","./geolocate":"/home/per/Documents/Projects/cykelbanor/src/geolocate.js","./geolocate-control":"/home/per/Documents/Projects/cykelbanor/src/geolocate-control.js","./overlays":"/home/per/Documents/Projects/cykelbanor/src/overlays.js","./routing-control":"/home/per/Documents/Projects/cykelbanor/src/routing-control.js","./state":"/home/per/Documents/Projects/cykelbanor/src/state.js","./user-info":"/home/per/Documents/Projects/cykelbanor/src/user-info.js","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js","leaflet-control-geocoder":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/Control.Geocoder.js","leaflet-editinosm":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-editinosm/Leaflet.EditInOSM.js","leaflet-routing-machine":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.Control.js","reqwest":"/home/per/Documents/Projects/cykelbanor/node_modules/reqwest/reqwest.js","sortablejs":"/home/per/Documents/Projects/cykelbanor/node_modules/sortablejs/Sortable.js"}],"/home/per/Documents/Projects/cykelbanor/src/overlays.js":[function(require,module,exports){
 var L = require('leaflet');
 
 require('leaflet.markercluster');
@@ -26892,7 +26835,83 @@ module.exports = {
     })
 };
 
-},{"../templates/bicycle-rental.hbs":"/home/per/Documents/Projects/cykelbanor/templates/bicycle-rental.hbs","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js","leaflet.markercluster":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet.markercluster/dist/leaflet.markercluster.js"}],"/home/per/Documents/Projects/cykelbanor/src/state.js":[function(require,module,exports){
+},{"../templates/bicycle-rental.hbs":"/home/per/Documents/Projects/cykelbanor/templates/bicycle-rental.hbs","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js","leaflet.markercluster":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet.markercluster/dist/leaflet.markercluster.js"}],"/home/per/Documents/Projects/cykelbanor/src/routing-control.js":[function(require,module,exports){
+var L = require('leaflet'),
+    ElevationControl = require('./elevation'),
+    geolocate = require('./geolocate'),
+    reqwest = require('reqwest');
+
+require('leaflet-routing-machine');
+
+module.exports = L.Routing.Control.extend({
+    initialize: function(map, initialWaypoints) {
+        L.Routing.Control.prototype.initialize.call(this, {
+            router: L.Routing.osrm({serviceUrl: 'http://route.cykelbanor.se/viaroute'}),
+            //router: L.Routing.osrm({serviceUrl: 'http://localhost:5000/viaroute'}),
+            geocoder: L.Control.Geocoder.nominatim(),
+            routeWhileDragging: true,
+            reverseWaypoints: true,
+            language: 'sv',
+            lineOptions: {
+                styles: [
+                    {color: 'black', opacity: 0.3, weight: 11},
+                    {color: 'white', opacity: 0.9, weight: 9},
+                    {color: 'red', opacity: 1, weight: 3}
+                ]
+            },
+            waypoints: initialWaypoints,
+            createGeocoder: L.bind(function(i) {
+                var geocoder = L.Routing.Plan.prototype.options.createGeocoder.call(this, i),
+                    handle = L.DomUtil.create('div', 'geocoder-handle'),
+                    geolocateBtn = L.DomUtil.create('span', 'geocoder-geolocate-btn', geocoder.container);
+
+                handle.innerHTML = String.fromCharCode(65 + i);
+                geocoder.container.insertBefore(handle, geocoder.container.firstChild);
+
+                geolocateBtn.title = 'Välj min position';
+                geolocateBtn.innerHTML = '<i class="fa fa-location-arrow"></i>';
+                L.DomEvent.on(geolocateBtn, 'click', L.bind(function() {
+                    geolocate(map, L.bind(function(err, p) {
+                        if (err) {
+                            // TODO: error message
+                            return;
+                        }
+
+                        this.spliceWaypoints(i, 1, p.latlng);
+                    }, this));
+                }, this));
+
+                return geocoder;
+            }, this)
+        });
+        this.on('routeselected', function(e) {
+            var r = e.route,
+                geojson = {
+                    type: 'LineString',
+                    coordinates: r.coordinates.map(function(c) { return [c[1], c[0]]; })
+                };
+
+            reqwest({
+                url: 'http://data.cykelbanor.se/elevation/geojson',
+                method: 'post',
+                contentType: 'application/json',
+                data: JSON.stringify(geojson),
+            }).then(L.bind(function(resp) {
+                this._elevationControl.clear();
+                this._elevationControl.addData(JSON.parse(resp));
+            }, this));
+        });
+    },
+    onAdd: function(map) {
+        var container = L.Routing.Control.prototype.onAdd.call(this, map);
+        this._elevationControl = new ElevationControl();
+        container.appendChild(this._elevationControl.onAdd());
+
+        return container;
+    }
+});
+
+},{"./elevation":"/home/per/Documents/Projects/cykelbanor/src/elevation.js","./geolocate":"/home/per/Documents/Projects/cykelbanor/src/geolocate.js","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js","leaflet-routing-machine":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.Control.js","reqwest":"/home/per/Documents/Projects/cykelbanor/node_modules/reqwest/reqwest.js"}],"/home/per/Documents/Projects/cykelbanor/src/state.js":[function(require,module,exports){
 var L = require('leaflet'),
     UrlHash = require('./url-hash');
 
@@ -27015,7 +27034,7 @@ function showDialog() {
         closeBtn = dialog.querySelector('.button'),
         closeFn = function() {
             dialog.parentNode.removeChild(dialog);
-            document.cookie = 'userInfo=1';
+            document.cookie = 'userInfo=1; expires=' + (new Date(2037,1,1).toGMTString());
             L.DomEvent.off(closeBtn, 'click', closeFn);
         };
 
