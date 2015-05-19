@@ -5,7 +5,7 @@ function showDialog() {
         closeBtn = dialog.querySelector('.button'),
         closeFn = function() {
             dialog.parentNode.removeChild(dialog);
-            document.cookie = 'userInfo=1';
+            document.cookie = 'userInfo=1; expires=' + (new Date(2037,1,1).toGMTString());
             L.DomEvent.off(closeBtn, 'click', closeFn);
         };
 
