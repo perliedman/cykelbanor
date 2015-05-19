@@ -2,7 +2,7 @@ var L = require('leaflet'),
     lrm = require('leaflet-routing-machine'),
     lcg = require('leaflet-control-geocoder'),
     eio = require('leaflet-editinosm'),
-    ElevationControl = require('./elevation'),
+    RoutingControl = require('./routing-control'),
     reqwest = require('reqwest'),
     addressPopup = require('../templates/address-popup.hbs'),
     address = require('./address'),
@@ -20,46 +20,7 @@ var L = require('leaflet'),
     overlays = require('./overlays'),
     layerControl = new L.Control.Layers(baselayers, overlays, { position: 'bottomleft' })
         .addTo(map),
-    routingControl = L.Routing.control({
-        router: L.Routing.osrm({serviceUrl: 'http://route.cykelbanor.se/viaroute'}),
-        //router: L.Routing.osrm({serviceUrl: 'http://localhost:5000/viaroute'}),
-        geocoder: L.Control.Geocoder.nominatim(),
-        routeWhileDragging: true,
-        reverseWaypoints: true,
-        language: 'sv',
-        lineOptions: {
-            styles: [
-                {color: 'black', opacity: 0.3, weight: 11},
-                {color: 'white', opacity: 0.9, weight: 9},
-                {color: 'red', opacity: 1, weight: 3}
-            ]
-        },
-        waypoints: initialWaypoints,
-        createGeocoder: function(i) {
-            var geocoder = L.Routing.Plan.prototype.options.createGeocoder.call(this, i),
-                handle = L.DomUtil.create('div', 'geocoder-handle'),
-                geolocateBtn = L.DomUtil.create('span', 'geocoder-geolocate-btn', geocoder.container);
-
-            handle.innerHTML = String.fromCharCode(65 + i);
-            geocoder.container.insertBefore(handle, geocoder.container.firstChild);
-
-            geolocateBtn.title = 'Välj min position';
-            geolocateBtn.innerHTML = '<i class="fa fa-location-arrow"></i>';
-            L.DomEvent.on(geolocateBtn, 'click', function() {
-                geolocate(map, function(err, p) {
-                    if (err) {
-                        // TODO: error message
-                        return;
-                    }
-
-                    routingControl.spliceWaypoints(i, 1, p.latlng);
-                });
-            });
-
-            return geocoder;
-        }
-    }).addTo(map),
-    elevationControl = new ElevationControl({ position: 'topright' }).addTo(map),
+    routingControl = new RoutingControl(map, initialWaypoints).addTo(map),
     sortable = Sortable.create(document.querySelector('.leaflet-routing-geocoders'), {
         handle: '.geocoder-handle',
         draggable: '.leaflet-routing-geocoder',
@@ -161,23 +122,6 @@ geolocate(map, function(err, p) {
 routingControl
     .on('waypointschanged', function() {
         state.setWaypoints(routingControl.getWaypoints());
-    })
-    .on('routeselected', function(e) {
-        var r = e.route,
-            geojson = {
-                type: 'LineString',
-                coordinates: r.coordinates.map(function(c) { return [c[1], c[0]]; })
-            };
-
-        reqwest({
-            url: 'http://data.cykelbanor.se/elevation/geojson',
-            method: 'post',
-            contentType: 'application/json',
-            data: JSON.stringify(geojson),
-        }).then(function(resp) {
-            elevationControl.clear();
-            elevationControl.addData(JSON.parse(resp));
-        });
     });
 
 userInfo();
