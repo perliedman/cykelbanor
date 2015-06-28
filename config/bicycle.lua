@@ -88,6 +88,7 @@ surface_speeds = {
   ["paving_stones"] = 10,
   ["compacted"] = 10,
   ["cobblestone"] = 6,
+  ["sett"] = 6,
   ["unpaved"] = 6,
   ["fine_gravel"] = 6,
   ["gravel"] = 6,
