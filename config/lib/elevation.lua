@@ -36,8 +36,8 @@ end
 
 function speed(g, base_speed)
    if g>0 then
-      return math.max(3,base_speed-100*g)
+      return math.max(math.min(base_speed, 3),base_speed-100*g)
    else
-      return math.min(50,base_speed-50*g)
+      return math.min(math.max(base_speed, 50),base_speed-50*g)
    end
 end
