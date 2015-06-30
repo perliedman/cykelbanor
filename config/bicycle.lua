@@ -49,7 +49,7 @@ type_names = {
 pedestrian_speeds = {
   ["footway"] = walking_speed,
   ["pedestrian"] = walking_speed,
-  ["steps"] = 2
+  ["steps"] = 1
 }
 
 railway_speeds = {
