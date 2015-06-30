@@ -113,6 +113,7 @@ ul.alternatives {
 .elevation-control {
     background: white;
     font-size: 9px;
+    margin-left: 4px;
 }
 
 .elevation-control path { 
