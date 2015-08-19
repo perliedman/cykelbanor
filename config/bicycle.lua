@@ -405,12 +405,14 @@ function way_function (way, result)
 
   local way_info = slope_table[tostring(way:id())]
   if (way_info~=nil) then
-    maxspeed_forward = Elevation.slope_speed(way_info, maxspeed_forward, true)
-    maxspeed_backward = Elevation.slope_speed(way_info, maxspeed_backward, false)
+    --print(string.format('%d: %4d %4d (before sloping)', way:id(), result.forward_speed, result.backward_speed))
+    result.forward_speed = Elevation.slope_speed(way_info, result.forward_speed, true)
+    result.backward_speed = Elevation.slope_speed(way_info, result.backward_speed, false)
   end
 
   -- maxspeed
   MaxSpeed.limit( result, maxspeed, maxspeed_forward, maxspeed_backward )
+  --print(string.format('%d: %4.1f %4.1f', way:id(), result.forward_speed, result.backward_speed))
 end
 
 function turn_function (angle)
