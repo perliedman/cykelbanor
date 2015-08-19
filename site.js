@@ -26919,7 +26919,7 @@ module.exports = L.Routing.Control.extend({
                 data: JSON.stringify(geojson),
             }).then(L.bind(function(resp) {
                 this._elevationControl.clear();
-                this._elevationControl.addData(JSON.parse(resp));
+                this._elevationControl.addData(resp);
             }, this));
         });
     },
