@@ -23,7 +23,7 @@ module.exports = L.Routing.Control.extend({
             },
             waypoints: initialWaypoints,
             createGeocoder: L.bind(function(i) {
-                var geocoder = L.Routing.Plan.prototype.options.createGeocoder.call(this, i),
+                var geocoder = L.Routing.GeocoderElement.prototype.options.createGeocoder.call(this, i, this.getPlan().getWaypoints().length, this.getPlan().options),
                     handle = L.DomUtil.create('div', 'geocoder-handle'),
                     geolocateBtn = L.DomUtil.create('span', 'geocoder-geolocate-btn', geocoder.container);
 
