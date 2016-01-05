@@ -1,4 +1,6 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"/home/per/Documents/Projects/cykelbanor/node_modules/d3/d3.js":[function(require,module,exports){
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+
+},{}],2:[function(require,module,exports){
 !function() {
   var d3 = {
     version: "3.5.5"
@@ -9503,7 +9505,7 @@
   if (typeof define === "function" && define.amd) define(d3); else if (typeof module === "object" && module.exports) module.exports = d3;
   this.d3 = d3;
 }();
-},{}],"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars.js":[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 "use strict";
 /*globals Handlebars: true */
 var Handlebars = require("./handlebars.runtime")["default"];
@@ -9541,7 +9543,7 @@ Handlebars = create();
 Handlebars.create = create;
 
 exports["default"] = Handlebars;
-},{"./handlebars.runtime":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars.runtime.js","./handlebars/compiler/ast":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/compiler/ast.js","./handlebars/compiler/base":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/compiler/base.js","./handlebars/compiler/compiler":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/compiler/compiler.js","./handlebars/compiler/javascript-compiler":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/compiler/javascript-compiler.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars.runtime.js":[function(require,module,exports){
+},{"./handlebars.runtime":4,"./handlebars/compiler/ast":6,"./handlebars/compiler/base":7,"./handlebars/compiler/compiler":8,"./handlebars/compiler/javascript-compiler":9}],4:[function(require,module,exports){
 "use strict";
 /*globals Handlebars: true */
 var base = require("./handlebars/base");
@@ -9574,7 +9576,7 @@ var Handlebars = create();
 Handlebars.create = create;
 
 exports["default"] = Handlebars;
-},{"./handlebars/base":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/base.js","./handlebars/exception":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/exception.js","./handlebars/runtime":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/runtime.js","./handlebars/safe-string":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/safe-string.js","./handlebars/utils":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/utils.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/base.js":[function(require,module,exports){
+},{"./handlebars/base":5,"./handlebars/exception":13,"./handlebars/runtime":14,"./handlebars/safe-string":15,"./handlebars/utils":16}],5:[function(require,module,exports){
 "use strict";
 var Utils = require("./utils");
 var Exception = require("./exception")["default"];
@@ -9755,7 +9757,7 @@ exports.log = log;var createFrame = function(object) {
   return obj;
 };
 exports.createFrame = createFrame;
-},{"./exception":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/exception.js","./utils":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/utils.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/compiler/ast.js":[function(require,module,exports){
+},{"./exception":13,"./utils":16}],6:[function(require,module,exports){
 "use strict";
 var Exception = require("../exception")["default"];
 
@@ -9983,7 +9985,7 @@ var AST = {
 // Must be exported as an object rather than the root of the module as the jison lexer
 // most modify the object to operate properly.
 exports["default"] = AST;
-},{"../exception":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/exception.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/compiler/base.js":[function(require,module,exports){
+},{"../exception":13}],7:[function(require,module,exports){
 "use strict";
 var parser = require("./parser")["default"];
 var AST = require("./ast")["default"];
@@ -9999,7 +10001,7 @@ function parse(input) {
 }
 
 exports.parse = parse;
-},{"./ast":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/compiler/ast.js","./parser":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/compiler/parser.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/compiler/compiler.js":[function(require,module,exports){
+},{"./ast":6,"./parser":10}],8:[function(require,module,exports){
 "use strict";
 var Exception = require("../exception")["default"];
 
@@ -10469,7 +10471,7 @@ exports.precompile = precompile;function compile(input, options, env) {
 }
 
 exports.compile = compile;
-},{"../exception":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/exception.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/compiler/javascript-compiler.js":[function(require,module,exports){
+},{"../exception":13}],9:[function(require,module,exports){
 "use strict";
 var COMPILER_REVISION = require("../base").COMPILER_REVISION;
 var REVISION_CHANGES = require("../base").REVISION_CHANGES;
@@ -11412,7 +11414,7 @@ JavaScriptCompiler.isValidJavaScriptVariableName = function(name) {
 };
 
 exports["default"] = JavaScriptCompiler;
-},{"../base":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/base.js","../exception":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/exception.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/compiler/parser.js":[function(require,module,exports){
+},{"../base":5,"../exception":13}],10:[function(require,module,exports){
 "use strict";
 /* jshint ignore:start */
 /* Jison generated parser */
@@ -11903,7 +11905,7 @@ function Parser () { this.yy = {}; }Parser.prototype = parser;parser.Parser = Pa
 return new Parser;
 })();exports["default"] = handlebars;
 /* jshint ignore:end */
-},{}],"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/compiler/printer.js":[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 "use strict";
 var Visitor = require("./visitor")["default"];
 
@@ -12042,7 +12044,7 @@ PrintVisitor.prototype.content = function(content) {
 PrintVisitor.prototype.comment = function(comment) {
   return this.pad("{{! '" + comment.comment + "' }}");
 };
-},{"./visitor":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/compiler/visitor.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/compiler/visitor.js":[function(require,module,exports){
+},{"./visitor":12}],12:[function(require,module,exports){
 "use strict";
 function Visitor() {}
 
@@ -12055,7 +12057,7 @@ Visitor.prototype = {
 };
 
 exports["default"] = Visitor;
-},{}],"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/exception.js":[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 "use strict";
 
 var errorProps = ['description', 'fileName', 'lineNumber', 'message', 'name', 'number', 'stack'];
@@ -12084,7 +12086,7 @@ function Exception(message, node) {
 Exception.prototype = new Error();
 
 exports["default"] = Exception;
-},{}],"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/runtime.js":[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 "use strict";
 var Utils = require("./utils");
 var Exception = require("./exception")["default"];
@@ -12222,7 +12224,7 @@ exports.program = program;function invokePartial(partial, name, context, helpers
 exports.invokePartial = invokePartial;function noop() { return ""; }
 
 exports.noop = noop;
-},{"./base":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/base.js","./exception":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/exception.js","./utils":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/utils.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/safe-string.js":[function(require,module,exports){
+},{"./base":5,"./exception":13,"./utils":16}],15:[function(require,module,exports){
 "use strict";
 // Build out our basic SafeString type
 function SafeString(string) {
@@ -12234,7 +12236,7 @@ SafeString.prototype.toString = function() {
 };
 
 exports["default"] = SafeString;
-},{}],"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/utils.js":[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 "use strict";
 /*jshint -W004 */
 var SafeString = require("./safe-string")["default"];
@@ -12311,7 +12313,7 @@ exports.escapeExpression = escapeExpression;function isEmpty(value) {
 }
 
 exports.isEmpty = isEmpty;
-},{"./safe-string":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/safe-string.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/lib/index.js":[function(require,module,exports){
+},{"./safe-string":15}],17:[function(require,module,exports){
 // USAGE:
 // var handlebars = require('handlebars');
 
@@ -12338,3708 +12340,15 @@ if (typeof require !== 'undefined' && require.extensions) {
   require.extensions[".hbs"] = extension;
 }
 
-},{"../dist/cjs/handlebars":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars.js","../dist/cjs/handlebars/compiler/printer":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/compiler/printer.js","../dist/cjs/handlebars/compiler/visitor":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars/compiler/visitor.js","fs":"/home/per/Documents/Projects/cykelbanor/node_modules/watchify/node_modules/browserify/lib/_empty.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/runtime.js":[function(require,module,exports){
+},{"../dist/cjs/handlebars":3,"../dist/cjs/handlebars/compiler/printer":11,"../dist/cjs/handlebars/compiler/visitor":12,"fs":1}],18:[function(require,module,exports){
 // Create a simple path alias to allow browserify to resolve
 // the runtime on a supported path.
 module.exports = require('./dist/cjs/handlebars.runtime');
 
-},{"./dist/cjs/handlebars.runtime":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/dist/cjs/handlebars.runtime.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/hbsfy/runtime.js":[function(require,module,exports){
+},{"./dist/cjs/handlebars.runtime":4}],19:[function(require,module,exports){
 module.exports = require("handlebars/runtime")["default"];
 
-},{"handlebars/runtime":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/runtime.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/src/control.js":[function(require,module,exports){
-var L = require('leaflet'),
-	Nominatim = require('./geocoders/nominatim').class;
-
-module.exports = {
-	class: L.Control.extend({
-		options: {
-			showResultIcons: false,
-			collapsed: true,
-			expand: 'click',
-			position: 'topright',
-			placeholder: 'Search...',
-			errorMessage: 'Nothing found.'
-		},
-
-		_callbackId: 0,
-
-		initialize: function (options) {
-			L.Util.setOptions(this, options);
-			if (!this.options.geocoder) {
-				this.options.geocoder = new Nominatim();
-			}
-		},
-
-		onAdd: function (map) {
-			var className = 'leaflet-control-geocoder',
-			    container = L.DomUtil.create('div', className + ' leaflet-bar'),
-			    icon = L.DomUtil.create('a', 'leaflet-control-geocoder-icon', container),
-			    form = this._form = L.DomUtil.create('form', className + '-form', container),
-			    input;
-
-			icon.innerHTML = '&nbsp;';
-			icon.href = 'javascript:void(0);';
-			this._map = map;
-			this._container = container;
-			input = this._input = L.DomUtil.create('input');
-			input.type = 'text';
-			input.placeholder = this.options.placeholder;
-
-			L.DomEvent.addListener(input, 'keydown', this._keydown, this);
-			//L.DomEvent.addListener(input, 'onpaste', this._clearResults, this);
-			//L.DomEvent.addListener(input, 'oninput', this._clearResults, this);
-
-			this._errorElement = document.createElement('div');
-			this._errorElement.className = className + '-form-no-error';
-			this._errorElement.innerHTML = this.options.errorMessage;
-
-			this._alts = L.DomUtil.create('ul', className + '-alternatives leaflet-control-geocoder-alternatives-minimized');
-
-			form.appendChild(input);
-			this._container.appendChild(this._errorElement);
-			container.appendChild(this._alts);
-
-			L.DomEvent.addListener(form, 'submit', this._geocode, this);
-
-			if (this.options.collapsed) {
-				if (this.options.expand === 'click') {
-					L.DomEvent.addListener(icon, 'click', function(e) {
-						// TODO: touch
-						if (e.button === 0 && e.detail !== 2) {
-							this._toggle();
-						}
-					}, this);
-				} else {
-					L.DomEvent.addListener(icon, 'mouseover', this._expand, this);
-					L.DomEvent.addListener(icon, 'mouseout', this._collapse, this);
-					this._map.on('movestart', this._collapse, this);
-				}
-			} else {
-				L.DomEvent.addListener(icon, 'click', function(e) {
-					this._geocode(e);
-				}, this);
-				this._expand();
-			}
-
-			L.DomEvent.disableClickPropagation(container);
-
-			return container;
-		},
-
-		_geocodeResult: function (results) {
-			L.DomUtil.removeClass(this._container, 'leaflet-control-geocoder-throbber');
-			if (results.length === 1) {
-				this._geocodeResultSelected(results[0]);
-			} else if (results.length > 0) {
-				this._alts.innerHTML = '';
-				this._results = results;
-				L.DomUtil.removeClass(this._alts, 'leaflet-control-geocoder-alternatives-minimized');
-				for (var i = 0; i < results.length; i++) {
-					this._alts.appendChild(this._createAlt(results[i], i));
-				}
-			} else {
-				L.DomUtil.addClass(this._errorElement, 'leaflet-control-geocoder-error');
-			}
-		},
-
-		markGeocode: function(result) {
-			this._map.fitBounds(result.bbox);
-
-			if (this._geocodeMarker) {
-				this._map.removeLayer(this._geocodeMarker);
-			}
-
-			this._geocodeMarker = new L.Marker(result.center)
-				.bindPopup(result.html || result.name)
-				.addTo(this._map)
-				.openPopup();
-
-			return this;
-		},
-
-		_geocode: function(event) {
-			L.DomEvent.preventDefault(event);
-
-			L.DomUtil.addClass(this._container, 'leaflet-control-geocoder-throbber');
-			this._clearResults();
-			this.options.geocoder.geocode(this._input.value, this._geocodeResult, this);
-
-			return false;
-		},
-
-		_geocodeResultSelected: function(result) {
-			if (this.options.collapsed) {
-				this._collapse();
-			} else {
-				this._clearResults();
-			}
-			this.markGeocode(result);
-		},
-
-		_toggle: function() {
-			if (this._container.className.indexOf('leaflet-control-geocoder-expanded') >= 0) {
-				this._collapse();
-			} else {
-				this._expand();
-			}
-		},
-
-		_expand: function () {
-			L.DomUtil.addClass(this._container, 'leaflet-control-geocoder-expanded');
-			this._input.select();
-		},
-
-		_collapse: function () {
-			this._container.className = this._container.className.replace(' leaflet-control-geocoder-expanded', '');
-			L.DomUtil.addClass(this._alts, 'leaflet-control-geocoder-alternatives-minimized');
-			L.DomUtil.removeClass(this._errorElement, 'leaflet-control-geocoder-error');
-		},
-
-		_clearResults: function () {
-			L.DomUtil.addClass(this._alts, 'leaflet-control-geocoder-alternatives-minimized');
-			this._selection = null;
-			L.DomUtil.removeClass(this._errorElement, 'leaflet-control-geocoder-error');
-		},
-
-		_createAlt: function(result, index) {
-			var li = L.DomUtil.create('li', ''),
-				a = L.DomUtil.create('a', '', li),
-			    icon = this.options.showResultIcons && result.icon ? L.DomUtil.create('img', '', a) : null,
-			    text = result.html ? undefined : document.createTextNode(result.name),
-			    clickHandler = function clickHandler(e) {
-					L.DomEvent.preventDefault(e);
-					this._geocodeResultSelected(result);
-				};
-
-			if (icon) {
-				icon.src = result.icon;
-			}
-
-			li.setAttribute('data-result-index', index);
-
-			if (result.html) {
-				a.innerHTML = result.html;
-			} else {
-				a.appendChild(text);
-			}
-
-			L.DomEvent.addListener(li, 'click', clickHandler, this);
-
-			return li;
-		},
-
-		_keydown: function(e) {
-			var _this = this,
-			    select = function select(dir) {
-					if (_this._selection) {
-						L.DomUtil.removeClass(_this._selection, 'leaflet-control-geocoder-selected');
-						_this._selection = _this._selection[dir > 0 ? 'nextSibling' : 'previousSibling'];
-					}
-					if (!_this._selection) {
-						_this._selection = _this._alts[dir > 0 ? 'firstChild' : 'lastChild'];
-					}
-
-					if (_this._selection) {
-						L.DomUtil.addClass(_this._selection, 'leaflet-control-geocoder-selected');
-					}
-				};
-
-			switch (e.keyCode) {
-			// Escape
-			case 27:
-				if (this.options.collapsed) {
-					this._collapse();
-				}
-				break;
-			// Up
-			case 38:
-				select(-1);
-				L.DomEvent.preventDefault(e);
-				break;
-			// Up
-			case 40:
-				select(1);
-				L.DomEvent.preventDefault(e);
-				break;
-			// Enter
-			case 13:
-				if (this._selection) {
-					var index = parseInt(this._selection.getAttribute('data-result-index'), 10);
-					this._geocodeResultSelected(this._results[index]);
-					this._clearResults();
-					L.DomEvent.preventDefault(e);
-				}
-			}
-			return true;
-		}
-	}),
-	factory: function(options) {
-		return new L.Control.Geocoder(options);
-	}
-};
-
-},{"./geocoders/nominatim":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/src/geocoders/nominatim.js","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/src/geocoders/bing.js":[function(require,module,exports){
-var L = require('leaflet'),
-	Util = require('../util');
-
-module.exports = {
-	class: L.Class.extend({
-		initialize: function(key) {
-			this.key = key;
-		},
-
-		geocode : function (query, cb, context) {
-			Util.jsonp('//dev.virtualearth.net/REST/v1/Locations', {
-				query: query,
-				key : this.key
-			}, function(data) {
-				var results = [];
-				if( data.resourceSets.length > 0 ){
-					for (var i = data.resourceSets[0].resources.length - 1; i >= 0; i--) {
-						var resource = data.resourceSets[0].resources[i],
-							bbox = resource.bbox;
-						results[i] = {
-							name: resource.name,
-							bbox: L.latLngBounds([bbox[0], bbox[1]], [bbox[2], bbox[3]]),
-							center: L.latLng(resource.point.coordinates)
-						};
-					}
-				}
-				cb.call(context, results);
-			}, this, 'jsonp');
-		},
-
-		reverse: function(location, scale, cb, context) {
-			Util.jsonp('//dev.virtualearth.net/REST/v1/Locations/' + location.lat + ',' + location.lng, {
-				key : this.key
-			}, function(data) {
-				var results = [];
-				for (var i = data.resourceSets[0].resources.length - 1; i >= 0; i--) {
-					var resource = data.resourceSets[0].resources[i],
-						bbox = resource.bbox;
-					results[i] = {
-						name: resource.name,
-						bbox: L.latLngBounds([bbox[0], bbox[1]], [bbox[2], bbox[3]]),
-						center: L.latLng(resource.point.coordinates)
-					};
-				}
-				cb.call(context, results);
-			}, this, 'jsonp');
-		}
-	}),
-
-	factory: function(key) {
-		return new L.Control.Geocoder.Bing(key);
-	}
-};
-
-},{"../util":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/src/util.js","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/src/geocoders/google.js":[function(require,module,exports){
-var L = require('leaflet'),
-	Util = require('../util');
-
-module.exports = {
-	class: L.Class.extend({
-		options: {
-			serviceUrl: 'https://maps.googleapis.com/maps/api/geocode/json',
-			geocodingQueryParams: {},
-			reverseQueryParams: {}
-		},
-
-		initialize: function(key, options) {
-			this._key = key;
-			L.setOptions(this, options);
-			// Backwards compatibility
-			this.options.serviceUrl = this.options.service_url || this.options.serviceUrl;
-		},
-
-		geocode: function(query, cb, context) {
-			var params = {
-				address: query,
-			};
-
-			if (this._key && this._key.length) {
-				params.key = this._key;
-			}
-
-			params = L.Util.extend(params, this.options.geocodingQueryParams);
-
-			Util.getJSON(this.options.serviceUrl, params, function(data) {
-				var results = [],
-						loc,
-						latLng,
-						latLngBounds;
-				if (data.results && data.results.length) {
-					for (var i = 0; i <= data.results.length - 1; i++) {
-						loc = data.results[i];
-						latLng = L.latLng(loc.geometry.location);
-						latLngBounds = L.latLngBounds(L.latLng(loc.geometry.viewport.northeast), L.latLng(loc.geometry.viewport.southwest));
-						results[i] = {
-							name: loc.formatted_address,
-							bbox: latLngBounds,
-							center: latLng,
-							properties: loc.address_components
-						};
-					}
-				}
-
-				cb.call(context, results);
-			});
-		},
-
-		reverse: function(location, scale, cb, context) {
-			var params = {
-				latlng: encodeURIComponent(location.lat) + ',' + encodeURIComponent(location.lng)
-			};
-			params = L.Util.extend(params, this.options.reverseQueryParams);
-			if (this._key && this._key.length) {
-				params.key = this._key;
-			}
-
-			Util.getJSON(this.options.serviceUrl, params, function(data) {
-				var results = [],
-						loc,
-						latLng,
-						latLngBounds;
-				if (data.results && data.results.length) {
-					for (var i = 0; i <= data.results.length - 1; i++) {
-						loc = data.results[i];
-						latLng = L.latLng(loc.geometry.location);
-						latLngBounds = L.latLngBounds(L.latLng(loc.geometry.viewport.northeast), L.latLng(loc.geometry.viewport.southwest));
-						results[i] = {
-							name: loc.formatted_address,
-							bbox: latLngBounds,
-							center: latLng,
-							properties: loc.address_components
-						};
-					}
-				}
-
-				cb.call(context, results);
-			});
-		}
-	}),
-
-	factory: function(key, options) {
-		return new L.Control.Geocoder.Google(key, options);
-	}
-};
-
-},{"../util":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/src/util.js","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/src/geocoders/mapbox.js":[function(require,module,exports){
-var L = require('leaflet'),
-	Util = require('../util');
-
-module.exports = {
-	class: L.Class.extend({
-		options: {
-			serviceUrl: 'https://api.tiles.mapbox.com/v4/geocode/mapbox.places-v1/'
-		},
-
-		initialize: function(accessToken, options) {
-			L.setOptions(this, options);
-			this._accessToken = accessToken;
-		},
-
-		geocode: function(query, cb, context) {
-			Util.getJSON(this.options.serviceUrl + encodeURIComponent(query) + '.json', {
-				access_token: this._accessToken,
-			}, function(data) {
-				var results = [],
-				loc,
-				latLng,
-				latLngBounds;
-				if (data.features && data.features.length) {
-					for (var i = 0; i <= data.features.length - 1; i++) {
-						loc = data.features[i];
-						latLng = L.latLng(loc.center.reverse());
-						if(loc.hasOwnProperty('bbox'))
-						{
-							latLngBounds = L.latLngBounds(L.latLng(loc.bbox.slice(0, 2).reverse()), L.latLng(loc.bbox.slice(2, 4).reverse()));
-						}
-						else
-						{
-							latLngBounds = L.latLngBounds(latLng, latLng);
-						}
-						results[i] = {
-							name: loc.place_name,
-							bbox: latLngBounds,
-							center: latLng
-						};
-					}
-				}
-
-				cb.call(context, results);
-			});
-		},
-
-		suggest: function(query, cb, context) {
-			return this.geocode(query, cb, context);
-		},
-
-		reverse: function(location, scale, cb, context) {
-			Util.getJSON(this.options.serviceUrl + encodeURIComponent(location.lng) + ',' + encodeURIComponent(location.lat) + '.json', {
-				access_token: this._accessToken,
-			}, function(data) {
-				var results = [],
-				loc,
-				latLng,
-				latLngBounds;
-				if (data.features && data.features.length) {
-					for (var i = 0; i <= data.features.length - 1; i++) {
-						loc = data.features[i];
-						latLng = L.latLng(loc.center.reverse());
-						if(loc.hasOwnProperty('bbox'))
-						{
-							latLngBounds = L.latLngBounds(L.latLng(loc.bbox.slice(0, 2).reverse()), L.latLng(loc.bbox.slice(2, 4).reverse()));
-						}
-						else
-						{
-							latLngBounds = L.latLngBounds(latLng, latLng);
-						}
-						results[i] = {
-							name: loc.place_name,
-							bbox: latLngBounds,
-							center: latLng
-						};
-					}
-				}
-
-				cb.call(context, results);
-			});
-		}
-	}),
-
-	factory: function(accessToken, options) {
-		return new L.Control.Geocoder.Mapbox(accessToken, options);
-	}
-};
-
-
-},{"../util":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/src/util.js","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/src/geocoders/mapquest.js":[function(require,module,exports){
-var L = require('leaflet'),
-	Util = require('../util');
-
-module.exports = {
-	class: L.Class.extend({
-		options: {
-			serviceUrl: '//www.mapquestapi.com/geocoding/v1'
-		},
-
-		initialize: function(key, options) {
-			// MapQuest seems to provide URI encoded API keys,
-			// so to avoid encoding them twice, we decode them here
-			this._key = decodeURIComponent(key);
-
-			L.Util.setOptions(this, options);
-		},
-
-		_formatName: function() {
-			var r = [],
-				i;
-			for (i = 0; i < arguments.length; i++) {
-				if (arguments[i]) {
-					r.push(arguments[i]);
-				}
-			}
-
-			return r.join(', ');
-		},
-
-		geocode: function(query, cb, context) {
-			Util.jsonp(this.options.serviceUrl + '/address', {
-				key: this._key,
-				location: query,
-				limit: 5,
-				outFormat: 'json'
-			}, function(data) {
-				var results = [],
-					loc,
-					latLng;
-				if (data.results && data.results[0].locations) {
-					for (var i = data.results[0].locations.length - 1; i >= 0; i--) {
-						loc = data.results[0].locations[i];
-						latLng = L.latLng(loc.latLng);
-						results[i] = {
-							name: this._formatName(loc.street, loc.adminArea4, loc.adminArea3, loc.adminArea1),
-							bbox: L.latLngBounds(latLng, latLng),
-							center: latLng
-						};
-					}
-				}
-
-				cb.call(context, results);
-			}, this);
-		},
-
-		reverse: function(location, scale, cb, context) {
-			Util.jsonp(this.options.serviceUrl + '/reverse', {
-				key: this._key,
-				location: location.lat + ',' + location.lng,
-				outputFormat: 'json'
-			}, function(data) {
-				var results = [],
-					loc,
-					latLng;
-				if (data.results && data.results[0].locations) {
-					for (var i = data.results[0].locations.length - 1; i >= 0; i--) {
-						loc = data.results[0].locations[i];
-						latLng = L.latLng(loc.latLng);
-						results[i] = {
-							name: this._formatName(loc.street, loc.adminArea4, loc.adminArea3, loc.adminArea1),
-							bbox: L.latLngBounds(latLng, latLng),
-							center: latLng
-						};
-					}
-				}
-
-				cb.call(context, results);
-			}, this);
-		}
-	}),
-
-	factory: function(key, options) {
-		return new L.Control.Geocoder.MapQuest(key, options);
-	}
-};
-
-},{"../util":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/src/util.js","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/src/geocoders/nominatim.js":[function(require,module,exports){
-var L = require('leaflet'),
-	Util = require('../util');
-
-module.exports = {
-	class: L.Class.extend({
-		options: {
-			serviceUrl: '//nominatim.openstreetmap.org/',
-			geocodingQueryParams: {},
-			reverseQueryParams: {},
-			htmlTemplate: function(r) {
-				var a = r.address,
-					parts = [];
-				if (a.road || a.building) {
-					parts.push('{building} {road} {house_number}');
-				}
-
-				if (a.city || a.town || a.village) {
-					parts.push('<span class="' + (parts.length > 0 ? 'leaflet-control-geocoder-address-detail' : '') +
-						'">{postcode} {city} {town} {village}</span>');
-				}
-
-				if (a.state || a.country) {
-					parts.push('<span class="' + (parts.length > 0 ? 'leaflet-control-geocoder-address-context' : '') +
-						'">{state} {country}</span>');
-				}
-
-				return Util.template(parts.join('<br/>'), a, true);
-			}
-		},
-
-		initialize: function(options) {
-			L.Util.setOptions(this, options);
-		},
-
-		geocode: function(query, cb, context) {
-			Util.jsonp(this.options.serviceUrl + 'search/', L.extend({
-				q: query,
-				limit: 5,
-				format: 'json',
-				addressdetails: 1
-			}, this.options.geocodingQueryParams),
-			function(data) {
-				var results = [];
-				for (var i = data.length - 1; i >= 0; i--) {
-					var bbox = data[i].boundingbox;
-					for (var j = 0; j < 4; j++) bbox[j] = parseFloat(bbox[j]);
-					results[i] = {
-						icon: data[i].icon,
-						name: data[i].display_name,
-						html: this.options.htmlTemplate ?
-							this.options.htmlTemplate(data[i])
-							: undefined,
-						bbox: L.latLngBounds([bbox[0], bbox[2]], [bbox[1], bbox[3]]),
-						center: L.latLng(data[i].lat, data[i].lon),
-						properties: data[i]
-					};
-				}
-				cb.call(context, results);
-			}, this, 'json_callback');
-		},
-
-		reverse: function(location, scale, cb, context) {
-			Util.jsonp(this.options.serviceUrl + 'reverse/', L.extend({
-				lat: location.lat,
-				lon: location.lng,
-				zoom: Math.round(Math.log(scale / 256) / Math.log(2)),
-				addressdetails: 1,
-				format: 'json'
-			}, this.options.reverseQueryParams), function(data) {
-				var result = [],
-				    loc;
-
-				if (data && data.lat && data.lon) {
-					loc = L.latLng(data.lat, data.lon);
-					result.push({
-						name: data.display_name,
-						html: this.options.htmlTemplate ?
-							this.options.htmlTemplate(data)
-							: undefined,
-						center: loc,
-						bounds: L.latLngBounds(loc, loc),
-						properties: data
-					});
-				}
-
-				cb.call(context, result);
-			}, this, 'json_callback');
-		}
-	}),
-
-	factory: function(options) {
-		return new L.Control.Geocoder.Nominatim(options);
-	}
-};
-
-},{"../util":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/src/util.js","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/src/geocoders/photon.js":[function(require,module,exports){
-var L = require('leaflet'),
-	Util = require('../util');
-
-module.exports = {
-	class: L.Class.extend({
-		options: {
-			serviceUrl: '//photon.komoot.de/api/',
-			reverseUrl: '//photon.komoot.de/reverse/',
-			nameProperties: [
-				'name',
-				'street',
-				'suburb',
-				'hamlet',
-				'town',
-				'city',
-				'state',
-				'country'
-			]
-		},
-
-		initialize: function(options) {
-			L.setOptions(this, options);
-		},
-
-		geocode: function(query, cb, context) {
-			var params = L.extend({
-				q: query,
-			}, this.options.geocodingQueryParams);
-
-			Util.getJSON(this.options.serviceUrl, params, L.bind(function(data) {
-				cb.call(context, this._decodeFeatures(data));
-			}, this));
-		},
-
-		suggest: function(query, cb, context) {
-			return this.geocode(query, cb, context);
-		},
-
-		reverse: function(latLng, scale, cb, context) {
-			var params = L.extend({
-				lat: latLng.lat,
-				lon: latLng.lng
-			}, this.options.geocodingQueryParams);
-
-			Util.getJSON(this.options.reverseUrl, params, L.bind(function(data) {
-				cb.call(context, this._decodeFeatures(data));
-			}, this));
-		},
-
-		_decodeFeatures: function(data) {
-			var results = [],
-				i,
-				f,
-				c,
-				latLng,
-				extent,
-				bbox;
-
-			if (data && data.features) {
-				for (i = 0; i < data.features.length; i++) {
-					f = data.features[i];
-					c = f.geometry.coordinates;
-					latLng = L.latLng(c[1], c[0]);
-					extent = f.properties.extent;
-
-					if (extent) {
-						bbox = L.latLngBounds([extent[1], extent[0]], [extent[3], extent[2]]);
-					} else {
-						bbox = L.latLngBounds(latLng, latLng);
-					}
-
-					results.push({
-						name: this._deocodeFeatureName(f),
-						center: latLng,
-						bbox: bbox,
-						properties: f.properties
-					});
-				}
-			}
-
-			return results;
-		},
-
-		_deocodeFeatureName: function(f) {
-			var j,
-				name;
-			for (j = 0; !name && j < this.options.nameProperties.length; j++) {
-				name = f.properties[this.options.nameProperties[j]];
-			}
-
-			return name;
-		}
-	}),
-
-	factory: function(options) {
-		return new L.Control.Geocoder.Photon(options);
-	}
-};
-
-
-},{"../util":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/src/util.js","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/src/geocoders/what3words.js":[function(require,module,exports){
-var L = require('leaflet'),
-	Util = require('../util');
-
-module.exports = {
-	class: L.Class.extend({
-		options: {
-			serviceUrl: 'http://api.what3words.com/'
-		},
-
-		initialize: function(accessToken) {
-			this._accessToken = accessToken;
-		},
-
-		geocode: function(query, cb, context) {
-			//get three words and make a dot based string
-			Util.getJSON(this.options.serviceUrl +'w3w', {
-				key: this._accessToken,
-				string: query.split(/\s+/).join('.'),
-			}, function(data) {
-				var results = [], loc, latLng, latLngBounds;
-				if (data.position && data.position.length) {
-					loc = data.words;
-					latLng = L.latLng(data.position[0],data.position[1]);
-					latLngBounds = L.latLngBounds(latLng, latLng);
-					results[0] = {
-						name: loc.join('.'),
-						bbox: latLngBounds,
-						center: latLng
-					};
-				}
-
-				cb.call(context, results);
-			});
-		},
-
-		suggest: function(query, cb, context) {
-			return this.geocode(query, cb, context);
-		},
-
-		reverse: function(location, scale, cb, context) {
-			Util.getJSON(this.options.serviceUrl +'position', {
-				key: this._accessToken,
-				position: [location.lat,location.lng].join(',')
-			}, function(data) {
-				var results = [],loc,latLng,latLngBounds;
-				if (data.position && data.position.length) {
-					loc = data.words;
-					latLng = L.latLng(data.position[0],data.position[1]);
-					latLngBounds = L.latLngBounds(latLng, latLng);
-					results[0] = {
-						name: loc.join('.'),
-						bbox: latLngBounds,
-						center: latLng
-					};
-				}
-				cb.call(context, results);
-			});
-		}
-	}),
-
-	factory: function(accessToken) {
-		return new L.Control.Geocoder.What3Words(accessToken);
-	}
-};
-
-},{"../util":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/src/util.js","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/src/index.js":[function(require,module,exports){
-var L = require('leaflet'),
-	Control = require('./control'),
-	Nominatim = require('./geocoders/nominatim'),
-	Bing = require('./geocoders/bing'),
-	MapQuest = require('./geocoders/mapquest'),
-	Mapbox = require('./geocoders/mapbox'),
-	What3Words = require('./geocoders/what3words'),
-	Google = require('./geocoders/google'),
-	Photon = require('./geocoders/photon');
-
-module.exports = L.Util.extend(Control.class, {
-	Nominatim: Nominatim.class,
-	nominatim: Nominatim.factory,
-	Bing: Bing.class,
-	bing: Bing.factory,
-	MapQuest: MapQuest.class,
-	mapQuest: MapQuest.factory,
-	Mapbox: Mapbox.class,
-	mapbox: Mapbox.factory,
-	What3Words: What3Words.class,
-	what3words: What3Words.factory,
-	Google: Google.class,
-	google: Google.factory,
-	Photon: Photon.class,
-	photon: Photon.factory
-});
-
-L.Util.extend(L.Control, {
-	Geocoder: module.exports,
-	geocoder: Control.factory
-});
-
-},{"./control":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/src/control.js","./geocoders/bing":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/src/geocoders/bing.js","./geocoders/google":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/src/geocoders/google.js","./geocoders/mapbox":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/src/geocoders/mapbox.js","./geocoders/mapquest":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/src/geocoders/mapquest.js","./geocoders/nominatim":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/src/geocoders/nominatim.js","./geocoders/photon":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/src/geocoders/photon.js","./geocoders/what3words":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/src/geocoders/what3words.js","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/src/util.js":[function(require,module,exports){
-var L = require('leaflet'),
-	lastCallbackId = 0,
-	htmlEscape = (function() {
-		// Adapted from handlebars.js
-		// https://github.com/wycats/handlebars.js/
-		var badChars = /[&<>"'`]/g;
-		var possible = /[&<>"'`]/;
-		var escape = {
-		  '&': '&amp;',
-		  '<': '&lt;',
-		  '>': '&gt;',
-		  '"': '&quot;',
-		  '\'': '&#x27;',
-		  '`': '&#x60;'
-		};
-
-		function escapeChar(chr) {
-		  return escape[chr];
-		}
-
-		return function(string) {
-			if (string == null) {
-				return '';
-			} else if (!string) {
-				return string + '';
-			}
-
-			// Force a string conversion as this will be done by the append regardless and
-			// the regex test will do this transparently behind the scenes, causing issues if
-			// an object's to string has escaped characters in it.
-			string = '' + string;
-
-			if (!possible.test(string)) {
-				return string;
-			}
-			return string.replace(badChars, escapeChar);
-		};
-	})();
-
-module.exports = {
-	jsonp: function(url, params, callback, context, jsonpParam) {
-		var callbackId = '_l_geocoder_' + (lastCallbackId++);
-		params[jsonpParam || 'callback'] = callbackId;
-		window[callbackId] = L.Util.bind(callback, context);
-		var script = document.createElement('script');
-		script.type = 'text/javascript';
-		script.src = url + L.Util.getParamString(params);
-		script.id = callbackId;
-		document.getElementsByTagName('head')[0].appendChild(script);
-	},
-
-	getJSON: function(url, params, callback) {
-		var xmlHttp = new XMLHttpRequest();
-		xmlHttp.onreadystatechange = function () {
-			if (xmlHttp.readyState !== 4){
-				return;
-			}
-			if (xmlHttp.status !== 200 && xmlHttp.status !== 304){
-				callback('');
-				return;
-			}
-			callback(JSON.parse(xmlHttp.response));
-		};
-		xmlHttp.open('GET', url + L.Util.getParamString(params), true);
-		xmlHttp.setRequestHeader('Accept', 'application/json');
-		xmlHttp.send(null);
-	},
-
-	template: function (str, data) {
-		return str.replace(/\{ *([\w_]+) *\}/g, function (str, key) {
-			var value = data[key];
-			if (value === undefined) {
-				value = '';
-			} else if (typeof value === 'function') {
-				value = value(data);
-			}
-			return htmlEscape(value);
-		});
-	},
-
-	htmlEscape: htmlEscape
-};
-
-},{"leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-editinosm/Leaflet.EditInOSM.js":[function(require,module,exports){
-(function (factory) {
-    var L;
-    if (typeof define === 'function' && define.amd) {
-        // AMD
-        define(['leaflet'], function(L) {
-            factory(L, setTimeout);
-        });
-    } else if (typeof module !== 'undefined') {
-        // Node/CommonJS
-        L = require('leaflet');
-        module.exports = factory(L, setTimeout);
-    } else {
-        // Browser globals
-        if (typeof window.L === 'undefined')
-            throw 'Leaflet must be loaded first';
-        factory(window.L, setTimeout);
-    }
-}(function (L, setTimeout) {
-    var _controlContainer,
-        _map,
-        _zoomThreshold,
-        _hideClass = 'leaflet-control-edit-hidden',
-        _anchorClass = 'leaflet-control-edit-in-osm-toggle',
-
-        _Widgets =  {
-            SimpleButton: function (config) {
-                var className = (config && config.className) || 'leaflet-control-edit-in-osm-simple',
-                    helpText = config && config.helpText,
-                    addEditors = (config && config.addEditors) || function (container, editors) {
-                        addEditorToWidget(container, editors[0], helpText);
-                    };
-
-                return {
-                    className: className,
-                    helpText: helpText,
-                    addEditors: addEditors
-                };
-            },
-            MultiButton: function (config) {
-                var className = 'leaflet-control-edit-in-osm',
-                    helpText = "Open this map extent in a map editor to provide more accurate data to OpenStreetMap",
-                    addEditors = function (container, editors) {
-                        for (var i in editors) {
-                            addEditorToWidget(container, editors[i]);
-                        }
-                    };
-
-                return {
-                    className: (config && config.className) || className,
-                    helpText: (config && config.helpText) || helpText,
-                    addEditors: (config && config.addEditors) || addEditors
-                };
-            },
-            AttributionBox: function (config) {
-                var className = 'leaflet-control-attribution',
-                    helpText = "Edit in OSM",
-                    addEditors = function (container, editors) {
-                        addEditorToWidget(container, editors[0], helpText);
-                    };
-
-                return {
-                    className: (config && config.className) || className,
-                    helpText: (config && config.helpText) || helpText,
-                    addEditors: (config && config.addEditors) || addEditors
-                };
-            }
-        },
-
-        _Editors = {
-            Id: function (config) {
-                var url = 'https://www.openstreetmap.org/edit?editor=id#map=',
-                    displayName = "iD",
-                    buildUrl = function (map) {
-                        return this.url + [
-                            map.getZoom(),
-                            map.getCenter().wrap().lat,
-                            map.getCenter().wrap().lng
-                        ].join('/');
-                    };
-                return {
-                    url: (config && config.url) || url,
-                    displayName: (config && config.displayName) || displayName,
-                    buildUrl: (config && config.buildUrl) || buildUrl
-                };
-            },
-            Josm: function (config) {
-                var url = 'http://127.0.0.1:8111/load_and_zoom',
-                    timeout = 1000,
-                    displayName = "JOSM",
-                    buildUrl = function (map) {
-                        var bounds = map.getBounds();
-                        return this.url + L.Util.getParamString({
-                            left: bounds.getNorthWest().lng,
-                            right: bounds.getSouthEast().lng,
-                            top: bounds.getNorthWest().lat,
-                            bottom: bounds.getSouthEast().lat
-                        });
-                    };
-
-                return {
-                    url: (config && config.url) || url,
-                    timeout: (config && config.timeout) || timeout,
-                    displayName: (config && config.displayName) || displayName,
-                    buildUrl: (config && config.buildUrl) || buildUrl
-                };
-            },
-            Potlatch: function (config) {
-                var url = 'http://open.mapquestapi.com/dataedit/index_flash.html',
-                    displayName = "P2",
-                    buildUrl = function (map) {
-                        return this.url + L.Util.getParamString({
-                            lon: map.getCenter().wrap().lng,
-                            lat: map.getCenter().wrap().lat,
-                            zoom: map.getZoom()
-                        });
-                    };
-                return {
-                    url: (config && config.url) || url,
-                    displayName: (config && config.displayName) || displayName,
-                    buildUrl: (config && config.buildUrl) || buildUrl
-                };
-            }
-        };
-
-
-    // Takes an editor, calls their buildUrl method
-    // and opens the url in the browser
-    function openRemote (editor) {
-        var url = editor.buildUrl(_map),
-            w = window.open(url);
-        if (editor.timeout) {
-            setTimeout(function() {w.close();}, editor.timeout);
-        }
-    }
-
-    function addEditorToWidget(widgetContainer, editor, text) {
-        var editorWidget = L.DomUtil.create('a', "osm-editor", widgetContainer);
-        editorWidget.href = "#";
-        editorWidget.innerHTML = text || editor.displayName;
-        L.DomEvent.on(editorWidget, "click", function (e) {
-            openRemote(editor);
-            L.DomEvent.stop(e);
-        });
-    }
-
-    // Make the EditInOSM widget visible or invisible after each
-    // zoom event.
-    //
-    // configurable by setting the *zoomThreshold* option.
-    function showOrHideUI() {
-        var zoom = _map.getZoom();
-        if (zoom < _zoomThreshold) {
-            L.DomUtil.addClass(_controlContainer, _hideClass);
-        } else {
-            L.DomUtil.removeClass(_controlContainer, _hideClass);
-        }
-    }
-
-    L.Control.EditInOSM = L.Control.extend({
-
-        options: {
-            position: "topright",
-            zoomThreshold: 0,
-            widget: "multiButton",
-            editors: ["id", "josm"]
-        },
-
-        initialize: function (options) {
-            var newEditors = [],
-                widget,
-                widgetSmallName,
-                editor,
-                editorSmallName;
-
-            L.setOptions(this, options);
-
-            _zoomThreshold = this.options.zoomThreshold;
-
-            widget = this.options.widget;
-            widgetSmallName = typeof(widget) === 'string' ? widget.toLowerCase() : '';
-
-            // setup widget from string or object
-            if (widgetSmallName === "simplebutton") {
-                this.options.widget = new _Widgets.SimpleButton(this.options.widgetOptions);
-            } else if (widgetSmallName === "multibutton") {
-                this.options.widget = new _Widgets.MultiButton(this.options.widgetOptions);
-            } else if (widgetSmallName === "attributionbox") {
-                this.options.widget = new _Widgets.AttributionBox(this.options.widgetOptions);
-            }
-
-            // setup editors from strings or objects
-            for (var i in this.options.editors) {
-                editor = this.options.editors[i],
-                editorSmallName = typeof(editor) === "string" ? editor.toLowerCase() : null;
-
-                if (editorSmallName === "id") {
-                    newEditors.push(new _Editors.Id());
-                } else if (editorSmallName === "josm") {
-                    newEditors.push(new _Editors.Josm());
-                } else if (editorSmallName === "potlatch") {
-                    newEditors.push(new _Editors.Potlatch());
-                } else {
-                    newEditors.push(editor);
-                }
-            }
-            this.options.editors = newEditors;
-
-        },
-
-        onAdd: function (map) {
-            _map = map;
-            map.on('zoomend', showOrHideUI);
-
-            _controlContainer = L.DomUtil.create('div', this.options.widget.className);
-
-            _controlContainer.title = this.options.widget.helpText || '';
-
-            L.DomUtil.create('a', _anchorClass, _controlContainer);
-
-            this.options.widget.addEditors(_controlContainer, this.options.editors);
-            return _controlContainer;
-        },
-
-        onRemove: function (map) {
-            map.off('zoomend', this._onZoomEnd);
-        }
-
-    });
-
-    L.Control.EditInOSM.Widgets = _Widgets;
-    L.Control.EditInOSM.Editors = _Editors;
-
-    L.Map.addInitHook(function () {
-        if (this.options.editInOSMControlOptions) {
-            var options = this.options.editInOSMControlOptions || {};
-            this.editInOSMControl = (new L.Control.EditInOSM(options)).addTo(this);
-        }
-    });
-
-}));
-
-},{"leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/node_modules/corslite/corslite.js":[function(require,module,exports){
-function corslite(url, callback, cors) {
-    var sent = false;
-
-    if (typeof window.XMLHttpRequest === 'undefined') {
-        return callback(Error('Browser not supported'));
-    }
-
-    if (typeof cors === 'undefined') {
-        var m = url.match(/^\s*https?:\/\/[^\/]*/);
-        cors = m && (m[0] !== location.protocol + '//' + location.domain +
-                (location.port ? ':' + location.port : ''));
-    }
-
-    var x = new window.XMLHttpRequest();
-
-    function isSuccessful(status) {
-        return status >= 200 && status < 300 || status === 304;
-    }
-
-    if (cors && !('withCredentials' in x)) {
-        // IE8-9
-        x = new window.XDomainRequest();
-
-        // Ensure callback is never called synchronously, i.e., before
-        // x.send() returns (this has been observed in the wild).
-        // See https://github.com/mapbox/mapbox.js/issues/472
-        var original = callback;
-        callback = function() {
-            if (sent) {
-                original.apply(this, arguments);
-            } else {
-                var that = this, args = arguments;
-                setTimeout(function() {
-                    original.apply(that, args);
-                }, 0);
-            }
-        }
-    }
-
-    function loaded() {
-        if (
-            // XDomainRequest
-            x.status === undefined ||
-            // modern browsers
-            isSuccessful(x.status)) callback.call(x, null, x);
-        else callback.call(x, x, null);
-    }
-
-    // Both `onreadystatechange` and `onload` can fire. `onreadystatechange`
-    // has [been supported for longer](http://stackoverflow.com/a/9181508/229001).
-    if ('onload' in x) {
-        x.onload = loaded;
-    } else {
-        x.onreadystatechange = function readystate() {
-            if (x.readyState === 4) {
-                loaded();
-            }
-        };
-    }
-
-    // Call the callback with the XMLHttpRequest object as an error and prevent
-    // it from ever being called again by reassigning it to `noop`
-    x.onerror = function error(evt) {
-        // XDomainRequest provides no evt parameter
-        callback.call(this, evt || true, null);
-        callback = function() { };
-    };
-
-    // IE9 must have onprogress be set to a unique function.
-    x.onprogress = function() { };
-
-    x.ontimeout = function(evt) {
-        callback.call(this, evt, null);
-        callback = function() { };
-    };
-
-    x.onabort = function(evt) {
-        callback.call(this, evt, null);
-        callback = function() { };
-    };
-
-    // GET is the only supported HTTP Verb by XDomainRequest and is the
-    // only one supported here.
-    x.open('GET', url, true);
-
-    // Send the request. Sending data is not supported.
-    x.send(null);
-    sent = true;
-
-    return x;
-}
-
-if (typeof module !== 'undefined') module.exports = corslite;
-
-},{}],"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/node_modules/polyline/src/polyline.js":[function(require,module,exports){
-var polyline = {};
-
-// Based off of [the offical Google document](https://developers.google.com/maps/documentation/utilities/polylinealgorithm)
-//
-// Some parts from [this implementation](http://facstaff.unca.edu/mcmcclur/GoogleMaps/EncodePolyline/PolylineEncoder.js)
-// by [Mark McClure](http://facstaff.unca.edu/mcmcclur/)
-
-function encode(coordinate, factor) {
-    coordinate = Math.round(coordinate * factor);
-    coordinate <<= 1;
-    if (coordinate < 0) {
-        coordinate = ~coordinate;
-    }
-    var output = '';
-    while (coordinate >= 0x20) {
-        output += String.fromCharCode((0x20 | (coordinate & 0x1f)) + 63);
-        coordinate >>= 5;
-    }
-    output += String.fromCharCode(coordinate + 63);
-    return output;
-}
-
-// This is adapted from the implementation in Project-OSRM
-// https://github.com/DennisOSRM/Project-OSRM-Web/blob/master/WebContent/routing/OSRM.RoutingGeometry.js
-polyline.decode = function(str, precision) {
-    var index = 0,
-        lat = 0,
-        lng = 0,
-        coordinates = [],
-        shift = 0,
-        result = 0,
-        byte = null,
-        latitude_change,
-        longitude_change,
-        factor = Math.pow(10, precision || 5);
-
-    // Coordinates have variable length when encoded, so just keep
-    // track of whether we've hit the end of the string. In each
-    // loop iteration, a single coordinate is decoded.
-    while (index < str.length) {
-
-        // Reset shift, result, and byte
-        byte = null;
-        shift = 0;
-        result = 0;
-
-        do {
-            byte = str.charCodeAt(index++) - 63;
-            result |= (byte & 0x1f) << shift;
-            shift += 5;
-        } while (byte >= 0x20);
-
-        latitude_change = ((result & 1) ? ~(result >> 1) : (result >> 1));
-
-        shift = result = 0;
-
-        do {
-            byte = str.charCodeAt(index++) - 63;
-            result |= (byte & 0x1f) << shift;
-            shift += 5;
-        } while (byte >= 0x20);
-
-        longitude_change = ((result & 1) ? ~(result >> 1) : (result >> 1));
-
-        lat += latitude_change;
-        lng += longitude_change;
-
-        coordinates.push([lat / factor, lng / factor]);
-    }
-
-    return coordinates;
-};
-
-polyline.encode = function(coordinates, precision) {
-    if (!coordinates.length) return '';
-
-    var factor = Math.pow(10, precision || 5),
-        output = encode(coordinates[0][0], factor) + encode(coordinates[0][1], factor);
-
-    for (var i = 1; i < coordinates.length; i++) {
-        var a = coordinates[i], b = coordinates[i - 1];
-        output += encode(a[0] - b[0], factor);
-        output += encode(a[1] - b[1], factor);
-    }
-
-    return output;
-};
-
-if (typeof module !== undefined) module.exports = polyline;
-
-},{}],"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.Autocomplete.js":[function(require,module,exports){
-(function() {
-	'use strict';
-
-	L.Routing = L.Routing || {};
-
-	L.Routing.Autocomplete = L.Class.extend({
-		options: {
-			timeout: 500,
-			blurTimeout: 100,
-			noResultsMessage: 'No results found.'
-		},
-
-		initialize: function(elem, callback, context, options) {
-			L.setOptions(this, options);
-
-			this._elem = elem;
-			this._resultFn = options.resultFn ? L.Util.bind(options.resultFn, options.resultContext) : null;
-			this._autocomplete = options.autocompleteFn ? L.Util.bind(options.autocompleteFn, options.autocompleteContext) : null;
-			this._selectFn = L.Util.bind(callback, context);
-			this._container = L.DomUtil.create('div', 'leaflet-routing-geocoder-result');
-			this._resultTable = L.DomUtil.create('table', '', this._container);
-
-			// TODO: looks a bit like a kludge to register same for input and keypress -
-			// browsers supporting both will get duplicate events; just registering
-			// input will not catch enter, though.
-			L.DomEvent.addListener(this._elem, 'input', this._keyPressed, this);
-			L.DomEvent.addListener(this._elem, 'keypress', this._keyPressed, this);
-			L.DomEvent.addListener(this._elem, 'keydown', this._keyDown, this);
-			L.DomEvent.addListener(this._elem, 'blur', function() {
-				if (this._isOpen) {
-					this.close();
-				}
-			}, this);
-		},
-
-		close: function() {
-			L.DomUtil.removeClass(this._container, 'leaflet-routing-geocoder-result-open');
-			this._isOpen = false;
-		},
-
-		_open: function() {
-			var rect = this._elem.getBoundingClientRect();
-			if (!this._container.parentElement) {
-				this._container.style.left = (rect.left + window.scrollX) + 'px';
-				this._container.style.top = (rect.bottom + window.scrollY) + 'px';
-				this._container.style.width = (rect.right - rect.left) + 'px';
-				document.body.appendChild(this._container);
-			}
-
-			L.DomUtil.addClass(this._container, 'leaflet-routing-geocoder-result-open');
-			this._isOpen = true;
-		},
-
-		_setResults: function(results) {
-			var i,
-			    tr,
-			    td,
-			    text;
-
-			delete this._selection;
-			this._results = results;
-
-			while (this._resultTable.firstChild) {
-				this._resultTable.removeChild(this._resultTable.firstChild);
-			}
-
-			for (i = 0; i < results.length; i++) {
-				tr = L.DomUtil.create('tr', '', this._resultTable);
-				tr.setAttribute('data-result-index', i);
-				td = L.DomUtil.create('td', '', tr);
-				text = document.createTextNode(results[i].name);
-				td.appendChild(text);
-				// mousedown + click because:
-				// http://stackoverflow.com/questions/10652852/jquery-fire-click-before-blur-event
-				L.DomEvent.addListener(td, 'mousedown', L.DomEvent.preventDefault);
-				L.DomEvent.addListener(td, 'click', this._createClickListener(results[i]));
-			}
-
-			if (!i) {
-				tr = L.DomUtil.create('tr', '', this._resultTable);
-				td = L.DomUtil.create('td', 'leaflet-routing-geocoder-no-results', tr);
-				td.innerHTML = this.options.noResultsMessage;
-			}
-
-			this._open();
-
-			if (results.length > 0) {
-				// Select the first entry
-				this._select(1);
-			}
-		},
-
-		_createClickListener: function(r) {
-			var resultSelected = this._resultSelected(r);
-			return L.bind(function() {
-				this._elem.blur();
-				resultSelected();
-			}, this);
-		},
-
-		_resultSelected: function(r) {
-			return L.bind(function() {
-				this.close();
-				this._elem.value = r.name;
-				this._lastCompletedText = r.name;
-				this._selectFn(r);
-			}, this);
-		},
-
-		_keyPressed: function(e) {
-			var index;
-
-			if (this._isOpen && e.keyCode === 13 && this._selection) {
-				index = parseInt(this._selection.getAttribute('data-result-index'), 10);
-				this._resultSelected(this._results[index])();
-				L.DomEvent.preventDefault(e);
-				return;
-			}
-
-			if (e.keyCode === 13) {
-				this._complete(this._resultFn, true);
-				return;
-			}
-
-			if (this._autocomplete && document.activeElement === this._elem) {
-				if (this._timer) {
-					clearTimeout(this._timer);
-				}
-				this._timer = setTimeout(L.Util.bind(function() { this._complete(this._autocomplete); }, this),
-					this.options.timeout);
-				return;
-			}
-
-			this._unselect();
-		},
-
-		_select: function(dir) {
-			var sel = this._selection;
-			if (sel) {
-				L.DomUtil.removeClass(sel.firstChild, 'leaflet-routing-geocoder-selected');
-				sel = sel[dir > 0 ? 'nextSibling' : 'previousSibling'];
-			}
-			if (!sel) {
-				sel = this._resultTable[dir > 0 ? 'firstChild' : 'lastChild'];
-			}
-
-			if (sel) {
-				L.DomUtil.addClass(sel.firstChild, 'leaflet-routing-geocoder-selected');
-				this._selection = sel;
-			}
-		},
-
-		_unselect: function() {
-			if (this._selection) {
-				L.DomUtil.removeClass(this._selection.firstChild, 'leaflet-routing-geocoder-selected');
-			}
-			delete this._selection;
-		},
-
-		_keyDown: function(e) {
-			if (this._isOpen) {
-				switch (e.keyCode) {
-				// Escape
-				case 27:
-					this.close();
-					L.DomEvent.preventDefault(e);
-					return;
-				// Up
-				case 38:
-					this._select(-1);
-					L.DomEvent.preventDefault(e);
-					return;
-				// Down
-				case 40:
-					this._select(1);
-					L.DomEvent.preventDefault(e);
-					return;
-				}
-			}
-		},
-
-		_complete: function(completeFn, trySelect) {
-			var v = this._elem.value;
-			function completeResults(results) {
-				this._lastCompletedText = v;
-				if (trySelect && results.length === 1) {
-					this._resultSelected(results[0])();
-				} else {
-					this._setResults(results);
-				}
-			}
-
-			if (!v) {
-				return;
-			}
-
-			if (v !== this._lastCompletedText) {
-				completeFn(v, completeResults, this);
-			} else if (trySelect) {
-				completeResults.call(this, this._results);
-			}
-		}
-	});
-})();
-
-},{}],"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.Control.js":[function(require,module,exports){
-(function() {
-	'use strict';
-
-	var L = require('leaflet');
-
-	L.Routing = L.Routing || {};
-	L.extend(L.Routing, require('./L.Routing.Itinerary'));
-	L.extend(L.Routing, require('./L.Routing.Line'));
-	L.extend(L.Routing, require('./L.Routing.Plan'));
-	L.extend(L.Routing, require('./L.Routing.OSRM'));
-
-	L.Routing.Control = L.Routing.Itinerary.extend({
-		options: {
-			fitSelectedRoutes: 'smart',
-			routeLine: function(route, options) { return L.Routing.line(route, options); },
-			autoRoute: true,
-			routeWhileDragging: false,
-			routeDragInterval: 500,
-			waypointMode: 'connect',
-			useZoomParameter: false,
-			showAlternatives: false
-		},
-
-		initialize: function(options) {
-			L.Util.setOptions(this, options);
-
-			this._router = this.options.router || new L.Routing.OSRM(options);
-			this._plan = this.options.plan || L.Routing.plan(this.options.waypoints, options);
-			this._requestCount = 0;
-
-			L.Routing.Itinerary.prototype.initialize.call(this, options);
-
-			this.on('routeselected', this._routeSelected, this);
-			this._plan.on('waypointschanged', this._onWaypointsChanged, this);
-			if (options.routeWhileDragging) {
-				this._setupRouteDragging();
-			}
-
-			if (this.options.autoRoute) {
-				this.route();
-			}
-		},
-
-		onAdd: function(map) {
-			var container = L.Routing.Itinerary.prototype.onAdd.call(this, map);
-
-			this._map = map;
-			this._map.addLayer(this._plan);
-
-			if (this.options.useZoomParameter) {
-				this._map.on('zoomend', function() {
-					this.route({
-						callback: L.bind(this._updateLineCallback, this)
-					});
-				}, this);
-			}
-
-			if (this._plan.options.geocoder) {
-				container.insertBefore(this._plan.createGeocoders(), container.firstChild);
-			}
-
-			return container;
-		},
-
-		onRemove: function(map) {
-			if (this._line) {
-				map.removeLayer(this._line);
-			}
-			map.removeLayer(this._plan);
-			return L.Routing.Itinerary.prototype.onRemove.call(this, map);
-		},
-
-		getWaypoints: function() {
-			return this._plan.getWaypoints();
-		},
-
-		setWaypoints: function(waypoints) {
-			this._plan.setWaypoints(waypoints);
-			return this;
-		},
-
-		spliceWaypoints: function() {
-			var removed = this._plan.spliceWaypoints.apply(this._plan, arguments);
-			return removed;
-		},
-
-		getPlan: function() {
-			return this._plan;
-		},
-
-		getRouter: function() {
-			return this._router;
-		},
-
-		_routeSelected: function(e) {
-			var route = e.route,
-				alternatives = this.options.showAlternatives && e.alternatives,
-				fitMode = this.options.fitSelectedRoutes,
-				fitBounds =
-					(fitMode === 'smart' && !this._waypointsVisible()) ||
-					(fitMode !== 'smart' && fitMode);
-
-			this._updateLines({route: route, alternatives: alternatives});
-
-			if (fitBounds) {
-				this._map.fitBounds(this._line.getBounds());
-			}
-
-			if (this.options.waypointMode === 'snap') {
-				this._plan.off('waypointschanged', this._onWaypointsChanged, this);
-				this.setWaypoints(route.waypoints);
-				this._plan.on('waypointschanged', this._onWaypointsChanged, this);
-			}
-		},
-
-		_waypointsVisible: function() {
-			var wps = this.getWaypoints(),
-				mapSize,
-				bounds,
-				boundsSize,
-				i,
-				p;
-
-			try {
-				mapSize = this._map.getSize();
-
-				for (i = 0; i < wps.length; i++) {
-					p = this._map.latLngToLayerPoint(wps[i].latLng);
-
-					if (bounds) {
-						bounds.extend(p);
-					} else {
-						bounds = L.bounds([p]);
-					}
-				}
-
-				boundsSize = bounds.getSize();
-				return (boundsSize.x > mapSize.x / 5 ||
-					boundsSize.y > mapSize.y / 5) && this._waypointsInViewport();
-
-			} catch (e) {
-				return false;
-			}
-		},
-
-		_waypointsInViewport: function() {
-			var wps = this.getWaypoints(),
-				mapBounds,
-				i;
-
-			try {
-				mapBounds = this._map.getBounds();
-			} catch (e) {
-				return false;
-			}
-
-			for (i = 0; i < wps.length; i++) {
-				if (mapBounds.contains(wps[i].latLng)) {
-					return true;
-				}
-			}
-
-			return false;
-		},
-
-		_updateLines: function(routes) {
-			var addWaypoints = this.options.addWaypoints !== undefined ?
-				this.options.addWaypoints : true;
-			this._clearLines();
-
-			// add alternatives first so they lie below the main route
-			this._alternatives = [];
-			if (routes.alternatives) routes.alternatives.forEach(function(alt, i) {
-				this._alternatives[i] = this.options.routeLine(alt,
-					L.extend({
-						isAlternative: true
-					}, this.options.altLineOptions || this.options.lineOptions));
-				this._alternatives[i].addTo(this._map);
-				this._hookAltEvents(this._alternatives[i]);
-			}, this);
-
-			this._line = this.options.routeLine(routes.route,
-				L.extend({
-					addWaypoints: addWaypoints,
-					extendToWaypoints: this.options.waypointMode === 'connect'
-				}, this.options.lineOptions));
-			this._line.addTo(this._map);
-			this._hookEvents(this._line);
-		},
-
-		_hookEvents: function(l) {
-			l.on('linetouched', function(e) {
-				this._plan.dragNewWaypoint(e);
-			}, this);
-		},
-
-		_hookAltEvents: function(l) {
-			l.on('linetouched', function(e) {
-				var alts = this._routes.slice();
-				var selected = alts.splice(e.target._route.routesIndex, 1)[0];
-				this.fire('routeselected', {route: selected, alternatives: alts});
-			}, this);
-		},
-
-		_onWaypointsChanged: function(e) {
-			if (this.options.autoRoute) {
-				this.route({});
-			}
-			if (!this._plan.isReady()) {
-				this._clearLines();
-				this._clearAlts();
-			}
-			this.fire('waypointschanged', {waypoints: e.waypoints});
-		},
-
-		_setupRouteDragging: function() {
-			var timer = 0,
-				waypoints;
-
-			this._plan.on('waypointdrag', L.bind(function(e) {
-				waypoints = e.waypoints;
-
-				if (!timer) {
-					timer = setTimeout(L.bind(function() {
-						this.route({
-							waypoints: waypoints,
-							geometryOnly: true,
-							callback: L.bind(this._updateLineCallback, this)
-						});
-						timer = undefined;
-					}, this), this.options.routeDragInterval);
-				}
-			}, this));
-			this._plan.on('waypointdragend', function() {
-				if (timer) {
-					clearTimeout(timer);
-					timer = undefined;
-				}
-				this.route();
-			}, this);
-		},
-
-		_updateLineCallback: function(err, routes) {
-			if (!err) {
-				this._updateLines({route: routes[0], alternatives: routes.slice(1) });
-			}
-		},
-
-		route: function(options) {
-			var ts = ++this._requestCount,
-				wps;
-
-			options = options || {};
-
-			if (this._plan.isReady()) {
-				if (this.options.useZoomParameter) {
-					options.z = this._map && this._map.getZoom();
-				}
-
-				wps = options && options.waypoints || this._plan.getWaypoints();
-				this.fire('routingstart', {waypoints: wps});
-				this._router.route(wps, options.callback || function(err, routes) {
-					// Prevent race among multiple requests,
-					// by checking the current request's timestamp
-					// against the last request's; ignore result if
-					// this isn't the latest request.
-					if (ts === this._requestCount) {
-						this._clearLines();
-						this._clearAlts();
-						if (err) {
-							this.fire('routingerror', {error: err});
-							return;
-						}
-
-						routes.forEach(function(route, i) { route.routesIndex = i; });
-
-						if (!options.geometryOnly) {
-							this.fire('routesfound', {waypoints: wps, routes: routes});
-							this.setAlternatives(routes);
-						} else {
-							var selectedRoute = routes.splice(0,1)[0];
-							this._routeSelected({route: selectedRoute, alternatives: routes});
-						}
-					}
-				}, this, options);
-			}
-		},
-
-		_clearLines: function() {
-			if (this._line) {
-				this._map.removeLayer(this._line);
-				delete this._line;
-			}
-			if (this._alternatives && this._alternatives.length) {
-				for (var i in this._alternatives) {
-					this._map.removeLayer(this._alternatives[i]);
-				}
-				this._alternatives = [];
-			}
-		}
-	});
-
-	L.Routing.control = function(options) {
-		return new L.Routing.Control(options);
-	};
-
-	module.exports = L.Routing;
-})();
-
-},{"./L.Routing.Itinerary":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.Itinerary.js","./L.Routing.Line":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.Line.js","./L.Routing.OSRM":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.OSRM.js","./L.Routing.Plan":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.Plan.js","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.Formatter.js":[function(require,module,exports){
-(function() {
-	'use strict';
-
-	var L = require('leaflet');
-
-	L.Routing = L.Routing || {};
-
-	L.extend(L.Routing, require('./L.Routing.Localization'));
-
-	L.Routing.Formatter = L.Class.extend({
-		options: {
-			units: 'metric',
-			unitNames: {
-				meters: 'm',
-				kilometers: 'km',
-				yards: 'yd',
-				miles: 'mi',
-				hours: 'h',
-				minutes: 'mín',
-				seconds: 's'
-			},
-			language: 'en',
-			roundingSensitivity: 1,
-			distanceTemplate: '{value} {unit}'
-		},
-
-		initialize: function(options) {
-			L.setOptions(this, options);
-		},
-
-		formatDistance: function(d /* Number (meters) */, sensitivity) {
-			var un = this.options.unitNames,
-				simpleRounding = sensitivity <= 0,
-				round = simpleRounding ? function(v) { return v; } : L.bind(this._round, this),
-			    v,
-			    yards,
-				data,
-				pow10;
-
-			if (this.options.units === 'imperial') {
-				yards = d / 0.9144;
-				if (yards >= 1000) {
-					data = {
-						value: round(d / 1609.344, sensitivity),
-						unit: un.miles
-					};
-				} else {
-					data = {
-						value: round(yards, sensitivity),
-						unit: un.yards
-					};
-				}
-			} else {
-				v = round(d, sensitivity);
-				data = {
-					value: v >= 1000 ? (v / 1000) : v,
-					unit: v >= 1000 ? un.kilometers : un.meters
-				};
-			}
-
-			if (simpleRounding) {
-				pow10 = Math.pow(10, -sensitivity);
-				data.value = Math.round(data.value * pow10) / pow10;
-			}
-
-			return L.Util.template(this.options.distanceTemplate, data);
-		},
-
-		_round: function(d, sensitivity) {
-			var s = sensitivity || this.options.roundingSensitivity,
-				pow10 = Math.pow(10, (Math.floor(d / s) + '').length - 1),
-				r = Math.floor(d / pow10),
-				p = (r > 5) ? pow10 : pow10 / 2;
-
-			return Math.round(d / p) * p;
-		},
-
-		formatTime: function(t /* Number (seconds) */) {
-			if (t > 86400) {
-				return Math.round(t / 3600) + ' h';
-			} else if (t > 3600) {
-				return Math.floor(t / 3600) + ' h ' +
-					Math.round((t % 3600) / 60) + ' min';
-			} else if (t > 300) {
-				return Math.round(t / 60) + ' min';
-			} else if (t > 60) {
-				return Math.floor(t / 60) + ' min' +
-					(t % 60 !== 0 ? ' ' + (t % 60) + ' s' : '');
-			} else {
-				return t + ' s';
-			}
-		},
-
-		formatInstruction: function(instr, i) {
-			if (instr.text === undefined) {
-				return L.Util.template(this._getInstructionTemplate(instr, i),
-					L.extend({
-						exitStr: instr.exit ? L.Routing.Localization[this.options.language].formatOrder(instr.exit) : '',
-						dir: L.Routing.Localization[this.options.language].directions[instr.direction]
-					},
-					instr));
-			} else {
-				return instr.text;
-			}
-		},
-
-		getIconName: function(instr, i) {
-			switch (instr.type) {
-			case 'Straight':
-				return (i === 0 ? 'depart' : 'continue');
-			case 'SlightRight':
-				return 'bear-right';
-			case 'Right':
-				return 'turn-right';
-			case 'SharpRight':
-				return 'sharp-right';
-			case 'TurnAround':
-				return 'u-turn';
-			case 'SharpLeft':
-				return 'sharp-left';
-			case 'Left':
-				return 'turn-left';
-			case 'SlightLeft':
-				return 'bear-left';
-			case 'WaypointReached':
-				return 'via';
-			case 'Roundabout':
-				return 'enter-roundabout';
-			case 'DestinationReached':
-				return 'arrive';
-			}
-		},
-
-		_getInstructionTemplate: function(instr, i) {
-			var type = instr.type === 'Straight' ? (i === 0 ? 'Head' : 'Continue') : instr.type,
-				strings = L.Routing.Localization[this.options.language].instructions[type];
-
-			return strings[0] + (strings.length > 1 && instr.road ? strings[1] : '');
-		}
-	});
-
-	module.exports = L.Routing;
-})();
-
-
-},{"./L.Routing.Localization":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.Localization.js","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.GeocoderElement.js":[function(require,module,exports){
-(function() {
-	'use strict';
-
-	var L = require('leaflet');
-	L.Routing = L.Routing || {};
-	L.extend(L.Routing, require('./L.Routing.Autocomplete'));
-
-	function selectInputText(input) {
-		if (input.setSelectionRange) {
-			// On iOS, select() doesn't work
-			input.setSelectionRange(0, 9999);
-		} else {
-			// On at least IE8, setSeleectionRange doesn't exist
-			input.select();
-		}
-	}
-
-	L.Routing.GeocoderElement = L.Class.extend({
-		includes: L.Mixin.Events,
-
-		options: {
-			createGeocoder: function(i, nWps, options) {
-				var container = L.DomUtil.create('div', 'leaflet-routing-geocoder'),
-					input = L.DomUtil.create('input', '', container),
-					remove = options.addWaypoints ? L.DomUtil.create('span', 'leaflet-routing-remove-waypoint', container) : undefined;
-
-				input.disabled = !options.addWaypoints;
-
-				return {
-					container: container,
-					input: input,
-					closeButton: remove
-				};
-			},
-			geocoderPlaceholder: function(i, numberWaypoints, plan) {
-				var l = L.Routing.Localization[plan.options.language].ui;
-				return i === 0 ?
-					l.startPlaceholder :
-					(i < numberWaypoints - 1 ?
-						L.Util.template(l.viaPlaceholder, {viaNumber: i}) :
-						l.endPlaceholder);
-			},
-
-			geocoderClass: function() {
-				return '';
-			},
-
-			waypointNameFallback: function(latLng) {
-				var ns = latLng.lat < 0 ? 'S' : 'N',
-					ew = latLng.lng < 0 ? 'W' : 'E',
-					lat = (Math.round(Math.abs(latLng.lat) * 10000) / 10000).toString(),
-					lng = (Math.round(Math.abs(latLng.lng) * 10000) / 10000).toString();
-				return ns + lat + ', ' + ew + lng;
-			},
-			maxGeocoderTolerance: 200,
-			autocompleteOptions: {},
-			language: 'en',
-		},
-
-		initialize: function(wp, i, nWps, options) {
-			L.setOptions(this, options);
-
-			var g = this.options.createGeocoder(i, nWps, this.options),
-				closeButton = g.closeButton,
-				geocoderInput = g.input;
-			geocoderInput.setAttribute('placeholder', this.options.geocoderPlaceholder(i, nWps, this));
-			geocoderInput.className = this.options.geocoderClass(i, nWps);
-
-			this._element = g;
-			this._waypoint = wp;
-
-			this.update();
-			// This has to be here, or geocoder's value will not be properly
-			// initialized.
-			// TODO: look into why and make _updateWaypointName fix this.
-			geocoderInput.value = wp.name;
-
-			L.DomEvent.addListener(geocoderInput, 'click', function() {
-				selectInputText(this);
-			}, geocoderInput);
-
-			if (closeButton) {
-				L.DomEvent.addListener(closeButton, 'click', function() {
-					this.fire('delete', { waypoint: this._waypoint });
-				}, this);
-			}
-
-			new L.Routing.Autocomplete(geocoderInput, function(r) {
-					geocoderInput.value = r.name;
-					wp.name = r.name;
-					wp.latLng = r.center;
-					this.fire('geocoded', { waypoint: wp, value: r });
-				}, this, L.extend({
-					resultFn: this.options.geocoder.geocode,
-					resultContext: this.options.geocoder,
-					autocompleteFn: this.options.geocoder.suggest,
-					autocompleteContext: this.options.geocoder
-				}, this.options.autocompleteOptions));
-		},
-
-		getContainer: function() {
-			return this._element.container;
-		},
-
-		setValue: function(v) {
-			this._element.input.value = v;
-		},
-
-		update: function(force) {
-			var wp = this._waypoint,
-				wpCoords;
-
-			wp.name = wp.name || '';
-
-			if (wp.latLng && (force || !wp.name)) {
-				wpCoords = this.options.waypointNameFallback(wp.latLng);
-				if (this.options.geocoder && this.options.geocoder.reverse) {
-					this.options.geocoder.reverse(wp.latLng, 67108864 /* zoom 18 */, function(rs) {
-						if (rs.length > 0 && rs[0].center.distanceTo(wp.latLng) < this.options.maxGeocoderTolerance) {
-							wp.name = rs[0].name;
-						} else {
-							wp.name = wpCoords;
-						}
-						this._update();
-					}, this);
-				} else {
-					wp.name = wpCoords;
-					this._update();
-				}
-			}
-		},
-
-		focus: function() {
-			var input = this._element.input;
-			input.focus();
-			selectInputText(input);
-		},
-
-		_update: function() {
-			var wp = this._waypoint,
-			    value = wp && wp.name ? wp.name : '';
-			this.setValue(value);
-			this.fire('reversegeocoded', {waypoint: wp, value: value});
-		}
-	});
-
-	L.Routing.geocoderElement = function(wp, i, nWps, plan) {
-		return new L.Routing.GeocoderElement(wp, i, nWps, plan);
-	};
-
-	module.exports = L.Routing;
-})();
-
-},{"./L.Routing.Autocomplete":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.Autocomplete.js","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.Itinerary.js":[function(require,module,exports){
-(function() {
-	'use strict';
-
-	var L = require('leaflet');
-
-	L.Routing = L.Routing || {};
-	L.extend(L.Routing, require('./L.Routing.Formatter'));
-	L.extend(L.Routing, require('./L.Routing.ItineraryBuilder'));
-
-	L.Routing.Itinerary = L.Control.extend({
-		includes: L.Mixin.Events,
-
-		options: {
-			pointMarkerStyle: {
-				radius: 5,
-				color: '#03f',
-				fillColor: 'white',
-				opacity: 1,
-				fillOpacity: 0.7
-			},
-			summaryTemplate: '<h2>{name}</h2><h3>{distance}, {time}</h3>',
-			timeTemplate: '{time}',
-			containerClassName: '',
-			alternativeClassName: '',
-			minimizedClassName: '',
-			itineraryClassName: '',
-			totalDistanceRoundingSensitivity: -1,
-			show: true,
-			collapsible: undefined,
-			collapseBtn: function(itinerary) {
-				var collapseBtn = L.DomUtil.create('span', itinerary.options.collapseBtnClass);
-				L.DomEvent.on(collapseBtn, 'click', itinerary._toggle, itinerary);
-				itinerary._container.insertBefore(collapseBtn, itinerary._container.firstChild);
-			},
-			collapseBtnClass: 'leaflet-routing-collapse-btn'
-		},
-
-		initialize: function(options) {
-			L.setOptions(this, options);
-			this._formatter = this.options.formatter || new L.Routing.Formatter(this.options);
-			this._itineraryBuilder = this.options.itineraryBuilder || new L.Routing.ItineraryBuilder({
-				containerClassName: this.options.itineraryClassName
-			});
-		},
-
-		onAdd: function(map) {
-			var collapsible = this.options.collapsible;
-
-			collapsible = collapsible || (collapsible === undefined && map.getSize().x <= 640);
-
-			this._container = L.DomUtil.create('div', 'leaflet-routing-container leaflet-bar ' +
-				(!this.options.show ? 'leaflet-routing-container-hide ' : '') +
-				(collapsible ? 'leaflet-routing-collapsible ' : '') +
-				this.options.containerClassName);
-			this._altContainer = this.createAlternativesContainer();
-			this._container.appendChild(this._altContainer);
-			L.DomEvent.disableClickPropagation(this._container);
-			L.DomEvent.addListener(this._container, 'mousewheel', function(e) {
-				L.DomEvent.stopPropagation(e);
-			});
-
-			if (collapsible) {
-				this.options.collapseBtn(this);
-			}
-
-			return this._container;
-		},
-
-		onRemove: function() {
-		},
-
-		createAlternativesContainer: function() {
-			return L.DomUtil.create('div', 'leaflet-routing-alternatives-container');
-		},
-
-		setAlternatives: function(routes) {
-			var i,
-			    alt,
-			    altDiv;
-
-			this._clearAlts();
-
-			this._routes = routes;
-
-			for (i = 0; i < this._routes.length; i++) {
-				alt = this._routes[i];
-				altDiv = this._createAlternative(alt, i);
-				this._altContainer.appendChild(altDiv);
-				this._altElements.push(altDiv);
-			}
-
-			this._selectRoute({route: this._routes[0], alternatives: this._routes.slice(1)});
-
-			return this;
-		},
-
-		show: function() {
-			L.DomUtil.removeClass(this._container, 'leaflet-routing-container-hide');
-		},
-
-		hide: function() {
-			L.DomUtil.addClass(this._container, 'leaflet-routing-container-hide');
-		},
-
-		_toggle: function() {
-			var collapsed = L.DomUtil.hasClass(this._container, 'leaflet-routing-container-hide');
-			this[collapsed ? 'show' : 'hide']();
-		},
-
-		_createAlternative: function(alt, i) {
-			var altDiv = L.DomUtil.create('div', 'leaflet-routing-alt ' +
-				this.options.alternativeClassName +
-				(i > 0 ? ' leaflet-routing-alt-minimized ' + this.options.minimizedClassName : '')),
-				template = this.options.summaryTemplate,
-				data = L.extend({
-					name: alt.name,
-					distance: this._formatter.formatDistance(alt.summary.totalDistance, this.options.totalDistanceRoundingSensitivity),
-					time: this._formatter.formatTime(alt.summary.totalTime)
-				}, alt);
-			altDiv.innerHTML = typeof(template) === 'function' ? template(data) : L.Util.template(template, data);
-			L.DomEvent.addListener(altDiv, 'click', this._onAltClicked, this);
-			this.on('routeselected', this._selectAlt, this);
-
-			altDiv.appendChild(this._createItineraryContainer(alt));
-			return altDiv;
-		},
-
-		_clearAlts: function() {
-			var el = this._altContainer;
-			while (el && el.firstChild) {
-				el.removeChild(el.firstChild);
-			}
-
-			this._altElements = [];
-		},
-
-		_createItineraryContainer: function(r) {
-			var container = this._itineraryBuilder.createContainer(),
-			    steps = this._itineraryBuilder.createStepsContainer(),
-			    i,
-			    instr,
-			    step,
-			    distance,
-			    text,
-			    icon;
-
-			container.appendChild(steps);
-
-			for (i = 0; i < r.instructions.length; i++) {
-				instr = r.instructions[i];
-				text = this._formatter.formatInstruction(instr, i);
-				distance = this._formatter.formatDistance(instr.distance);
-				icon = this._formatter.getIconName(instr, i);
-				step = this._itineraryBuilder.createStep(text, distance, icon, steps);
-
-				this._addRowListeners(step, r.coordinates[instr.index]);
-			}
-
-			return container;
-		},
-
-		_addRowListeners: function(row, coordinate) {
-			L.DomEvent.addListener(row, 'mouseover', function() {
-				this._marker = L.circleMarker(coordinate,
-					this.options.pointMarkerStyle).addTo(this._map);
-			}, this);
-			L.DomEvent.addListener(row, 'mouseout', function() {
-				if (this._marker) {
-					this._map.removeLayer(this._marker);
-					delete this._marker;
-				}
-			}, this);
-			L.DomEvent.addListener(row, 'click', function(e) {
-				this._map.panTo(coordinate);
-				L.DomEvent.stopPropagation(e);
-			}, this);
-		},
-
-		_onAltClicked: function(e) {
-			var altElem = e.target || window.event.srcElement;
-			while (!L.DomUtil.hasClass(altElem, 'leaflet-routing-alt')) {
-				altElem = altElem.parentElement;
-			}
-
-			var j = this._altElements.indexOf(altElem);
-			var alts = this._routes.slice();
-			var route = alts.splice(j, 1)[0];
-
-			this.fire('routeselected', {
-				route: route,
-				alternatives: alts
-			});
-		},
-
-		_selectAlt: function(e) {
-			var altElem,
-			    j,
-			    n,
-			    classFn;
-
-			altElem = this._altElements[e.route.routesIndex];
-
-			if (L.DomUtil.hasClass(altElem, 'leaflet-routing-alt-minimized')) {
-				for (j = 0; j < this._altElements.length; j++) {
-					n = this._altElements[j];
-					classFn = j === e.route.routesIndex ? 'removeClass' : 'addClass';
-					L.DomUtil[classFn](n, 'leaflet-routing-alt-minimized');
-					if (this.options.minimizedClassName) {
-						L.DomUtil[classFn](n, this.options.minimizedClassName);
-					}
-
-					if (j !== e.route.routesIndex) n.scrollTop = 0;
-				}
-			}
-
-			L.DomEvent.stop(e);
-		},
-
-		_selectRoute: function(routes) {
-			if (this._marker) {
-				this._map.removeLayer(this._marker);
-				delete this._marker;
-			}
-			this.fire('routeselected', routes);
-		}
-	});
-
-	L.Routing.itinerary = function(options) {
-		return new L.Routing.Itinerary(options);
-	};
-
-	module.exports = L.Routing;
-})();
-
-},{"./L.Routing.Formatter":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.Formatter.js","./L.Routing.ItineraryBuilder":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.ItineraryBuilder.js","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.ItineraryBuilder.js":[function(require,module,exports){
-(function() {
-	'use strict';
-
-	var L = require('leaflet');
-	L.Routing = L.Routing || {};
-
-	L.Routing.ItineraryBuilder = L.Class.extend({
-		options: {
-			containerClassName: ''
-		},
-
-		initialize: function(options) {
-			L.setOptions(this, options);
-		},
-
-		createContainer: function(className) {
-			var table = L.DomUtil.create('table', className || ''),
-				colgroup = L.DomUtil.create('colgroup', '', table);
-
-			L.DomUtil.create('col', 'leaflet-routing-instruction-icon', colgroup);
-			L.DomUtil.create('col', 'leaflet-routing-instruction-text', colgroup);
-			L.DomUtil.create('col', 'leaflet-routing-instruction-distance', colgroup);
-
-			return table;
-		},
-
-		createStepsContainer: function() {
-			return L.DomUtil.create('tbody', '');
-		},
-
-		createStep: function(text, distance, icon, steps) {
-			var row = L.DomUtil.create('tr', '', steps),
-				span,
-				td;
-			td = L.DomUtil.create('td', '', row);
-			span = L.DomUtil.create('span', 'leaflet-routing-icon leaflet-routing-icon-'+icon, td);
-			td.appendChild(span);
-			td = L.DomUtil.create('td', '', row);
-			td.appendChild(document.createTextNode(text));
-			td = L.DomUtil.create('td', '', row);
-			td.appendChild(document.createTextNode(distance));
-			return row;
-		}
-	});
-
-	module.exports = L.Routing;
-})();
-
-},{"leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.Line.js":[function(require,module,exports){
-(function() {
-	'use strict';
-
-	var L = require('leaflet');
-
-	L.Routing = L.Routing || {};
-
-	L.Routing.Line = L.LayerGroup.extend({
-		includes: L.Mixin.Events,
-
-		options: {
-			styles: [
-				{color: 'black', opacity: 0.15, weight: 9},
-				{color: 'white', opacity: 0.8, weight: 6},
-				{color: 'red', opacity: 1, weight: 2}
-			],
-			missingRouteStyles: [
-				{color: 'black', opacity: 0.15, weight: 7},
-				{color: 'white', opacity: 0.6, weight: 4},
-				{color: 'gray', opacity: 0.8, weight: 2, dashArray: '7,12'}
-			],
-			addWaypoints: true,
-			extendToWaypoints: true,
-			missingRouteTolerance: 10
-		},
-
-		initialize: function(route, options) {
-			L.setOptions(this, options);
-			L.LayerGroup.prototype.initialize.call(this, options);
-			this._route = route;
-
-			if (this.options.extendToWaypoints) {
-				this._extendToWaypoints();
-			}
-
-			this._addSegment(
-				route.coordinates,
-				this.options.styles,
-				this.options.addWaypoints);
-		},
-
-		addTo: function(map) {
-			map.addLayer(this);
-			return this;
-		},
-		getBounds: function() {
-			return L.latLngBounds(this._route.coordinates);
-		},
-
-		_findWaypointIndices: function() {
-			var wps = this._route.inputWaypoints,
-			    indices = [],
-			    i;
-			for (i = 0; i < wps.length; i++) {
-				indices.push(this._findClosestRoutePoint(wps[i].latLng));
-			}
-
-			return indices;
-		},
-
-		_findClosestRoutePoint: function(latlng) {
-			var minDist = Number.MAX_VALUE,
-				minIndex,
-			    i,
-			    d;
-
-			for (i = this._route.coordinates.length - 1; i >= 0 ; i--) {
-				// TODO: maybe do this in pixel space instead?
-				d = latlng.distanceTo(this._route.coordinates[i]);
-				if (d < minDist) {
-					minIndex = i;
-					minDist = d;
-				}
-			}
-
-			return minIndex;
-		},
-
-		_extendToWaypoints: function() {
-			var wps = this._route.inputWaypoints,
-				wpIndices = this._getWaypointIndices(),
-			    i,
-			    wpLatLng,
-			    routeCoord;
-
-			for (i = 0; i < wps.length; i++) {
-				wpLatLng = wps[i].latLng;
-				routeCoord = L.latLng(this._route.coordinates[wpIndices[i]]);
-				if (wpLatLng.distanceTo(routeCoord) >
-					this.options.missingRouteTolerance) {
-					this._addSegment([wpLatLng, routeCoord],
-						this.options.missingRouteStyles);
-				}
-			}
-		},
-
-		_addSegment: function(coords, styles, mouselistener) {
-			var i,
-				pl;
-
-			for (i = 0; i < styles.length; i++) {
-				pl = L.polyline(coords, styles[i]);
-				this.addLayer(pl);
-				if (mouselistener) {
-					pl.on('mousedown', this._onLineTouched, this);
-				}
-			}
-		},
-
-		_findNearestWpBefore: function(i) {
-			var wpIndices = this._getWaypointIndices(),
-				j = wpIndices.length - 1;
-			while (j >= 0 && wpIndices[j] > i) {
-				j--;
-			}
-
-			return j;
-		},
-
-		_onLineTouched: function(e) {
-			var afterIndex = this._findNearestWpBefore(this._findClosestRoutePoint(e.latlng));
-			this.fire('linetouched', {
-				afterIndex: afterIndex,
-				latlng: e.latlng
-			});
-		},
-
-		_getWaypointIndices: function() {
-			if (!this._wpIndices) {
-				this._wpIndices = this._route.waypointIndices || this._findWaypointIndices();
-			}
-
-			return this._wpIndices;
-		}
-	});
-
-	L.Routing.line = function(route, options) {
-		return new L.Routing.Line(route, options);
-	};
-
-	module.exports = L.Routing;
-})();
-
-},{"leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.Localization.js":[function(require,module,exports){
-(function() {
-	'use strict';
-	L.Routing = L.Routing || {};
-
-	L.Routing.Localization = {
-		'en': {
-			directions: {
-				N: 'north',
-				NE: 'northeast',
-				E: 'east',
-				SE: 'southeast',
-				S: 'south',
-				SW: 'southwest',
-				W: 'west',
-				NW: 'northwest'
-			},
-			instructions: {
-				// instruction, postfix if the road is named
-				'Head':
-					['Head {dir}', ' on {road}'],
-				'Continue':
-					['Continue {dir}', ' on {road}'],
-				'SlightRight':
-					['Slight right', ' onto {road}'],
-				'Right':
-					['Right', ' onto {road}'],
-				'SharpRight':
-					['Sharp right', ' onto {road}'],
-				'TurnAround':
-					['Turn around'],
-				'SharpLeft':
-					['Sharp left', ' onto {road}'],
-				'Left':
-					['Left', ' onto {road}'],
-				'SlightLeft':
-					['Slight left', ' onto {road}'],
-				'WaypointReached':
-					['Waypoint reached'],
-				'Roundabout':
-					['Take the {exitStr} exit in the roundabout', ' onto {road}'],
-				'DestinationReached':
-					['Destination reached'],
-			},
-			formatOrder: function(n) {
-				var i = n % 10 - 1,
-				suffix = ['st', 'nd', 'rd'];
-
-				return suffix[i] ? n + suffix[i] : n + 'th';
-			},
-			ui: {
-				startPlaceholder: 'Start',
-				viaPlaceholder: 'Via {viaNumber}',
-				endPlaceholder: 'End'
-			}
-		},
-
-		'de': {
-			directions: {
-				N: 'Norden',
-				NE: 'Nordosten',
-				E: 'Osten',
-				SE: 'Südosten',
-				S: 'Süden',
-				SW: 'Südwesten',
-				W: 'Westen',
-				NW: 'Nordwesten'
-			},
-			instructions: {
-				// instruction, postfix if the road is named
-				'Head':
-					['Richtung {dir}', ' auf {road}'],
-				'Continue':
-					['Geradeaus Richtung {dir}', ' auf {road}'],
-				'SlightRight':
-					['Leicht rechts abbiegen', ' auf {road}'],
-				'Right':
-					['Rechts abbiegen', ' auf {road}'],
-				'SharpRight':
-					['Scharf rechts abbiegen', ' auf {road}'],
-				'TurnAround':
-					['Wenden'],
-				'SharpLeft':
-					['Scharf links abbiegen', ' auf {road}'],
-				'Left':
-					['Links abbiegen', ' auf {road}'],
-				'SlightLeft':
-					['Leicht links abbiegen', ' auf {road}'],
-				'WaypointReached':
-					['Zwischenhalt erreicht'],
-				'Roundabout':
-					['Nehmen Sie die {exitStr} Ausfahrt im Kreisverkehr', ' auf {road}'],
-				'DestinationReached':
-					['Sie haben ihr Ziel erreicht'],
-			},
-			formatOrder: function(n) {
-				return n + '.';
-			},
-			ui: {
-				startPlaceholder: 'Start',
-				viaPlaceholder: 'Via {viaNumber}',
-				endPlaceholder: 'Ziel'
-			}
-		},
-
-		'sv': {
-			directions: {
-				N: 'norr',
-				NE: 'nordost',
-				E: 'öst',
-				SE: 'sydost',
-				S: 'syd',
-				SW: 'sydväst',
-				W: 'väst',
-				NW: 'nordväst'
-			},
-			instructions: {
-				// instruction, postfix if the road is named
-				'Head':
-					['Åk åt {dir}', ' på {road}'],
-				'Continue':
-					['Fortsätt {dir}', ' på {road}'],
-				'SlightRight':
-					['Svagt höger', ' på {road}'],
-				'Right':
-					['Sväng höger', ' på {road}'],
-				'SharpRight':
-					['Skarpt höger', ' på {road}'],
-				'TurnAround':
-					['Vänd'],
-				'SharpLeft':
-					['Skarpt vänster', ' på {road}'],
-				'Left':
-					['Sväng vänster', ' på {road}'],
-				'SlightLeft':
-					['Svagt vänster', ' på {road}'],
-				'WaypointReached':
-					['Viapunkt nådd'],
-				'Roundabout':
-					['Tag {exitStr} avfarten i rondellen', ' till {road}'],
-				'DestinationReached':
-					['Framme vid resans mål'],
-			},
-			formatOrder: function(n) {
-				return ['första', 'andra', 'tredje', 'fjärde', 'femte',
-					'sjätte', 'sjunde', 'åttonde', 'nionde', 'tionde'
-					/* Can't possibly be more than ten exits, can there? */][n - 1];
-			},
-			ui: {
-				startPlaceholder: 'Från',
-				viaPlaceholder: 'Via {viaNumber}',
-				endPlaceholder: 'Till'
-			}
-		},
-
-		'sp': {
-			directions: {
-				N: 'norte',
-				NE: 'noreste',
-				E: 'este',
-				SE: 'sureste',
-				S: 'sur',
-				SW: 'suroeste',
-				W: 'oeste',
-				NW: 'noroeste'
-			},
-			instructions: {
-				// instruction, postfix if the road is named
-				'Head':
-					['Derecho {dir}', ' sobre {road}'],
-				'Continue':
-					['Continuar {dir}', ' en {road}'],
-				'SlightRight':
-					['Leve giro a la derecha', ' sobre {road}'],
-				'Right':
-					['Derecha', ' sobre {road}'],
-				'SharpRight':
-					['Giro pronunciado a la derecha', ' sobre {road}'],
-				'TurnAround':
-					['Dar vuelta'],
-				'SharpLeft':
-					['Giro pronunciado a la izquierda', ' sobre {road}'],
-				'Left':
-					['Izquierda', ' en {road}'],
-				'SlightLeft':
-					['Leve giro a la izquierda', ' en {road}'],
-				'WaypointReached':
-					['Llegó a un punto del camino'],
-				'Roundabout':
-					['Tomar {exitStr} salida en la rotonda', ' en {road}'],
-				'DestinationReached':
-					['Llegada a destino'],
-			},
-			formatOrder: function(n) {
-				return n + 'º';
-			},
-			ui: {
-				startPlaceholder: 'Inicio',
-				viaPlaceholder: 'Via {viaNumber}',
-				endPlaceholder: 'Destino'
-			}
-		},
-		'nl': {
-			directions: {
-				N: 'noordelijke',
-				NE: 'noordoostelijke',
-				E: 'oostelijke',
-				SE: 'zuidoostelijke',
-				S: 'zuidelijke',
-				SW: 'zuidewestelijke',
-				W: 'westelijke',
-				NW: 'noordwestelijke'
-			},
-			instructions: {
-				// instruction, postfix if the road is named
-				'Head':
-					['Vertrek in {dir} richting', ' de {road} op'],
-				'Continue':
-					['Ga in {dir} richting', ' de {road} op'],
-				'SlightRight':
-					['Volg de weg naar rechts', ' de {road} op'],
-				'Right':
-					['Ga rechtsaf', ' de {road} op'],
-				'SharpRight':
-					['Ga scherpe bocht naar rechts', ' de {road} op'],
-				'TurnAround':
-					['Keer om'],
-				'SharpLeft':
-					['Ga scherpe bocht naar links', ' de {road} op'],
-				'Left':
-					['Ga linksaf', ' de {road} op'],
-				'SlightLeft':
-					['Volg de weg naar links', ' de {road} op'],
-				'WaypointReached':
-					['Aangekomen bij tussenpunt'],
-				'Roundabout':
-					['Neem de {exitStr} afslag op de rotonde', ' de {road} op'],
-				'DestinationReached':
-					['Aangekomen op eindpunt'],
-			},
-			formatOrder: function(n) {
-				if (n === 1 || n >= 20) {
-					return n + 'ste';
-				} else {
-					return n + 'de';
-				}
-			},
-			ui: {
-				startPlaceholder: 'Vertrekpunt',
-				viaPlaceholder: 'Via {viaNumber}',
-				endPlaceholder: 'Bestemming'
-			}
-		},
-		'fr': {
-			directions: {
-				N: 'nord',
-				NE: 'nord-est',
-				E: 'est',
-				SE: 'sud-est',
-				S: 'sud',
-				SW: 'sud-ouest',
-				W: 'ouest',
-				NW: 'nord-ouest'
-			},
-			instructions: {
-				// instruction, postfix if the road is named
-				'Head':
-					['Tout droit au {dir}', ' sur {road}'],
-				'Continue':
-					['Continuer au {dir}', ' sur {road}'],
-				'SlightRight':
-					['Légèrement à droite', ' sur {road}'],
-				'Right':
-					['A droite', ' sur {road}'],
-				'SharpRight':
-					['Complètement à droite', ' sur {road}'],
-				'TurnAround':
-					['Faire demi-tour'],
-				'SharpLeft':
-					['Complètement à gauche', ' sur {road}'],
-				'Left':
-					['A gauche', ' sur {road}'],
-				'SlightLeft':
-					['Légèrement à gauche', ' sur {road}'],
-				'WaypointReached':
-					['Point d\'étape atteint'],
-				'Roundabout':
-					['Au rond-point, prenez la {exitStr} sortie', ' sur {road}'],
-				'DestinationReached':
-					['Destination atteinte'],
-			},
-			formatOrder: function(n) {
-				return n + 'º';
-			},
-			ui: {
-				startPlaceholder: 'Départ',
-				viaPlaceholder: 'Intermédiaire {viaNumber}',
-				endPlaceholder: 'Arrivée'
-			}
-		},
-		'it': {
-			directions: {
-				N: 'nord',
-				NE: 'nord-est',
-				E: 'est',
-				SE: 'sud-est',
-				S: 'sud',
-				SW: 'sud-ovest',
-				W: 'ovest',
-				NW: 'nord-ovest'
-			},
-			instructions: {
-				// instruction, postfix if the road is named
-				'Head':
-					['Dritto verso {dir}', ' su {road}'],
-				'Continue':
-					['Continuare verso {dir}', ' su {road}'],
-				'SlightRight':
-					['Mantenere la destra', ' su {road}'],
-				'Right':
-					['A destra', ' su {road}'],
-				'SharpRight':
-					['Strettamente a destra', ' su {road}'],
-				'TurnAround':
-					['Fare inversione di marcia'],
-				'SharpLeft':
-					['Strettamente a sinistra', ' su {road}'],
-				'Left':
-					['A sinistra', ' sur {road}'],
-				'SlightLeft':
-					['Mantenere la sinistra', ' su {road}'],
-				'WaypointReached':
-					['Punto di passaggio raggiunto'],
-				'Roundabout':
-					['Alla rotonda, prendere la {exitStr} uscita'],
-				'DestinationReached':
-					['Destinazione raggiunta'],
-			},
-			formatOrder: function(n) {
-				return n + 'º';
-			},
-			ui: {
-				startPlaceholder: 'Partenza',
-				viaPlaceholder: 'Intermedia {viaNumber}',
-				endPlaceholder: 'Destinazione'
-			}
-		},
-		'pt': {
-			directions: {
-				N: 'norte',
-				NE: 'nordeste',
-				E: 'leste',
-				SE: 'sudeste',
-				S: 'sul',
-				SW: 'sudoeste',
-				W: 'oeste',
-				NW: 'noroeste'
-			},
-			instructions: {
-				// instruction, postfix if the road is named
-				'Head':
-					['Siga {dir}', ' na {road}'],
-				'Continue':
-					['Continue {dir}', ' na {road}'],
-				'SlightRight':
-					['Curva ligeira a direita', ' na {road}'],
-				'Right':
-					['Curva a direita', ' na {road}'],
-				'SharpRight':
-					['Curva fechada a direita', ' na {road}'],
-				'TurnAround':
-					['Retorne'],
-				'SharpLeft':
-					['Curva fechada a esquerda', ' na {road}'],
-				'Left':
-					['Curva a esquerda', ' na {road}'],
-				'SlightLeft':
-					['Curva ligueira a esquerda', ' na {road}'],
-				'WaypointReached':
-					['Ponto de interesse atingido'],
-				'Roundabout':
-					['Pegue a {exitStr} saída na rotatória', ' na {road}'],
-				'DestinationReached':
-					['Destino atingido'],
-			},
-			formatOrder: function(n) {
-				return n + 'º';
-			},
-			ui: {
-				startPlaceholder: 'Origem',
-				viaPlaceholder: 'Intermédio {viaNumber}',
-				endPlaceholder: 'Destino'
-			}
-		},
-	};
-
-	module.exports = L.Routing;
-})();
-
-},{}],"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.OSRM.js":[function(require,module,exports){
-(function() {
-	'use strict';
-
-	var L = require('leaflet'),
-		corslite = require('corslite'),
-		polyline = require('polyline');
-
-	// Ignore camelcase naming for this file, since OSRM's API uses
-	// underscores.
-	/* jshint camelcase: false */
-
-	L.Routing = L.Routing || {};
-	L.extend(L.Routing, require('./L.Routing.Waypoint'));
-
-	L.Routing.OSRM = L.Class.extend({
-		options: {
-			serviceUrl: '//router.project-osrm.org/viaroute',
-			timeout: 30 * 1000,
-			routingOptions: {}
-		},
-
-		initialize: function(options) {
-			L.Util.setOptions(this, options);
-			this._hints = {
-				locations: {}
-			};
-		},
-
-		route: function(waypoints, callback, context, options) {
-			var timedOut = false,
-				wps = [],
-				url,
-				timer,
-				wp,
-				i;
-
-			url = this.buildRouteUrl(waypoints, L.extend({}, this.options.routingOptions, options));
-
-			timer = setTimeout(function() {
-				timedOut = true;
-				callback.call(context || callback, {
-					status: -1,
-					message: 'OSRM request timed out.'
-				});
-			}, this.options.timeout);
-
-			// Create a copy of the waypoints, since they
-			// might otherwise be asynchronously modified while
-			// the request is being processed.
-			for (i = 0; i < waypoints.length; i++) {
-				wp = waypoints[i];
-				wps.push(new L.Routing.Waypoint(wp.latLng, wp.name, wp.options));
-			}
-
-			corslite(url, L.bind(function(err, resp) {
-				var data;
-
-				clearTimeout(timer);
-				if (!timedOut) {
-					if (!err) {
-						data = JSON.parse(resp.responseText);
-						this._routeDone(data, wps, callback, context);
-					} else {
-						callback.call(context || callback, {
-							status: -1,
-							message: 'HTTP request failed: ' + err
-						});
-					}
-				}
-			}, this));
-
-			return this;
-		},
-
-		_routeDone: function(response, inputWaypoints, callback, context) {
-			var coordinates,
-			    alts,
-			    actualWaypoints,
-			    i;
-
-			context = context || callback;
-			if (response.status !== 0) {
-				callback.call(context, {
-					status: response.status,
-					message: response.status_message
-				});
-				return;
-			}
-
-			coordinates = this._decodePolyline(response.route_geometry);
-			actualWaypoints = this._toWaypoints(inputWaypoints, response.via_points);
-			alts = [{
-				name: this._createName(response.route_name),
-				coordinates: coordinates,
-				instructions: response.route_instructions ? this._convertInstructions(response.route_instructions) : [],
-				summary: response.route_summary ? this._convertSummary(response.route_summary) : [],
-				inputWaypoints: inputWaypoints,
-				waypoints: actualWaypoints,
-				waypointIndices: this._clampIndices(response.via_indices, coordinates)
-			}];
-
-			if (response.alternative_geometries) {
-				for (i = 0; i < response.alternative_geometries.length; i++) {
-					coordinates = this._decodePolyline(response.alternative_geometries[i]);
-					alts.push({
-						name: this._createName(response.alternative_names[i]),
-						coordinates: coordinates,
-						instructions: response.alternative_instructions[i] ? this._convertInstructions(response.alternative_instructions[i]) : [],
-						summary: response.alternative_summaries[i] ? this._convertSummary(response.alternative_summaries[i]) : [],
-						inputWaypoints: inputWaypoints,
-						waypoints: actualWaypoints,
-						waypointIndices: this._clampIndices(response.alternative_geometries.length === 1 ?
-							// Unsure if this is a bug in OSRM or not, but alternative_indices
-							// does not appear to be an array of arrays, at least not when there is
-							// a single alternative route.
-							response.alternative_indices : response.alternative_indices[i],
-							coordinates)
-					});
-				}
-			}
-
-			// only versions <4.5.0 will support this flag
-			if (response.hint_data) {
-				this._saveHintData(response.hint_data, inputWaypoints);
-			}
-			callback.call(context, null, alts);
-		},
-
-		_decodePolyline: function(routeGeometry) {
-			var cs = polyline.decode(routeGeometry, 6),
-				result = new Array(cs.length),
-				i;
-			for (i = cs.length - 1; i >= 0; i--) {
-				result[i] = L.latLng(cs[i]);
-			}
-
-			return result;
-		},
-
-		_toWaypoints: function(inputWaypoints, vias) {
-			var wps = [],
-			    i;
-			for (i = 0; i < vias.length; i++) {
-				wps.push(L.Routing.waypoint(L.latLng(vias[i]),
-				                            inputWaypoints[i].name,
-				                            inputWaypoints[i].options));
-			}
-
-			return wps;
-		},
-
-		_createName: function(nameParts) {
-			var name = '',
-				i;
-
-			for (i = 0; i < nameParts.length; i++) {
-				if (nameParts[i]) {
-					if (name) {
-						name += ', ';
-					}
-					name += nameParts[i].charAt(0).toUpperCase() + nameParts[i].slice(1);
-				}
-			}
-
-			return name;
-		},
-
-		buildRouteUrl: function(waypoints, options) {
-			var locs = [],
-				wp,
-			    computeInstructions,
-			    computeAlternative,
-			    locationKey,
-			    hint;
-
-			for (var i = 0; i < waypoints.length; i++) {
-				wp = waypoints[i];
-				locationKey = this._locationKey(wp.latLng);
-				locs.push('loc=' + locationKey);
-
-				hint = this._hints.locations[locationKey];
-				if (hint) {
-					locs.push('hint=' + hint);
-				}
-
-				if (wp.options && wp.options.allowUTurn) {
-					locs.push('u=true');
-				}
-			}
-
-			computeAlternative = computeInstructions =
-				!(options && options.geometryOnly);
-
-			return this.options.serviceUrl + '?' +
-				'instructions=' + computeInstructions.toString() + '&' +
-				'alt=' + computeAlternative.toString() + '&' +
-				(options.z ? 'z=' + options.z + '&' : '') +
-				locs.join('&') +
-				(this._hints.checksum !== undefined ? '&checksum=' + this._hints.checksum : '') +
-				(options.fileformat ? '&output=' + options.fileformat : '') +
-				(options.allowUTurns ? '&uturns=' + options.allowUTurns : '');
-		},
-
-		_locationKey: function(location) {
-			return location.lat + ',' + location.lng;
-		},
-
-		_saveHintData: function(hintData, waypoints) {
-			var loc;
-			this._hints = {
-				checksum: hintData.checksum,
-				locations: {}
-			};
-			for (var i = hintData.locations.length - 1; i >= 0; i--) {
-				loc = waypoints[i].latLng;
-				this._hints.locations[this._locationKey(loc)] = hintData.locations[i];
-			}
-		},
-
-		_convertSummary: function(osrmSummary) {
-			return {
-				totalDistance: osrmSummary.total_distance,
-				totalTime: osrmSummary.total_time
-			};
-		},
-
-		_convertInstructions: function(osrmInstructions) {
-			var result = [],
-			    i,
-			    instr,
-			    type,
-			    driveDir;
-
-			for (i = 0; i < osrmInstructions.length; i++) {
-				instr = osrmInstructions[i];
-				type = this._drivingDirectionType(instr[0]);
-				driveDir = instr[0].split('-');
-				if (type) {
-					result.push({
-						type: type,
-						distance: instr[2],
-						time: instr[4],
-						road: instr[1],
-						direction: instr[6],
-						exit: driveDir.length > 1 ? driveDir[1] : undefined,
-						index: instr[3]
-					});
-				}
-			}
-
-			return result;
-		},
-
-		_drivingDirectionType: function(d) {
-			switch (parseInt(d, 10)) {
-			case 1:
-				return 'Straight';
-			case 2:
-				return 'SlightRight';
-			case 3:
-				return 'Right';
-			case 4:
-				return 'SharpRight';
-			case 5:
-				return 'TurnAround';
-			case 6:
-				return 'SharpLeft';
-			case 7:
-				return 'Left';
-			case 8:
-				return 'SlightLeft';
-			case 9:
-				return 'WaypointReached';
-			case 10:
-				// TODO: "Head on"
-				// https://github.com/DennisOSRM/Project-OSRM/blob/master/DataStructures/TurnInstructions.h#L48
-				return 'Straight';
-			case 11:
-			case 12:
-				return 'Roundabout';
-			case 15:
-				return 'DestinationReached';
-			default:
-				return null;
-			}
-		},
-
-		_clampIndices: function(indices, coords) {
-			var maxCoordIndex = coords.length - 1,
-				i;
-			for (i = 0; i < indices.length; i++) {
-				indices[i] = Math.min(maxCoordIndex, Math.max(indices[i], 0));
-			}
-			return indices;
-		}
-	});
-
-	L.Routing.osrm = function(options) {
-		return new L.Routing.OSRM(options);
-	};
-
-	module.exports = L.Routing;
-})();
-
-},{"./L.Routing.Waypoint":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.Waypoint.js","corslite":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/node_modules/corslite/corslite.js","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js","polyline":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/node_modules/polyline/src/polyline.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.Plan.js":[function(require,module,exports){
-(function() {
-	'use strict';
-
-	var L = require('leaflet');
-	L.Routing = L.Routing || {};
-	L.extend(L.Routing, require('./L.Routing.GeocoderElement'));
-	L.extend(L.Routing, require('./L.Routing.Waypoint'));
-
-	L.Routing.Plan = L.Class.extend({
-		includes: L.Mixin.Events,
-
-		options: {
-			dragStyles: [
-				{color: 'black', opacity: 0.15, weight: 9},
-				{color: 'white', opacity: 0.8, weight: 6},
-				{color: 'red', opacity: 1, weight: 2, dashArray: '7,12'}
-			],
-			draggableWaypoints: true,
-			routeWhileDragging: false,
-			addWaypoints: true,
-			reverseWaypoints: false,
-			addButtonClassName: '',
-			language: 'en',
-			createGeocoderElement: L.Routing.geocoderElement,
-			createMarker: function(i, wp) {
-				var options = {
-						draggable: this.draggableWaypoints
-					},
-				    marker = L.marker(wp.latLng, options);
-
-				return marker;
-			},
-			geocodersClassName: ''
-		},
-
-		initialize: function(waypoints, options) {
-			L.Util.setOptions(this, options);
-			this._waypoints = [];
-			this.setWaypoints(waypoints);
-		},
-
-		isReady: function() {
-			var i;
-			for (i = 0; i < this._waypoints.length; i++) {
-				if (!this._waypoints[i].latLng) {
-					return false;
-				}
-			}
-
-			return true;
-		},
-
-		getWaypoints: function() {
-			var i,
-				wps = [];
-
-			for (i = 0; i < this._waypoints.length; i++) {
-				wps.push(this._waypoints[i]);
-			}
-
-			return wps;
-		},
-
-		setWaypoints: function(waypoints) {
-			var args = [0, this._waypoints.length].concat(waypoints);
-			this.spliceWaypoints.apply(this, args);
-			return this;
-		},
-
-		spliceWaypoints: function() {
-			var args = [arguments[0], arguments[1]],
-			    i;
-
-			for (i = 2; i < arguments.length; i++) {
-				args.push(arguments[i] && arguments[i].hasOwnProperty('latLng') ? arguments[i] : L.Routing.waypoint(arguments[i]));
-			}
-
-			[].splice.apply(this._waypoints, args);
-
-			// Make sure there's always at least two waypoints
-			while (this._waypoints.length < 2) {
-				this.spliceWaypoints(this._waypoints.length, 0, null);
-			}
-
-			this._updateMarkers();
-			this._fireChanged.apply(this, args);
-		},
-
-		onAdd: function(map) {
-			this._map = map;
-			this._updateMarkers();
-		},
-
-		onRemove: function() {
-			var i;
-			this._removeMarkers();
-
-			if (this._newWp) {
-				for (i = 0; i < this._newWp.lines.length; i++) {
-					this._map.removeLayer(this._newWp.lines[i]);
-				}
-			}
-
-			delete this._map;
-		},
-
-		createGeocoders: function() {
-			var container = L.DomUtil.create('div', 'leaflet-routing-geocoders ' + this.options.geocodersClassName),
-				waypoints = this._waypoints,
-			    addWpBtn,
-			    reverseBtn;
-
-			this._geocoderContainer = container;
-			this._geocoderElems = [];
-
-
-			if (this.options.addWaypoints) {
-				addWpBtn = L.DomUtil.create('button', 'leaflet-routing-add-waypoint ' + this.options.addButtonClassName, container);
-				addWpBtn.setAttribute('type', 'button');
-				L.DomEvent.addListener(addWpBtn, 'click', function() {
-					this.spliceWaypoints(waypoints.length, 0, null);
-				}, this);
-			}
-
-			if (this.options.reverseWaypoints) {
-				reverseBtn = L.DomUtil.create('button', 'leaflet-routing-reverse-waypoints', container);
-				reverseBtn.setAttribute('type', 'button');
-				L.DomEvent.addListener(reverseBtn, 'click', function() {
-					this._waypoints.reverse();
-					this.setWaypoints(this._waypoints);
-				}, this);
-			}
-
-			this._updateGeocoders();
-			this.on('waypointsspliced', this._updateGeocoders);
-
-			return container;
-		},
-
-		_createGeocoder: function(i) {
-			var geocoder = this.options.createGeocoderElement(this._waypoints[i], i, this._waypoints.length, this.options);
-			geocoder
-			.on('delete', function() {
-				if (i > 0 || this._waypoints.length > 2) {
-					this.spliceWaypoints(i, 1);
-				} else {
-					this.spliceWaypoints(i, 1, new L.Routing.Waypoint());
-				}
-			}, this)
-			.on('geocoded', function(e) {
-				this._updateMarkers();
-				this._fireChanged();
-				this._focusGeocoder(i + 1);
-				this.fire('waypointgeocoded', {
-					waypointIndex: i,
-					waypoint: e.waypoint
-				});
-			}, this)
-			.on('reversegeocoded', function(e) {
-				this.fire('waypointgeocoded', {
-					waypointIndex: i,
-					waypoint: e.waypoint
-				});
-			}, this);
-
-			return geocoder;
-		},
-
-		_updateGeocoders: function() {
-			var elems = [],
-				i,
-			    geocoderElem;
-
-			for (i = 0; i < this._geocoderElems.length; i++) {
-				this._geocoderContainer.removeChild(this._geocoderElems[i].getContainer());
-			}
-
-			for (i = this._waypoints.length - 1; i >= 0; i--) {
-				geocoderElem = this._createGeocoder(i);
-				this._geocoderContainer.insertBefore(geocoderElem.getContainer(), this._geocoderContainer.firstChild);
-				elems.push(geocoderElem);
-			}
-
-			this._geocoderElems = elems.reverse();
-		},
-
-		_removeMarkers: function() {
-			var i;
-			if (this._markers) {
-				for (i = 0; i < this._markers.length; i++) {
-					if (this._markers[i]) {
-						this._map.removeLayer(this._markers[i]);
-					}
-				}
-			}
-			this._markers = [];
-		},
-
-		_updateMarkers: function() {
-			var i,
-			    m;
-
-			if (!this._map) {
-				return;
-			}
-
-			this._removeMarkers();
-
-			for (i = 0; i < this._waypoints.length; i++) {
-				if (this._waypoints[i].latLng) {
-					m = this.options.createMarker(i, this._waypoints[i], this._waypoints.length);
-					if (m) {
-						m.addTo(this._map);
-						if (this.options.draggableWaypoints) {
-							this._hookWaypointEvents(m, i);
-						}
-					}
-				} else {
-					m = null;
-				}
-				this._markers.push(m);
-			}
-		},
-
-		_fireChanged: function() {
-			this.fire('waypointschanged', {waypoints: this.getWaypoints()});
-
-			if (arguments.length >= 2) {
-				this.fire('waypointsspliced', {
-					index: Array.prototype.shift.call(arguments),
-					nRemoved: Array.prototype.shift.call(arguments),
-					added: arguments
-				});
-			}
-		},
-
-		_hookWaypointEvents: function(m, i, trackMouseMove) {
-			var eventLatLng = function(e) {
-					return trackMouseMove ? e.latlng : e.target.getLatLng();
-				},
-				dragStart = L.bind(function(e) {
-					this.fire('waypointdragstart', {index: i, latlng: eventLatLng(e)});
-				}, this),
-				drag = L.bind(function(e) {
-					this._waypoints[i].latLng = eventLatLng(e);
-					this.fire('waypointdrag', {index: i, latlng: eventLatLng(e)});
-				}, this),
-				dragEnd = L.bind(function(e) {
-					this._waypoints[i].latLng = eventLatLng(e);
-					this._waypoints[i].name = '';
-					if (this._geocoderElems) {
-						this._geocoderElems[i].update(true);
-					}
-					this.fire('waypointdragend', {index: i, latlng: eventLatLng(e)});
-					this._fireChanged();
-				}, this),
-				mouseMove,
-				mouseUp;
-
-			if (trackMouseMove) {
-				mouseMove = L.bind(function(e) {
-					this._markers[i].setLatLng(e.latlng);
-					drag(e);
-				}, this);
-				mouseUp = L.bind(function(e) {
-					this._map.dragging.enable();
-					this._map.off('mouseup', mouseUp);
-					this._map.off('mousemove', mouseMove);
-					dragEnd(e);
-				}, this);
-				this._map.dragging.disable();
-				this._map.on('mousemove', mouseMove);
-				this._map.on('mouseup', mouseUp);
-				dragStart({latlng: this._waypoints[i].latLng});
-			} else {
-				m.on('dragstart', dragStart);
-				m.on('drag', drag);
-				m.on('dragend', dragEnd);
-			}
-		},
-
-		dragNewWaypoint: function(e) {
-			var newWpIndex = e.afterIndex + 1;
-			if (this.options.routeWhileDragging) {
-				this.spliceWaypoints(newWpIndex, 0, e.latlng);
-				this._hookWaypointEvents(this._markers[newWpIndex], newWpIndex, true);
-			} else {
-				this._dragNewWaypoint(newWpIndex, e.latlng);
-			}
-		},
-
-		_dragNewWaypoint: function(newWpIndex, initialLatLng) {
-			var wp = new L.Routing.Waypoint(initialLatLng),
-				prevWp = this._waypoints[newWpIndex - 1],
-				nextWp = this._waypoints[newWpIndex],
-				marker = this.options.createMarker(newWpIndex, wp, this._waypoints.length + 1),
-				lines = [],
-				mouseMove = L.bind(function(e) {
-					var i;
-					if (marker) {
-						marker.setLatLng(e.latlng);
-					}
-					for (i = 0; i < lines.length; i++) {
-						lines[i].spliceLatLngs(1, 1, e.latlng);
-					}
-				}, this),
-				mouseUp = L.bind(function(e) {
-					var i;
-					if (marker) {
-						this._map.removeLayer(marker);
-					}
-					for (i = 0; i < lines.length; i++) {
-						this._map.removeLayer(lines[i]);
-					}
-					this._map.off('mousemove', mouseMove);
-					this._map.off('mouseup', mouseUp);
-					this.spliceWaypoints(newWpIndex, 0, e.latlng);
-				}, this),
-				i;
-
-			if (marker) {
-				marker.addTo(this._map);
-			}
-
-			for (i = 0; i < this.options.dragStyles.length; i++) {
-				lines.push(L.polyline([prevWp.latLng, initialLatLng, nextWp.latLng],
-					this.options.dragStyles[i]).addTo(this._map));
-			}
-
-			this._map.on('mousemove', mouseMove);
-			this._map.on('mouseup', mouseUp);
-		},
-
-		_focusGeocoder: function(i) {
-			if (this._geocoderElems[i]) {
-				this._geocoderElems[i].focus();
-			} else {
-				document.activeElement.blur();
-			}
-		}
-	});
-
-	L.Routing.plan = function(waypoints, options) {
-		return new L.Routing.Plan(waypoints, options);
-	};
-
-	module.exports = L.Routing;
-})();
-
-},{"./L.Routing.GeocoderElement":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.GeocoderElement.js","./L.Routing.Waypoint":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.Waypoint.js","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.Waypoint.js":[function(require,module,exports){
-(function() {
-	'use strict';
-
-	var L = require('leaflet');
-	L.Routing = L.Routing || {};
-
-	L.Routing.Waypoint = L.Class.extend({
-			options: {
-				allowUTurn: false,
-			},
-			initialize: function(latLng, name, options) {
-				L.Util.setOptions(this, options);
-				this.latLng = L.latLng(latLng);
-				this.name = name;
-			}
-		});
-
-	L.Routing.waypoint = function(latLng, name, options) {
-		return new L.Routing.Waypoint(latLng, name, options);
-	};
-
-	module.exports = L.Routing;
-})();
-
-},{"leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js"}],"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet.markercluster/dist/leaflet.markercluster.js":[function(require,module,exports){
-/*
- Leaflet.markercluster, Provides Beautiful Animated Marker Clustering functionality for Leaflet, a JS library for interactive maps.
- https://github.com/Leaflet/Leaflet.markercluster
- (c) 2012-2013, Dave Leaver, smartrak
-*/
-!function(t,e){L.MarkerClusterGroup=L.FeatureGroup.extend({options:{maxClusterRadius:80,iconCreateFunction:null,spiderfyOnMaxZoom:!0,showCoverageOnHover:!0,zoomToBoundsOnClick:!0,singleMarkerMode:!1,disableClusteringAtZoom:null,removeOutsideVisibleBounds:!0,animateAddingMarkers:!1,spiderfyDistanceMultiplier:1,polygonOptions:{}},initialize:function(t){L.Util.setOptions(this,t),this.options.iconCreateFunction||(this.options.iconCreateFunction=this._defaultIconCreateFunction),this._featureGroup=L.featureGroup(),this._featureGroup.on(L.FeatureGroup.EVENTS,this._propagateEvent,this),this._nonPointGroup=L.featureGroup(),this._nonPointGroup.on(L.FeatureGroup.EVENTS,this._propagateEvent,this),this._inZoomAnimation=0,this._needsClustering=[],this._needsRemoving=[],this._currentShownBounds=null,this._queue=[]},addLayer:function(t){if(t instanceof L.LayerGroup){var e=[];for(var i in t._layers)e.push(t._layers[i]);return this.addLayers(e)}if(!t.getLatLng)return this._nonPointGroup.addLayer(t),this;if(!this._map)return this._needsClustering.push(t),this;if(this.hasLayer(t))return this;this._unspiderfy&&this._unspiderfy(),this._addLayer(t,this._maxZoom);var n=t,s=this._map.getZoom();if(t.__parent)for(;n.__parent._zoom>=s;)n=n.__parent;return this._currentShownBounds.contains(n.getLatLng())&&(this.options.animateAddingMarkers?this._animationAddLayer(t,n):this._animationAddLayerNonAnimated(t,n)),this},removeLayer:function(t){if(t instanceof L.LayerGroup){var e=[];for(var i in t._layers)e.push(t._layers[i]);return this.removeLayers(e)}return t.getLatLng?this._map?t.__parent?(this._unspiderfy&&(this._unspiderfy(),this._unspiderfyLayer(t)),this._removeLayer(t,!0),this._featureGroup.hasLayer(t)&&(this._featureGroup.removeLayer(t),t.setOpacity&&t.setOpacity(1)),this):this:(!this._arraySplice(this._needsClustering,t)&&this.hasLayer(t)&&this._needsRemoving.push(t),this):(this._nonPointGroup.removeLayer(t),this)},addLayers:function(t){var e,i,n,s=this._map,r=this._featureGroup,o=this._nonPointGroup;for(e=0,i=t.length;i>e;e++)if(n=t[e],n.getLatLng){if(!this.hasLayer(n))if(s){if(this._addLayer(n,this._maxZoom),n.__parent&&2===n.__parent.getChildCount()){var a=n.__parent.getAllChildMarkers(),h=a[0]===n?a[1]:a[0];r.removeLayer(h)}}else this._needsClustering.push(n)}else o.addLayer(n);return s&&(r.eachLayer(function(t){t instanceof L.MarkerCluster&&t._iconNeedsUpdate&&t._updateIcon()}),this._topClusterLevel._recursivelyAddChildrenToMap(null,this._zoom,this._currentShownBounds)),this},removeLayers:function(t){var e,i,n,s=this._featureGroup,r=this._nonPointGroup;if(!this._map){for(e=0,i=t.length;i>e;e++)n=t[e],this._arraySplice(this._needsClustering,n),r.removeLayer(n);return this}for(e=0,i=t.length;i>e;e++)n=t[e],n.__parent?(this._removeLayer(n,!0,!0),s.hasLayer(n)&&(s.removeLayer(n),n.setOpacity&&n.setOpacity(1))):r.removeLayer(n);return this._topClusterLevel._recursivelyAddChildrenToMap(null,this._zoom,this._currentShownBounds),s.eachLayer(function(t){t instanceof L.MarkerCluster&&t._updateIcon()}),this},clearLayers:function(){return this._map||(this._needsClustering=[],delete this._gridClusters,delete this._gridUnclustered),this._noanimationUnspiderfy&&this._noanimationUnspiderfy(),this._featureGroup.clearLayers(),this._nonPointGroup.clearLayers(),this.eachLayer(function(t){delete t.__parent}),this._map&&this._generateInitialClusters(),this},getBounds:function(){var t=new L.LatLngBounds;if(this._topClusterLevel)t.extend(this._topClusterLevel._bounds);else for(var e=this._needsClustering.length-1;e>=0;e--)t.extend(this._needsClustering[e].getLatLng());return t.extend(this._nonPointGroup.getBounds()),t},eachLayer:function(t,e){var i,n=this._needsClustering.slice();for(this._topClusterLevel&&this._topClusterLevel.getAllChildMarkers(n),i=n.length-1;i>=0;i--)t.call(e,n[i]);this._nonPointGroup.eachLayer(t,e)},getLayers:function(){var t=[];return this.eachLayer(function(e){t.push(e)}),t},getLayer:function(t){var e=null;return this.eachLayer(function(i){L.stamp(i)===t&&(e=i)}),e},hasLayer:function(t){if(!t)return!1;var e,i=this._needsClustering;for(e=i.length-1;e>=0;e--)if(i[e]===t)return!0;for(i=this._needsRemoving,e=i.length-1;e>=0;e--)if(i[e]===t)return!1;return!(!t.__parent||t.__parent._group!==this)||this._nonPointGroup.hasLayer(t)},zoomToShowLayer:function(t,e){var i=function(){if((t._icon||t.__parent._icon)&&!this._inZoomAnimation)if(this._map.off("moveend",i,this),this.off("animationend",i,this),t._icon)e();else if(t.__parent._icon){var n=function(){this.off("spiderfied",n,this),e()};this.on("spiderfied",n,this),t.__parent.spiderfy()}};t._icon&&this._map.getBounds().contains(t.getLatLng())?e():t.__parent._zoom<this._map.getZoom()?(this._map.on("moveend",i,this),this._map.panTo(t.getLatLng())):(this._map.on("moveend",i,this),this.on("animationend",i,this),this._map.setView(t.getLatLng(),t.__parent._zoom+1),t.__parent.zoomToBounds())},onAdd:function(t){this._map=t;var e,i,n;if(!isFinite(this._map.getMaxZoom()))throw"Map has no maxZoom specified";for(this._featureGroup.onAdd(t),this._nonPointGroup.onAdd(t),this._gridClusters||this._generateInitialClusters(),e=0,i=this._needsRemoving.length;i>e;e++)n=this._needsRemoving[e],this._removeLayer(n,!0);for(this._needsRemoving=[],e=0,i=this._needsClustering.length;i>e;e++)n=this._needsClustering[e],n.getLatLng?n.__parent||this._addLayer(n,this._maxZoom):this._featureGroup.addLayer(n);this._needsClustering=[],this._map.on("zoomend",this._zoomEnd,this),this._map.on("moveend",this._moveEnd,this),this._spiderfierOnAdd&&this._spiderfierOnAdd(),this._bindEvents(),this._zoom=this._map.getZoom(),this._currentShownBounds=this._getExpandedVisibleBounds(),this._topClusterLevel._recursivelyAddChildrenToMap(null,this._zoom,this._currentShownBounds)},onRemove:function(t){t.off("zoomend",this._zoomEnd,this),t.off("moveend",this._moveEnd,this),this._unbindEvents(),this._map._mapPane.className=this._map._mapPane.className.replace(" leaflet-cluster-anim",""),this._spiderfierOnRemove&&this._spiderfierOnRemove(),this._hideCoverage(),this._featureGroup.onRemove(t),this._nonPointGroup.onRemove(t),this._featureGroup.clearLayers(),this._map=null},getVisibleParent:function(t){for(var e=t;e&&!e._icon;)e=e.__parent;return e||null},_arraySplice:function(t,e){for(var i=t.length-1;i>=0;i--)if(t[i]===e)return t.splice(i,1),!0},_removeLayer:function(t,e,i){var n=this._gridClusters,s=this._gridUnclustered,r=this._featureGroup,o=this._map;if(e)for(var a=this._maxZoom;a>=0&&s[a].removeObject(t,o.project(t.getLatLng(),a));a--);var h,_=t.__parent,u=_._markers;for(this._arraySplice(u,t);_&&(_._childCount--,!(_._zoom<0));)e&&_._childCount<=1?(h=_._markers[0]===t?_._markers[1]:_._markers[0],n[_._zoom].removeObject(_,o.project(_._cLatLng,_._zoom)),s[_._zoom].addObject(h,o.project(h.getLatLng(),_._zoom)),this._arraySplice(_.__parent._childClusters,_),_.__parent._markers.push(h),h.__parent=_.__parent,_._icon&&(r.removeLayer(_),i||r.addLayer(h))):(_._recalculateBounds(),i&&_._icon||_._updateIcon()),_=_.__parent;delete t.__parent},_isOrIsParent:function(t,e){for(;e;){if(t===e)return!0;e=e.parentNode}return!1},_propagateEvent:function(t){if(t.layer instanceof L.MarkerCluster){if(t.originalEvent&&this._isOrIsParent(t.layer._icon,t.originalEvent.relatedTarget))return;t.type="cluster"+t.type}this.fire(t.type,t)},_defaultIconCreateFunction:function(t){var e=t.getChildCount(),i=" marker-cluster-";return i+=10>e?"small":100>e?"medium":"large",new L.DivIcon({html:"<div><span>"+e+"</span></div>",className:"marker-cluster"+i,iconSize:new L.Point(40,40)})},_bindEvents:function(){var t=this._map,e=this.options.spiderfyOnMaxZoom,i=this.options.showCoverageOnHover,n=this.options.zoomToBoundsOnClick;(e||n)&&this.on("clusterclick",this._zoomOrSpiderfy,this),i&&(this.on("clustermouseover",this._showCoverage,this),this.on("clustermouseout",this._hideCoverage,this),t.on("zoomend",this._hideCoverage,this))},_zoomOrSpiderfy:function(t){var e=this._map;e.getMaxZoom()===e.getZoom()?this.options.spiderfyOnMaxZoom&&t.layer.spiderfy():this.options.zoomToBoundsOnClick&&t.layer.zoomToBounds(),t.originalEvent&&13===t.originalEvent.keyCode&&e._container.focus()},_showCoverage:function(t){var e=this._map;this._inZoomAnimation||(this._shownPolygon&&e.removeLayer(this._shownPolygon),t.layer.getChildCount()>2&&t.layer!==this._spiderfied&&(this._shownPolygon=new L.Polygon(t.layer.getConvexHull(),this.options.polygonOptions),e.addLayer(this._shownPolygon)))},_hideCoverage:function(){this._shownPolygon&&(this._map.removeLayer(this._shownPolygon),this._shownPolygon=null)},_unbindEvents:function(){var t=this.options.spiderfyOnMaxZoom,e=this.options.showCoverageOnHover,i=this.options.zoomToBoundsOnClick,n=this._map;(t||i)&&this.off("clusterclick",this._zoomOrSpiderfy,this),e&&(this.off("clustermouseover",this._showCoverage,this),this.off("clustermouseout",this._hideCoverage,this),n.off("zoomend",this._hideCoverage,this))},_zoomEnd:function(){this._map&&(this._mergeSplitClusters(),this._zoom=this._map._zoom,this._currentShownBounds=this._getExpandedVisibleBounds())},_moveEnd:function(){if(!this._inZoomAnimation){var t=this._getExpandedVisibleBounds();this._topClusterLevel._recursivelyRemoveChildrenFromMap(this._currentShownBounds,this._zoom,t),this._topClusterLevel._recursivelyAddChildrenToMap(null,this._map._zoom,t),this._currentShownBounds=t}},_generateInitialClusters:function(){var t=this._map.getMaxZoom(),e=this.options.maxClusterRadius;this.options.disableClusteringAtZoom&&(t=this.options.disableClusteringAtZoom-1),this._maxZoom=t,this._gridClusters={},this._gridUnclustered={};for(var i=t;i>=0;i--)this._gridClusters[i]=new L.DistanceGrid(e),this._gridUnclustered[i]=new L.DistanceGrid(e);this._topClusterLevel=new L.MarkerCluster(this,-1)},_addLayer:function(t,e){var i,n,s=this._gridClusters,r=this._gridUnclustered;for(this.options.singleMarkerMode&&(t.options.icon=this.options.iconCreateFunction({getChildCount:function(){return 1},getAllChildMarkers:function(){return[t]}}));e>=0;e--){i=this._map.project(t.getLatLng(),e);var o=s[e].getNearObject(i);if(o)return o._addChild(t),t.__parent=o,void 0;if(o=r[e].getNearObject(i)){var a=o.__parent;a&&this._removeLayer(o,!1);var h=new L.MarkerCluster(this,e,o,t);s[e].addObject(h,this._map.project(h._cLatLng,e)),o.__parent=h,t.__parent=h;var _=h;for(n=e-1;n>a._zoom;n--)_=new L.MarkerCluster(this,n,_),s[n].addObject(_,this._map.project(o.getLatLng(),n));for(a._addChild(_),n=e;n>=0&&r[n].removeObject(o,this._map.project(o.getLatLng(),n));n--);return}r[e].addObject(t,i)}this._topClusterLevel._addChild(t),t.__parent=this._topClusterLevel},_enqueue:function(t){this._queue.push(t),this._queueTimeout||(this._queueTimeout=setTimeout(L.bind(this._processQueue,this),300))},_processQueue:function(){for(var t=0;t<this._queue.length;t++)this._queue[t].call(this);this._queue.length=0,clearTimeout(this._queueTimeout),this._queueTimeout=null},_mergeSplitClusters:function(){this._processQueue(),this._zoom<this._map._zoom&&this._currentShownBounds.contains(this._getExpandedVisibleBounds())?(this._animationStart(),this._topClusterLevel._recursivelyRemoveChildrenFromMap(this._currentShownBounds,this._zoom,this._getExpandedVisibleBounds()),this._animationZoomIn(this._zoom,this._map._zoom)):this._zoom>this._map._zoom?(this._animationStart(),this._animationZoomOut(this._zoom,this._map._zoom)):this._moveEnd()},_getExpandedVisibleBounds:function(){if(!this.options.removeOutsideVisibleBounds)return this.getBounds();var t=this._map,e=t.getBounds(),i=e._southWest,n=e._northEast,s=L.Browser.mobile?0:Math.abs(i.lat-n.lat),r=L.Browser.mobile?0:Math.abs(i.lng-n.lng);return new L.LatLngBounds(new L.LatLng(i.lat-s,i.lng-r,!0),new L.LatLng(n.lat+s,n.lng+r,!0))},_animationAddLayerNonAnimated:function(t,e){if(e===t)this._featureGroup.addLayer(t);else if(2===e._childCount){e._addToMap();var i=e.getAllChildMarkers();this._featureGroup.removeLayer(i[0]),this._featureGroup.removeLayer(i[1])}else e._updateIcon()}}),L.MarkerClusterGroup.include(L.DomUtil.TRANSITION?{_animationStart:function(){this._map._mapPane.className+=" leaflet-cluster-anim",this._inZoomAnimation++},_animationEnd:function(){this._map&&(this._map._mapPane.className=this._map._mapPane.className.replace(" leaflet-cluster-anim","")),this._inZoomAnimation--,this.fire("animationend")},_animationZoomIn:function(t,e){var i,n=this._getExpandedVisibleBounds(),s=this._featureGroup;this._topClusterLevel._recursively(n,t,0,function(r){var o,a=r._latlng,h=r._markers;for(n.contains(a)||(a=null),r._isSingleParent()&&t+1===e?(s.removeLayer(r),r._recursivelyAddChildrenToMap(null,e,n)):(r.setOpacity(0),r._recursivelyAddChildrenToMap(a,e,n)),i=h.length-1;i>=0;i--)o=h[i],n.contains(o._latlng)||s.removeLayer(o)}),this._forceLayout(),this._topClusterLevel._recursivelyBecomeVisible(n,e),s.eachLayer(function(t){t instanceof L.MarkerCluster||!t._icon||t.setOpacity(1)}),this._topClusterLevel._recursively(n,t,e,function(t){t._recursivelyRestoreChildPositions(e)}),this._enqueue(function(){this._topClusterLevel._recursively(n,t,0,function(t){s.removeLayer(t),t.setOpacity(1)}),this._animationEnd()})},_animationZoomOut:function(t,e){this._animationZoomOutSingle(this._topClusterLevel,t-1,e),this._topClusterLevel._recursivelyAddChildrenToMap(null,e,this._getExpandedVisibleBounds()),this._topClusterLevel._recursivelyRemoveChildrenFromMap(this._currentShownBounds,t,this._getExpandedVisibleBounds())},_animationZoomOutSingle:function(t,e,i){var n=this._getExpandedVisibleBounds();t._recursivelyAnimateChildrenInAndAddSelfToMap(n,e+1,i);var s=this;this._forceLayout(),t._recursivelyBecomeVisible(n,i),this._enqueue(function(){if(1===t._childCount){var r=t._markers[0];r.setLatLng(r.getLatLng()),r.setOpacity(1)}else t._recursively(n,i,0,function(t){t._recursivelyRemoveChildrenFromMap(n,e+1)});s._animationEnd()})},_animationAddLayer:function(t,e){var i=this,n=this._featureGroup;n.addLayer(t),e!==t&&(e._childCount>2?(e._updateIcon(),this._forceLayout(),this._animationStart(),t._setPos(this._map.latLngToLayerPoint(e.getLatLng())),t.setOpacity(0),this._enqueue(function(){n.removeLayer(t),t.setOpacity(1),i._animationEnd()})):(this._forceLayout(),i._animationStart(),i._animationZoomOutSingle(e,this._map.getMaxZoom(),this._map.getZoom())))},_forceLayout:function(){L.Util.falseFn(e.body.offsetWidth)}}:{_animationStart:function(){},_animationZoomIn:function(t,e){this._topClusterLevel._recursivelyRemoveChildrenFromMap(this._currentShownBounds,t),this._topClusterLevel._recursivelyAddChildrenToMap(null,e,this._getExpandedVisibleBounds())},_animationZoomOut:function(t,e){this._topClusterLevel._recursivelyRemoveChildrenFromMap(this._currentShownBounds,t),this._topClusterLevel._recursivelyAddChildrenToMap(null,e,this._getExpandedVisibleBounds())},_animationAddLayer:function(t,e){this._animationAddLayerNonAnimated(t,e)}}),L.markerClusterGroup=function(t){return new L.MarkerClusterGroup(t)},L.MarkerCluster=L.Marker.extend({initialize:function(t,e,i,n){L.Marker.prototype.initialize.call(this,i?i._cLatLng||i.getLatLng():new L.LatLng(0,0),{icon:this}),this._group=t,this._zoom=e,this._markers=[],this._childClusters=[],this._childCount=0,this._iconNeedsUpdate=!0,this._bounds=new L.LatLngBounds,i&&this._addChild(i),n&&this._addChild(n)},getAllChildMarkers:function(t){t=t||[];for(var e=this._childClusters.length-1;e>=0;e--)this._childClusters[e].getAllChildMarkers(t);for(var i=this._markers.length-1;i>=0;i--)t.push(this._markers[i]);return t},getChildCount:function(){return this._childCount},zoomToBounds:function(){for(var t,e=this._childClusters.slice(),i=this._group._map,n=i.getBoundsZoom(this._bounds),s=this._zoom+1,r=i.getZoom();e.length>0&&n>s;){s++;var o=[];for(t=0;t<e.length;t++)o=o.concat(e[t]._childClusters);e=o}n>s?this._group._map.setView(this._latlng,s):r>=n?this._group._map.setView(this._latlng,r+1):this._group._map.fitBounds(this._bounds)},getBounds:function(){var t=new L.LatLngBounds;return t.extend(this._bounds),t},_updateIcon:function(){this._iconNeedsUpdate=!0,this._icon&&this.setIcon(this)},createIcon:function(){return this._iconNeedsUpdate&&(this._iconObj=this._group.options.iconCreateFunction(this),this._iconNeedsUpdate=!1),this._iconObj.createIcon()},createShadow:function(){return this._iconObj.createShadow()},_addChild:function(t,e){this._iconNeedsUpdate=!0,this._expandBounds(t),t instanceof L.MarkerCluster?(e||(this._childClusters.push(t),t.__parent=this),this._childCount+=t._childCount):(e||this._markers.push(t),this._childCount++),this.__parent&&this.__parent._addChild(t,!0)},_expandBounds:function(t){var e,i=t._wLatLng||t._latlng;t instanceof L.MarkerCluster?(this._bounds.extend(t._bounds),e=t._childCount):(this._bounds.extend(i),e=1),this._cLatLng||(this._cLatLng=t._cLatLng||i);var n=this._childCount+e;this._wLatLng?(this._wLatLng.lat=(i.lat*e+this._wLatLng.lat*this._childCount)/n,this._wLatLng.lng=(i.lng*e+this._wLatLng.lng*this._childCount)/n):this._latlng=this._wLatLng=new L.LatLng(i.lat,i.lng)},_addToMap:function(t){t&&(this._backupLatlng=this._latlng,this.setLatLng(t)),this._group._featureGroup.addLayer(this)},_recursivelyAnimateChildrenIn:function(t,e,i){this._recursively(t,0,i-1,function(t){var i,n,s=t._markers;for(i=s.length-1;i>=0;i--)n=s[i],n._icon&&(n._setPos(e),n.setOpacity(0))},function(t){var i,n,s=t._childClusters;for(i=s.length-1;i>=0;i--)n=s[i],n._icon&&(n._setPos(e),n.setOpacity(0))})},_recursivelyAnimateChildrenInAndAddSelfToMap:function(t,e,i){this._recursively(t,i,0,function(n){n._recursivelyAnimateChildrenIn(t,n._group._map.latLngToLayerPoint(n.getLatLng()).round(),e),n._isSingleParent()&&e-1===i?(n.setOpacity(1),n._recursivelyRemoveChildrenFromMap(t,e)):n.setOpacity(0),n._addToMap()})},_recursivelyBecomeVisible:function(t,e){this._recursively(t,0,e,null,function(t){t.setOpacity(1)})},_recursivelyAddChildrenToMap:function(t,e,i){this._recursively(i,-1,e,function(n){if(e!==n._zoom)for(var s=n._markers.length-1;s>=0;s--){var r=n._markers[s];i.contains(r._latlng)&&(t&&(r._backupLatlng=r.getLatLng(),r.setLatLng(t),r.setOpacity&&r.setOpacity(0)),n._group._featureGroup.addLayer(r))}},function(e){e._addToMap(t)})},_recursivelyRestoreChildPositions:function(t){for(var e=this._markers.length-1;e>=0;e--){var i=this._markers[e];i._backupLatlng&&(i.setLatLng(i._backupLatlng),delete i._backupLatlng)}if(t-1===this._zoom)for(var n=this._childClusters.length-1;n>=0;n--)this._childClusters[n]._restorePosition();else for(var s=this._childClusters.length-1;s>=0;s--)this._childClusters[s]._recursivelyRestoreChildPositions(t)},_restorePosition:function(){this._backupLatlng&&(this.setLatLng(this._backupLatlng),delete this._backupLatlng)},_recursivelyRemoveChildrenFromMap:function(t,e,i){var n,s;this._recursively(t,-1,e-1,function(t){for(s=t._markers.length-1;s>=0;s--)n=t._markers[s],i&&i.contains(n._latlng)||(t._group._featureGroup.removeLayer(n),n.setOpacity&&n.setOpacity(1))},function(t){for(s=t._childClusters.length-1;s>=0;s--)n=t._childClusters[s],i&&i.contains(n._latlng)||(t._group._featureGroup.removeLayer(n),n.setOpacity&&n.setOpacity(1))})},_recursively:function(t,e,i,n,s){var r,o,a=this._childClusters,h=this._zoom;if(e>h)for(r=a.length-1;r>=0;r--)o=a[r],t.intersects(o._bounds)&&o._recursively(t,e,i,n,s);else if(n&&n(this),s&&this._zoom===i&&s(this),i>h)for(r=a.length-1;r>=0;r--)o=a[r],t.intersects(o._bounds)&&o._recursively(t,e,i,n,s)},_recalculateBounds:function(){var t,e=this._markers,i=this._childClusters;for(this._bounds=new L.LatLngBounds,delete this._wLatLng,t=e.length-1;t>=0;t--)this._expandBounds(e[t]);for(t=i.length-1;t>=0;t--)this._expandBounds(i[t])},_isSingleParent:function(){return this._childClusters.length>0&&this._childClusters[0]._childCount===this._childCount}}),L.DistanceGrid=function(t){this._cellSize=t,this._sqCellSize=t*t,this._grid={},this._objectPoint={}},L.DistanceGrid.prototype={addObject:function(t,e){var i=this._getCoord(e.x),n=this._getCoord(e.y),s=this._grid,r=s[n]=s[n]||{},o=r[i]=r[i]||[],a=L.Util.stamp(t);this._objectPoint[a]=e,o.push(t)},updateObject:function(t,e){this.removeObject(t),this.addObject(t,e)},removeObject:function(t,e){var i,n,s=this._getCoord(e.x),r=this._getCoord(e.y),o=this._grid,a=o[r]=o[r]||{},h=a[s]=a[s]||[];for(delete this._objectPoint[L.Util.stamp(t)],i=0,n=h.length;n>i;i++)if(h[i]===t)return h.splice(i,1),1===n&&delete a[s],!0},eachObject:function(t,e){var i,n,s,r,o,a,h,_=this._grid;for(i in _){o=_[i];for(n in o)for(a=o[n],s=0,r=a.length;r>s;s++)h=t.call(e,a[s]),h&&(s--,r--)}},getNearObject:function(t){var e,i,n,s,r,o,a,h,_=this._getCoord(t.x),u=this._getCoord(t.y),l=this._objectPoint,d=this._sqCellSize,p=null;for(e=u-1;u+1>=e;e++)if(s=this._grid[e])for(i=_-1;_+1>=i;i++)if(r=s[i])for(n=0,o=r.length;o>n;n++)a=r[n],h=this._sqDist(l[L.Util.stamp(a)],t),d>h&&(d=h,p=a);return p},_getCoord:function(t){return Math.floor(t/this._cellSize)},_sqDist:function(t,e){var i=e.x-t.x,n=e.y-t.y;return i*i+n*n}},function(){L.QuickHull={getDistant:function(t,e){var i=e[1].lat-e[0].lat,n=e[0].lng-e[1].lng;return n*(t.lat-e[0].lat)+i*(t.lng-e[0].lng)},findMostDistantPointFromBaseLine:function(t,e){var i,n,s,r=0,o=null,a=[];for(i=e.length-1;i>=0;i--)n=e[i],s=this.getDistant(n,t),s>0&&(a.push(n),s>r&&(r=s,o=n));return{maxPoint:o,newPoints:a}},buildConvexHull:function(t,e){var i=[],n=this.findMostDistantPointFromBaseLine(t,e);return n.maxPoint?(i=i.concat(this.buildConvexHull([t[0],n.maxPoint],n.newPoints)),i=i.concat(this.buildConvexHull([n.maxPoint,t[1]],n.newPoints))):[t[0]]},getConvexHull:function(t){var e,i=!1,n=!1,s=null,r=null;for(e=t.length-1;e>=0;e--){var o=t[e];(i===!1||o.lat>i)&&(s=o,i=o.lat),(n===!1||o.lat<n)&&(r=o,n=o.lat)}var a=[].concat(this.buildConvexHull([r,s],t),this.buildConvexHull([s,r],t));return a}}}(),L.MarkerCluster.include({getConvexHull:function(){var t,e,i=this.getAllChildMarkers(),n=[];for(e=i.length-1;e>=0;e--)t=i[e].getLatLng(),n.push(t);return L.QuickHull.getConvexHull(n)}}),L.MarkerCluster.include({_2PI:2*Math.PI,_circleFootSeparation:25,_circleStartAngle:Math.PI/6,_spiralFootSeparation:28,_spiralLengthStart:11,_spiralLengthFactor:5,_circleSpiralSwitchover:9,spiderfy:function(){if(this._group._spiderfied!==this&&!this._group._inZoomAnimation){var t,e=this.getAllChildMarkers(),i=this._group,n=i._map,s=n.latLngToLayerPoint(this._latlng);this._group._unspiderfy(),this._group._spiderfied=this,e.length>=this._circleSpiralSwitchover?t=this._generatePointsSpiral(e.length,s):(s.y+=10,t=this._generatePointsCircle(e.length,s)),this._animationSpiderfy(e,t)}},unspiderfy:function(t){this._group._inZoomAnimation||(this._animationUnspiderfy(t),this._group._spiderfied=null)},_generatePointsCircle:function(t,e){var i,n,s=this._group.options.spiderfyDistanceMultiplier*this._circleFootSeparation*(2+t),r=s/this._2PI,o=this._2PI/t,a=[];for(a.length=t,i=t-1;i>=0;i--)n=this._circleStartAngle+i*o,a[i]=new L.Point(e.x+r*Math.cos(n),e.y+r*Math.sin(n))._round();return a},_generatePointsSpiral:function(t,e){var i,n=this._group.options.spiderfyDistanceMultiplier*this._spiralLengthStart,s=this._group.options.spiderfyDistanceMultiplier*this._spiralFootSeparation,r=this._group.options.spiderfyDistanceMultiplier*this._spiralLengthFactor,o=0,a=[];for(a.length=t,i=t-1;i>=0;i--)o+=s/n+5e-4*i,a[i]=new L.Point(e.x+n*Math.cos(o),e.y+n*Math.sin(o))._round(),n+=this._2PI*r/o;return a},_noanimationUnspiderfy:function(){var t,e,i=this._group,n=i._map,s=i._featureGroup,r=this.getAllChildMarkers();for(this.setOpacity(1),e=r.length-1;e>=0;e--)t=r[e],s.removeLayer(t),t._preSpiderfyLatlng&&(t.setLatLng(t._preSpiderfyLatlng),delete t._preSpiderfyLatlng),t.setZIndexOffset&&t.setZIndexOffset(0),t._spiderLeg&&(n.removeLayer(t._spiderLeg),delete t._spiderLeg);i._spiderfied=null}}),L.MarkerCluster.include(L.DomUtil.TRANSITION?{SVG_ANIMATION:function(){return e.createElementNS("http://www.w3.org/2000/svg","animate").toString().indexOf("SVGAnimate")>-1}(),_animationSpiderfy:function(t,i){var n,s,r,o,a=this,h=this._group,_=h._map,u=h._featureGroup,l=_.latLngToLayerPoint(this._latlng);for(n=t.length-1;n>=0;n--)s=t[n],s.setOpacity?(s.setZIndexOffset(1e6),s.setOpacity(0),u.addLayer(s),s._setPos(l)):u.addLayer(s);h._forceLayout(),h._animationStart();var d=L.Path.SVG?0:.3,p=L.Path.SVG_NS;for(n=t.length-1;n>=0;n--)if(o=_.layerPointToLatLng(i[n]),s=t[n],s._preSpiderfyLatlng=s._latlng,s.setLatLng(o),s.setOpacity&&s.setOpacity(1),r=new L.Polyline([a._latlng,o],{weight:1.5,color:"#222",opacity:d}),_.addLayer(r),s._spiderLeg=r,L.Path.SVG&&this.SVG_ANIMATION){var c=r._path.getTotalLength();r._path.setAttribute("stroke-dasharray",c+","+c);var m=e.createElementNS(p,"animate");m.setAttribute("attributeName","stroke-dashoffset"),m.setAttribute("begin","indefinite"),m.setAttribute("from",c),m.setAttribute("to",0),m.setAttribute("dur",.25),r._path.appendChild(m),m.beginElement(),m=e.createElementNS(p,"animate"),m.setAttribute("attributeName","stroke-opacity"),m.setAttribute("attributeName","stroke-opacity"),m.setAttribute("begin","indefinite"),m.setAttribute("from",0),m.setAttribute("to",.5),m.setAttribute("dur",.25),r._path.appendChild(m),m.beginElement()}if(a.setOpacity(.3),L.Path.SVG)for(this._group._forceLayout(),n=t.length-1;n>=0;n--)s=t[n]._spiderLeg,s.options.opacity=.5,s._path.setAttribute("stroke-opacity",.5);setTimeout(function(){h._animationEnd(),h.fire("spiderfied")},200)},_animationUnspiderfy:function(t){var e,i,n,s=this._group,r=s._map,o=s._featureGroup,a=t?r._latLngToNewLayerPoint(this._latlng,t.zoom,t.center):r.latLngToLayerPoint(this._latlng),h=this.getAllChildMarkers(),_=L.Path.SVG&&this.SVG_ANIMATION;for(s._animationStart(),this.setOpacity(1),i=h.length-1;i>=0;i--)e=h[i],e._preSpiderfyLatlng&&(e.setLatLng(e._preSpiderfyLatlng),delete e._preSpiderfyLatlng,e.setOpacity?(e._setPos(a),e.setOpacity(0)):o.removeLayer(e),_&&(n=e._spiderLeg._path.childNodes[0],n.setAttribute("to",n.getAttribute("from")),n.setAttribute("from",0),n.beginElement(),n=e._spiderLeg._path.childNodes[1],n.setAttribute("from",.5),n.setAttribute("to",0),n.setAttribute("stroke-opacity",0),n.beginElement(),e._spiderLeg._path.setAttribute("stroke-opacity",0)));setTimeout(function(){var t=0;for(i=h.length-1;i>=0;i--)e=h[i],e._spiderLeg&&t++;for(i=h.length-1;i>=0;i--)e=h[i],e._spiderLeg&&(e.setOpacity&&(e.setOpacity(1),e.setZIndexOffset(0)),t>1&&o.removeLayer(e),r.removeLayer(e._spiderLeg),delete e._spiderLeg);s._animationEnd()},200)}}:{_animationSpiderfy:function(t,e){var i,n,s,r,o=this._group,a=o._map,h=o._featureGroup;for(i=t.length-1;i>=0;i--)r=a.layerPointToLatLng(e[i]),n=t[i],n._preSpiderfyLatlng=n._latlng,n.setLatLng(r),n.setZIndexOffset&&n.setZIndexOffset(1e6),h.addLayer(n),s=new L.Polyline([this._latlng,r],{weight:1.5,color:"#222"}),a.addLayer(s),n._spiderLeg=s;this.setOpacity(.3),o.fire("spiderfied")},_animationUnspiderfy:function(){this._noanimationUnspiderfy()}}),L.MarkerClusterGroup.include({_spiderfied:null,_spiderfierOnAdd:function(){this._map.on("click",this._unspiderfyWrapper,this),this._map.options.zoomAnimation&&this._map.on("zoomstart",this._unspiderfyZoomStart,this),this._map.on("zoomend",this._noanimationUnspiderfy,this),L.Path.SVG&&!L.Browser.touch&&this._map._initPathRoot()},_spiderfierOnRemove:function(){this._map.off("click",this._unspiderfyWrapper,this),this._map.off("zoomstart",this._unspiderfyZoomStart,this),this._map.off("zoomanim",this._unspiderfyZoomAnim,this),this._unspiderfy()},_unspiderfyZoomStart:function(){this._map&&this._map.on("zoomanim",this._unspiderfyZoomAnim,this)},_unspiderfyZoomAnim:function(t){L.DomUtil.hasClass(this._map._mapPane,"leaflet-touching")||(this._map.off("zoomanim",this._unspiderfyZoomAnim,this),this._unspiderfy(t))},_unspiderfyWrapper:function(){this._unspiderfy()},_unspiderfy:function(t){this._spiderfied&&this._spiderfied.unspiderfy(t)},_noanimationUnspiderfy:function(){this._spiderfied&&this._spiderfied._noanimationUnspiderfy()},_unspiderfyLayer:function(t){t._spiderLeg&&(this._featureGroup.removeLayer(t),t.setOpacity(1),t.setZIndexOffset(0),this._map.removeLayer(t._spiderLeg),delete t._spiderLeg)}})}(window,document);
-},{}],"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js":[function(require,module,exports){
+},{"handlebars/runtime":18}],20:[function(require,module,exports){
 /*
  Leaflet, a JavaScript library for mobile-friendly interactive maps. http://leafletjs.com
  (c) 2010-2013, Vladimir Agafonkin
@@ -16049,7 +12358,7 @@ if (typeof module !== undefined) module.exports = polyline;
 var oldL = window.L,
     L = {};
 
-L.version = '0.7.5';
+L.version = '0.7.7';
 
 // define Leaflet for Node module pattern loaders, including Browserify
 if (typeof module === 'object' && typeof module.exports === 'object') {
@@ -16562,7 +12871,7 @@ L.Mixin.Events.fire = L.Mixin.Events.fireEvent;
 
 	    mobile = typeof orientation !== undefined + '',
 	    msPointer = !window.PointerEvent && window.MSPointerEvent,
-		pointer = (window.PointerEvent && window.navigator.pointerEnabled && window.navigator.maxTouchPoints) ||
+		pointer = (window.PointerEvent && window.navigator.pointerEnabled) ||
 				  msPointer,
 	    retina = ('devicePixelRatio' in window && window.devicePixelRatio > 1) ||
 	             ('matchMedia' in window && window.matchMedia('(min-resolution:144dpi)') &&
@@ -20431,7 +16740,9 @@ L.FeatureGroup = L.LayerGroup.extend({
 			layer = this._layers[layer];
 		}
 
-		layer.off(L.FeatureGroup.EVENTS, this._propagateEvent, this);
+		if ('off' in layer) {
+			layer.off(L.FeatureGroup.EVENTS, this._propagateEvent, this);
+		}
 
 		L.LayerGroup.prototype.removeLayer.call(this, layer);
 
@@ -20751,7 +17062,7 @@ L.Path = L.Path.extend({
 	},
 
 	_fireMouseEvent: function (e) {
-		if (!this.hasEventListeners(e.type)) { return; }
+		if (!this._map || !this.hasEventListeners(e.type)) { return; }
 
 		var map = this._map,
 		    containerPoint = map.mouseEventToContainerPoint(e),
@@ -23209,8 +19520,9 @@ L.extend(L.DomEvent, {
 		    pointers = this._pointers;
 
 		var cb = function (e) {
-
-			L.DomEvent.preventDefault(e);
+			if (e.pointerType !== 'mouse' && e.pointerType !== e.MSPOINTER_TYPE_MOUSE) {
+				L.DomEvent.preventDefault(e);
+			}
 
 			var alreadyInArray = false;
 			for (var i = 0; i < pointers.length; i++) {
@@ -24981,11 +21293,13 @@ L.Map.include(!L.DomUtil.TRANSITION ? {} : {
 
 		L.DomUtil.removeClass(this._mapPane, 'leaflet-zoom-anim');
 
-		this._resetView(this._animateToCenter, this._animateToZoom, true, true);
+		L.Util.requestAnimFrame(function () {
+			this._resetView(this._animateToCenter, this._animateToZoom, true, true);
 
-		if (L.Draggable) {
-			L.Draggable._disabled = false;
-		}
+			if (L.Draggable) {
+				L.Draggable._disabled = false;
+			}
+		}, this);
 	}
 });
 
@@ -25203,7 +21517,3783 @@ L.Map.include({
 
 
 }(window, document));
-},{}],"/home/per/Documents/Projects/cykelbanor/node_modules/reqwest/reqwest.js":[function(require,module,exports){
+},{}],21:[function(require,module,exports){
+var L = require('leaflet'),
+	Nominatim = require('./geocoders/nominatim').class;
+
+module.exports = {
+	class: L.Control.extend({
+		options: {
+			showResultIcons: false,
+			collapsed: true,
+			expand: 'click',
+			position: 'topright',
+			placeholder: 'Search...',
+			errorMessage: 'Nothing found.'
+		},
+
+		_callbackId: 0,
+
+		initialize: function (options) {
+			L.Util.setOptions(this, options);
+			if (!this.options.geocoder) {
+				this.options.geocoder = new Nominatim();
+			}
+		},
+
+		onAdd: function (map) {
+			var className = 'leaflet-control-geocoder',
+			    container = L.DomUtil.create('div', className + ' leaflet-bar'),
+			    icon = L.DomUtil.create('a', 'leaflet-control-geocoder-icon', container),
+			    form = this._form = L.DomUtil.create('form', className + '-form', container),
+			    input;
+
+			icon.innerHTML = '&nbsp;';
+			icon.href = 'javascript:void(0);';
+			this._map = map;
+			this._container = container;
+			input = this._input = L.DomUtil.create('input');
+			input.type = 'text';
+			input.placeholder = this.options.placeholder;
+
+			L.DomEvent.addListener(input, 'keydown', this._keydown, this);
+			//L.DomEvent.addListener(input, 'onpaste', this._clearResults, this);
+			//L.DomEvent.addListener(input, 'oninput', this._clearResults, this);
+
+			this._errorElement = document.createElement('div');
+			this._errorElement.className = className + '-form-no-error';
+			this._errorElement.innerHTML = this.options.errorMessage;
+
+			this._alts = L.DomUtil.create('ul', className + '-alternatives leaflet-control-geocoder-alternatives-minimized');
+
+			form.appendChild(input);
+			this._container.appendChild(this._errorElement);
+			container.appendChild(this._alts);
+
+			L.DomEvent.addListener(form, 'submit', this._geocode, this);
+
+			if (this.options.collapsed) {
+				if (this.options.expand === 'click') {
+					L.DomEvent.addListener(icon, 'click', function(e) {
+						// TODO: touch
+						if (e.button === 0 && e.detail !== 2) {
+							this._toggle();
+						}
+					}, this);
+				} else {
+					L.DomEvent.addListener(icon, 'mouseover', this._expand, this);
+					L.DomEvent.addListener(icon, 'mouseout', this._collapse, this);
+					this._map.on('movestart', this._collapse, this);
+				}
+			} else {
+				L.DomEvent.addListener(icon, 'click', function(e) {
+					this._geocode(e);
+				}, this);
+				this._expand();
+			}
+
+			L.DomEvent.disableClickPropagation(container);
+
+			return container;
+		},
+
+		_geocodeResult: function (results) {
+			L.DomUtil.removeClass(this._container, 'leaflet-control-geocoder-throbber');
+			if (results.length === 1) {
+				this._geocodeResultSelected(results[0]);
+			} else if (results.length > 0) {
+				this._alts.innerHTML = '';
+				this._results = results;
+				L.DomUtil.removeClass(this._alts, 'leaflet-control-geocoder-alternatives-minimized');
+				for (var i = 0; i < results.length; i++) {
+					this._alts.appendChild(this._createAlt(results[i], i));
+				}
+			} else {
+				L.DomUtil.addClass(this._errorElement, 'leaflet-control-geocoder-error');
+			}
+		},
+
+		markGeocode: function(result) {
+			this._map.fitBounds(result.bbox);
+
+			if (this._geocodeMarker) {
+				this._map.removeLayer(this._geocodeMarker);
+			}
+
+			this._geocodeMarker = new L.Marker(result.center)
+				.bindPopup(result.html || result.name)
+				.addTo(this._map)
+				.openPopup();
+
+			return this;
+		},
+
+		_geocode: function(event) {
+			L.DomEvent.preventDefault(event);
+
+			L.DomUtil.addClass(this._container, 'leaflet-control-geocoder-throbber');
+			this._clearResults();
+			this.options.geocoder.geocode(this._input.value, this._geocodeResult, this);
+
+			return false;
+		},
+
+		_geocodeResultSelected: function(result) {
+			if (this.options.collapsed) {
+				this._collapse();
+			} else {
+				this._clearResults();
+			}
+			this.markGeocode(result);
+		},
+
+		_toggle: function() {
+			if (this._container.className.indexOf('leaflet-control-geocoder-expanded') >= 0) {
+				this._collapse();
+			} else {
+				this._expand();
+			}
+		},
+
+		_expand: function () {
+			L.DomUtil.addClass(this._container, 'leaflet-control-geocoder-expanded');
+			this._input.select();
+		},
+
+		_collapse: function () {
+			this._container.className = this._container.className.replace(' leaflet-control-geocoder-expanded', '');
+			L.DomUtil.addClass(this._alts, 'leaflet-control-geocoder-alternatives-minimized');
+			L.DomUtil.removeClass(this._errorElement, 'leaflet-control-geocoder-error');
+		},
+
+		_clearResults: function () {
+			L.DomUtil.addClass(this._alts, 'leaflet-control-geocoder-alternatives-minimized');
+			this._selection = null;
+			L.DomUtil.removeClass(this._errorElement, 'leaflet-control-geocoder-error');
+		},
+
+		_createAlt: function(result, index) {
+			var li = L.DomUtil.create('li', ''),
+				a = L.DomUtil.create('a', '', li),
+			    icon = this.options.showResultIcons && result.icon ? L.DomUtil.create('img', '', a) : null,
+			    text = result.html ? undefined : document.createTextNode(result.name),
+			    clickHandler = function clickHandler(e) {
+					L.DomEvent.preventDefault(e);
+					this._geocodeResultSelected(result);
+				};
+
+			if (icon) {
+				icon.src = result.icon;
+			}
+
+			li.setAttribute('data-result-index', index);
+
+			if (result.html) {
+				a.innerHTML = result.html;
+			} else {
+				a.appendChild(text);
+			}
+
+			L.DomEvent.addListener(li, 'click', clickHandler, this);
+
+			return li;
+		},
+
+		_keydown: function(e) {
+			var _this = this,
+			    select = function select(dir) {
+					if (_this._selection) {
+						L.DomUtil.removeClass(_this._selection, 'leaflet-control-geocoder-selected');
+						_this._selection = _this._selection[dir > 0 ? 'nextSibling' : 'previousSibling'];
+					}
+					if (!_this._selection) {
+						_this._selection = _this._alts[dir > 0 ? 'firstChild' : 'lastChild'];
+					}
+
+					if (_this._selection) {
+						L.DomUtil.addClass(_this._selection, 'leaflet-control-geocoder-selected');
+					}
+				};
+
+			switch (e.keyCode) {
+			// Escape
+			case 27:
+				if (this.options.collapsed) {
+					this._collapse();
+				}
+				break;
+			// Up
+			case 38:
+				select(-1);
+				L.DomEvent.preventDefault(e);
+				break;
+			// Up
+			case 40:
+				select(1);
+				L.DomEvent.preventDefault(e);
+				break;
+			// Enter
+			case 13:
+				if (this._selection) {
+					var index = parseInt(this._selection.getAttribute('data-result-index'), 10);
+					this._geocodeResultSelected(this._results[index]);
+					this._clearResults();
+					L.DomEvent.preventDefault(e);
+				}
+			}
+			return true;
+		}
+	}),
+	factory: function(options) {
+		return new L.Control.Geocoder(options);
+	}
+};
+
+},{"./geocoders/nominatim":26,"leaflet":20}],22:[function(require,module,exports){
+var L = require('leaflet'),
+	Util = require('../util');
+
+module.exports = {
+	class: L.Class.extend({
+		initialize: function(key) {
+			this.key = key;
+		},
+
+		geocode : function (query, cb, context) {
+			Util.jsonp('//dev.virtualearth.net/REST/v1/Locations', {
+				query: query,
+				key : this.key
+			}, function(data) {
+				var results = [];
+				if( data.resourceSets.length > 0 ){
+					for (var i = data.resourceSets[0].resources.length - 1; i >= 0; i--) {
+						var resource = data.resourceSets[0].resources[i],
+							bbox = resource.bbox;
+						results[i] = {
+							name: resource.name,
+							bbox: L.latLngBounds([bbox[0], bbox[1]], [bbox[2], bbox[3]]),
+							center: L.latLng(resource.point.coordinates)
+						};
+					}
+				}
+				cb.call(context, results);
+			}, this, 'jsonp');
+		},
+
+		reverse: function(location, scale, cb, context) {
+			Util.jsonp('//dev.virtualearth.net/REST/v1/Locations/' + location.lat + ',' + location.lng, {
+				key : this.key
+			}, function(data) {
+				var results = [];
+				for (var i = data.resourceSets[0].resources.length - 1; i >= 0; i--) {
+					var resource = data.resourceSets[0].resources[i],
+						bbox = resource.bbox;
+					results[i] = {
+						name: resource.name,
+						bbox: L.latLngBounds([bbox[0], bbox[1]], [bbox[2], bbox[3]]),
+						center: L.latLng(resource.point.coordinates)
+					};
+				}
+				cb.call(context, results);
+			}, this, 'jsonp');
+		}
+	}),
+
+	factory: function(key) {
+		return new L.Control.Geocoder.Bing(key);
+	}
+};
+
+},{"../util":30,"leaflet":20}],23:[function(require,module,exports){
+var L = require('leaflet'),
+	Util = require('../util');
+
+module.exports = {
+	class: L.Class.extend({
+		options: {
+			serviceUrl: 'https://maps.googleapis.com/maps/api/geocode/json',
+			geocodingQueryParams: {},
+			reverseQueryParams: {}
+		},
+
+		initialize: function(key, options) {
+			this._key = key;
+			L.setOptions(this, options);
+			// Backwards compatibility
+			this.options.serviceUrl = this.options.service_url || this.options.serviceUrl;
+		},
+
+		geocode: function(query, cb, context) {
+			var params = {
+				address: query,
+			};
+
+			if (this._key && this._key.length) {
+				params.key = this._key;
+			}
+
+			params = L.Util.extend(params, this.options.geocodingQueryParams);
+
+			Util.getJSON(this.options.serviceUrl, params, function(data) {
+				var results = [],
+						loc,
+						latLng,
+						latLngBounds;
+				if (data.results && data.results.length) {
+					for (var i = 0; i <= data.results.length - 1; i++) {
+						loc = data.results[i];
+						latLng = L.latLng(loc.geometry.location);
+						latLngBounds = L.latLngBounds(L.latLng(loc.geometry.viewport.northeast), L.latLng(loc.geometry.viewport.southwest));
+						results[i] = {
+							name: loc.formatted_address,
+							bbox: latLngBounds,
+							center: latLng,
+							properties: loc.address_components
+						};
+					}
+				}
+
+				cb.call(context, results);
+			});
+		},
+
+		reverse: function(location, scale, cb, context) {
+			var params = {
+				latlng: encodeURIComponent(location.lat) + ',' + encodeURIComponent(location.lng)
+			};
+			params = L.Util.extend(params, this.options.reverseQueryParams);
+			if (this._key && this._key.length) {
+				params.key = this._key;
+			}
+
+			Util.getJSON(this.options.serviceUrl, params, function(data) {
+				var results = [],
+						loc,
+						latLng,
+						latLngBounds;
+				if (data.results && data.results.length) {
+					for (var i = 0; i <= data.results.length - 1; i++) {
+						loc = data.results[i];
+						latLng = L.latLng(loc.geometry.location);
+						latLngBounds = L.latLngBounds(L.latLng(loc.geometry.viewport.northeast), L.latLng(loc.geometry.viewport.southwest));
+						results[i] = {
+							name: loc.formatted_address,
+							bbox: latLngBounds,
+							center: latLng,
+							properties: loc.address_components
+						};
+					}
+				}
+
+				cb.call(context, results);
+			});
+		}
+	}),
+
+	factory: function(key, options) {
+		return new L.Control.Geocoder.Google(key, options);
+	}
+};
+
+},{"../util":30,"leaflet":20}],24:[function(require,module,exports){
+var L = require('leaflet'),
+	Util = require('../util');
+
+module.exports = {
+	class: L.Class.extend({
+		options: {
+			serviceUrl: 'https://api.tiles.mapbox.com/v4/geocode/mapbox.places-v1/'
+		},
+
+		initialize: function(accessToken, options) {
+			L.setOptions(this, options);
+			this._accessToken = accessToken;
+		},
+
+		geocode: function(query, cb, context) {
+			Util.getJSON(this.options.serviceUrl + encodeURIComponent(query) + '.json', {
+				access_token: this._accessToken,
+			}, function(data) {
+				var results = [],
+				loc,
+				latLng,
+				latLngBounds;
+				if (data.features && data.features.length) {
+					for (var i = 0; i <= data.features.length - 1; i++) {
+						loc = data.features[i];
+						latLng = L.latLng(loc.center.reverse());
+						if(loc.hasOwnProperty('bbox'))
+						{
+							latLngBounds = L.latLngBounds(L.latLng(loc.bbox.slice(0, 2).reverse()), L.latLng(loc.bbox.slice(2, 4).reverse()));
+						}
+						else
+						{
+							latLngBounds = L.latLngBounds(latLng, latLng);
+						}
+						results[i] = {
+							name: loc.place_name,
+							bbox: latLngBounds,
+							center: latLng
+						};
+					}
+				}
+
+				cb.call(context, results);
+			});
+		},
+
+		suggest: function(query, cb, context) {
+			return this.geocode(query, cb, context);
+		},
+
+		reverse: function(location, scale, cb, context) {
+			Util.getJSON(this.options.serviceUrl + encodeURIComponent(location.lng) + ',' + encodeURIComponent(location.lat) + '.json', {
+				access_token: this._accessToken,
+			}, function(data) {
+				var results = [],
+				loc,
+				latLng,
+				latLngBounds;
+				if (data.features && data.features.length) {
+					for (var i = 0; i <= data.features.length - 1; i++) {
+						loc = data.features[i];
+						latLng = L.latLng(loc.center.reverse());
+						if(loc.hasOwnProperty('bbox'))
+						{
+							latLngBounds = L.latLngBounds(L.latLng(loc.bbox.slice(0, 2).reverse()), L.latLng(loc.bbox.slice(2, 4).reverse()));
+						}
+						else
+						{
+							latLngBounds = L.latLngBounds(latLng, latLng);
+						}
+						results[i] = {
+							name: loc.place_name,
+							bbox: latLngBounds,
+							center: latLng
+						};
+					}
+				}
+
+				cb.call(context, results);
+			});
+		}
+	}),
+
+	factory: function(accessToken, options) {
+		return new L.Control.Geocoder.Mapbox(accessToken, options);
+	}
+};
+
+
+},{"../util":30,"leaflet":20}],25:[function(require,module,exports){
+var L = require('leaflet'),
+	Util = require('../util');
+
+module.exports = {
+	class: L.Class.extend({
+		options: {
+			serviceUrl: '//www.mapquestapi.com/geocoding/v1'
+		},
+
+		initialize: function(key, options) {
+			// MapQuest seems to provide URI encoded API keys,
+			// so to avoid encoding them twice, we decode them here
+			this._key = decodeURIComponent(key);
+
+			L.Util.setOptions(this, options);
+		},
+
+		_formatName: function() {
+			var r = [],
+				i;
+			for (i = 0; i < arguments.length; i++) {
+				if (arguments[i]) {
+					r.push(arguments[i]);
+				}
+			}
+
+			return r.join(', ');
+		},
+
+		geocode: function(query, cb, context) {
+			Util.jsonp(this.options.serviceUrl + '/address', {
+				key: this._key,
+				location: query,
+				limit: 5,
+				outFormat: 'json'
+			}, function(data) {
+				var results = [],
+					loc,
+					latLng;
+				if (data.results && data.results[0].locations) {
+					for (var i = data.results[0].locations.length - 1; i >= 0; i--) {
+						loc = data.results[0].locations[i];
+						latLng = L.latLng(loc.latLng);
+						results[i] = {
+							name: this._formatName(loc.street, loc.adminArea4, loc.adminArea3, loc.adminArea1),
+							bbox: L.latLngBounds(latLng, latLng),
+							center: latLng
+						};
+					}
+				}
+
+				cb.call(context, results);
+			}, this);
+		},
+
+		reverse: function(location, scale, cb, context) {
+			Util.jsonp(this.options.serviceUrl + '/reverse', {
+				key: this._key,
+				location: location.lat + ',' + location.lng,
+				outputFormat: 'json'
+			}, function(data) {
+				var results = [],
+					loc,
+					latLng;
+				if (data.results && data.results[0].locations) {
+					for (var i = data.results[0].locations.length - 1; i >= 0; i--) {
+						loc = data.results[0].locations[i];
+						latLng = L.latLng(loc.latLng);
+						results[i] = {
+							name: this._formatName(loc.street, loc.adminArea4, loc.adminArea3, loc.adminArea1),
+							bbox: L.latLngBounds(latLng, latLng),
+							center: latLng
+						};
+					}
+				}
+
+				cb.call(context, results);
+			}, this);
+		}
+	}),
+
+	factory: function(key, options) {
+		return new L.Control.Geocoder.MapQuest(key, options);
+	}
+};
+
+},{"../util":30,"leaflet":20}],26:[function(require,module,exports){
+var L = require('leaflet'),
+	Util = require('../util');
+
+module.exports = {
+	class: L.Class.extend({
+		options: {
+			serviceUrl: '//nominatim.openstreetmap.org/',
+			geocodingQueryParams: {},
+			reverseQueryParams: {},
+			htmlTemplate: function(r) {
+				var a = r.address,
+					parts = [];
+				if (a.road || a.building) {
+					parts.push('{building} {road} {house_number}');
+				}
+
+				if (a.city || a.town || a.village) {
+					parts.push('<span class="' + (parts.length > 0 ? 'leaflet-control-geocoder-address-detail' : '') +
+						'">{postcode} {city} {town} {village}</span>');
+				}
+
+				if (a.state || a.country) {
+					parts.push('<span class="' + (parts.length > 0 ? 'leaflet-control-geocoder-address-context' : '') +
+						'">{state} {country}</span>');
+				}
+
+				return Util.template(parts.join('<br/>'), a, true);
+			}
+		},
+
+		initialize: function(options) {
+			L.Util.setOptions(this, options);
+		},
+
+		geocode: function(query, cb, context) {
+			Util.jsonp(this.options.serviceUrl + 'search/', L.extend({
+				q: query,
+				limit: 5,
+				format: 'json',
+				addressdetails: 1
+			}, this.options.geocodingQueryParams),
+			function(data) {
+				var results = [];
+				for (var i = data.length - 1; i >= 0; i--) {
+					var bbox = data[i].boundingbox;
+					for (var j = 0; j < 4; j++) bbox[j] = parseFloat(bbox[j]);
+					results[i] = {
+						icon: data[i].icon,
+						name: data[i].display_name,
+						html: this.options.htmlTemplate ?
+							this.options.htmlTemplate(data[i])
+							: undefined,
+						bbox: L.latLngBounds([bbox[0], bbox[2]], [bbox[1], bbox[3]]),
+						center: L.latLng(data[i].lat, data[i].lon),
+						properties: data[i]
+					};
+				}
+				cb.call(context, results);
+			}, this, 'json_callback');
+		},
+
+		reverse: function(location, scale, cb, context) {
+			Util.jsonp(this.options.serviceUrl + 'reverse/', L.extend({
+				lat: location.lat,
+				lon: location.lng,
+				zoom: Math.round(Math.log(scale / 256) / Math.log(2)),
+				addressdetails: 1,
+				format: 'json'
+			}, this.options.reverseQueryParams), function(data) {
+				var result = [],
+				    loc;
+
+				if (data && data.lat && data.lon) {
+					loc = L.latLng(data.lat, data.lon);
+					result.push({
+						name: data.display_name,
+						html: this.options.htmlTemplate ?
+							this.options.htmlTemplate(data)
+							: undefined,
+						center: loc,
+						bounds: L.latLngBounds(loc, loc),
+						properties: data
+					});
+				}
+
+				cb.call(context, result);
+			}, this, 'json_callback');
+		}
+	}),
+
+	factory: function(options) {
+		return new L.Control.Geocoder.Nominatim(options);
+	}
+};
+
+},{"../util":30,"leaflet":20}],27:[function(require,module,exports){
+var L = require('leaflet'),
+	Util = require('../util');
+
+module.exports = {
+	class: L.Class.extend({
+		options: {
+			serviceUrl: '//photon.komoot.de/api/',
+			reverseUrl: '//photon.komoot.de/reverse/',
+			nameProperties: [
+				'name',
+				'street',
+				'suburb',
+				'hamlet',
+				'town',
+				'city',
+				'state',
+				'country'
+			]
+		},
+
+		initialize: function(options) {
+			L.setOptions(this, options);
+		},
+
+		geocode: function(query, cb, context) {
+			var params = L.extend({
+				q: query,
+			}, this.options.geocodingQueryParams);
+
+			Util.getJSON(this.options.serviceUrl, params, L.bind(function(data) {
+				cb.call(context, this._decodeFeatures(data));
+			}, this));
+		},
+
+		suggest: function(query, cb, context) {
+			return this.geocode(query, cb, context);
+		},
+
+		reverse: function(latLng, scale, cb, context) {
+			var params = L.extend({
+				lat: latLng.lat,
+				lon: latLng.lng
+			}, this.options.geocodingQueryParams);
+
+			Util.getJSON(this.options.reverseUrl, params, L.bind(function(data) {
+				cb.call(context, this._decodeFeatures(data));
+			}, this));
+		},
+
+		_decodeFeatures: function(data) {
+			var results = [],
+				i,
+				f,
+				c,
+				latLng,
+				extent,
+				bbox;
+
+			if (data && data.features) {
+				for (i = 0; i < data.features.length; i++) {
+					f = data.features[i];
+					c = f.geometry.coordinates;
+					latLng = L.latLng(c[1], c[0]);
+					extent = f.properties.extent;
+
+					if (extent) {
+						bbox = L.latLngBounds([extent[1], extent[0]], [extent[3], extent[2]]);
+					} else {
+						bbox = L.latLngBounds(latLng, latLng);
+					}
+
+					results.push({
+						name: this._deocodeFeatureName(f),
+						center: latLng,
+						bbox: bbox,
+						properties: f.properties
+					});
+				}
+			}
+
+			return results;
+		},
+
+		_deocodeFeatureName: function(f) {
+			var j,
+				name;
+			for (j = 0; !name && j < this.options.nameProperties.length; j++) {
+				name = f.properties[this.options.nameProperties[j]];
+			}
+
+			return name;
+		}
+	}),
+
+	factory: function(options) {
+		return new L.Control.Geocoder.Photon(options);
+	}
+};
+
+
+},{"../util":30,"leaflet":20}],28:[function(require,module,exports){
+var L = require('leaflet'),
+	Util = require('../util');
+
+module.exports = {
+	class: L.Class.extend({
+		options: {
+			serviceUrl: 'http://api.what3words.com/'
+		},
+
+		initialize: function(accessToken) {
+			this._accessToken = accessToken;
+		},
+
+		geocode: function(query, cb, context) {
+			//get three words and make a dot based string
+			Util.getJSON(this.options.serviceUrl +'w3w', {
+				key: this._accessToken,
+				string: query.split(/\s+/).join('.'),
+			}, function(data) {
+				var results = [], loc, latLng, latLngBounds;
+				if (data.position && data.position.length) {
+					loc = data.words;
+					latLng = L.latLng(data.position[0],data.position[1]);
+					latLngBounds = L.latLngBounds(latLng, latLng);
+					results[0] = {
+						name: loc.join('.'),
+						bbox: latLngBounds,
+						center: latLng
+					};
+				}
+
+				cb.call(context, results);
+			});
+		},
+
+		suggest: function(query, cb, context) {
+			return this.geocode(query, cb, context);
+		},
+
+		reverse: function(location, scale, cb, context) {
+			Util.getJSON(this.options.serviceUrl +'position', {
+				key: this._accessToken,
+				position: [location.lat,location.lng].join(',')
+			}, function(data) {
+				var results = [],loc,latLng,latLngBounds;
+				if (data.position && data.position.length) {
+					loc = data.words;
+					latLng = L.latLng(data.position[0],data.position[1]);
+					latLngBounds = L.latLngBounds(latLng, latLng);
+					results[0] = {
+						name: loc.join('.'),
+						bbox: latLngBounds,
+						center: latLng
+					};
+				}
+				cb.call(context, results);
+			});
+		}
+	}),
+
+	factory: function(accessToken) {
+		return new L.Control.Geocoder.What3Words(accessToken);
+	}
+};
+
+},{"../util":30,"leaflet":20}],29:[function(require,module,exports){
+var L = require('leaflet'),
+	Control = require('./control'),
+	Nominatim = require('./geocoders/nominatim'),
+	Bing = require('./geocoders/bing'),
+	MapQuest = require('./geocoders/mapquest'),
+	Mapbox = require('./geocoders/mapbox'),
+	What3Words = require('./geocoders/what3words'),
+	Google = require('./geocoders/google'),
+	Photon = require('./geocoders/photon');
+
+module.exports = L.Util.extend(Control.class, {
+	Nominatim: Nominatim.class,
+	nominatim: Nominatim.factory,
+	Bing: Bing.class,
+	bing: Bing.factory,
+	MapQuest: MapQuest.class,
+	mapQuest: MapQuest.factory,
+	Mapbox: Mapbox.class,
+	mapbox: Mapbox.factory,
+	What3Words: What3Words.class,
+	what3words: What3Words.factory,
+	Google: Google.class,
+	google: Google.factory,
+	Photon: Photon.class,
+	photon: Photon.factory
+});
+
+L.Util.extend(L.Control, {
+	Geocoder: module.exports,
+	geocoder: Control.factory
+});
+
+},{"./control":21,"./geocoders/bing":22,"./geocoders/google":23,"./geocoders/mapbox":24,"./geocoders/mapquest":25,"./geocoders/nominatim":26,"./geocoders/photon":27,"./geocoders/what3words":28,"leaflet":20}],30:[function(require,module,exports){
+var L = require('leaflet'),
+	lastCallbackId = 0,
+	htmlEscape = (function() {
+		// Adapted from handlebars.js
+		// https://github.com/wycats/handlebars.js/
+		var badChars = /[&<>"'`]/g;
+		var possible = /[&<>"'`]/;
+		var escape = {
+		  '&': '&amp;',
+		  '<': '&lt;',
+		  '>': '&gt;',
+		  '"': '&quot;',
+		  '\'': '&#x27;',
+		  '`': '&#x60;'
+		};
+
+		function escapeChar(chr) {
+		  return escape[chr];
+		}
+
+		return function(string) {
+			if (string == null) {
+				return '';
+			} else if (!string) {
+				return string + '';
+			}
+
+			// Force a string conversion as this will be done by the append regardless and
+			// the regex test will do this transparently behind the scenes, causing issues if
+			// an object's to string has escaped characters in it.
+			string = '' + string;
+
+			if (!possible.test(string)) {
+				return string;
+			}
+			return string.replace(badChars, escapeChar);
+		};
+	})();
+
+module.exports = {
+	jsonp: function(url, params, callback, context, jsonpParam) {
+		var callbackId = '_l_geocoder_' + (lastCallbackId++);
+		params[jsonpParam || 'callback'] = callbackId;
+		window[callbackId] = L.Util.bind(callback, context);
+		var script = document.createElement('script');
+		script.type = 'text/javascript';
+		script.src = url + L.Util.getParamString(params);
+		script.id = callbackId;
+		document.getElementsByTagName('head')[0].appendChild(script);
+	},
+
+	getJSON: function(url, params, callback) {
+		var xmlHttp = new XMLHttpRequest();
+		xmlHttp.onreadystatechange = function () {
+			if (xmlHttp.readyState !== 4){
+				return;
+			}
+			if (xmlHttp.status !== 200 && xmlHttp.status !== 304){
+				callback('');
+				return;
+			}
+			callback(JSON.parse(xmlHttp.response));
+		};
+		xmlHttp.open('GET', url + L.Util.getParamString(params), true);
+		xmlHttp.setRequestHeader('Accept', 'application/json');
+		xmlHttp.send(null);
+	},
+
+	template: function (str, data) {
+		return str.replace(/\{ *([\w_]+) *\}/g, function (str, key) {
+			var value = data[key];
+			if (value === undefined) {
+				value = '';
+			} else if (typeof value === 'function') {
+				value = value(data);
+			}
+			return htmlEscape(value);
+		});
+	},
+
+	htmlEscape: htmlEscape
+};
+
+},{"leaflet":20}],31:[function(require,module,exports){
+(function (factory) {
+    var L;
+    if (typeof define === 'function' && define.amd) {
+        // AMD
+        define(['leaflet'], function(L) {
+            factory(L, setTimeout);
+        });
+    } else if (typeof module !== 'undefined') {
+        // Node/CommonJS
+        L = require('leaflet');
+        module.exports = factory(L, setTimeout);
+    } else {
+        // Browser globals
+        if (typeof window.L === 'undefined')
+            throw 'Leaflet must be loaded first';
+        factory(window.L, setTimeout);
+    }
+}(function (L, setTimeout) {
+    var _controlContainer,
+        _map,
+        _zoomThreshold,
+        _hideClass = 'leaflet-control-edit-hidden',
+        _anchorClass = 'leaflet-control-edit-in-osm-toggle',
+
+        _Widgets =  {
+            SimpleButton: function (config) {
+                var className = (config && config.className) || 'leaflet-control-edit-in-osm-simple',
+                    helpText = config && config.helpText,
+                    addEditors = (config && config.addEditors) || function (container, editors) {
+                        addEditorToWidget(container, editors[0], helpText);
+                    };
+
+                return {
+                    className: className,
+                    helpText: helpText,
+                    addEditors: addEditors
+                };
+            },
+            MultiButton: function (config) {
+                var className = 'leaflet-control-edit-in-osm',
+                    helpText = "Open this map extent in a map editor to provide more accurate data to OpenStreetMap",
+                    addEditors = function (container, editors) {
+                        for (var i in editors) {
+                            addEditorToWidget(container, editors[i]);
+                        }
+                    };
+
+                return {
+                    className: (config && config.className) || className,
+                    helpText: (config && config.helpText) || helpText,
+                    addEditors: (config && config.addEditors) || addEditors
+                };
+            },
+            AttributionBox: function (config) {
+                var className = 'leaflet-control-attribution',
+                    helpText = "Edit in OSM",
+                    addEditors = function (container, editors) {
+                        addEditorToWidget(container, editors[0], helpText);
+                    };
+
+                return {
+                    className: (config && config.className) || className,
+                    helpText: (config && config.helpText) || helpText,
+                    addEditors: (config && config.addEditors) || addEditors
+                };
+            }
+        },
+
+        _Editors = {
+            Id: function (config) {
+                var url = 'https://www.openstreetmap.org/edit?editor=id#map=',
+                    displayName = "iD",
+                    buildUrl = function (map) {
+                        return this.url + [
+                            map.getZoom(),
+                            map.getCenter().wrap().lat,
+                            map.getCenter().wrap().lng
+                        ].join('/');
+                    };
+                return {
+                    url: (config && config.url) || url,
+                    displayName: (config && config.displayName) || displayName,
+                    buildUrl: (config && config.buildUrl) || buildUrl
+                };
+            },
+            Josm: function (config) {
+                var url = 'http://127.0.0.1:8111/load_and_zoom',
+                    timeout = 1000,
+                    displayName = "JOSM",
+                    buildUrl = function (map) {
+                        var bounds = map.getBounds();
+                        return this.url + L.Util.getParamString({
+                            left: bounds.getNorthWest().lng,
+                            right: bounds.getSouthEast().lng,
+                            top: bounds.getNorthWest().lat,
+                            bottom: bounds.getSouthEast().lat
+                        });
+                    };
+
+                return {
+                    url: (config && config.url) || url,
+                    timeout: (config && config.timeout) || timeout,
+                    displayName: (config && config.displayName) || displayName,
+                    buildUrl: (config && config.buildUrl) || buildUrl
+                };
+            },
+            Potlatch: function (config) {
+                var url = 'http://open.mapquestapi.com/dataedit/index_flash.html',
+                    displayName = "P2",
+                    buildUrl = function (map) {
+                        return this.url + L.Util.getParamString({
+                            lon: map.getCenter().wrap().lng,
+                            lat: map.getCenter().wrap().lat,
+                            zoom: map.getZoom()
+                        });
+                    };
+                return {
+                    url: (config && config.url) || url,
+                    displayName: (config && config.displayName) || displayName,
+                    buildUrl: (config && config.buildUrl) || buildUrl
+                };
+            }
+        };
+
+
+    // Takes an editor, calls their buildUrl method
+    // and opens the url in the browser
+    function openRemote (editor) {
+        var url = editor.buildUrl(_map),
+            w = window.open(url);
+        if (editor.timeout) {
+            setTimeout(function() {w.close();}, editor.timeout);
+        }
+    }
+
+    function addEditorToWidget(widgetContainer, editor, text) {
+        var editorWidget = L.DomUtil.create('a', "osm-editor", widgetContainer);
+        editorWidget.href = "#";
+        editorWidget.innerHTML = text || editor.displayName;
+        L.DomEvent.on(editorWidget, "click", function (e) {
+            openRemote(editor);
+            L.DomEvent.stop(e);
+        });
+    }
+
+    // Make the EditInOSM widget visible or invisible after each
+    // zoom event.
+    //
+    // configurable by setting the *zoomThreshold* option.
+    function showOrHideUI() {
+        var zoom = _map.getZoom();
+        if (zoom < _zoomThreshold) {
+            L.DomUtil.addClass(_controlContainer, _hideClass);
+        } else {
+            L.DomUtil.removeClass(_controlContainer, _hideClass);
+        }
+    }
+
+    L.Control.EditInOSM = L.Control.extend({
+
+        options: {
+            position: "topright",
+            zoomThreshold: 0,
+            widget: "multiButton",
+            editors: ["id", "josm"]
+        },
+
+        initialize: function (options) {
+            var newEditors = [],
+                widget,
+                widgetSmallName,
+                editor,
+                editorSmallName;
+
+            L.setOptions(this, options);
+
+            _zoomThreshold = this.options.zoomThreshold;
+
+            widget = this.options.widget;
+            widgetSmallName = typeof(widget) === 'string' ? widget.toLowerCase() : '';
+
+            // setup widget from string or object
+            if (widgetSmallName === "simplebutton") {
+                this.options.widget = new _Widgets.SimpleButton(this.options.widgetOptions);
+            } else if (widgetSmallName === "multibutton") {
+                this.options.widget = new _Widgets.MultiButton(this.options.widgetOptions);
+            } else if (widgetSmallName === "attributionbox") {
+                this.options.widget = new _Widgets.AttributionBox(this.options.widgetOptions);
+            }
+
+            // setup editors from strings or objects
+            for (var i in this.options.editors) {
+                editor = this.options.editors[i],
+                editorSmallName = typeof(editor) === "string" ? editor.toLowerCase() : null;
+
+                if (editorSmallName === "id") {
+                    newEditors.push(new _Editors.Id());
+                } else if (editorSmallName === "josm") {
+                    newEditors.push(new _Editors.Josm());
+                } else if (editorSmallName === "potlatch") {
+                    newEditors.push(new _Editors.Potlatch());
+                } else {
+                    newEditors.push(editor);
+                }
+            }
+            this.options.editors = newEditors;
+
+        },
+
+        onAdd: function (map) {
+            _map = map;
+            map.on('zoomend', showOrHideUI);
+
+            _controlContainer = L.DomUtil.create('div', this.options.widget.className);
+
+            _controlContainer.title = this.options.widget.helpText || '';
+
+            L.DomUtil.create('a', _anchorClass, _controlContainer);
+
+            this.options.widget.addEditors(_controlContainer, this.options.editors);
+            return _controlContainer;
+        },
+
+        onRemove: function (map) {
+            map.off('zoomend', this._onZoomEnd);
+        }
+
+    });
+
+    L.Control.EditInOSM.Widgets = _Widgets;
+    L.Control.EditInOSM.Editors = _Editors;
+
+    L.Map.addInitHook(function () {
+        if (this.options.editInOSMControlOptions) {
+            var options = this.options.editInOSMControlOptions || {};
+            this.editInOSMControl = (new L.Control.EditInOSM(options)).addTo(this);
+        }
+    });
+
+}));
+
+},{"leaflet":48}],32:[function(require,module,exports){
+function corslite(url, callback, cors) {
+    var sent = false;
+
+    if (typeof window.XMLHttpRequest === 'undefined') {
+        return callback(Error('Browser not supported'));
+    }
+
+    if (typeof cors === 'undefined') {
+        var m = url.match(/^\s*https?:\/\/[^\/]*/);
+        cors = m && (m[0] !== location.protocol + '//' + location.domain +
+                (location.port ? ':' + location.port : ''));
+    }
+
+    var x = new window.XMLHttpRequest();
+
+    function isSuccessful(status) {
+        return status >= 200 && status < 300 || status === 304;
+    }
+
+    if (cors && !('withCredentials' in x)) {
+        // IE8-9
+        x = new window.XDomainRequest();
+
+        // Ensure callback is never called synchronously, i.e., before
+        // x.send() returns (this has been observed in the wild).
+        // See https://github.com/mapbox/mapbox.js/issues/472
+        var original = callback;
+        callback = function() {
+            if (sent) {
+                original.apply(this, arguments);
+            } else {
+                var that = this, args = arguments;
+                setTimeout(function() {
+                    original.apply(that, args);
+                }, 0);
+            }
+        }
+    }
+
+    function loaded() {
+        if (
+            // XDomainRequest
+            x.status === undefined ||
+            // modern browsers
+            isSuccessful(x.status)) callback.call(x, null, x);
+        else callback.call(x, x, null);
+    }
+
+    // Both `onreadystatechange` and `onload` can fire. `onreadystatechange`
+    // has [been supported for longer](http://stackoverflow.com/a/9181508/229001).
+    if ('onload' in x) {
+        x.onload = loaded;
+    } else {
+        x.onreadystatechange = function readystate() {
+            if (x.readyState === 4) {
+                loaded();
+            }
+        };
+    }
+
+    // Call the callback with the XMLHttpRequest object as an error and prevent
+    // it from ever being called again by reassigning it to `noop`
+    x.onerror = function error(evt) {
+        // XDomainRequest provides no evt parameter
+        callback.call(this, evt || true, null);
+        callback = function() { };
+    };
+
+    // IE9 must have onprogress be set to a unique function.
+    x.onprogress = function() { };
+
+    x.ontimeout = function(evt) {
+        callback.call(this, evt, null);
+        callback = function() { };
+    };
+
+    x.onabort = function(evt) {
+        callback.call(this, evt, null);
+        callback = function() { };
+    };
+
+    // GET is the only supported HTTP Verb by XDomainRequest and is the
+    // only one supported here.
+    x.open('GET', url, true);
+
+    // Send the request. Sending data is not supported.
+    x.send(null);
+    sent = true;
+
+    return x;
+}
+
+if (typeof module !== 'undefined') module.exports = corslite;
+
+},{}],33:[function(require,module,exports){
+module.exports=require(20)
+},{}],34:[function(require,module,exports){
+var polyline = {};
+
+// Based off of [the offical Google document](https://developers.google.com/maps/documentation/utilities/polylinealgorithm)
+//
+// Some parts from [this implementation](http://facstaff.unca.edu/mcmcclur/GoogleMaps/EncodePolyline/PolylineEncoder.js)
+// by [Mark McClure](http://facstaff.unca.edu/mcmcclur/)
+
+function encode(coordinate, factor) {
+    coordinate = Math.round(coordinate * factor);
+    coordinate <<= 1;
+    if (coordinate < 0) {
+        coordinate = ~coordinate;
+    }
+    var output = '';
+    while (coordinate >= 0x20) {
+        output += String.fromCharCode((0x20 | (coordinate & 0x1f)) + 63);
+        coordinate >>= 5;
+    }
+    output += String.fromCharCode(coordinate + 63);
+    return output;
+}
+
+// This is adapted from the implementation in Project-OSRM
+// https://github.com/DennisOSRM/Project-OSRM-Web/blob/master/WebContent/routing/OSRM.RoutingGeometry.js
+polyline.decode = function(str, precision) {
+    var index = 0,
+        lat = 0,
+        lng = 0,
+        coordinates = [],
+        shift = 0,
+        result = 0,
+        byte = null,
+        latitude_change,
+        longitude_change,
+        factor = Math.pow(10, precision || 5);
+
+    // Coordinates have variable length when encoded, so just keep
+    // track of whether we've hit the end of the string. In each
+    // loop iteration, a single coordinate is decoded.
+    while (index < str.length) {
+
+        // Reset shift, result, and byte
+        byte = null;
+        shift = 0;
+        result = 0;
+
+        do {
+            byte = str.charCodeAt(index++) - 63;
+            result |= (byte & 0x1f) << shift;
+            shift += 5;
+        } while (byte >= 0x20);
+
+        latitude_change = ((result & 1) ? ~(result >> 1) : (result >> 1));
+
+        shift = result = 0;
+
+        do {
+            byte = str.charCodeAt(index++) - 63;
+            result |= (byte & 0x1f) << shift;
+            shift += 5;
+        } while (byte >= 0x20);
+
+        longitude_change = ((result & 1) ? ~(result >> 1) : (result >> 1));
+
+        lat += latitude_change;
+        lng += longitude_change;
+
+        coordinates.push([lat / factor, lng / factor]);
+    }
+
+    return coordinates;
+};
+
+polyline.encode = function(coordinates, precision) {
+    if (!coordinates.length) return '';
+
+    var factor = Math.pow(10, precision || 5),
+        output = encode(coordinates[0][0], factor) + encode(coordinates[0][1], factor);
+
+    for (var i = 1; i < coordinates.length; i++) {
+        var a = coordinates[i], b = coordinates[i - 1];
+        output += encode(a[0] - b[0], factor);
+        output += encode(a[1] - b[1], factor);
+    }
+
+    return output;
+};
+
+if (typeof module !== undefined) module.exports = polyline;
+
+},{}],35:[function(require,module,exports){
+(function() {
+	'use strict';
+
+	L.Routing = L.Routing || {};
+
+	L.Routing.Autocomplete = L.Class.extend({
+		options: {
+			timeout: 500,
+			blurTimeout: 100,
+			noResultsMessage: 'No results found.'
+		},
+
+		initialize: function(elem, callback, context, options) {
+			L.setOptions(this, options);
+
+			this._elem = elem;
+			this._resultFn = options.resultFn ? L.Util.bind(options.resultFn, options.resultContext) : null;
+			this._autocomplete = options.autocompleteFn ? L.Util.bind(options.autocompleteFn, options.autocompleteContext) : null;
+			this._selectFn = L.Util.bind(callback, context);
+			this._container = L.DomUtil.create('div', 'leaflet-routing-geocoder-result');
+			this._resultTable = L.DomUtil.create('table', '', this._container);
+
+			// TODO: looks a bit like a kludge to register same for input and keypress -
+			// browsers supporting both will get duplicate events; just registering
+			// input will not catch enter, though.
+			L.DomEvent.addListener(this._elem, 'input', this._keyPressed, this);
+			L.DomEvent.addListener(this._elem, 'keypress', this._keyPressed, this);
+			L.DomEvent.addListener(this._elem, 'keydown', this._keyDown, this);
+			L.DomEvent.addListener(this._elem, 'blur', function() {
+				if (this._isOpen) {
+					this.close();
+				}
+			}, this);
+		},
+
+		close: function() {
+			L.DomUtil.removeClass(this._container, 'leaflet-routing-geocoder-result-open');
+			this._isOpen = false;
+		},
+
+		_open: function() {
+			var rect = this._elem.getBoundingClientRect();
+			if (!this._container.parentElement) {
+				this._container.style.left = (rect.left + window.scrollX) + 'px';
+				this._container.style.top = (rect.bottom + window.scrollY) + 'px';
+				this._container.style.width = (rect.right - rect.left) + 'px';
+				document.body.appendChild(this._container);
+			}
+
+			L.DomUtil.addClass(this._container, 'leaflet-routing-geocoder-result-open');
+			this._isOpen = true;
+		},
+
+		_setResults: function(results) {
+			var i,
+			    tr,
+			    td,
+			    text;
+
+			delete this._selection;
+			this._results = results;
+
+			while (this._resultTable.firstChild) {
+				this._resultTable.removeChild(this._resultTable.firstChild);
+			}
+
+			for (i = 0; i < results.length; i++) {
+				tr = L.DomUtil.create('tr', '', this._resultTable);
+				tr.setAttribute('data-result-index', i);
+				td = L.DomUtil.create('td', '', tr);
+				text = document.createTextNode(results[i].name);
+				td.appendChild(text);
+				// mousedown + click because:
+				// http://stackoverflow.com/questions/10652852/jquery-fire-click-before-blur-event
+				L.DomEvent.addListener(td, 'mousedown', L.DomEvent.preventDefault);
+				L.DomEvent.addListener(td, 'click', this._createClickListener(results[i]));
+			}
+
+			if (!i) {
+				tr = L.DomUtil.create('tr', '', this._resultTable);
+				td = L.DomUtil.create('td', 'leaflet-routing-geocoder-no-results', tr);
+				td.innerHTML = this.options.noResultsMessage;
+			}
+
+			this._open();
+
+			if (results.length > 0) {
+				// Select the first entry
+				this._select(1);
+			}
+		},
+
+		_createClickListener: function(r) {
+			var resultSelected = this._resultSelected(r);
+			return L.bind(function() {
+				this._elem.blur();
+				resultSelected();
+			}, this);
+		},
+
+		_resultSelected: function(r) {
+			return L.bind(function() {
+				this.close();
+				this._elem.value = r.name;
+				this._lastCompletedText = r.name;
+				this._selectFn(r);
+			}, this);
+		},
+
+		_keyPressed: function(e) {
+			var index;
+
+			if (this._isOpen && e.keyCode === 13 && this._selection) {
+				index = parseInt(this._selection.getAttribute('data-result-index'), 10);
+				this._resultSelected(this._results[index])();
+				L.DomEvent.preventDefault(e);
+				return;
+			}
+
+			if (e.keyCode === 13) {
+				this._complete(this._resultFn, true);
+				return;
+			}
+
+			if (this._autocomplete && document.activeElement === this._elem) {
+				if (this._timer) {
+					clearTimeout(this._timer);
+				}
+				this._timer = setTimeout(L.Util.bind(function() { this._complete(this._autocomplete); }, this),
+					this.options.timeout);
+				return;
+			}
+
+			this._unselect();
+		},
+
+		_select: function(dir) {
+			var sel = this._selection;
+			if (sel) {
+				L.DomUtil.removeClass(sel.firstChild, 'leaflet-routing-geocoder-selected');
+				sel = sel[dir > 0 ? 'nextSibling' : 'previousSibling'];
+			}
+			if (!sel) {
+				sel = this._resultTable[dir > 0 ? 'firstChild' : 'lastChild'];
+			}
+
+			if (sel) {
+				L.DomUtil.addClass(sel.firstChild, 'leaflet-routing-geocoder-selected');
+				this._selection = sel;
+			}
+		},
+
+		_unselect: function() {
+			if (this._selection) {
+				L.DomUtil.removeClass(this._selection.firstChild, 'leaflet-routing-geocoder-selected');
+			}
+			delete this._selection;
+		},
+
+		_keyDown: function(e) {
+			if (this._isOpen) {
+				switch (e.keyCode) {
+				// Escape
+				case 27:
+					this.close();
+					L.DomEvent.preventDefault(e);
+					return;
+				// Up
+				case 38:
+					this._select(-1);
+					L.DomEvent.preventDefault(e);
+					return;
+				// Down
+				case 40:
+					this._select(1);
+					L.DomEvent.preventDefault(e);
+					return;
+				}
+			}
+		},
+
+		_complete: function(completeFn, trySelect) {
+			var v = this._elem.value;
+			function completeResults(results) {
+				this._lastCompletedText = v;
+				if (trySelect && results.length === 1) {
+					this._resultSelected(results[0])();
+				} else {
+					this._setResults(results);
+				}
+			}
+
+			if (!v) {
+				return;
+			}
+
+			if (v !== this._lastCompletedText) {
+				completeFn(v, completeResults, this);
+			} else if (trySelect) {
+				completeResults.call(this, this._results);
+			}
+		}
+	});
+})();
+
+},{}],36:[function(require,module,exports){
+(function() {
+	'use strict';
+
+	var L = require('leaflet');
+
+	L.Routing = L.Routing || {};
+	L.extend(L.Routing, require('./L.Routing.Itinerary'));
+	L.extend(L.Routing, require('./L.Routing.Line'));
+	L.extend(L.Routing, require('./L.Routing.Plan'));
+	L.extend(L.Routing, require('./L.Routing.OSRM'));
+	L.extend(L.Routing, require('./L.Routing.ErrorControl'));
+
+	L.Routing.Control = L.Routing.Itinerary.extend({
+		options: {
+			fitSelectedRoutes: 'smart',
+			routeLine: function(route, options) { return L.Routing.line(route, options); },
+			autoRoute: true,
+			routeWhileDragging: false,
+			routeDragInterval: 500,
+			waypointMode: 'connect',
+			useZoomParameter: false,
+			showAlternatives: false
+		},
+
+		initialize: function(options) {
+			L.Util.setOptions(this, options);
+
+			this._router = this.options.router || new L.Routing.OSRM(options);
+			this._plan = this.options.plan || L.Routing.plan(this.options.waypoints, options);
+			this._requestCount = 0;
+
+			L.Routing.Itinerary.prototype.initialize.call(this, options);
+
+			this.on('routeselected', this._routeSelected, this);
+			this._plan.on('waypointschanged', this._onWaypointsChanged, this);
+			if (options.routeWhileDragging) {
+				this._setupRouteDragging();
+			}
+
+			if (this.options.autoRoute) {
+				this.route();
+			}
+		},
+
+		onAdd: function(map) {
+			var container = L.Routing.Itinerary.prototype.onAdd.call(this, map);
+
+			this._map = map;
+			this._map.addLayer(this._plan);
+
+			if (this.options.useZoomParameter) {
+				this._map.on('zoomend', function() {
+					this.route({
+						callback: L.bind(this._updateLineCallback, this)
+					});
+				}, this);
+			}
+
+			if (this._plan.options.geocoder) {
+				container.insertBefore(this._plan.createGeocoders(), container.firstChild);
+			}
+
+			return container;
+		},
+
+		onRemove: function(map) {
+			if (this._line) {
+				map.removeLayer(this._line);
+			}
+			map.removeLayer(this._plan);
+			return L.Routing.Itinerary.prototype.onRemove.call(this, map);
+		},
+
+		getWaypoints: function() {
+			return this._plan.getWaypoints();
+		},
+
+		setWaypoints: function(waypoints) {
+			this._plan.setWaypoints(waypoints);
+			return this;
+		},
+
+		spliceWaypoints: function() {
+			var removed = this._plan.spliceWaypoints.apply(this._plan, arguments);
+			return removed;
+		},
+
+		getPlan: function() {
+			return this._plan;
+		},
+
+		getRouter: function() {
+			return this._router;
+		},
+
+		_routeSelected: function(e) {
+			var route = e.route,
+				alternatives = this.options.showAlternatives && e.alternatives,
+				fitMode = this.options.fitSelectedRoutes,
+				fitBounds =
+					(fitMode === 'smart' && !this._waypointsVisible()) ||
+					(fitMode !== 'smart' && fitMode);
+
+			this._updateLines({route: route, alternatives: alternatives});
+
+			if (fitBounds) {
+				this._map.fitBounds(this._line.getBounds());
+			}
+
+			if (this.options.waypointMode === 'snap') {
+				this._plan.off('waypointschanged', this._onWaypointsChanged, this);
+				this.setWaypoints(route.waypoints);
+				this._plan.on('waypointschanged', this._onWaypointsChanged, this);
+			}
+		},
+
+		_waypointsVisible: function() {
+			var wps = this.getWaypoints(),
+				mapSize,
+				bounds,
+				boundsSize,
+				i,
+				p;
+
+			try {
+				mapSize = this._map.getSize();
+
+				for (i = 0; i < wps.length; i++) {
+					p = this._map.latLngToLayerPoint(wps[i].latLng);
+
+					if (bounds) {
+						bounds.extend(p);
+					} else {
+						bounds = L.bounds([p]);
+					}
+				}
+
+				boundsSize = bounds.getSize();
+				return (boundsSize.x > mapSize.x / 5 ||
+					boundsSize.y > mapSize.y / 5) && this._waypointsInViewport();
+
+			} catch (e) {
+				return false;
+			}
+		},
+
+		_waypointsInViewport: function() {
+			var wps = this.getWaypoints(),
+				mapBounds,
+				i;
+
+			try {
+				mapBounds = this._map.getBounds();
+			} catch (e) {
+				return false;
+			}
+
+			for (i = 0; i < wps.length; i++) {
+				if (mapBounds.contains(wps[i].latLng)) {
+					return true;
+				}
+			}
+
+			return false;
+		},
+
+		_updateLines: function(routes) {
+			var addWaypoints = this.options.addWaypoints !== undefined ?
+				this.options.addWaypoints : true;
+			this._clearLines();
+
+			// add alternatives first so they lie below the main route
+			this._alternatives = [];
+			if (routes.alternatives) routes.alternatives.forEach(function(alt, i) {
+				this._alternatives[i] = this.options.routeLine(alt,
+					L.extend({
+						isAlternative: true
+					}, this.options.altLineOptions || this.options.lineOptions));
+				this._alternatives[i].addTo(this._map);
+				this._hookAltEvents(this._alternatives[i]);
+			}, this);
+
+			this._line = this.options.routeLine(routes.route,
+				L.extend({
+					addWaypoints: addWaypoints,
+					extendToWaypoints: this.options.waypointMode === 'connect'
+				}, this.options.lineOptions));
+			this._line.addTo(this._map);
+			this._hookEvents(this._line);
+		},
+
+		_hookEvents: function(l) {
+			l.on('linetouched', function(e) {
+				this._plan.dragNewWaypoint(e);
+			}, this);
+		},
+
+		_hookAltEvents: function(l) {
+			l.on('linetouched', function(e) {
+				var alts = this._routes.slice();
+				var selected = alts.splice(e.target._route.routesIndex, 1)[0];
+				this.fire('routeselected', {route: selected, alternatives: alts});
+			}, this);
+		},
+
+		_onWaypointsChanged: function(e) {
+			if (this.options.autoRoute) {
+				this.route({});
+			}
+			if (!this._plan.isReady()) {
+				this._clearLines();
+				this._clearAlts();
+			}
+			this.fire('waypointschanged', {waypoints: e.waypoints});
+		},
+
+		_setupRouteDragging: function() {
+			var timer = 0,
+				waypoints;
+
+			this._plan.on('waypointdrag', L.bind(function(e) {
+				waypoints = e.waypoints;
+
+				if (!timer) {
+					timer = setTimeout(L.bind(function() {
+						this.route({
+							waypoints: waypoints,
+							geometryOnly: true,
+							callback: L.bind(this._updateLineCallback, this)
+						});
+						timer = undefined;
+					}, this), this.options.routeDragInterval);
+				}
+			}, this));
+			this._plan.on('waypointdragend', function() {
+				if (timer) {
+					clearTimeout(timer);
+					timer = undefined;
+				}
+				this.route();
+			}, this);
+		},
+
+		_updateLineCallback: function(err, routes) {
+			if (!err) {
+				this._updateLines({route: routes[0], alternatives: routes.slice(1) });
+			} else {
+				this._clearLines();
+			}
+		},
+
+		route: function(options) {
+			var ts = ++this._requestCount,
+				wps;
+
+			options = options || {};
+
+			if (this._plan.isReady()) {
+				if (this.options.useZoomParameter) {
+					options.z = this._map && this._map.getZoom();
+				}
+
+				wps = options && options.waypoints || this._plan.getWaypoints();
+				this.fire('routingstart', {waypoints: wps});
+				this._router.route(wps, options.callback || function(err, routes) {
+					// Prevent race among multiple requests,
+					// by checking the current request's timestamp
+					// against the last request's; ignore result if
+					// this isn't the latest request.
+					if (ts === this._requestCount) {
+						this._clearLines();
+						this._clearAlts();
+						if (err) {
+							this.fire('routingerror', {error: err});
+							return;
+						}
+
+						routes.forEach(function(route, i) { route.routesIndex = i; });
+
+						if (!options.geometryOnly) {
+							this.fire('routesfound', {waypoints: wps, routes: routes});
+							this.setAlternatives(routes);
+						} else {
+							var selectedRoute = routes.splice(0,1)[0];
+							this._routeSelected({route: selectedRoute, alternatives: routes});
+						}
+					}
+				}, this, options);
+			}
+		},
+
+		_clearLines: function() {
+			if (this._line) {
+				this._map.removeLayer(this._line);
+				delete this._line;
+			}
+			if (this._alternatives && this._alternatives.length) {
+				for (var i in this._alternatives) {
+					this._map.removeLayer(this._alternatives[i]);
+				}
+				this._alternatives = [];
+			}
+		}
+	});
+
+	L.Routing.control = function(options) {
+		return new L.Routing.Control(options);
+	};
+
+	module.exports = L.Routing;
+})();
+
+},{"./L.Routing.ErrorControl":37,"./L.Routing.Itinerary":40,"./L.Routing.Line":42,"./L.Routing.OSRM":44,"./L.Routing.Plan":45,"leaflet":33}],37:[function(require,module,exports){
+(function() {
+	'use strict';
+
+	L.Routing = L.Routing || {};
+
+	L.Routing.ErrorControl = L.Control.extend({
+		options: {
+			header: 'Routing error',
+			formatMessage: function(error) {
+				if (error.status < 0) {
+					return 'Calculating the route caused an error. Technical description follows: <code><pre>' +
+						error.message + '</pre></code';
+				} else {
+					return 'The route could not be calculated. ' +
+						error.message;
+				}
+			}
+		},
+
+		initialize: function(routingControl, options) {
+			L.Control.prototype.initialize.call(this, options);
+			routingControl
+				.on('routingerror', L.bind(function(e) {
+					if (this._element) {
+						this._element.children[1].innerHTML = this.options.formatMessage(e.error);
+						this._element.style.visibility = 'visible';
+					}
+				}, this))
+				.on('routingstart', L.bind(function() {
+					if (this._element) {
+						this._element.style.visibility = 'hidden';
+					}
+				}, this));
+		},
+
+		onAdd: function() {
+			var header,
+				message;
+
+			this._element = L.DomUtil.create('div', 'leaflet-bar leaflet-routing-error');
+			this._element.style.visibility = 'hidden';
+
+			header = L.DomUtil.create('h3', null, this._element);
+			message = L.DomUtil.create('span', null, this._element);
+
+			header.innerHTML = this.options.header;
+
+			return this._element;
+		},
+
+		onRemove: function() {
+			delete this._element;
+		}
+	});
+
+	L.Routing.errorControl = function(routingControl, options) {
+		return new L.Routing.ErrorControl(routingControl, options);
+	};
+})();
+
+},{}],38:[function(require,module,exports){
+(function() {
+	'use strict';
+
+	var L = require('leaflet');
+
+	L.Routing = L.Routing || {};
+
+	L.extend(L.Routing, require('./L.Routing.Localization'));
+
+	L.Routing.Formatter = L.Class.extend({
+		options: {
+			units: 'metric',
+			unitNames: {
+				meters: 'm',
+				kilometers: 'km',
+				yards: 'yd',
+				miles: 'mi',
+				hours: 'h',
+				minutes: 'mín',
+				seconds: 's'
+			},
+			language: 'en',
+			roundingSensitivity: 1,
+			distanceTemplate: '{value} {unit}'
+		},
+
+		initialize: function(options) {
+			L.setOptions(this, options);
+		},
+
+		formatDistance: function(d /* Number (meters) */, sensitivity) {
+			var un = this.options.unitNames,
+				simpleRounding = sensitivity <= 0,
+				round = simpleRounding ? function(v) { return v; } : L.bind(this._round, this),
+			    v,
+			    yards,
+				data,
+				pow10;
+
+			if (this.options.units === 'imperial') {
+				yards = d / 0.9144;
+				if (yards >= 1000) {
+					data = {
+						value: round(d / 1609.344, sensitivity),
+						unit: un.miles
+					};
+				} else {
+					data = {
+						value: round(yards, sensitivity),
+						unit: un.yards
+					};
+				}
+			} else {
+				v = round(d, sensitivity);
+				data = {
+					value: v >= 1000 ? (v / 1000) : v,
+					unit: v >= 1000 ? un.kilometers : un.meters
+				};
+			}
+
+			if (simpleRounding) {
+				pow10 = Math.pow(10, -sensitivity);
+				data.value = Math.round(data.value * pow10) / pow10;
+			}
+
+			return L.Util.template(this.options.distanceTemplate, data);
+		},
+
+		_round: function(d, sensitivity) {
+			var s = sensitivity || this.options.roundingSensitivity,
+				pow10 = Math.pow(10, (Math.floor(d / s) + '').length - 1),
+				r = Math.floor(d / pow10),
+				p = (r > 5) ? pow10 : pow10 / 2;
+
+			return Math.round(d / p) * p;
+		},
+
+		formatTime: function(t /* Number (seconds) */) {
+			if (t > 86400) {
+				return Math.round(t / 3600) + ' h';
+			} else if (t > 3600) {
+				return Math.floor(t / 3600) + ' h ' +
+					Math.round((t % 3600) / 60) + ' min';
+			} else if (t > 300) {
+				return Math.round(t / 60) + ' min';
+			} else if (t > 60) {
+				return Math.floor(t / 60) + ' min' +
+					(t % 60 !== 0 ? ' ' + (t % 60) + ' s' : '');
+			} else {
+				return t + ' s';
+			}
+		},
+
+		formatInstruction: function(instr, i) {
+			if (instr.text === undefined) {
+				return L.Util.template(this._getInstructionTemplate(instr, i),
+					L.extend({
+						exitStr: instr.exit ? L.Routing.Localization[this.options.language].formatOrder(instr.exit) : '',
+						dir: L.Routing.Localization[this.options.language].directions[instr.direction]
+					},
+					instr));
+			} else {
+				return instr.text;
+			}
+		},
+
+		getIconName: function(instr, i) {
+			switch (instr.type) {
+			case 'Straight':
+				return (i === 0 ? 'depart' : 'continue');
+			case 'SlightRight':
+				return 'bear-right';
+			case 'Right':
+				return 'turn-right';
+			case 'SharpRight':
+				return 'sharp-right';
+			case 'TurnAround':
+				return 'u-turn';
+			case 'SharpLeft':
+				return 'sharp-left';
+			case 'Left':
+				return 'turn-left';
+			case 'SlightLeft':
+				return 'bear-left';
+			case 'WaypointReached':
+				return 'via';
+			case 'Roundabout':
+				return 'enter-roundabout';
+			case 'DestinationReached':
+				return 'arrive';
+			}
+		},
+
+		_getInstructionTemplate: function(instr, i) {
+			var type = instr.type === 'Straight' ? (i === 0 ? 'Head' : 'Continue') : instr.type,
+				strings = L.Routing.Localization[this.options.language].instructions[type];
+
+			return strings[0] + (strings.length > 1 && instr.road ? strings[1] : '');
+		}
+	});
+
+	module.exports = L.Routing;
+})();
+
+
+},{"./L.Routing.Localization":43,"leaflet":33}],39:[function(require,module,exports){
+(function() {
+	'use strict';
+
+	var L = require('leaflet');
+	L.Routing = L.Routing || {};
+	L.extend(L.Routing, require('./L.Routing.Autocomplete'));
+
+	function selectInputText(input) {
+		if (input.setSelectionRange) {
+			// On iOS, select() doesn't work
+			input.setSelectionRange(0, 9999);
+		} else {
+			// On at least IE8, setSeleectionRange doesn't exist
+			input.select();
+		}
+	}
+
+	L.Routing.GeocoderElement = L.Class.extend({
+		includes: L.Mixin.Events,
+
+		options: {
+			createGeocoder: function(i, nWps, options) {
+				var container = L.DomUtil.create('div', 'leaflet-routing-geocoder'),
+					input = L.DomUtil.create('input', '', container),
+					remove = options.addWaypoints ? L.DomUtil.create('span', 'leaflet-routing-remove-waypoint', container) : undefined;
+
+				input.disabled = !options.addWaypoints;
+
+				return {
+					container: container,
+					input: input,
+					closeButton: remove
+				};
+			},
+			geocoderPlaceholder: function(i, numberWaypoints, plan) {
+				var l = L.Routing.Localization[plan.options.language].ui;
+				return i === 0 ?
+					l.startPlaceholder :
+					(i < numberWaypoints - 1 ?
+						L.Util.template(l.viaPlaceholder, {viaNumber: i}) :
+						l.endPlaceholder);
+			},
+
+			geocoderClass: function() {
+				return '';
+			},
+
+			waypointNameFallback: function(latLng) {
+				var ns = latLng.lat < 0 ? 'S' : 'N',
+					ew = latLng.lng < 0 ? 'W' : 'E',
+					lat = (Math.round(Math.abs(latLng.lat) * 10000) / 10000).toString(),
+					lng = (Math.round(Math.abs(latLng.lng) * 10000) / 10000).toString();
+				return ns + lat + ', ' + ew + lng;
+			},
+			maxGeocoderTolerance: 200,
+			autocompleteOptions: {},
+			language: 'en',
+		},
+
+		initialize: function(wp, i, nWps, options) {
+			L.setOptions(this, options);
+
+			var g = this.options.createGeocoder(i, nWps, this.options),
+				closeButton = g.closeButton,
+				geocoderInput = g.input;
+			geocoderInput.setAttribute('placeholder', this.options.geocoderPlaceholder(i, nWps, this));
+			geocoderInput.className = this.options.geocoderClass(i, nWps);
+
+			this._element = g;
+			this._waypoint = wp;
+
+			this.update();
+			// This has to be here, or geocoder's value will not be properly
+			// initialized.
+			// TODO: look into why and make _updateWaypointName fix this.
+			geocoderInput.value = wp.name;
+
+			L.DomEvent.addListener(geocoderInput, 'click', function() {
+				selectInputText(this);
+			}, geocoderInput);
+
+			if (closeButton) {
+				L.DomEvent.addListener(closeButton, 'click', function() {
+					this.fire('delete', { waypoint: this._waypoint });
+				}, this);
+			}
+
+			new L.Routing.Autocomplete(geocoderInput, function(r) {
+					geocoderInput.value = r.name;
+					wp.name = r.name;
+					wp.latLng = r.center;
+					this.fire('geocoded', { waypoint: wp, value: r });
+				}, this, L.extend({
+					resultFn: this.options.geocoder.geocode,
+					resultContext: this.options.geocoder,
+					autocompleteFn: this.options.geocoder.suggest,
+					autocompleteContext: this.options.geocoder
+				}, this.options.autocompleteOptions));
+		},
+
+		getContainer: function() {
+			return this._element.container;
+		},
+
+		setValue: function(v) {
+			this._element.input.value = v;
+		},
+
+		update: function(force) {
+			var wp = this._waypoint,
+				wpCoords;
+
+			wp.name = wp.name || '';
+
+			if (wp.latLng && (force || !wp.name)) {
+				wpCoords = this.options.waypointNameFallback(wp.latLng);
+				if (this.options.geocoder && this.options.geocoder.reverse) {
+					this.options.geocoder.reverse(wp.latLng, 67108864 /* zoom 18 */, function(rs) {
+						if (rs.length > 0 && rs[0].center.distanceTo(wp.latLng) < this.options.maxGeocoderTolerance) {
+							wp.name = rs[0].name;
+						} else {
+							wp.name = wpCoords;
+						}
+						this._update();
+					}, this);
+				} else {
+					wp.name = wpCoords;
+					this._update();
+				}
+			}
+		},
+
+		focus: function() {
+			var input = this._element.input;
+			input.focus();
+			selectInputText(input);
+		},
+
+		_update: function() {
+			var wp = this._waypoint,
+			    value = wp && wp.name ? wp.name : '';
+			this.setValue(value);
+			this.fire('reversegeocoded', {waypoint: wp, value: value});
+		}
+	});
+
+	L.Routing.geocoderElement = function(wp, i, nWps, plan) {
+		return new L.Routing.GeocoderElement(wp, i, nWps, plan);
+	};
+
+	module.exports = L.Routing;
+})();
+
+},{"./L.Routing.Autocomplete":35,"leaflet":33}],40:[function(require,module,exports){
+(function() {
+	'use strict';
+
+	var L = require('leaflet');
+
+	L.Routing = L.Routing || {};
+	L.extend(L.Routing, require('./L.Routing.Formatter'));
+	L.extend(L.Routing, require('./L.Routing.ItineraryBuilder'));
+
+	L.Routing.Itinerary = L.Control.extend({
+		includes: L.Mixin.Events,
+
+		options: {
+			pointMarkerStyle: {
+				radius: 5,
+				color: '#03f',
+				fillColor: 'white',
+				opacity: 1,
+				fillOpacity: 0.7
+			},
+			summaryTemplate: '<h2>{name}</h2><h3>{distance}, {time}</h3>',
+			timeTemplate: '{time}',
+			containerClassName: '',
+			alternativeClassName: '',
+			minimizedClassName: '',
+			itineraryClassName: '',
+			totalDistanceRoundingSensitivity: -1,
+			show: true,
+			collapsible: undefined,
+			collapseBtn: function(itinerary) {
+				var collapseBtn = L.DomUtil.create('span', itinerary.options.collapseBtnClass);
+				L.DomEvent.on(collapseBtn, 'click', itinerary._toggle, itinerary);
+				itinerary._container.insertBefore(collapseBtn, itinerary._container.firstChild);
+			},
+			collapseBtnClass: 'leaflet-routing-collapse-btn'
+		},
+
+		initialize: function(options) {
+			L.setOptions(this, options);
+			this._formatter = this.options.formatter || new L.Routing.Formatter(this.options);
+			this._itineraryBuilder = this.options.itineraryBuilder || new L.Routing.ItineraryBuilder({
+				containerClassName: this.options.itineraryClassName
+			});
+		},
+
+		onAdd: function(map) {
+			var collapsible = this.options.collapsible;
+
+			collapsible = collapsible || (collapsible === undefined && map.getSize().x <= 640);
+
+			this._container = L.DomUtil.create('div', 'leaflet-routing-container leaflet-bar ' +
+				(!this.options.show ? 'leaflet-routing-container-hide ' : '') +
+				(collapsible ? 'leaflet-routing-collapsible ' : '') +
+				this.options.containerClassName);
+			this._altContainer = this.createAlternativesContainer();
+			this._container.appendChild(this._altContainer);
+			L.DomEvent.disableClickPropagation(this._container);
+			L.DomEvent.addListener(this._container, 'mousewheel', function(e) {
+				L.DomEvent.stopPropagation(e);
+			});
+
+			if (collapsible) {
+				this.options.collapseBtn(this);
+			}
+
+			return this._container;
+		},
+
+		onRemove: function() {
+		},
+
+		createAlternativesContainer: function() {
+			return L.DomUtil.create('div', 'leaflet-routing-alternatives-container');
+		},
+
+		setAlternatives: function(routes) {
+			var i,
+			    alt,
+			    altDiv;
+
+			this._clearAlts();
+
+			this._routes = routes;
+
+			for (i = 0; i < this._routes.length; i++) {
+				alt = this._routes[i];
+				altDiv = this._createAlternative(alt, i);
+				this._altContainer.appendChild(altDiv);
+				this._altElements.push(altDiv);
+			}
+
+			this._selectRoute({route: this._routes[0], alternatives: this._routes.slice(1)});
+
+			return this;
+		},
+
+		show: function() {
+			L.DomUtil.removeClass(this._container, 'leaflet-routing-container-hide');
+		},
+
+		hide: function() {
+			L.DomUtil.addClass(this._container, 'leaflet-routing-container-hide');
+		},
+
+		_toggle: function() {
+			var collapsed = L.DomUtil.hasClass(this._container, 'leaflet-routing-container-hide');
+			this[collapsed ? 'show' : 'hide']();
+		},
+
+		_createAlternative: function(alt, i) {
+			var altDiv = L.DomUtil.create('div', 'leaflet-routing-alt ' +
+				this.options.alternativeClassName +
+				(i > 0 ? ' leaflet-routing-alt-minimized ' + this.options.minimizedClassName : '')),
+				template = this.options.summaryTemplate,
+				data = L.extend({
+					name: alt.name,
+					distance: this._formatter.formatDistance(alt.summary.totalDistance, this.options.totalDistanceRoundingSensitivity),
+					time: this._formatter.formatTime(alt.summary.totalTime)
+				}, alt);
+			altDiv.innerHTML = typeof(template) === 'function' ? template(data) : L.Util.template(template, data);
+			L.DomEvent.addListener(altDiv, 'click', this._onAltClicked, this);
+			this.on('routeselected', this._selectAlt, this);
+
+			altDiv.appendChild(this._createItineraryContainer(alt));
+			return altDiv;
+		},
+
+		_clearAlts: function() {
+			var el = this._altContainer;
+			while (el && el.firstChild) {
+				el.removeChild(el.firstChild);
+			}
+
+			this._altElements = [];
+		},
+
+		_createItineraryContainer: function(r) {
+			var container = this._itineraryBuilder.createContainer(),
+			    steps = this._itineraryBuilder.createStepsContainer(),
+			    i,
+			    instr,
+			    step,
+			    distance,
+			    text,
+			    icon;
+
+			container.appendChild(steps);
+
+			for (i = 0; i < r.instructions.length; i++) {
+				instr = r.instructions[i];
+				text = this._formatter.formatInstruction(instr, i);
+				distance = this._formatter.formatDistance(instr.distance);
+				icon = this._formatter.getIconName(instr, i);
+				step = this._itineraryBuilder.createStep(text, distance, icon, steps);
+
+				this._addRowListeners(step, r.coordinates[instr.index]);
+			}
+
+			return container;
+		},
+
+		_addRowListeners: function(row, coordinate) {
+			L.DomEvent.addListener(row, 'mouseover', function() {
+				this._marker = L.circleMarker(coordinate,
+					this.options.pointMarkerStyle).addTo(this._map);
+			}, this);
+			L.DomEvent.addListener(row, 'mouseout', function() {
+				if (this._marker) {
+					this._map.removeLayer(this._marker);
+					delete this._marker;
+				}
+			}, this);
+			L.DomEvent.addListener(row, 'click', function(e) {
+				this._map.panTo(coordinate);
+				L.DomEvent.stopPropagation(e);
+			}, this);
+		},
+
+		_onAltClicked: function(e) {
+			var altElem = e.target || window.event.srcElement;
+			while (!L.DomUtil.hasClass(altElem, 'leaflet-routing-alt')) {
+				altElem = altElem.parentElement;
+			}
+
+			var j = this._altElements.indexOf(altElem);
+			var alts = this._routes.slice();
+			var route = alts.splice(j, 1)[0];
+
+			this.fire('routeselected', {
+				route: route,
+				alternatives: alts
+			});
+		},
+
+		_selectAlt: function(e) {
+			var altElem,
+			    j,
+			    n,
+			    classFn;
+
+			altElem = this._altElements[e.route.routesIndex];
+
+			if (L.DomUtil.hasClass(altElem, 'leaflet-routing-alt-minimized')) {
+				for (j = 0; j < this._altElements.length; j++) {
+					n = this._altElements[j];
+					classFn = j === e.route.routesIndex ? 'removeClass' : 'addClass';
+					L.DomUtil[classFn](n, 'leaflet-routing-alt-minimized');
+					if (this.options.minimizedClassName) {
+						L.DomUtil[classFn](n, this.options.minimizedClassName);
+					}
+
+					if (j !== e.route.routesIndex) n.scrollTop = 0;
+				}
+			}
+
+			L.DomEvent.stop(e);
+		},
+
+		_selectRoute: function(routes) {
+			if (this._marker) {
+				this._map.removeLayer(this._marker);
+				delete this._marker;
+			}
+			this.fire('routeselected', routes);
+		}
+	});
+
+	L.Routing.itinerary = function(options) {
+		return new L.Routing.Itinerary(options);
+	};
+
+	module.exports = L.Routing;
+})();
+
+},{"./L.Routing.Formatter":38,"./L.Routing.ItineraryBuilder":41,"leaflet":33}],41:[function(require,module,exports){
+(function() {
+	'use strict';
+
+	var L = require('leaflet');
+	L.Routing = L.Routing || {};
+
+	L.Routing.ItineraryBuilder = L.Class.extend({
+		options: {
+			containerClassName: ''
+		},
+
+		initialize: function(options) {
+			L.setOptions(this, options);
+		},
+
+		createContainer: function(className) {
+			var table = L.DomUtil.create('table', className || ''),
+				colgroup = L.DomUtil.create('colgroup', '', table);
+
+			L.DomUtil.create('col', 'leaflet-routing-instruction-icon', colgroup);
+			L.DomUtil.create('col', 'leaflet-routing-instruction-text', colgroup);
+			L.DomUtil.create('col', 'leaflet-routing-instruction-distance', colgroup);
+
+			return table;
+		},
+
+		createStepsContainer: function() {
+			return L.DomUtil.create('tbody', '');
+		},
+
+		createStep: function(text, distance, icon, steps) {
+			var row = L.DomUtil.create('tr', '', steps),
+				span,
+				td;
+			td = L.DomUtil.create('td', '', row);
+			span = L.DomUtil.create('span', 'leaflet-routing-icon leaflet-routing-icon-'+icon, td);
+			td.appendChild(span);
+			td = L.DomUtil.create('td', '', row);
+			td.appendChild(document.createTextNode(text));
+			td = L.DomUtil.create('td', '', row);
+			td.appendChild(document.createTextNode(distance));
+			return row;
+		}
+	});
+
+	module.exports = L.Routing;
+})();
+
+},{"leaflet":33}],42:[function(require,module,exports){
+(function() {
+	'use strict';
+
+	var L = require('leaflet');
+
+	L.Routing = L.Routing || {};
+
+	L.Routing.Line = L.LayerGroup.extend({
+		includes: L.Mixin.Events,
+
+		options: {
+			styles: [
+				{color: 'black', opacity: 0.15, weight: 9},
+				{color: 'white', opacity: 0.8, weight: 6},
+				{color: 'red', opacity: 1, weight: 2}
+			],
+			missingRouteStyles: [
+				{color: 'black', opacity: 0.15, weight: 7},
+				{color: 'white', opacity: 0.6, weight: 4},
+				{color: 'gray', opacity: 0.8, weight: 2, dashArray: '7,12'}
+			],
+			addWaypoints: true,
+			extendToWaypoints: true,
+			missingRouteTolerance: 10
+		},
+
+		initialize: function(route, options) {
+			L.setOptions(this, options);
+			L.LayerGroup.prototype.initialize.call(this, options);
+			this._route = route;
+
+			if (this.options.extendToWaypoints) {
+				this._extendToWaypoints();
+			}
+
+			this._addSegment(
+				route.coordinates,
+				this.options.styles,
+				this.options.addWaypoints);
+		},
+
+		addTo: function(map) {
+			map.addLayer(this);
+			return this;
+		},
+		getBounds: function() {
+			return L.latLngBounds(this._route.coordinates);
+		},
+
+		_findWaypointIndices: function() {
+			var wps = this._route.inputWaypoints,
+			    indices = [],
+			    i;
+			for (i = 0; i < wps.length; i++) {
+				indices.push(this._findClosestRoutePoint(wps[i].latLng));
+			}
+
+			return indices;
+		},
+
+		_findClosestRoutePoint: function(latlng) {
+			var minDist = Number.MAX_VALUE,
+				minIndex,
+			    i,
+			    d;
+
+			for (i = this._route.coordinates.length - 1; i >= 0 ; i--) {
+				// TODO: maybe do this in pixel space instead?
+				d = latlng.distanceTo(this._route.coordinates[i]);
+				if (d < minDist) {
+					minIndex = i;
+					minDist = d;
+				}
+			}
+
+			return minIndex;
+		},
+
+		_extendToWaypoints: function() {
+			var wps = this._route.inputWaypoints,
+				wpIndices = this._getWaypointIndices(),
+			    i,
+			    wpLatLng,
+			    routeCoord;
+
+			for (i = 0; i < wps.length; i++) {
+				wpLatLng = wps[i].latLng;
+				routeCoord = L.latLng(this._route.coordinates[wpIndices[i]]);
+				if (wpLatLng.distanceTo(routeCoord) >
+					this.options.missingRouteTolerance) {
+					this._addSegment([wpLatLng, routeCoord],
+						this.options.missingRouteStyles);
+				}
+			}
+		},
+
+		_addSegment: function(coords, styles, mouselistener) {
+			var i,
+				pl;
+
+			for (i = 0; i < styles.length; i++) {
+				pl = L.polyline(coords, styles[i]);
+				this.addLayer(pl);
+				if (mouselistener) {
+					pl.on('mousedown', this._onLineTouched, this);
+				}
+			}
+		},
+
+		_findNearestWpBefore: function(i) {
+			var wpIndices = this._getWaypointIndices(),
+				j = wpIndices.length - 1;
+			while (j >= 0 && wpIndices[j] > i) {
+				j--;
+			}
+
+			return j;
+		},
+
+		_onLineTouched: function(e) {
+			var afterIndex = this._findNearestWpBefore(this._findClosestRoutePoint(e.latlng));
+			this.fire('linetouched', {
+				afterIndex: afterIndex,
+				latlng: e.latlng
+			});
+		},
+
+		_getWaypointIndices: function() {
+			if (!this._wpIndices) {
+				this._wpIndices = this._route.waypointIndices || this._findWaypointIndices();
+			}
+
+			return this._wpIndices;
+		}
+	});
+
+	L.Routing.line = function(route, options) {
+		return new L.Routing.Line(route, options);
+	};
+
+	module.exports = L.Routing;
+})();
+
+},{"leaflet":33}],43:[function(require,module,exports){
+(function() {
+	'use strict';
+	L.Routing = L.Routing || {};
+
+	L.Routing.Localization = {
+		'en': {
+			directions: {
+				N: 'north',
+				NE: 'northeast',
+				E: 'east',
+				SE: 'southeast',
+				S: 'south',
+				SW: 'southwest',
+				W: 'west',
+				NW: 'northwest'
+			},
+			instructions: {
+				// instruction, postfix if the road is named
+				'Head':
+					['Head {dir}', ' on {road}'],
+				'Continue':
+					['Continue {dir}', ' on {road}'],
+				'SlightRight':
+					['Slight right', ' onto {road}'],
+				'Right':
+					['Right', ' onto {road}'],
+				'SharpRight':
+					['Sharp right', ' onto {road}'],
+				'TurnAround':
+					['Turn around'],
+				'SharpLeft':
+					['Sharp left', ' onto {road}'],
+				'Left':
+					['Left', ' onto {road}'],
+				'SlightLeft':
+					['Slight left', ' onto {road}'],
+				'WaypointReached':
+					['Waypoint reached'],
+				'Roundabout':
+					['Take the {exitStr} exit in the roundabout', ' onto {road}'],
+				'DestinationReached':
+					['Destination reached'],
+			},
+			formatOrder: function(n) {
+				var i = n % 10 - 1,
+				suffix = ['st', 'nd', 'rd'];
+
+				return suffix[i] ? n + suffix[i] : n + 'th';
+			},
+			ui: {
+				startPlaceholder: 'Start',
+				viaPlaceholder: 'Via {viaNumber}',
+				endPlaceholder: 'End'
+			}
+		},
+
+		'de': {
+			directions: {
+				N: 'Norden',
+				NE: 'Nordosten',
+				E: 'Osten',
+				SE: 'Südosten',
+				S: 'Süden',
+				SW: 'Südwesten',
+				W: 'Westen',
+				NW: 'Nordwesten'
+			},
+			instructions: {
+				// instruction, postfix if the road is named
+				'Head':
+					['Richtung {dir}', ' auf {road}'],
+				'Continue':
+					['Geradeaus Richtung {dir}', ' auf {road}'],
+				'SlightRight':
+					['Leicht rechts abbiegen', ' auf {road}'],
+				'Right':
+					['Rechts abbiegen', ' auf {road}'],
+				'SharpRight':
+					['Scharf rechts abbiegen', ' auf {road}'],
+				'TurnAround':
+					['Wenden'],
+				'SharpLeft':
+					['Scharf links abbiegen', ' auf {road}'],
+				'Left':
+					['Links abbiegen', ' auf {road}'],
+				'SlightLeft':
+					['Leicht links abbiegen', ' auf {road}'],
+				'WaypointReached':
+					['Zwischenhalt erreicht'],
+				'Roundabout':
+					['Nehmen Sie die {exitStr} Ausfahrt im Kreisverkehr', ' auf {road}'],
+				'DestinationReached':
+					['Sie haben ihr Ziel erreicht'],
+			},
+			formatOrder: function(n) {
+				return n + '.';
+			},
+			ui: {
+				startPlaceholder: 'Start',
+				viaPlaceholder: 'Via {viaNumber}',
+				endPlaceholder: 'Ziel'
+			}
+		},
+
+		'sv': {
+			directions: {
+				N: 'norr',
+				NE: 'nordost',
+				E: 'öst',
+				SE: 'sydost',
+				S: 'syd',
+				SW: 'sydväst',
+				W: 'väst',
+				NW: 'nordväst'
+			},
+			instructions: {
+				// instruction, postfix if the road is named
+				'Head':
+					['Åk åt {dir}', ' på {road}'],
+				'Continue':
+					['Fortsätt {dir}', ' på {road}'],
+				'SlightRight':
+					['Svagt höger', ' på {road}'],
+				'Right':
+					['Sväng höger', ' på {road}'],
+				'SharpRight':
+					['Skarpt höger', ' på {road}'],
+				'TurnAround':
+					['Vänd'],
+				'SharpLeft':
+					['Skarpt vänster', ' på {road}'],
+				'Left':
+					['Sväng vänster', ' på {road}'],
+				'SlightLeft':
+					['Svagt vänster', ' på {road}'],
+				'WaypointReached':
+					['Viapunkt nådd'],
+				'Roundabout':
+					['Tag {exitStr} avfarten i rondellen', ' till {road}'],
+				'DestinationReached':
+					['Framme vid resans mål'],
+			},
+			formatOrder: function(n) {
+				return ['första', 'andra', 'tredje', 'fjärde', 'femte',
+					'sjätte', 'sjunde', 'åttonde', 'nionde', 'tionde'
+					/* Can't possibly be more than ten exits, can there? */][n - 1];
+			},
+			ui: {
+				startPlaceholder: 'Från',
+				viaPlaceholder: 'Via {viaNumber}',
+				endPlaceholder: 'Till'
+			}
+		},
+
+		'sp': {
+			directions: {
+				N: 'norte',
+				NE: 'noreste',
+				E: 'este',
+				SE: 'sureste',
+				S: 'sur',
+				SW: 'suroeste',
+				W: 'oeste',
+				NW: 'noroeste'
+			},
+			instructions: {
+				// instruction, postfix if the road is named
+				'Head':
+					['Derecho {dir}', ' sobre {road}'],
+				'Continue':
+					['Continuar {dir}', ' en {road}'],
+				'SlightRight':
+					['Leve giro a la derecha', ' sobre {road}'],
+				'Right':
+					['Derecha', ' sobre {road}'],
+				'SharpRight':
+					['Giro pronunciado a la derecha', ' sobre {road}'],
+				'TurnAround':
+					['Dar vuelta'],
+				'SharpLeft':
+					['Giro pronunciado a la izquierda', ' sobre {road}'],
+				'Left':
+					['Izquierda', ' en {road}'],
+				'SlightLeft':
+					['Leve giro a la izquierda', ' en {road}'],
+				'WaypointReached':
+					['Llegó a un punto del camino'],
+				'Roundabout':
+					['Tomar {exitStr} salida en la rotonda', ' en {road}'],
+				'DestinationReached':
+					['Llegada a destino'],
+			},
+			formatOrder: function(n) {
+				return n + 'º';
+			},
+			ui: {
+				startPlaceholder: 'Inicio',
+				viaPlaceholder: 'Via {viaNumber}',
+				endPlaceholder: 'Destino'
+			}
+		},
+		'nl': {
+			directions: {
+				N: 'noordelijke',
+				NE: 'noordoostelijke',
+				E: 'oostelijke',
+				SE: 'zuidoostelijke',
+				S: 'zuidelijke',
+				SW: 'zuidewestelijke',
+				W: 'westelijke',
+				NW: 'noordwestelijke'
+			},
+			instructions: {
+				// instruction, postfix if the road is named
+				'Head':
+					['Vertrek in {dir} richting', ' de {road} op'],
+				'Continue':
+					['Ga in {dir} richting', ' de {road} op'],
+				'SlightRight':
+					['Volg de weg naar rechts', ' de {road} op'],
+				'Right':
+					['Ga rechtsaf', ' de {road} op'],
+				'SharpRight':
+					['Ga scherpe bocht naar rechts', ' de {road} op'],
+				'TurnAround':
+					['Keer om'],
+				'SharpLeft':
+					['Ga scherpe bocht naar links', ' de {road} op'],
+				'Left':
+					['Ga linksaf', ' de {road} op'],
+				'SlightLeft':
+					['Volg de weg naar links', ' de {road} op'],
+				'WaypointReached':
+					['Aangekomen bij tussenpunt'],
+				'Roundabout':
+					['Neem de {exitStr} afslag op de rotonde', ' de {road} op'],
+				'DestinationReached':
+					['Aangekomen op eindpunt'],
+			},
+			formatOrder: function(n) {
+				if (n === 1 || n >= 20) {
+					return n + 'ste';
+				} else {
+					return n + 'de';
+				}
+			},
+			ui: {
+				startPlaceholder: 'Vertrekpunt',
+				viaPlaceholder: 'Via {viaNumber}',
+				endPlaceholder: 'Bestemming'
+			}
+		},
+		'fr': {
+			directions: {
+				N: 'nord',
+				NE: 'nord-est',
+				E: 'est',
+				SE: 'sud-est',
+				S: 'sud',
+				SW: 'sud-ouest',
+				W: 'ouest',
+				NW: 'nord-ouest'
+			},
+			instructions: {
+				// instruction, postfix if the road is named
+				'Head':
+					['Tout droit au {dir}', ' sur {road}'],
+				'Continue':
+					['Continuer au {dir}', ' sur {road}'],
+				'SlightRight':
+					['Légèrement à droite', ' sur {road}'],
+				'Right':
+					['A droite', ' sur {road}'],
+				'SharpRight':
+					['Complètement à droite', ' sur {road}'],
+				'TurnAround':
+					['Faire demi-tour'],
+				'SharpLeft':
+					['Complètement à gauche', ' sur {road}'],
+				'Left':
+					['A gauche', ' sur {road}'],
+				'SlightLeft':
+					['Légèrement à gauche', ' sur {road}'],
+				'WaypointReached':
+					['Point d\'étape atteint'],
+				'Roundabout':
+					['Au rond-point, prenez la {exitStr} sortie', ' sur {road}'],
+				'DestinationReached':
+					['Destination atteinte'],
+			},
+			formatOrder: function(n) {
+				return n + 'º';
+			},
+			ui: {
+				startPlaceholder: 'Départ',
+				viaPlaceholder: 'Intermédiaire {viaNumber}',
+				endPlaceholder: 'Arrivée'
+			}
+		},
+		'it': {
+			directions: {
+				N: 'nord',
+				NE: 'nord-est',
+				E: 'est',
+				SE: 'sud-est',
+				S: 'sud',
+				SW: 'sud-ovest',
+				W: 'ovest',
+				NW: 'nord-ovest'
+			},
+			instructions: {
+				// instruction, postfix if the road is named
+				'Head':
+					['Dritto verso {dir}', ' su {road}'],
+				'Continue':
+					['Continuare verso {dir}', ' su {road}'],
+				'SlightRight':
+					['Mantenere la destra', ' su {road}'],
+				'Right':
+					['A destra', ' su {road}'],
+				'SharpRight':
+					['Strettamente a destra', ' su {road}'],
+				'TurnAround':
+					['Fare inversione di marcia'],
+				'SharpLeft':
+					['Strettamente a sinistra', ' su {road}'],
+				'Left':
+					['A sinistra', ' sur {road}'],
+				'SlightLeft':
+					['Mantenere la sinistra', ' su {road}'],
+				'WaypointReached':
+					['Punto di passaggio raggiunto'],
+				'Roundabout':
+					['Alla rotonda, prendere la {exitStr} uscita'],
+				'DestinationReached':
+					['Destinazione raggiunta'],
+			},
+			formatOrder: function(n) {
+				return n + 'º';
+			},
+			ui: {
+				startPlaceholder: 'Partenza',
+				viaPlaceholder: 'Intermedia {viaNumber}',
+				endPlaceholder: 'Destinazione'
+			}
+		},
+		'pt': {
+			directions: {
+				N: 'norte',
+				NE: 'nordeste',
+				E: 'leste',
+				SE: 'sudeste',
+				S: 'sul',
+				SW: 'sudoeste',
+				W: 'oeste',
+				NW: 'noroeste'
+			},
+			instructions: {
+				// instruction, postfix if the road is named
+				'Head':
+					['Siga {dir}', ' na {road}'],
+				'Continue':
+					['Continue {dir}', ' na {road}'],
+				'SlightRight':
+					['Curva ligeira a direita', ' na {road}'],
+				'Right':
+					['Curva a direita', ' na {road}'],
+				'SharpRight':
+					['Curva fechada a direita', ' na {road}'],
+				'TurnAround':
+					['Retorne'],
+				'SharpLeft':
+					['Curva fechada a esquerda', ' na {road}'],
+				'Left':
+					['Curva a esquerda', ' na {road}'],
+				'SlightLeft':
+					['Curva ligueira a esquerda', ' na {road}'],
+				'WaypointReached':
+					['Ponto de interesse atingido'],
+				'Roundabout':
+					['Pegue a {exitStr} saída na rotatória', ' na {road}'],
+				'DestinationReached':
+					['Destino atingido'],
+			},
+			formatOrder: function(n) {
+				return n + 'º';
+			},
+			ui: {
+				startPlaceholder: 'Origem',
+				viaPlaceholder: 'Intermédio {viaNumber}',
+				endPlaceholder: 'Destino'
+			}
+		},
+	};
+
+	module.exports = L.Routing;
+})();
+
+},{}],44:[function(require,module,exports){
+(function() {
+	'use strict';
+
+	var L = require('leaflet'),
+		corslite = require('corslite'),
+		polyline = require('polyline');
+
+	// Ignore camelcase naming for this file, since OSRM's API uses
+	// underscores.
+	/* jshint camelcase: false */
+
+	L.Routing = L.Routing || {};
+	L.extend(L.Routing, require('./L.Routing.Waypoint'));
+
+	L.Routing.OSRM = L.Class.extend({
+		options: {
+			serviceUrl: '//router.project-osrm.org/viaroute',
+			timeout: 30 * 1000,
+			routingOptions: {}
+		},
+
+		initialize: function(options) {
+			L.Util.setOptions(this, options);
+			this._hints = {
+				locations: {}
+			};
+		},
+
+		route: function(waypoints, callback, context, options) {
+			var timedOut = false,
+				wps = [],
+				url,
+				timer,
+				wp,
+				i;
+
+			url = this.buildRouteUrl(waypoints, L.extend({}, this.options.routingOptions, options));
+
+			timer = setTimeout(function() {
+				timedOut = true;
+				callback.call(context || callback, {
+					status: -1,
+					message: 'OSRM request timed out.'
+				});
+			}, this.options.timeout);
+
+			// Create a copy of the waypoints, since they
+			// might otherwise be asynchronously modified while
+			// the request is being processed.
+			for (i = 0; i < waypoints.length; i++) {
+				wp = waypoints[i];
+				wps.push(new L.Routing.Waypoint(wp.latLng, wp.name, wp.options));
+			}
+
+			corslite(url, L.bind(function(err, resp) {
+				var data,
+					errorMessage,
+					statusCode;
+
+				clearTimeout(timer);
+				if (!timedOut) {
+					errorMessage = 'HTTP request failed: ' + err;
+					statusCode = -1;
+
+					if (!err) {
+						try {
+							data = JSON.parse(resp.responseText);
+							try {
+								return this._routeDone(data, wps, callback, context);
+							} catch (ex) {
+								statusCode = -3;
+								errorMessage = ex.toString();
+							}
+						} catch (ex) {
+							statusCode = -2;
+							errorMessage = 'Error parsing OSRM response: ' + ex.toString();
+						}
+					}
+
+					callback.call(context || callback, {
+						status: statusCode,
+						message: errorMessage
+					});
+				}
+			}, this));
+
+			return this;
+		},
+
+		_routeDone: function(response, inputWaypoints, callback, context) {
+			var coordinates,
+			    alts,
+			    actualWaypoints,
+			    i;
+
+			context = context || callback;
+			if (response.status !== 0 && response.status !== 200) {
+				callback.call(context, {
+					status: response.status,
+					message: response.status_message
+				});
+				return;
+			}
+
+			coordinates = this._decodePolyline(response.route_geometry);
+			actualWaypoints = this._toWaypoints(inputWaypoints, response.via_points);
+			alts = [{
+				name: this._createName(response.route_name),
+				coordinates: coordinates,
+				instructions: response.route_instructions ? this._convertInstructions(response.route_instructions) : [],
+				summary: response.route_summary ? this._convertSummary(response.route_summary) : [],
+				inputWaypoints: inputWaypoints,
+				waypoints: actualWaypoints,
+				waypointIndices: this._clampIndices(response.via_indices, coordinates)
+			}];
+
+			if (response.alternative_geometries) {
+				for (i = 0; i < response.alternative_geometries.length; i++) {
+					coordinates = this._decodePolyline(response.alternative_geometries[i]);
+					alts.push({
+						name: this._createName(response.alternative_names[i]),
+						coordinates: coordinates,
+						instructions: response.alternative_instructions[i] ? this._convertInstructions(response.alternative_instructions[i]) : [],
+						summary: response.alternative_summaries[i] ? this._convertSummary(response.alternative_summaries[i]) : [],
+						inputWaypoints: inputWaypoints,
+						waypoints: actualWaypoints,
+						waypointIndices: this._clampIndices(response.alternative_geometries.length === 1 ?
+							// Unsure if this is a bug in OSRM or not, but alternative_indices
+							// does not appear to be an array of arrays, at least not when there is
+							// a single alternative route.
+							response.alternative_indices : response.alternative_indices[i],
+							coordinates)
+					});
+				}
+			}
+
+			// only versions <4.5.0 will support this flag
+			if (response.hint_data) {
+				this._saveHintData(response.hint_data, inputWaypoints);
+			}
+			callback.call(context, null, alts);
+		},
+
+		_decodePolyline: function(routeGeometry) {
+			var cs = polyline.decode(routeGeometry, 6),
+				result = new Array(cs.length),
+				i;
+			for (i = cs.length - 1; i >= 0; i--) {
+				result[i] = L.latLng(cs[i]);
+			}
+
+			return result;
+		},
+
+		_toWaypoints: function(inputWaypoints, vias) {
+			var wps = [],
+			    i;
+			for (i = 0; i < vias.length; i++) {
+				wps.push(L.Routing.waypoint(L.latLng(vias[i]),
+				                            inputWaypoints[i].name,
+				                            inputWaypoints[i].options));
+			}
+
+			return wps;
+		},
+
+		_createName: function(nameParts) {
+			var name = '',
+				i;
+
+			for (i = 0; i < nameParts.length; i++) {
+				if (nameParts[i]) {
+					if (name) {
+						name += ', ';
+					}
+					name += nameParts[i].charAt(0).toUpperCase() + nameParts[i].slice(1);
+				}
+			}
+
+			return name;
+		},
+
+		buildRouteUrl: function(waypoints, options) {
+			var locs = [],
+				wp,
+			    computeInstructions,
+			    computeAlternative,
+			    locationKey,
+			    hint;
+
+			for (var i = 0; i < waypoints.length; i++) {
+				wp = waypoints[i];
+				locationKey = this._locationKey(wp.latLng);
+				locs.push('loc=' + locationKey);
+
+				hint = this._hints.locations[locationKey];
+				if (hint) {
+					locs.push('hint=' + hint);
+				}
+
+				if (wp.options && wp.options.allowUTurn) {
+					locs.push('u=true');
+				}
+			}
+
+			computeAlternative = computeInstructions =
+				!(options && options.geometryOnly);
+
+			return this.options.serviceUrl + '?' +
+				'instructions=' + computeInstructions.toString() + '&' +
+				'alt=' + computeAlternative.toString() + '&' +
+				(options.z ? 'z=' + options.z + '&' : '') +
+				locs.join('&') +
+				(this._hints.checksum !== undefined ? '&checksum=' + this._hints.checksum : '') +
+				(options.fileformat ? '&output=' + options.fileformat : '') +
+				(options.allowUTurns ? '&uturns=' + options.allowUTurns : '');
+		},
+
+		_locationKey: function(location) {
+			return location.lat + ',' + location.lng;
+		},
+
+		_saveHintData: function(hintData, waypoints) {
+			var loc;
+			this._hints = {
+				checksum: hintData.checksum,
+				locations: {}
+			};
+			for (var i = hintData.locations.length - 1; i >= 0; i--) {
+				loc = waypoints[i].latLng;
+				this._hints.locations[this._locationKey(loc)] = hintData.locations[i];
+			}
+		},
+
+		_convertSummary: function(osrmSummary) {
+			return {
+				totalDistance: osrmSummary.total_distance,
+				totalTime: osrmSummary.total_time
+			};
+		},
+
+		_convertInstructions: function(osrmInstructions) {
+			var result = [],
+			    i,
+			    instr,
+			    type,
+			    driveDir;
+
+			for (i = 0; i < osrmInstructions.length; i++) {
+				instr = osrmInstructions[i];
+				type = this._drivingDirectionType(instr[0]);
+				driveDir = instr[0].split('-');
+				if (type) {
+					result.push({
+						type: type,
+						distance: instr[2],
+						time: instr[4],
+						road: instr[1],
+						direction: instr[6],
+						exit: driveDir.length > 1 ? driveDir[1] : undefined,
+						index: instr[3]
+					});
+				}
+			}
+
+			return result;
+		},
+
+		_drivingDirectionType: function(d) {
+			switch (parseInt(d, 10)) {
+			case 1:
+				return 'Straight';
+			case 2:
+				return 'SlightRight';
+			case 3:
+				return 'Right';
+			case 4:
+				return 'SharpRight';
+			case 5:
+				return 'TurnAround';
+			case 6:
+				return 'SharpLeft';
+			case 7:
+				return 'Left';
+			case 8:
+				return 'SlightLeft';
+			case 9:
+				return 'WaypointReached';
+			case 10:
+				// TODO: "Head on"
+				// https://github.com/DennisOSRM/Project-OSRM/blob/master/DataStructures/TurnInstructions.h#L48
+				return 'Straight';
+			case 11:
+			case 12:
+				return 'Roundabout';
+			case 15:
+				return 'DestinationReached';
+			default:
+				return null;
+			}
+		},
+
+		_clampIndices: function(indices, coords) {
+			var maxCoordIndex = coords.length - 1,
+				i;
+			for (i = 0; i < indices.length; i++) {
+				indices[i] = Math.min(maxCoordIndex, Math.max(indices[i], 0));
+			}
+			return indices;
+		}
+	});
+
+	L.Routing.osrm = function(options) {
+		return new L.Routing.OSRM(options);
+	};
+
+	module.exports = L.Routing;
+})();
+
+},{"./L.Routing.Waypoint":46,"corslite":32,"leaflet":33,"polyline":34}],45:[function(require,module,exports){
+(function() {
+	'use strict';
+
+	var L = require('leaflet');
+	L.Routing = L.Routing || {};
+	L.extend(L.Routing, require('./L.Routing.GeocoderElement'));
+	L.extend(L.Routing, require('./L.Routing.Waypoint'));
+
+	L.Routing.Plan = L.Class.extend({
+		includes: L.Mixin.Events,
+
+		options: {
+			dragStyles: [
+				{color: 'black', opacity: 0.15, weight: 9},
+				{color: 'white', opacity: 0.8, weight: 6},
+				{color: 'red', opacity: 1, weight: 2, dashArray: '7,12'}
+			],
+			draggableWaypoints: true,
+			routeWhileDragging: false,
+			addWaypoints: true,
+			reverseWaypoints: false,
+			addButtonClassName: '',
+			language: 'en',
+			createGeocoderElement: L.Routing.geocoderElement,
+			createMarker: function(i, wp) {
+				var options = {
+						draggable: this.draggableWaypoints
+					},
+				    marker = L.marker(wp.latLng, options);
+
+				return marker;
+			},
+			geocodersClassName: ''
+		},
+
+		initialize: function(waypoints, options) {
+			L.Util.setOptions(this, options);
+			this._waypoints = [];
+			this.setWaypoints(waypoints);
+		},
+
+		isReady: function() {
+			var i;
+			for (i = 0; i < this._waypoints.length; i++) {
+				if (!this._waypoints[i].latLng) {
+					return false;
+				}
+			}
+
+			return true;
+		},
+
+		getWaypoints: function() {
+			var i,
+				wps = [];
+
+			for (i = 0; i < this._waypoints.length; i++) {
+				wps.push(this._waypoints[i]);
+			}
+
+			return wps;
+		},
+
+		setWaypoints: function(waypoints) {
+			var args = [0, this._waypoints.length].concat(waypoints);
+			this.spliceWaypoints.apply(this, args);
+			return this;
+		},
+
+		spliceWaypoints: function() {
+			var args = [arguments[0], arguments[1]],
+			    i;
+
+			for (i = 2; i < arguments.length; i++) {
+				args.push(arguments[i] && arguments[i].hasOwnProperty('latLng') ? arguments[i] : L.Routing.waypoint(arguments[i]));
+			}
+
+			[].splice.apply(this._waypoints, args);
+
+			// Make sure there's always at least two waypoints
+			while (this._waypoints.length < 2) {
+				this.spliceWaypoints(this._waypoints.length, 0, null);
+			}
+
+			this._updateMarkers();
+			this._fireChanged.apply(this, args);
+		},
+
+		onAdd: function(map) {
+			this._map = map;
+			this._updateMarkers();
+		},
+
+		onRemove: function() {
+			var i;
+			this._removeMarkers();
+
+			if (this._newWp) {
+				for (i = 0; i < this._newWp.lines.length; i++) {
+					this._map.removeLayer(this._newWp.lines[i]);
+				}
+			}
+
+			delete this._map;
+		},
+
+		createGeocoders: function() {
+			var container = L.DomUtil.create('div', 'leaflet-routing-geocoders ' + this.options.geocodersClassName),
+				waypoints = this._waypoints,
+			    addWpBtn,
+			    reverseBtn;
+
+			this._geocoderContainer = container;
+			this._geocoderElems = [];
+
+
+			if (this.options.addWaypoints) {
+				addWpBtn = L.DomUtil.create('button', 'leaflet-routing-add-waypoint ' + this.options.addButtonClassName, container);
+				addWpBtn.setAttribute('type', 'button');
+				L.DomEvent.addListener(addWpBtn, 'click', function() {
+					this.spliceWaypoints(waypoints.length, 0, null);
+				}, this);
+			}
+
+			if (this.options.reverseWaypoints) {
+				reverseBtn = L.DomUtil.create('button', 'leaflet-routing-reverse-waypoints', container);
+				reverseBtn.setAttribute('type', 'button');
+				L.DomEvent.addListener(reverseBtn, 'click', function() {
+					this._waypoints.reverse();
+					this.setWaypoints(this._waypoints);
+				}, this);
+			}
+
+			this._updateGeocoders();
+			this.on('waypointsspliced', this._updateGeocoders);
+
+			return container;
+		},
+
+		_createGeocoder: function(i) {
+			var geocoder = this.options.createGeocoderElement(this._waypoints[i], i, this._waypoints.length, this.options);
+			geocoder
+			.on('delete', function() {
+				if (i > 0 || this._waypoints.length > 2) {
+					this.spliceWaypoints(i, 1);
+				} else {
+					this.spliceWaypoints(i, 1, new L.Routing.Waypoint());
+				}
+			}, this)
+			.on('geocoded', function(e) {
+				this._updateMarkers();
+				this._fireChanged();
+				this._focusGeocoder(i + 1);
+				this.fire('waypointgeocoded', {
+					waypointIndex: i,
+					waypoint: e.waypoint
+				});
+			}, this)
+			.on('reversegeocoded', function(e) {
+				this.fire('waypointgeocoded', {
+					waypointIndex: i,
+					waypoint: e.waypoint
+				});
+			}, this);
+
+			return geocoder;
+		},
+
+		_updateGeocoders: function() {
+			var elems = [],
+				i,
+			    geocoderElem;
+
+			for (i = 0; i < this._geocoderElems.length; i++) {
+				this._geocoderContainer.removeChild(this._geocoderElems[i].getContainer());
+			}
+
+			for (i = this._waypoints.length - 1; i >= 0; i--) {
+				geocoderElem = this._createGeocoder(i);
+				this._geocoderContainer.insertBefore(geocoderElem.getContainer(), this._geocoderContainer.firstChild);
+				elems.push(geocoderElem);
+			}
+
+			this._geocoderElems = elems.reverse();
+		},
+
+		_removeMarkers: function() {
+			var i;
+			if (this._markers) {
+				for (i = 0; i < this._markers.length; i++) {
+					if (this._markers[i]) {
+						this._map.removeLayer(this._markers[i]);
+					}
+				}
+			}
+			this._markers = [];
+		},
+
+		_updateMarkers: function() {
+			var i,
+			    m;
+
+			if (!this._map) {
+				return;
+			}
+
+			this._removeMarkers();
+
+			for (i = 0; i < this._waypoints.length; i++) {
+				if (this._waypoints[i].latLng) {
+					m = this.options.createMarker(i, this._waypoints[i], this._waypoints.length);
+					if (m) {
+						m.addTo(this._map);
+						if (this.options.draggableWaypoints) {
+							this._hookWaypointEvents(m, i);
+						}
+					}
+				} else {
+					m = null;
+				}
+				this._markers.push(m);
+			}
+		},
+
+		_fireChanged: function() {
+			this.fire('waypointschanged', {waypoints: this.getWaypoints()});
+
+			if (arguments.length >= 2) {
+				this.fire('waypointsspliced', {
+					index: Array.prototype.shift.call(arguments),
+					nRemoved: Array.prototype.shift.call(arguments),
+					added: arguments
+				});
+			}
+		},
+
+		_hookWaypointEvents: function(m, i, trackMouseMove) {
+			var eventLatLng = function(e) {
+					return trackMouseMove ? e.latlng : e.target.getLatLng();
+				},
+				dragStart = L.bind(function(e) {
+					this.fire('waypointdragstart', {index: i, latlng: eventLatLng(e)});
+				}, this),
+				drag = L.bind(function(e) {
+					this._waypoints[i].latLng = eventLatLng(e);
+					this.fire('waypointdrag', {index: i, latlng: eventLatLng(e)});
+				}, this),
+				dragEnd = L.bind(function(e) {
+					this._waypoints[i].latLng = eventLatLng(e);
+					this._waypoints[i].name = '';
+					if (this._geocoderElems) {
+						this._geocoderElems[i].update(true);
+					}
+					this.fire('waypointdragend', {index: i, latlng: eventLatLng(e)});
+					this._fireChanged();
+				}, this),
+				mouseMove,
+				mouseUp;
+
+			if (trackMouseMove) {
+				mouseMove = L.bind(function(e) {
+					this._markers[i].setLatLng(e.latlng);
+					drag(e);
+				}, this);
+				mouseUp = L.bind(function(e) {
+					this._map.dragging.enable();
+					this._map.off('mouseup', mouseUp);
+					this._map.off('mousemove', mouseMove);
+					dragEnd(e);
+				}, this);
+				this._map.dragging.disable();
+				this._map.on('mousemove', mouseMove);
+				this._map.on('mouseup', mouseUp);
+				dragStart({latlng: this._waypoints[i].latLng});
+			} else {
+				m.on('dragstart', dragStart);
+				m.on('drag', drag);
+				m.on('dragend', dragEnd);
+			}
+		},
+
+		dragNewWaypoint: function(e) {
+			var newWpIndex = e.afterIndex + 1;
+			if (this.options.routeWhileDragging) {
+				this.spliceWaypoints(newWpIndex, 0, e.latlng);
+				this._hookWaypointEvents(this._markers[newWpIndex], newWpIndex, true);
+			} else {
+				this._dragNewWaypoint(newWpIndex, e.latlng);
+			}
+		},
+
+		_dragNewWaypoint: function(newWpIndex, initialLatLng) {
+			var wp = new L.Routing.Waypoint(initialLatLng),
+				prevWp = this._waypoints[newWpIndex - 1],
+				nextWp = this._waypoints[newWpIndex],
+				marker = this.options.createMarker(newWpIndex, wp, this._waypoints.length + 1),
+				lines = [],
+				mouseMove = L.bind(function(e) {
+					var i;
+					if (marker) {
+						marker.setLatLng(e.latlng);
+					}
+					for (i = 0; i < lines.length; i++) {
+						lines[i].spliceLatLngs(1, 1, e.latlng);
+					}
+				}, this),
+				mouseUp = L.bind(function(e) {
+					var i;
+					if (marker) {
+						this._map.removeLayer(marker);
+					}
+					for (i = 0; i < lines.length; i++) {
+						this._map.removeLayer(lines[i]);
+					}
+					this._map.off('mousemove', mouseMove);
+					this._map.off('mouseup', mouseUp);
+					this.spliceWaypoints(newWpIndex, 0, e.latlng);
+				}, this),
+				i;
+
+			if (marker) {
+				marker.addTo(this._map);
+			}
+
+			for (i = 0; i < this.options.dragStyles.length; i++) {
+				lines.push(L.polyline([prevWp.latLng, initialLatLng, nextWp.latLng],
+					this.options.dragStyles[i]).addTo(this._map));
+			}
+
+			this._map.on('mousemove', mouseMove);
+			this._map.on('mouseup', mouseUp);
+		},
+
+		_focusGeocoder: function(i) {
+			if (this._geocoderElems[i]) {
+				this._geocoderElems[i].focus();
+			} else {
+				document.activeElement.blur();
+			}
+		}
+	});
+
+	L.Routing.plan = function(waypoints, options) {
+		return new L.Routing.Plan(waypoints, options);
+	};
+
+	module.exports = L.Routing;
+})();
+
+},{"./L.Routing.GeocoderElement":39,"./L.Routing.Waypoint":46,"leaflet":33}],46:[function(require,module,exports){
+(function() {
+	'use strict';
+
+	var L = require('leaflet');
+	L.Routing = L.Routing || {};
+
+	L.Routing.Waypoint = L.Class.extend({
+			options: {
+				allowUTurn: false,
+			},
+			initialize: function(latLng, name, options) {
+				L.Util.setOptions(this, options);
+				this.latLng = L.latLng(latLng);
+				this.name = name;
+			}
+		});
+
+	L.Routing.waypoint = function(latLng, name, options) {
+		return new L.Routing.Waypoint(latLng, name, options);
+	};
+
+	module.exports = L.Routing;
+})();
+
+},{"leaflet":33}],47:[function(require,module,exports){
+/*
+ Leaflet.markercluster, Provides Beautiful Animated Marker Clustering functionality for Leaflet, a JS library for interactive maps.
+ https://github.com/Leaflet/Leaflet.markercluster
+ (c) 2012-2013, Dave Leaver, smartrak
+*/
+!function(t,e){L.MarkerClusterGroup=L.FeatureGroup.extend({options:{maxClusterRadius:80,iconCreateFunction:null,spiderfyOnMaxZoom:!0,showCoverageOnHover:!0,zoomToBoundsOnClick:!0,singleMarkerMode:!1,disableClusteringAtZoom:null,removeOutsideVisibleBounds:!0,animateAddingMarkers:!1,spiderfyDistanceMultiplier:1,polygonOptions:{}},initialize:function(t){L.Util.setOptions(this,t),this.options.iconCreateFunction||(this.options.iconCreateFunction=this._defaultIconCreateFunction),this._featureGroup=L.featureGroup(),this._featureGroup.on(L.FeatureGroup.EVENTS,this._propagateEvent,this),this._nonPointGroup=L.featureGroup(),this._nonPointGroup.on(L.FeatureGroup.EVENTS,this._propagateEvent,this),this._inZoomAnimation=0,this._needsClustering=[],this._needsRemoving=[],this._currentShownBounds=null,this._queue=[]},addLayer:function(t){if(t instanceof L.LayerGroup){var e=[];for(var i in t._layers)e.push(t._layers[i]);return this.addLayers(e)}if(!t.getLatLng)return this._nonPointGroup.addLayer(t),this;if(!this._map)return this._needsClustering.push(t),this;if(this.hasLayer(t))return this;this._unspiderfy&&this._unspiderfy(),this._addLayer(t,this._maxZoom);var n=t,s=this._map.getZoom();if(t.__parent)for(;n.__parent._zoom>=s;)n=n.__parent;return this._currentShownBounds.contains(n.getLatLng())&&(this.options.animateAddingMarkers?this._animationAddLayer(t,n):this._animationAddLayerNonAnimated(t,n)),this},removeLayer:function(t){if(t instanceof L.LayerGroup){var e=[];for(var i in t._layers)e.push(t._layers[i]);return this.removeLayers(e)}return t.getLatLng?this._map?t.__parent?(this._unspiderfy&&(this._unspiderfy(),this._unspiderfyLayer(t)),this._removeLayer(t,!0),this._featureGroup.hasLayer(t)&&(this._featureGroup.removeLayer(t),t.setOpacity&&t.setOpacity(1)),this):this:(!this._arraySplice(this._needsClustering,t)&&this.hasLayer(t)&&this._needsRemoving.push(t),this):(this._nonPointGroup.removeLayer(t),this)},addLayers:function(t){var e,i,n,s=this._map,r=this._featureGroup,o=this._nonPointGroup;for(e=0,i=t.length;i>e;e++)if(n=t[e],n.getLatLng){if(!this.hasLayer(n))if(s){if(this._addLayer(n,this._maxZoom),n.__parent&&2===n.__parent.getChildCount()){var a=n.__parent.getAllChildMarkers(),h=a[0]===n?a[1]:a[0];r.removeLayer(h)}}else this._needsClustering.push(n)}else o.addLayer(n);return s&&(r.eachLayer(function(t){t instanceof L.MarkerCluster&&t._iconNeedsUpdate&&t._updateIcon()}),this._topClusterLevel._recursivelyAddChildrenToMap(null,this._zoom,this._currentShownBounds)),this},removeLayers:function(t){var e,i,n,s=this._featureGroup,r=this._nonPointGroup;if(!this._map){for(e=0,i=t.length;i>e;e++)n=t[e],this._arraySplice(this._needsClustering,n),r.removeLayer(n);return this}for(e=0,i=t.length;i>e;e++)n=t[e],n.__parent?(this._removeLayer(n,!0,!0),s.hasLayer(n)&&(s.removeLayer(n),n.setOpacity&&n.setOpacity(1))):r.removeLayer(n);return this._topClusterLevel._recursivelyAddChildrenToMap(null,this._zoom,this._currentShownBounds),s.eachLayer(function(t){t instanceof L.MarkerCluster&&t._updateIcon()}),this},clearLayers:function(){return this._map||(this._needsClustering=[],delete this._gridClusters,delete this._gridUnclustered),this._noanimationUnspiderfy&&this._noanimationUnspiderfy(),this._featureGroup.clearLayers(),this._nonPointGroup.clearLayers(),this.eachLayer(function(t){delete t.__parent}),this._map&&this._generateInitialClusters(),this},getBounds:function(){var t=new L.LatLngBounds;if(this._topClusterLevel)t.extend(this._topClusterLevel._bounds);else for(var e=this._needsClustering.length-1;e>=0;e--)t.extend(this._needsClustering[e].getLatLng());return t.extend(this._nonPointGroup.getBounds()),t},eachLayer:function(t,e){var i,n=this._needsClustering.slice();for(this._topClusterLevel&&this._topClusterLevel.getAllChildMarkers(n),i=n.length-1;i>=0;i--)t.call(e,n[i]);this._nonPointGroup.eachLayer(t,e)},getLayers:function(){var t=[];return this.eachLayer(function(e){t.push(e)}),t},getLayer:function(t){var e=null;return this.eachLayer(function(i){L.stamp(i)===t&&(e=i)}),e},hasLayer:function(t){if(!t)return!1;var e,i=this._needsClustering;for(e=i.length-1;e>=0;e--)if(i[e]===t)return!0;for(i=this._needsRemoving,e=i.length-1;e>=0;e--)if(i[e]===t)return!1;return!(!t.__parent||t.__parent._group!==this)||this._nonPointGroup.hasLayer(t)},zoomToShowLayer:function(t,e){var i=function(){if((t._icon||t.__parent._icon)&&!this._inZoomAnimation)if(this._map.off("moveend",i,this),this.off("animationend",i,this),t._icon)e();else if(t.__parent._icon){var n=function(){this.off("spiderfied",n,this),e()};this.on("spiderfied",n,this),t.__parent.spiderfy()}};t._icon&&this._map.getBounds().contains(t.getLatLng())?e():t.__parent._zoom<this._map.getZoom()?(this._map.on("moveend",i,this),this._map.panTo(t.getLatLng())):(this._map.on("moveend",i,this),this.on("animationend",i,this),this._map.setView(t.getLatLng(),t.__parent._zoom+1),t.__parent.zoomToBounds())},onAdd:function(t){this._map=t;var e,i,n;if(!isFinite(this._map.getMaxZoom()))throw"Map has no maxZoom specified";for(this._featureGroup.onAdd(t),this._nonPointGroup.onAdd(t),this._gridClusters||this._generateInitialClusters(),e=0,i=this._needsRemoving.length;i>e;e++)n=this._needsRemoving[e],this._removeLayer(n,!0);for(this._needsRemoving=[],e=0,i=this._needsClustering.length;i>e;e++)n=this._needsClustering[e],n.getLatLng?n.__parent||this._addLayer(n,this._maxZoom):this._featureGroup.addLayer(n);this._needsClustering=[],this._map.on("zoomend",this._zoomEnd,this),this._map.on("moveend",this._moveEnd,this),this._spiderfierOnAdd&&this._spiderfierOnAdd(),this._bindEvents(),this._zoom=this._map.getZoom(),this._currentShownBounds=this._getExpandedVisibleBounds(),this._topClusterLevel._recursivelyAddChildrenToMap(null,this._zoom,this._currentShownBounds)},onRemove:function(t){t.off("zoomend",this._zoomEnd,this),t.off("moveend",this._moveEnd,this),this._unbindEvents(),this._map._mapPane.className=this._map._mapPane.className.replace(" leaflet-cluster-anim",""),this._spiderfierOnRemove&&this._spiderfierOnRemove(),this._hideCoverage(),this._featureGroup.onRemove(t),this._nonPointGroup.onRemove(t),this._featureGroup.clearLayers(),this._map=null},getVisibleParent:function(t){for(var e=t;e&&!e._icon;)e=e.__parent;return e||null},_arraySplice:function(t,e){for(var i=t.length-1;i>=0;i--)if(t[i]===e)return t.splice(i,1),!0},_removeLayer:function(t,e,i){var n=this._gridClusters,s=this._gridUnclustered,r=this._featureGroup,o=this._map;if(e)for(var a=this._maxZoom;a>=0&&s[a].removeObject(t,o.project(t.getLatLng(),a));a--);var h,_=t.__parent,u=_._markers;for(this._arraySplice(u,t);_&&(_._childCount--,!(_._zoom<0));)e&&_._childCount<=1?(h=_._markers[0]===t?_._markers[1]:_._markers[0],n[_._zoom].removeObject(_,o.project(_._cLatLng,_._zoom)),s[_._zoom].addObject(h,o.project(h.getLatLng(),_._zoom)),this._arraySplice(_.__parent._childClusters,_),_.__parent._markers.push(h),h.__parent=_.__parent,_._icon&&(r.removeLayer(_),i||r.addLayer(h))):(_._recalculateBounds(),i&&_._icon||_._updateIcon()),_=_.__parent;delete t.__parent},_isOrIsParent:function(t,e){for(;e;){if(t===e)return!0;e=e.parentNode}return!1},_propagateEvent:function(t){if(t.layer instanceof L.MarkerCluster){if(t.originalEvent&&this._isOrIsParent(t.layer._icon,t.originalEvent.relatedTarget))return;t.type="cluster"+t.type}this.fire(t.type,t)},_defaultIconCreateFunction:function(t){var e=t.getChildCount(),i=" marker-cluster-";return i+=10>e?"small":100>e?"medium":"large",new L.DivIcon({html:"<div><span>"+e+"</span></div>",className:"marker-cluster"+i,iconSize:new L.Point(40,40)})},_bindEvents:function(){var t=this._map,e=this.options.spiderfyOnMaxZoom,i=this.options.showCoverageOnHover,n=this.options.zoomToBoundsOnClick;(e||n)&&this.on("clusterclick",this._zoomOrSpiderfy,this),i&&(this.on("clustermouseover",this._showCoverage,this),this.on("clustermouseout",this._hideCoverage,this),t.on("zoomend",this._hideCoverage,this))},_zoomOrSpiderfy:function(t){var e=this._map;e.getMaxZoom()===e.getZoom()?this.options.spiderfyOnMaxZoom&&t.layer.spiderfy():this.options.zoomToBoundsOnClick&&t.layer.zoomToBounds(),t.originalEvent&&13===t.originalEvent.keyCode&&e._container.focus()},_showCoverage:function(t){var e=this._map;this._inZoomAnimation||(this._shownPolygon&&e.removeLayer(this._shownPolygon),t.layer.getChildCount()>2&&t.layer!==this._spiderfied&&(this._shownPolygon=new L.Polygon(t.layer.getConvexHull(),this.options.polygonOptions),e.addLayer(this._shownPolygon)))},_hideCoverage:function(){this._shownPolygon&&(this._map.removeLayer(this._shownPolygon),this._shownPolygon=null)},_unbindEvents:function(){var t=this.options.spiderfyOnMaxZoom,e=this.options.showCoverageOnHover,i=this.options.zoomToBoundsOnClick,n=this._map;(t||i)&&this.off("clusterclick",this._zoomOrSpiderfy,this),e&&(this.off("clustermouseover",this._showCoverage,this),this.off("clustermouseout",this._hideCoverage,this),n.off("zoomend",this._hideCoverage,this))},_zoomEnd:function(){this._map&&(this._mergeSplitClusters(),this._zoom=this._map._zoom,this._currentShownBounds=this._getExpandedVisibleBounds())},_moveEnd:function(){if(!this._inZoomAnimation){var t=this._getExpandedVisibleBounds();this._topClusterLevel._recursivelyRemoveChildrenFromMap(this._currentShownBounds,this._zoom,t),this._topClusterLevel._recursivelyAddChildrenToMap(null,this._map._zoom,t),this._currentShownBounds=t}},_generateInitialClusters:function(){var t=this._map.getMaxZoom(),e=this.options.maxClusterRadius;this.options.disableClusteringAtZoom&&(t=this.options.disableClusteringAtZoom-1),this._maxZoom=t,this._gridClusters={},this._gridUnclustered={};for(var i=t;i>=0;i--)this._gridClusters[i]=new L.DistanceGrid(e),this._gridUnclustered[i]=new L.DistanceGrid(e);this._topClusterLevel=new L.MarkerCluster(this,-1)},_addLayer:function(t,e){var i,n,s=this._gridClusters,r=this._gridUnclustered;for(this.options.singleMarkerMode&&(t.options.icon=this.options.iconCreateFunction({getChildCount:function(){return 1},getAllChildMarkers:function(){return[t]}}));e>=0;e--){i=this._map.project(t.getLatLng(),e);var o=s[e].getNearObject(i);if(o)return o._addChild(t),t.__parent=o,void 0;if(o=r[e].getNearObject(i)){var a=o.__parent;a&&this._removeLayer(o,!1);var h=new L.MarkerCluster(this,e,o,t);s[e].addObject(h,this._map.project(h._cLatLng,e)),o.__parent=h,t.__parent=h;var _=h;for(n=e-1;n>a._zoom;n--)_=new L.MarkerCluster(this,n,_),s[n].addObject(_,this._map.project(o.getLatLng(),n));for(a._addChild(_),n=e;n>=0&&r[n].removeObject(o,this._map.project(o.getLatLng(),n));n--);return}r[e].addObject(t,i)}this._topClusterLevel._addChild(t),t.__parent=this._topClusterLevel},_enqueue:function(t){this._queue.push(t),this._queueTimeout||(this._queueTimeout=setTimeout(L.bind(this._processQueue,this),300))},_processQueue:function(){for(var t=0;t<this._queue.length;t++)this._queue[t].call(this);this._queue.length=0,clearTimeout(this._queueTimeout),this._queueTimeout=null},_mergeSplitClusters:function(){this._processQueue(),this._zoom<this._map._zoom&&this._currentShownBounds.contains(this._getExpandedVisibleBounds())?(this._animationStart(),this._topClusterLevel._recursivelyRemoveChildrenFromMap(this._currentShownBounds,this._zoom,this._getExpandedVisibleBounds()),this._animationZoomIn(this._zoom,this._map._zoom)):this._zoom>this._map._zoom?(this._animationStart(),this._animationZoomOut(this._zoom,this._map._zoom)):this._moveEnd()},_getExpandedVisibleBounds:function(){if(!this.options.removeOutsideVisibleBounds)return this.getBounds();var t=this._map,e=t.getBounds(),i=e._southWest,n=e._northEast,s=L.Browser.mobile?0:Math.abs(i.lat-n.lat),r=L.Browser.mobile?0:Math.abs(i.lng-n.lng);return new L.LatLngBounds(new L.LatLng(i.lat-s,i.lng-r,!0),new L.LatLng(n.lat+s,n.lng+r,!0))},_animationAddLayerNonAnimated:function(t,e){if(e===t)this._featureGroup.addLayer(t);else if(2===e._childCount){e._addToMap();var i=e.getAllChildMarkers();this._featureGroup.removeLayer(i[0]),this._featureGroup.removeLayer(i[1])}else e._updateIcon()}}),L.MarkerClusterGroup.include(L.DomUtil.TRANSITION?{_animationStart:function(){this._map._mapPane.className+=" leaflet-cluster-anim",this._inZoomAnimation++},_animationEnd:function(){this._map&&(this._map._mapPane.className=this._map._mapPane.className.replace(" leaflet-cluster-anim","")),this._inZoomAnimation--,this.fire("animationend")},_animationZoomIn:function(t,e){var i,n=this._getExpandedVisibleBounds(),s=this._featureGroup;this._topClusterLevel._recursively(n,t,0,function(r){var o,a=r._latlng,h=r._markers;for(n.contains(a)||(a=null),r._isSingleParent()&&t+1===e?(s.removeLayer(r),r._recursivelyAddChildrenToMap(null,e,n)):(r.setOpacity(0),r._recursivelyAddChildrenToMap(a,e,n)),i=h.length-1;i>=0;i--)o=h[i],n.contains(o._latlng)||s.removeLayer(o)}),this._forceLayout(),this._topClusterLevel._recursivelyBecomeVisible(n,e),s.eachLayer(function(t){t instanceof L.MarkerCluster||!t._icon||t.setOpacity(1)}),this._topClusterLevel._recursively(n,t,e,function(t){t._recursivelyRestoreChildPositions(e)}),this._enqueue(function(){this._topClusterLevel._recursively(n,t,0,function(t){s.removeLayer(t),t.setOpacity(1)}),this._animationEnd()})},_animationZoomOut:function(t,e){this._animationZoomOutSingle(this._topClusterLevel,t-1,e),this._topClusterLevel._recursivelyAddChildrenToMap(null,e,this._getExpandedVisibleBounds()),this._topClusterLevel._recursivelyRemoveChildrenFromMap(this._currentShownBounds,t,this._getExpandedVisibleBounds())},_animationZoomOutSingle:function(t,e,i){var n=this._getExpandedVisibleBounds();t._recursivelyAnimateChildrenInAndAddSelfToMap(n,e+1,i);var s=this;this._forceLayout(),t._recursivelyBecomeVisible(n,i),this._enqueue(function(){if(1===t._childCount){var r=t._markers[0];r.setLatLng(r.getLatLng()),r.setOpacity(1)}else t._recursively(n,i,0,function(t){t._recursivelyRemoveChildrenFromMap(n,e+1)});s._animationEnd()})},_animationAddLayer:function(t,e){var i=this,n=this._featureGroup;n.addLayer(t),e!==t&&(e._childCount>2?(e._updateIcon(),this._forceLayout(),this._animationStart(),t._setPos(this._map.latLngToLayerPoint(e.getLatLng())),t.setOpacity(0),this._enqueue(function(){n.removeLayer(t),t.setOpacity(1),i._animationEnd()})):(this._forceLayout(),i._animationStart(),i._animationZoomOutSingle(e,this._map.getMaxZoom(),this._map.getZoom())))},_forceLayout:function(){L.Util.falseFn(e.body.offsetWidth)}}:{_animationStart:function(){},_animationZoomIn:function(t,e){this._topClusterLevel._recursivelyRemoveChildrenFromMap(this._currentShownBounds,t),this._topClusterLevel._recursivelyAddChildrenToMap(null,e,this._getExpandedVisibleBounds())},_animationZoomOut:function(t,e){this._topClusterLevel._recursivelyRemoveChildrenFromMap(this._currentShownBounds,t),this._topClusterLevel._recursivelyAddChildrenToMap(null,e,this._getExpandedVisibleBounds())},_animationAddLayer:function(t,e){this._animationAddLayerNonAnimated(t,e)}}),L.markerClusterGroup=function(t){return new L.MarkerClusterGroup(t)},L.MarkerCluster=L.Marker.extend({initialize:function(t,e,i,n){L.Marker.prototype.initialize.call(this,i?i._cLatLng||i.getLatLng():new L.LatLng(0,0),{icon:this}),this._group=t,this._zoom=e,this._markers=[],this._childClusters=[],this._childCount=0,this._iconNeedsUpdate=!0,this._bounds=new L.LatLngBounds,i&&this._addChild(i),n&&this._addChild(n)},getAllChildMarkers:function(t){t=t||[];for(var e=this._childClusters.length-1;e>=0;e--)this._childClusters[e].getAllChildMarkers(t);for(var i=this._markers.length-1;i>=0;i--)t.push(this._markers[i]);return t},getChildCount:function(){return this._childCount},zoomToBounds:function(){for(var t,e=this._childClusters.slice(),i=this._group._map,n=i.getBoundsZoom(this._bounds),s=this._zoom+1,r=i.getZoom();e.length>0&&n>s;){s++;var o=[];for(t=0;t<e.length;t++)o=o.concat(e[t]._childClusters);e=o}n>s?this._group._map.setView(this._latlng,s):r>=n?this._group._map.setView(this._latlng,r+1):this._group._map.fitBounds(this._bounds)},getBounds:function(){var t=new L.LatLngBounds;return t.extend(this._bounds),t},_updateIcon:function(){this._iconNeedsUpdate=!0,this._icon&&this.setIcon(this)},createIcon:function(){return this._iconNeedsUpdate&&(this._iconObj=this._group.options.iconCreateFunction(this),this._iconNeedsUpdate=!1),this._iconObj.createIcon()},createShadow:function(){return this._iconObj.createShadow()},_addChild:function(t,e){this._iconNeedsUpdate=!0,this._expandBounds(t),t instanceof L.MarkerCluster?(e||(this._childClusters.push(t),t.__parent=this),this._childCount+=t._childCount):(e||this._markers.push(t),this._childCount++),this.__parent&&this.__parent._addChild(t,!0)},_expandBounds:function(t){var e,i=t._wLatLng||t._latlng;t instanceof L.MarkerCluster?(this._bounds.extend(t._bounds),e=t._childCount):(this._bounds.extend(i),e=1),this._cLatLng||(this._cLatLng=t._cLatLng||i);var n=this._childCount+e;this._wLatLng?(this._wLatLng.lat=(i.lat*e+this._wLatLng.lat*this._childCount)/n,this._wLatLng.lng=(i.lng*e+this._wLatLng.lng*this._childCount)/n):this._latlng=this._wLatLng=new L.LatLng(i.lat,i.lng)},_addToMap:function(t){t&&(this._backupLatlng=this._latlng,this.setLatLng(t)),this._group._featureGroup.addLayer(this)},_recursivelyAnimateChildrenIn:function(t,e,i){this._recursively(t,0,i-1,function(t){var i,n,s=t._markers;for(i=s.length-1;i>=0;i--)n=s[i],n._icon&&(n._setPos(e),n.setOpacity(0))},function(t){var i,n,s=t._childClusters;for(i=s.length-1;i>=0;i--)n=s[i],n._icon&&(n._setPos(e),n.setOpacity(0))})},_recursivelyAnimateChildrenInAndAddSelfToMap:function(t,e,i){this._recursively(t,i,0,function(n){n._recursivelyAnimateChildrenIn(t,n._group._map.latLngToLayerPoint(n.getLatLng()).round(),e),n._isSingleParent()&&e-1===i?(n.setOpacity(1),n._recursivelyRemoveChildrenFromMap(t,e)):n.setOpacity(0),n._addToMap()})},_recursivelyBecomeVisible:function(t,e){this._recursively(t,0,e,null,function(t){t.setOpacity(1)})},_recursivelyAddChildrenToMap:function(t,e,i){this._recursively(i,-1,e,function(n){if(e!==n._zoom)for(var s=n._markers.length-1;s>=0;s--){var r=n._markers[s];i.contains(r._latlng)&&(t&&(r._backupLatlng=r.getLatLng(),r.setLatLng(t),r.setOpacity&&r.setOpacity(0)),n._group._featureGroup.addLayer(r))}},function(e){e._addToMap(t)})},_recursivelyRestoreChildPositions:function(t){for(var e=this._markers.length-1;e>=0;e--){var i=this._markers[e];i._backupLatlng&&(i.setLatLng(i._backupLatlng),delete i._backupLatlng)}if(t-1===this._zoom)for(var n=this._childClusters.length-1;n>=0;n--)this._childClusters[n]._restorePosition();else for(var s=this._childClusters.length-1;s>=0;s--)this._childClusters[s]._recursivelyRestoreChildPositions(t)},_restorePosition:function(){this._backupLatlng&&(this.setLatLng(this._backupLatlng),delete this._backupLatlng)},_recursivelyRemoveChildrenFromMap:function(t,e,i){var n,s;this._recursively(t,-1,e-1,function(t){for(s=t._markers.length-1;s>=0;s--)n=t._markers[s],i&&i.contains(n._latlng)||(t._group._featureGroup.removeLayer(n),n.setOpacity&&n.setOpacity(1))},function(t){for(s=t._childClusters.length-1;s>=0;s--)n=t._childClusters[s],i&&i.contains(n._latlng)||(t._group._featureGroup.removeLayer(n),n.setOpacity&&n.setOpacity(1))})},_recursively:function(t,e,i,n,s){var r,o,a=this._childClusters,h=this._zoom;if(e>h)for(r=a.length-1;r>=0;r--)o=a[r],t.intersects(o._bounds)&&o._recursively(t,e,i,n,s);else if(n&&n(this),s&&this._zoom===i&&s(this),i>h)for(r=a.length-1;r>=0;r--)o=a[r],t.intersects(o._bounds)&&o._recursively(t,e,i,n,s)},_recalculateBounds:function(){var t,e=this._markers,i=this._childClusters;for(this._bounds=new L.LatLngBounds,delete this._wLatLng,t=e.length-1;t>=0;t--)this._expandBounds(e[t]);for(t=i.length-1;t>=0;t--)this._expandBounds(i[t])},_isSingleParent:function(){return this._childClusters.length>0&&this._childClusters[0]._childCount===this._childCount}}),L.DistanceGrid=function(t){this._cellSize=t,this._sqCellSize=t*t,this._grid={},this._objectPoint={}},L.DistanceGrid.prototype={addObject:function(t,e){var i=this._getCoord(e.x),n=this._getCoord(e.y),s=this._grid,r=s[n]=s[n]||{},o=r[i]=r[i]||[],a=L.Util.stamp(t);this._objectPoint[a]=e,o.push(t)},updateObject:function(t,e){this.removeObject(t),this.addObject(t,e)},removeObject:function(t,e){var i,n,s=this._getCoord(e.x),r=this._getCoord(e.y),o=this._grid,a=o[r]=o[r]||{},h=a[s]=a[s]||[];for(delete this._objectPoint[L.Util.stamp(t)],i=0,n=h.length;n>i;i++)if(h[i]===t)return h.splice(i,1),1===n&&delete a[s],!0},eachObject:function(t,e){var i,n,s,r,o,a,h,_=this._grid;for(i in _){o=_[i];for(n in o)for(a=o[n],s=0,r=a.length;r>s;s++)h=t.call(e,a[s]),h&&(s--,r--)}},getNearObject:function(t){var e,i,n,s,r,o,a,h,_=this._getCoord(t.x),u=this._getCoord(t.y),l=this._objectPoint,d=this._sqCellSize,p=null;for(e=u-1;u+1>=e;e++)if(s=this._grid[e])for(i=_-1;_+1>=i;i++)if(r=s[i])for(n=0,o=r.length;o>n;n++)a=r[n],h=this._sqDist(l[L.Util.stamp(a)],t),d>h&&(d=h,p=a);return p},_getCoord:function(t){return Math.floor(t/this._cellSize)},_sqDist:function(t,e){var i=e.x-t.x,n=e.y-t.y;return i*i+n*n}},function(){L.QuickHull={getDistant:function(t,e){var i=e[1].lat-e[0].lat,n=e[0].lng-e[1].lng;return n*(t.lat-e[0].lat)+i*(t.lng-e[0].lng)},findMostDistantPointFromBaseLine:function(t,e){var i,n,s,r=0,o=null,a=[];for(i=e.length-1;i>=0;i--)n=e[i],s=this.getDistant(n,t),s>0&&(a.push(n),s>r&&(r=s,o=n));return{maxPoint:o,newPoints:a}},buildConvexHull:function(t,e){var i=[],n=this.findMostDistantPointFromBaseLine(t,e);return n.maxPoint?(i=i.concat(this.buildConvexHull([t[0],n.maxPoint],n.newPoints)),i=i.concat(this.buildConvexHull([n.maxPoint,t[1]],n.newPoints))):[t[0]]},getConvexHull:function(t){var e,i=!1,n=!1,s=null,r=null;for(e=t.length-1;e>=0;e--){var o=t[e];(i===!1||o.lat>i)&&(s=o,i=o.lat),(n===!1||o.lat<n)&&(r=o,n=o.lat)}var a=[].concat(this.buildConvexHull([r,s],t),this.buildConvexHull([s,r],t));return a}}}(),L.MarkerCluster.include({getConvexHull:function(){var t,e,i=this.getAllChildMarkers(),n=[];for(e=i.length-1;e>=0;e--)t=i[e].getLatLng(),n.push(t);return L.QuickHull.getConvexHull(n)}}),L.MarkerCluster.include({_2PI:2*Math.PI,_circleFootSeparation:25,_circleStartAngle:Math.PI/6,_spiralFootSeparation:28,_spiralLengthStart:11,_spiralLengthFactor:5,_circleSpiralSwitchover:9,spiderfy:function(){if(this._group._spiderfied!==this&&!this._group._inZoomAnimation){var t,e=this.getAllChildMarkers(),i=this._group,n=i._map,s=n.latLngToLayerPoint(this._latlng);this._group._unspiderfy(),this._group._spiderfied=this,e.length>=this._circleSpiralSwitchover?t=this._generatePointsSpiral(e.length,s):(s.y+=10,t=this._generatePointsCircle(e.length,s)),this._animationSpiderfy(e,t)}},unspiderfy:function(t){this._group._inZoomAnimation||(this._animationUnspiderfy(t),this._group._spiderfied=null)},_generatePointsCircle:function(t,e){var i,n,s=this._group.options.spiderfyDistanceMultiplier*this._circleFootSeparation*(2+t),r=s/this._2PI,o=this._2PI/t,a=[];for(a.length=t,i=t-1;i>=0;i--)n=this._circleStartAngle+i*o,a[i]=new L.Point(e.x+r*Math.cos(n),e.y+r*Math.sin(n))._round();return a},_generatePointsSpiral:function(t,e){var i,n=this._group.options.spiderfyDistanceMultiplier*this._spiralLengthStart,s=this._group.options.spiderfyDistanceMultiplier*this._spiralFootSeparation,r=this._group.options.spiderfyDistanceMultiplier*this._spiralLengthFactor,o=0,a=[];for(a.length=t,i=t-1;i>=0;i--)o+=s/n+5e-4*i,a[i]=new L.Point(e.x+n*Math.cos(o),e.y+n*Math.sin(o))._round(),n+=this._2PI*r/o;return a},_noanimationUnspiderfy:function(){var t,e,i=this._group,n=i._map,s=i._featureGroup,r=this.getAllChildMarkers();for(this.setOpacity(1),e=r.length-1;e>=0;e--)t=r[e],s.removeLayer(t),t._preSpiderfyLatlng&&(t.setLatLng(t._preSpiderfyLatlng),delete t._preSpiderfyLatlng),t.setZIndexOffset&&t.setZIndexOffset(0),t._spiderLeg&&(n.removeLayer(t._spiderLeg),delete t._spiderLeg);i._spiderfied=null}}),L.MarkerCluster.include(L.DomUtil.TRANSITION?{SVG_ANIMATION:function(){return e.createElementNS("http://www.w3.org/2000/svg","animate").toString().indexOf("SVGAnimate")>-1}(),_animationSpiderfy:function(t,i){var n,s,r,o,a=this,h=this._group,_=h._map,u=h._featureGroup,l=_.latLngToLayerPoint(this._latlng);for(n=t.length-1;n>=0;n--)s=t[n],s.setOpacity?(s.setZIndexOffset(1e6),s.setOpacity(0),u.addLayer(s),s._setPos(l)):u.addLayer(s);h._forceLayout(),h._animationStart();var d=L.Path.SVG?0:.3,p=L.Path.SVG_NS;for(n=t.length-1;n>=0;n--)if(o=_.layerPointToLatLng(i[n]),s=t[n],s._preSpiderfyLatlng=s._latlng,s.setLatLng(o),s.setOpacity&&s.setOpacity(1),r=new L.Polyline([a._latlng,o],{weight:1.5,color:"#222",opacity:d}),_.addLayer(r),s._spiderLeg=r,L.Path.SVG&&this.SVG_ANIMATION){var c=r._path.getTotalLength();r._path.setAttribute("stroke-dasharray",c+","+c);var m=e.createElementNS(p,"animate");m.setAttribute("attributeName","stroke-dashoffset"),m.setAttribute("begin","indefinite"),m.setAttribute("from",c),m.setAttribute("to",0),m.setAttribute("dur",.25),r._path.appendChild(m),m.beginElement(),m=e.createElementNS(p,"animate"),m.setAttribute("attributeName","stroke-opacity"),m.setAttribute("attributeName","stroke-opacity"),m.setAttribute("begin","indefinite"),m.setAttribute("from",0),m.setAttribute("to",.5),m.setAttribute("dur",.25),r._path.appendChild(m),m.beginElement()}if(a.setOpacity(.3),L.Path.SVG)for(this._group._forceLayout(),n=t.length-1;n>=0;n--)s=t[n]._spiderLeg,s.options.opacity=.5,s._path.setAttribute("stroke-opacity",.5);setTimeout(function(){h._animationEnd(),h.fire("spiderfied")},200)},_animationUnspiderfy:function(t){var e,i,n,s=this._group,r=s._map,o=s._featureGroup,a=t?r._latLngToNewLayerPoint(this._latlng,t.zoom,t.center):r.latLngToLayerPoint(this._latlng),h=this.getAllChildMarkers(),_=L.Path.SVG&&this.SVG_ANIMATION;for(s._animationStart(),this.setOpacity(1),i=h.length-1;i>=0;i--)e=h[i],e._preSpiderfyLatlng&&(e.setLatLng(e._preSpiderfyLatlng),delete e._preSpiderfyLatlng,e.setOpacity?(e._setPos(a),e.setOpacity(0)):o.removeLayer(e),_&&(n=e._spiderLeg._path.childNodes[0],n.setAttribute("to",n.getAttribute("from")),n.setAttribute("from",0),n.beginElement(),n=e._spiderLeg._path.childNodes[1],n.setAttribute("from",.5),n.setAttribute("to",0),n.setAttribute("stroke-opacity",0),n.beginElement(),e._spiderLeg._path.setAttribute("stroke-opacity",0)));setTimeout(function(){var t=0;for(i=h.length-1;i>=0;i--)e=h[i],e._spiderLeg&&t++;for(i=h.length-1;i>=0;i--)e=h[i],e._spiderLeg&&(e.setOpacity&&(e.setOpacity(1),e.setZIndexOffset(0)),t>1&&o.removeLayer(e),r.removeLayer(e._spiderLeg),delete e._spiderLeg);s._animationEnd()},200)}}:{_animationSpiderfy:function(t,e){var i,n,s,r,o=this._group,a=o._map,h=o._featureGroup;for(i=t.length-1;i>=0;i--)r=a.layerPointToLatLng(e[i]),n=t[i],n._preSpiderfyLatlng=n._latlng,n.setLatLng(r),n.setZIndexOffset&&n.setZIndexOffset(1e6),h.addLayer(n),s=new L.Polyline([this._latlng,r],{weight:1.5,color:"#222"}),a.addLayer(s),n._spiderLeg=s;this.setOpacity(.3),o.fire("spiderfied")},_animationUnspiderfy:function(){this._noanimationUnspiderfy()}}),L.MarkerClusterGroup.include({_spiderfied:null,_spiderfierOnAdd:function(){this._map.on("click",this._unspiderfyWrapper,this),this._map.options.zoomAnimation&&this._map.on("zoomstart",this._unspiderfyZoomStart,this),this._map.on("zoomend",this._noanimationUnspiderfy,this),L.Path.SVG&&!L.Browser.touch&&this._map._initPathRoot()},_spiderfierOnRemove:function(){this._map.off("click",this._unspiderfyWrapper,this),this._map.off("zoomstart",this._unspiderfyZoomStart,this),this._map.off("zoomanim",this._unspiderfyZoomAnim,this),this._unspiderfy()},_unspiderfyZoomStart:function(){this._map&&this._map.on("zoomanim",this._unspiderfyZoomAnim,this)},_unspiderfyZoomAnim:function(t){L.DomUtil.hasClass(this._map._mapPane,"leaflet-touching")||(this._map.off("zoomanim",this._unspiderfyZoomAnim,this),this._unspiderfy(t))},_unspiderfyWrapper:function(){this._unspiderfy()},_unspiderfy:function(t){this._spiderfied&&this._spiderfied.unspiderfy(t)},_noanimationUnspiderfy:function(){this._spiderfied&&this._spiderfied._noanimationUnspiderfy()},_unspiderfyLayer:function(t){t._spiderLeg&&(this._featureGroup.removeLayer(t),t.setOpacity(1),t.setZIndexOffset(0),this._map.removeLayer(t._spiderLeg),delete t._spiderLeg)}})}(window,document);
+},{}],48:[function(require,module,exports){
+module.exports=require(20)
+},{}],49:[function(require,module,exports){
 /*!
   * Reqwest! A general purpose XHR connection manager
   * license MIT (c) Dustin Diaz 2014
@@ -25820,7 +25910,7 @@ L.Map.include({
   return reqwest
 });
 
-},{}],"/home/per/Documents/Projects/cykelbanor/node_modules/sortablejs/Sortable.js":[function(require,module,exports){
+},{}],50:[function(require,module,exports){
 /**!
  * Sortable
  * @author	RubaXa   <trash@rubaxa.org>
@@ -26873,9 +26963,7 @@ L.Map.include({
 	return Sortable;
 });
 
-},{}],"/home/per/Documents/Projects/cykelbanor/node_modules/watchify/node_modules/browserify/lib/_empty.js":[function(require,module,exports){
-
-},{}],"/home/per/Documents/Projects/cykelbanor/src/address.js":[function(require,module,exports){
+},{}],51:[function(require,module,exports){
 var Handlebars = require('handlebars'),
     htmlTemplate = Handlebars.compile('{{building}} {{road}} {{house_number}} <small>{{postcode}} {{city}}</small>'),
     textTemplate = Handlebars.compile('{{building}} {{road}} {{house_number}}, {{postcode}} {{city}}');
@@ -26887,7 +26975,7 @@ module.exports = function address (r) {
     };
 };
 
-},{"handlebars":"/home/per/Documents/Projects/cykelbanor/node_modules/handlebars/lib/index.js"}],"/home/per/Documents/Projects/cykelbanor/src/baselayers.js":[function(require,module,exports){
+},{"handlebars":17}],52:[function(require,module,exports){
 var L = require('leaflet');
 
 module.exports = {
@@ -26900,7 +26988,7 @@ module.exports = {
     })
 };
 
-},{"leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js"}],"/home/per/Documents/Projects/cykelbanor/src/elevation.js":[function(require,module,exports){
+},{"leaflet":48}],53:[function(require,module,exports){
 var L = require('leaflet'),
     d3 = require('d3');
 
@@ -27005,7 +27093,7 @@ module.exports = L.Class.extend({
     }
 });
 
-},{"d3":"/home/per/Documents/Projects/cykelbanor/node_modules/d3/d3.js","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js"}],"/home/per/Documents/Projects/cykelbanor/src/geolocate-control.js":[function(require,module,exports){
+},{"d3":2,"leaflet":48}],54:[function(require,module,exports){
 var L = require('leaflet'),
     geolocate = require('./geolocate');
 
@@ -27036,7 +27124,7 @@ module.exports = L.Control.extend({
     },
 });
 
-},{"./geolocate":"/home/per/Documents/Projects/cykelbanor/src/geolocate.js","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js"}],"/home/per/Documents/Projects/cykelbanor/src/geolocate.js":[function(require,module,exports){
+},{"./geolocate":55,"leaflet":48}],55:[function(require,module,exports){
 var L = require('leaflet'),
     hasGeolocate = navigator.geolocation;
 
@@ -27093,7 +27181,7 @@ module.exports = function(map, cb, options) {
     }
 };
 
-},{"leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js"}],"/home/per/Documents/Projects/cykelbanor/src/index.js":[function(require,module,exports){
+},{"leaflet":48}],56:[function(require,module,exports){
 var L = require('leaflet'),
     lrm = require('leaflet-routing-machine'),
     lcg = require('leaflet-control-geocoder'),
@@ -27222,7 +27310,7 @@ routingControl
 
 userInfo();
 
-},{"../templates/address-popup.hbs":"/home/per/Documents/Projects/cykelbanor/templates/address-popup.hbs","./address":"/home/per/Documents/Projects/cykelbanor/src/address.js","./baselayers":"/home/per/Documents/Projects/cykelbanor/src/baselayers.js","./geolocate":"/home/per/Documents/Projects/cykelbanor/src/geolocate.js","./geolocate-control":"/home/per/Documents/Projects/cykelbanor/src/geolocate-control.js","./overlays":"/home/per/Documents/Projects/cykelbanor/src/overlays.js","./routing-control":"/home/per/Documents/Projects/cykelbanor/src/routing-control.js","./state":"/home/per/Documents/Projects/cykelbanor/src/state.js","./user-info":"/home/per/Documents/Projects/cykelbanor/src/user-info.js","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js","leaflet-control-geocoder":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-control-geocoder/src/index.js","leaflet-editinosm":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-editinosm/Leaflet.EditInOSM.js","leaflet-routing-machine":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.Control.js","reqwest":"/home/per/Documents/Projects/cykelbanor/node_modules/reqwest/reqwest.js","sortablejs":"/home/per/Documents/Projects/cykelbanor/node_modules/sortablejs/Sortable.js"}],"/home/per/Documents/Projects/cykelbanor/src/overlays.js":[function(require,module,exports){
+},{"../templates/address-popup.hbs":62,"./address":51,"./baselayers":52,"./geolocate":55,"./geolocate-control":54,"./overlays":57,"./routing-control":58,"./state":59,"./user-info":61,"leaflet":48,"leaflet-control-geocoder":29,"leaflet-editinosm":31,"leaflet-routing-machine":36,"reqwest":49,"sortablejs":50}],57:[function(require,module,exports){
 var L = require('leaflet');
 
 require('leaflet.markercluster');
@@ -27268,7 +27356,7 @@ module.exports = {
     })
 };
 
-},{"../templates/bicycle-rental.hbs":"/home/per/Documents/Projects/cykelbanor/templates/bicycle-rental.hbs","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js","leaflet.markercluster":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet.markercluster/dist/leaflet.markercluster.js"}],"/home/per/Documents/Projects/cykelbanor/src/routing-control.js":[function(require,module,exports){
+},{"../templates/bicycle-rental.hbs":63,"leaflet":48,"leaflet.markercluster":47}],58:[function(require,module,exports){
 var L = require('leaflet'),
     ElevationControl = require('./elevation'),
     geolocate = require('./geolocate'),
@@ -27344,7 +27432,7 @@ module.exports = L.Routing.Control.extend({
     }
 });
 
-},{"./elevation":"/home/per/Documents/Projects/cykelbanor/src/elevation.js","./geolocate":"/home/per/Documents/Projects/cykelbanor/src/geolocate.js","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js","leaflet-routing-machine":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet-routing-machine/src/L.Routing.Control.js","reqwest":"/home/per/Documents/Projects/cykelbanor/node_modules/reqwest/reqwest.js"}],"/home/per/Documents/Projects/cykelbanor/src/state.js":[function(require,module,exports){
+},{"./elevation":53,"./geolocate":55,"leaflet":48,"leaflet-routing-machine":36,"reqwest":49}],59:[function(require,module,exports){
 var L = require('leaflet'),
     UrlHash = require('./url-hash');
 
@@ -27428,7 +27516,7 @@ module.exports = L.Class.extend({
     }
 });
 
-},{"./url-hash":"/home/per/Documents/Projects/cykelbanor/src/url-hash.js","leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js"}],"/home/per/Documents/Projects/cykelbanor/src/url-hash.js":[function(require,module,exports){
+},{"./url-hash":60,"leaflet":48}],60:[function(require,module,exports){
 module.exports = {
     parse: function(hash) {
         var components;
@@ -27459,7 +27547,7 @@ module.exports = {
     }
 };
 
-},{}],"/home/per/Documents/Projects/cykelbanor/src/user-info.js":[function(require,module,exports){
+},{}],61:[function(require,module,exports){
 var L = require('leaflet');
 
 function showDialog() {
@@ -27482,7 +27570,7 @@ module.exports = function userInfo() {
     }
 };
 
-},{"leaflet":"/home/per/Documents/Projects/cykelbanor/node_modules/leaflet/dist/leaflet-src.js"}],"/home/per/Documents/Projects/cykelbanor/templates/address-popup.hbs":[function(require,module,exports){
+},{"leaflet":48}],62:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -27494,7 +27582,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<div>\n    <div class=\"ui label\">\n        <i class=\"map marker icon\"></i><span class=\"address\" data-address></span>\n    </div>\n    <ul class=\"alternatives\">\n        <li><button class=\"ui button\" type=\"button\" data-from>Åk härifrån</button></li>\n        <li><button class=\"ui button\" type=\"button\" data-to>Åk hit</button></li>\n    </ul>\n</div>";
   });
 
-},{"hbsfy/runtime":"/home/per/Documents/Projects/cykelbanor/node_modules/hbsfy/runtime.js"}],"/home/per/Documents/Projects/cykelbanor/templates/bicycle-rental.hbs":[function(require,module,exports){
+},{"hbsfy/runtime":19}],63:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -27559,4 +27647,4 @@ function program9(depth0,data) {
   return buffer;
   });
 
-},{"hbsfy/runtime":"/home/per/Documents/Projects/cykelbanor/node_modules/hbsfy/runtime.js"}]},{},["/home/per/Documents/Projects/cykelbanor/src/index.js"]);
+},{"hbsfy/runtime":19}]},{},[56])
