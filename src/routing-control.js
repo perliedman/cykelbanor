@@ -50,7 +50,7 @@ module.exports = L.Routing.Control.extend({
             var r = e.route,
                 geojson = {
                     type: 'LineString',
-                    coordinates: r.coordinates.map(function(c) { return [c[1], c[0]]; })
+                    coordinates: r.coordinates.map(function(c) { return [c.lng, c.lat]; })
                 };
 
             reqwest({
