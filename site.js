@@ -12567,7 +12567,7 @@ module.exports = {
 			li.setAttribute('data-result-index', index);
 
 			if (result.html) {
-				a.innerHTML = result.html;
+				a.innerHTML = a.innerHTML + result.html;
 			} else {
 				a.appendChild(text);
 			}
@@ -12983,12 +12983,12 @@ module.exports = {
 			Util.getJSON(this.options.serviceUrl + "/autocomplete", L.extend({
 				'api_key': this._apiKey,
 				'text': query
-			}, this.options.geocodingQueryParams), function(data) {
+			}, this.options.geocodingQueryParams), L.bind(function(data) {
 				if (data.geocoding.timestamp > this._lastSuggest) {
 					this._lastSuggest = data.geocoding.timestamp;
 					cb.call(context, _this._parseResults(data, "bbox"));
 				}
-			});
+			}, this));
 		},
 
 		reverse: function(location, scale, cb, context) {
@@ -13043,9 +13043,9 @@ module.exports = {
 					parts.push('{building} {road} {house_number}');
 				}
 
-				if (a.city || a.town || a.village) {
+				if (a.city || a.town || a.village || a.hamlet) {
 					parts.push('<span class="' + (parts.length > 0 ? 'leaflet-control-geocoder-address-detail' : '') +
-						'">{postcode} {city} {town} {village}</span>');
+						'">{postcode} {city} {town} {village} {hamlet}</span>');
 				}
 
 				if (a.state || a.country) {
@@ -27789,7 +27789,7 @@ module.exports = L.Routing.Control.extend({
         L.Routing.Control.prototype.initialize.call(this, {
             router: L.Routing.osrm({serviceUrl: 'http://route.cykelbanor.se/viaroute'}),
             //router: L.Routing.osrm({serviceUrl: 'http://localhost:5000/viaroute'}),
-            geocoder: L.Control.Geocoder.nominatim(),
+            geocoder: L.Control.Geocoder.mapzen('search-KwMCkXI'),
             routeWhileDragging: true,
             reverseWaypoints: true,
             language: 'sv',

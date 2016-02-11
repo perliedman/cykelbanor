@@ -10,7 +10,7 @@ module.exports = L.Routing.Control.extend({
         L.Routing.Control.prototype.initialize.call(this, {
             router: L.Routing.osrm({serviceUrl: 'http://route.cykelbanor.se/viaroute'}),
             //router: L.Routing.osrm({serviceUrl: 'http://localhost:5000/viaroute'}),
-            geocoder: L.Control.Geocoder.nominatim(),
+            geocoder: L.Control.Geocoder.mapzen('search-KwMCkXI'),
             routeWhileDragging: true,
             reverseWaypoints: true,
             language: 'sv',
