@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OSRM_DIR=/home/per/Documents/Projects/osrm-backend/build
+OSRM_DIR=/home/per/Documents/Projects/Project-OSRM/build
 OSM_SLOPE="node /home/per/Documents/Projects/osm-slope/index.js"
 DATA_DIR=/home/per/Documents/geodata
 DATA=$DATA_DIR/sweden
