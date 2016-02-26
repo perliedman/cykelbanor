@@ -1,9 +1,17 @@
 <div>
-    <div class="ui label">
-        <i class="map marker icon"></i><span class="address" data-address></span>
+    <div class="ui raised segment">
+        <div class="section">
+            <i class="map marker icon"></i><span class="address" data-address></span>
+        </div>
+        <div class="section">
+            <button class="ui button primary" type="button" data-from>Åk härifrån</button>
+            <button class="ui button primary" type="button" data-to>Åk hit</button>
+        </div>
     </div>
-    <ul class="alternatives">
-        <li><button class="ui button" type="button" data-from>Åk härifrån</button></li>
-        <li><button class="ui button" type="button" data-to>Åk hit</button></li>
-    </ul>
+
+    <div class="ui raised segment">
+      <a class="ui blue ribbon label">I närheten</a>
+      <div class="ui list" data-nearby>
+      </div>
+    </div>
 </div>

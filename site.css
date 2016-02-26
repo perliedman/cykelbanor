@@ -137,3 +137,9 @@ ul.alternatives {
     -moz-osx-font-smoothing: grayscale;
     content: '\f176\f175';
 }
+
+.maki-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+}

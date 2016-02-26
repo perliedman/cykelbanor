@@ -1,7 +1,8 @@
-var L = require('leaflet');
+var L = require('leaflet'),
+    config = require('./config');
 
 module.exports = {
-    'Karta': L.tileLayer('https://a.tiles.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibGllZG1hbiIsImEiOiI1TXRSbUI4In0.EMQ3W8jAteath85pR800ag', {
+    'Karta': L.tileLayer('https://a.tiles.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?access_token=' + config.mapboxToken, {
         attribution: 'Kartdata &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }),
     'Flygfoto': L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
