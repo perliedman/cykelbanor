@@ -4,6 +4,19 @@ var L = require('leaflet'),
 
 require('leaflet-underneath');
 
+var showFeatureDetails = function(f, map) {
+    var coord = f.geometry.coordinates,
+        ll = [coord[1], coord[0]],
+        marker = L.circleMarker(ll, {radius: 5})
+        .addTo(map)
+        .bindPopup('<h4><i class="maki maki-lg maki-' + f.properties.maki + '"></i>&nbsp;' + f.properties.name + '</h4>')
+        .openPopup();
+
+    map.once('popupclose', function() {
+        map.removeLayer(marker);
+    });
+};
+
 module.exports = function(routingControl, poiLayer, e) {
     var $content = $(addressPopup()),
         popup = L.popup().
@@ -31,9 +44,14 @@ module.exports = function(routingControl, poiLayer, e) {
 
         var $nearby = $content.find('[data-nearby]');
         results.slice(0, 5).forEach(function(r) {
-            $nearby.append($('<div class="item">' +
+            var $element = $('<a href="javascript: void();" class="item">' +
                 '<i class="maki maki-fw maki-' + r.properties.maki + ' icon"></i>' +
-                '<div class="content">' + r.properties.name + '</div></div>'));
+                '<div class="content">' + r.properties.name + '</div></a>');
+            $element.click(function() {
+                showFeatureDetails(r, popup._map);
+            });
+
+            $nearby.append($element);
         });
     }, undefined, 200);
 
