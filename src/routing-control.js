@@ -1,7 +1,9 @@
 var L = require('leaflet'),
     ElevationControl = require('./elevation'),
     geolocate = require('./geolocate'),
-    reqwest = require('reqwest');
+    reqwest = require('reqwest'),
+    poiLayer = require('./poi-layer'),
+    locationPopup = require('./location-popup');
 
 require('leaflet-routing-machine');
 
@@ -42,6 +44,11 @@ module.exports = L.Routing.Control.extend({
                         this.spliceWaypoints(i, 1, p.latlng);
                     }, this));
                 }, this));
+
+                L.DomEvent.on(handle, 'click', function() {
+                    var wp = this.getWaypoints()[i];
+                    locationPopup(this, poiLayer, wp.latLng).openOn(this._map);
+                }, this);
 
                 return geocoder;
             }, this)

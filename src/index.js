@@ -2,10 +2,7 @@ var L = require('leaflet'),
     lrm = require('leaflet-routing-machine'),
     lcg = require('leaflet-control-geocoder'),
     eio = require('leaflet-editinosm'),
-    underneath = require('leaflet-underneath'),
-    config = require('./config'),
     RoutingControl = require('./routing-control'),
-    reqwest = require('reqwest'),
     userInfo = require('./user-info'),
     State = require('./state'),
     state = new State(window),
@@ -40,11 +37,7 @@ var L = require('leaflet'),
             routingControl.setWaypoints(wps);
         }
     }),
-    poiLayer = new underneath('http://{s}.tiles.mapbox.com/v4/mapbox.mapbox-streets-v6/' +
-        '{z}/{x}/{y}.vector.pbf?access_token=' + config.mapboxToken, {
-            layers: ['poi_label'],
-            lazy: true
-        })
+    poiLayer = require('./poi-layer')
         .addTo(map);
 
 L.Icon.Default.imagePath = 'assets/vendor/images';
@@ -75,7 +68,7 @@ map
         state.removeOverlay(e.name);
     })
     .on('click', function(e) {
-        locationPopup(routingControl, poiLayer, e).openOn(map);
+        locationPopup(routingControl, poiLayer, e.latlng).openOn(map);
     });
 
 geolocate(map, function(err, p) {

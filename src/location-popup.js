@@ -17,10 +17,10 @@ var showFeatureDetails = function(f, map) {
     });
 };
 
-module.exports = function(routingControl, poiLayer, e) {
+module.exports = function(routingControl, poiLayer, latlng) {
     var $content = $(addressPopup()),
         popup = L.popup().
-            setLatLng(e.latlng).
+            setLatLng(latlng).
             setContent($content[0]),
         closePopup = function() {
             // TODO: do this in a nicer way
@@ -30,14 +30,14 @@ module.exports = function(routingControl, poiLayer, e) {
         },
         name;
 
-    L.Control.Geocoder.nominatim().reverse(e.latlng, 256 * Math.pow(2, 18), function(r) {
+    L.Control.Geocoder.nominatim().reverse(latlng, 256 * Math.pow(2, 18), function(r) {
         if (r && r[0]) {
             name = address(r[0]);
             $content.find('[data-address]').html(name.html);
         }
     });
 
-    poiLayer.query(e.latlng, function(err, results) {
+    poiLayer.query(latlng, function(err, results) {
         if (err) {
             return console.error(err);
         }
@@ -57,14 +57,14 @@ module.exports = function(routingControl, poiLayer, e) {
 
     $content.find('[data-from]').click(function() {
         routingControl.spliceWaypoints(0, 1, {
-            latLng: e.latlng,
+            latLng: latlng,
             name: name && name.text ? name.text : ''
         });
         closePopup();
     });
     $content.find('[data-to]').click(function() {
         routingControl.spliceWaypoints(routingControl.getWaypoints().length - 1, 1, {
-            latLng: e.latlng,
+            latLng: latlng,
             name: name && name.text ? name.text : ''
         });
         closePopup();
