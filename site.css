@@ -138,8 +138,7 @@ ul.alternatives {
     content: '\f176\f175';
 }
 
-.maki-icon {
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 8px;
+i.icon.maki {
+    font-family: maki;
+    
 }

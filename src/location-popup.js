@@ -32,7 +32,7 @@ module.exports = function(routingControl, poiLayer, e) {
         var $nearby = $content.find('[data-nearby]');
         results.slice(0, 5).forEach(function(r) {
             $nearby.append($('<div class="item">' +
-                '<i class="maki-icon ' + r.properties.maki + ' icon"></i>' +
+                '<i class="maki maki-fw maki-' + r.properties.maki + ' icon"></i>' +
                 '<div class="content">' + r.properties.name + '</div></div>'));
         });
     }, undefined, 200);
