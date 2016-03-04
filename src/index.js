@@ -38,7 +38,8 @@ var L = require('leaflet'),
         }
     }),
     poiLayer = require('./poi-layer')
-        .addTo(map);
+        .addTo(map),
+    currentPopup;
 
 L.Icon.Default.imagePath = 'assets/vendor/images';
 
@@ -68,7 +69,12 @@ map
         state.removeOverlay(e.name);
     })
     .on('click', function(e) {
-        locationPopup(routingControl, poiLayer, e.latlng).openOn(map);
+        if (currentPopup) {
+            map.closePopup(currentPopup);
+            currentPopup = null;
+        } else {
+            currentPopup = locationPopup(routingControl, poiLayer, e.latlng).openOn(map);
+        }
     });
 
 geolocate(map, function(err, p) {
