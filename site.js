@@ -35007,10 +35007,7 @@ var L = require('leaflet'),
     lrm = require('leaflet-routing-machine'),
     lcg = require('leaflet-control-geocoder'),
     eio = require('leaflet-editinosm'),
-    underneath = require('leaflet-underneath'),
-    config = require('./config'),
     RoutingControl = require('./routing-control'),
-    reqwest = require('reqwest'),
     userInfo = require('./user-info'),
     State = require('./state'),
     state = new State(window),
@@ -35045,12 +35042,9 @@ var L = require('leaflet'),
             routingControl.setWaypoints(wps);
         }
     }),
-    poiLayer = new underneath('http://{s}.tiles.mapbox.com/v4/mapbox.mapbox-streets-v6/' +
-        '{z}/{x}/{y}.vector.pbf?access_token=' + config.mapboxToken, {
-            layers: ['poi_label'],
-            lazy: true
-        })
-        .addTo(map);
+    poiLayer = require('./poi-layer')
+        .addTo(map),
+    currentPopup;
 
 L.Icon.Default.imagePath = 'assets/vendor/images';
 
@@ -35080,7 +35074,12 @@ map
         state.removeOverlay(e.name);
     })
     .on('click', function(e) {
-        locationPopup(routingControl, poiLayer, e).openOn(map);
+        if (currentPopup) {
+            map.closePopup(currentPopup);
+            currentPopup = null;
+        } else {
+            currentPopup = locationPopup(routingControl, poiLayer, e.latlng).openOn(map);
+        }
     });
 
 geolocate(map, function(err, p) {
@@ -35109,7 +35108,7 @@ routingControl
 
 userInfo();
 
-},{"./baselayers":92,"./config":93,"./geolocate":96,"./geolocate-control":95,"./location-popup":98,"./overlays":99,"./routing-control":100,"./state":101,"./user-info":103,"leaflet":88,"leaflet-control-geocoder":59,"leaflet-editinosm":61,"leaflet-routing-machine":65,"leaflet-underneath":86,"reqwest":89,"sortablejs":90}],98:[function(require,module,exports){
+},{"./baselayers":92,"./geolocate":96,"./geolocate-control":95,"./location-popup":98,"./overlays":99,"./poi-layer":100,"./routing-control":101,"./state":102,"./user-info":104,"leaflet":88,"leaflet-control-geocoder":59,"leaflet-editinosm":61,"leaflet-routing-machine":65,"sortablejs":90}],98:[function(require,module,exports){
 var L = require('leaflet'),
     address = require('./address'),
     addressPopup = require('../templates/address-popup.hbs');
@@ -35129,10 +35128,10 @@ var showFeatureDetails = function(f, map) {
     });
 };
 
-module.exports = function(routingControl, poiLayer, e) {
+module.exports = function(routingControl, poiLayer, latlng) {
     var $content = $(addressPopup()),
         popup = L.popup().
-            setLatLng(e.latlng).
+            setLatLng(latlng).
             setContent($content[0]),
         closePopup = function() {
             // TODO: do this in a nicer way
@@ -35142,17 +35141,21 @@ module.exports = function(routingControl, poiLayer, e) {
         },
         name;
 
-    L.Control.Geocoder.nominatim().reverse(e.latlng, 256 * Math.pow(2, 18), function(r) {
+    L.Control.Geocoder.nominatim().reverse(latlng, 256 * Math.pow(2, 18), function(r) {
         if (r && r[0]) {
             name = address(r[0]);
             $content.find('[data-address]').html(name.html);
         }
     });
 
-    poiLayer.query(e.latlng, function(err, results) {
+    poiLayer.query(latlng, function(err, results) {
         if (err) {
             return console.error(err);
         }
+
+        if (results.length === 0) return;
+
+        $content.find('[data-nearby-container]').removeClass('hide');
 
         var $nearby = $content.find('[data-nearby]');
         results.slice(0, 5).forEach(function(r) {
@@ -35169,14 +35172,14 @@ module.exports = function(routingControl, poiLayer, e) {
 
     $content.find('[data-from]').click(function() {
         routingControl.spliceWaypoints(0, 1, {
-            latLng: e.latlng,
+            latLng: latlng,
             name: name && name.text ? name.text : ''
         });
         closePopup();
     });
     $content.find('[data-to]').click(function() {
         routingControl.spliceWaypoints(routingControl.getWaypoints().length - 1, 1, {
-            latLng: e.latlng,
+            latLng: latlng,
             name: name && name.text ? name.text : ''
         });
         closePopup();
@@ -35185,7 +35188,7 @@ module.exports = function(routingControl, poiLayer, e) {
     return popup;
 };
 
-},{"../templates/address-popup.hbs":104,"./address":91,"leaflet":88,"leaflet-underneath":86}],99:[function(require,module,exports){
+},{"../templates/address-popup.hbs":105,"./address":91,"leaflet":88,"leaflet-underneath":86}],99:[function(require,module,exports){
 var L = require('leaflet');
 
 require('leaflet.markercluster');
@@ -35231,11 +35234,23 @@ module.exports = {
     })
 };
 
-},{"../templates/bicycle-rental.hbs":105,"leaflet":88,"leaflet.markercluster":87}],100:[function(require,module,exports){
+},{"../templates/bicycle-rental.hbs":106,"leaflet":88,"leaflet.markercluster":87}],100:[function(require,module,exports){
+var underneath = require('leaflet-underneath'),
+    config = require('./config');
+
+module.exports = new underneath('http://{s}.tiles.mapbox.com/v4/mapbox.mapbox-streets-v6/' +
+    '{z}/{x}/{y}.vector.pbf?access_token=' + config.mapboxToken, {
+    layers: ['poi_label'],
+    lazy: true
+});
+
+},{"./config":93,"leaflet-underneath":86}],101:[function(require,module,exports){
 var L = require('leaflet'),
     ElevationControl = require('./elevation'),
     geolocate = require('./geolocate'),
-    reqwest = require('reqwest');
+    reqwest = require('reqwest'),
+    poiLayer = require('./poi-layer'),
+    locationPopup = require('./location-popup');
 
 require('leaflet-routing-machine');
 
@@ -35277,6 +35292,11 @@ module.exports = L.Routing.Control.extend({
                     }, this));
                 }, this));
 
+                L.DomEvent.on(handle, 'click', function() {
+                    var wp = this.getWaypoints()[i];
+                    locationPopup(this, poiLayer, wp.latLng).openOn(this._map);
+                }, this);
+
                 return geocoder;
             }, this)
         });
@@ -35307,7 +35327,7 @@ module.exports = L.Routing.Control.extend({
     }
 });
 
-},{"./elevation":94,"./geolocate":96,"leaflet":88,"leaflet-routing-machine":65,"reqwest":89}],101:[function(require,module,exports){
+},{"./elevation":94,"./geolocate":96,"./location-popup":98,"./poi-layer":100,"leaflet":88,"leaflet-routing-machine":65,"reqwest":89}],102:[function(require,module,exports){
 var L = require('leaflet'),
     UrlHash = require('./url-hash');
 
@@ -35391,7 +35411,7 @@ module.exports = L.Class.extend({
     }
 });
 
-},{"./url-hash":102,"leaflet":88}],102:[function(require,module,exports){
+},{"./url-hash":103,"leaflet":88}],103:[function(require,module,exports){
 module.exports = {
     parse: function(hash) {
         var components;
@@ -35422,7 +35442,7 @@ module.exports = {
     }
 };
 
-},{}],103:[function(require,module,exports){
+},{}],104:[function(require,module,exports){
 var L = require('leaflet');
 
 function showDialog() {
@@ -35445,14 +35465,14 @@ module.exports = function userInfo() {
     }
 };
 
-},{"leaflet":88}],104:[function(require,module,exports){
+},{"leaflet":88}],105:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<div>\n    <div class=\"ui raised segment\">\n        <div class=\"section\">\n            <i class=\"map marker icon\"></i><span class=\"address\" data-address></span>\n        </div>\n        <div class=\"section\">\n            <button class=\"ui button primary\" type=\"button\" data-from>Åk härifrån</button>\n            <button class=\"ui button primary\" type=\"button\" data-to>Åk hit</button>\n        </div>\n    </div>\n\n    <div class=\"ui raised segment\">\n      <a class=\"ui blue ribbon label\">I närheten</a>\n      <div class=\"ui list\" data-nearby>\n      </div>\n    </div>\n</div>\n";
+    return "<div>\n    <div class=\"ui raised segment\">\n        <div class=\"section\">\n            <i class=\"map marker icon\"></i><span class=\"address\" data-address></span>\n        </div>\n        <div class=\"section\">\n            <button class=\"ui button primary\" type=\"button\" data-from>Åk härifrån</button>\n            <button class=\"ui button primary\" type=\"button\" data-to>Åk hit</button>\n        </div>\n    </div>\n\n    <div class=\"ui raised segment hide\" data-nearby-container>\n      <a class=\"ui blue ribbon label\">I närheten</a>\n      <div class=\"ui list\" data-nearby>\n      </div>\n    </div>\n</div>\n";
 },"useData":true});
 
-},{"hbsfy/runtime":49}],105:[function(require,module,exports){
+},{"hbsfy/runtime":49}],106:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
