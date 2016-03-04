@@ -42,6 +42,10 @@ module.exports = function(routingControl, poiLayer, latlng) {
             return console.error(err);
         }
 
+        if (results.length === 0) return;
+
+        $content.find('[data-nearby-container]').removeClass('hide');
+
         var $nearby = $content.find('[data-nearby]');
         results.slice(0, 5).forEach(function(r) {
             var $element = $('<a href="javascript: void();" class="item">' +
