@@ -1,5 +1,8 @@
 var L = require('leaflet'),
     address = require('./address'),
+    getOsmObject = require('./osm-object'),
+    getFeatureDetails = require('./feature-details'),
+    featureDetails = require('../templates/feature-details.hbs'),
     addressPopup = require('../templates/address-popup.hbs');
 
 require('leaflet-underneath');
@@ -7,10 +10,31 @@ require('leaflet-underneath');
 var showFeatureDetails = function(f, map) {
     var coord = f.geometry.coordinates,
         ll = [coord[1], coord[0]],
+        $content = $(featureDetails(f)),
         marker = L.circleMarker(ll, {radius: 5})
-        .addTo(map)
-        .bindPopup('<h4><i class="maki maki-lg maki-' + f.properties.maki + '"></i>&nbsp;' + f.properties.name + '</h4>')
-        .openPopup();
+            .addTo(map)
+            .bindPopup($content[0])
+            .openPopup();
+
+    getOsmObject('node', f.id - 1000000000000000, function(err, osmFeature) {
+        if (err) {
+            return console.warn(err);
+        }
+
+        var $details = getFeatureDetails(osmFeature);
+        if ($details) {
+            var $detailsContainer = $content.find('[data-details]');
+            $detailsContainer.removeClass('hide');
+            $detailsContainer.append($details);
+        }
+
+        if (osmFeature.website) {
+            var $website = $content.find('[data-website]');
+            $website.attr('href', osmFeature.website);
+            $website.text(osmFeature.website);
+            $website.removeClass('hide');
+        }
+    });
 
     map.once('popupclose', function() {
         map.removeLayer(marker);
@@ -57,7 +81,7 @@ module.exports = function(routingControl, poiLayer, latlng) {
 
             $nearby.append($element);
         });
-    }, undefined, 200);
+    }, undefined, 50);
 
     $content.find('[data-from]').click(function() {
         routingControl.spliceWaypoints(0, 1, {

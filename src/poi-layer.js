@@ -4,5 +4,6 @@ var underneath = require('leaflet-underneath'),
 module.exports = new underneath('http://{s}.tiles.mapbox.com/v4/mapbox.mapbox-streets-v6/' +
     '{z}/{x}/{y}.vector.pbf?access_token=' + config.mapboxToken, {
     layers: ['poi_label'],
-    lazy: true
+    lazy: true,
+    zoomIn: 2
 });
