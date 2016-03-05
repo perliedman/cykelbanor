@@ -39,6 +39,10 @@ ul.alternatives {
     max-width: 400px;
 }
 
+.clearfix {
+  clear: both;
+}
+
 .leaflet-routing-container h2 {
     font-size: 12px;
     font-weight: normal;
