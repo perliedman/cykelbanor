@@ -35409,7 +35409,8 @@ module.exports = L.Routing.Control.extend({
                     icon: L.icon.glyph({
                         prefix: '',
                         glyph: String.fromCharCode(65 + i)
-                    })
+                    }),
+                    draggable: true
                 })
             },
             createGeocoder: L.bind(function(i) {
