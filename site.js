@@ -35628,13 +35628,13 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
 },"5":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "<p>\n    "
+  return "    <p>\n        <em>"
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.properties : depth0)) != null ? stack1.tags : stack1)) != null ? stack1.capacity : stack1), depth0))
-    + " cyklar\n</p>\n";
+    + "</em> cykelställ\n    </p>\n";
 },"7":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 
-  return "        <a href=\""
+  return "                <a href=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.properties : depth0)) != null ? stack1.tags : stack1)) != null ? stack1.website : stack1), depth0))
     + "\">"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.properties : depth0)) != null ? stack1.tags : stack1)) != null ? stack1.network : stack1), depth0))
@@ -35642,19 +35642,19 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
 },"9":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "        "
+  return "                "
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.properties : depth0)) != null ? stack1.tags : stack1)) != null ? stack1.network : stack1), depth0))
     + "\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : {};
 
-  return "<h3>\n"
-    + ((stack1 = helpers["if"].call(alias1,((stack1 = ((stack1 = (depth0 != null ? depth0.properties : depth0)) != null ? stack1.tags : stack1)) != null ? stack1.capacity : stack1),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "</h3>\n\n"
+  return "<h3>\n    <i class=\"maki maki-lg maki-bicycle\"></i>\n"
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = ((stack1 = (depth0 != null ? depth0.properties : depth0)) != null ? stack1.tags : stack1)) != null ? stack1.name : stack1),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
+    + "</h3>\n\n<div class=\"ui segment raised\">\n"
     + ((stack1 = helpers["if"].call(alias1,((stack1 = ((stack1 = (depth0 != null ? depth0.properties : depth0)) != null ? stack1.tags : stack1)) != null ? stack1.capacity : stack1),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "\n<p>\n"
+    + "\n    <p>\n        <em>\n"
     + ((stack1 = helpers["if"].call(alias1,((stack1 = ((stack1 = (depth0 != null ? depth0.properties : depth0)) != null ? stack1.tags : stack1)) != null ? stack1.website : stack1),{"name":"if","hash":{},"fn":container.program(7, data, 0),"inverse":container.program(9, data, 0),"data":data})) != null ? stack1 : "")
-    + "</p>\n";
+    + "        </em>\n    </p>\n</div>";
 },"useData":true});
 
 },{"hbsfy/runtime":37}]},{},[98]);
