@@ -6,6 +6,7 @@ var L = require('leaflet'),
     locationPopup = require('./location-popup');
 
 require('leaflet-routing-machine');
+require('leaflet.icon.glyph');
 
 module.exports = L.Routing.Control.extend({
     initialize: function(map, initialWaypoints) {
@@ -24,6 +25,14 @@ module.exports = L.Routing.Control.extend({
                 ]
             },
             waypoints: initialWaypoints,
+            createMarker: function(i, wp) {
+                return L.marker(wp.latLng, {
+                    icon: L.icon.glyph({
+                        prefix: '',
+                        glyph: String.fromCharCode(65 + i)
+                    })
+                })
+            },
             createGeocoder: L.bind(function(i) {
                 var geocoder = L.Routing.GeocoderElement.prototype.options.createGeocoder.call(this, i, this.getPlan().getWaypoints().length, this.getPlan().options),
                     handle = L.DomUtil.create('div', 'geocoder-handle'),
