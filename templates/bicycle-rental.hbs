@@ -1,21 +1,26 @@
 <h3>
-    {{#if properties.tags.capacity}}
+    <i class="maki maki-lg maki-bicycle"></i>
+    {{#if properties.tags.name}}
         {{properties.tags.name}}
     {{else}}
         Hyrcyklar
     {{/if}}
 </h3>
 
-{{#if properties.tags.capacity}}
-<p>
-    {{properties.tags.capacity}} cyklar
-</p>
-{{/if}}
-
-<p>
-    {{#if properties.tags.website}}
-        <a href="{{properties.tags.website}}">{{properties.tags.network}}</a>
-    {{else}}
-        {{properties.tags.network}}
+<div class="ui segment raised">
+    {{#if properties.tags.capacity}}
+    <p>
+        <em>{{properties.tags.capacity}}</em> cykelställ
+    </p>
     {{/if}}
-</p>
+
+    <p>
+        <em>
+            {{#if properties.tags.website}}
+                <a href="{{properties.tags.website}}">{{properties.tags.network}}</a>
+            {{else}}
+                {{properties.tags.network}}
+            {{/if}}
+        </em>
+    </p>
+</div>
