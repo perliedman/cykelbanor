@@ -21,19 +21,20 @@ var showFeatureDetails = function(f, map) {
             return console.warn(err);
         }
 
-        var $details = getFeatureDetails(osmFeature);
-        if ($details) {
-            var $detailsContainer = $content.find('[data-details]');
-            $detailsContainer.removeClass('hide');
-            $detailsContainer.append($details);
-        }
+        getFeatureDetails(osmFeature, function($details) {
+            if ($details) {
+                var $detailsContainer = $content.find('[data-details]');
+                $detailsContainer.removeClass('hide');
+                $detailsContainer.append($details);
+            }
 
-        if (osmFeature.website) {
-            var $website = $content.find('[data-website]');
-            $website.attr('href', osmFeature.website);
-            $website.text(osmFeature.website);
-            $website.removeClass('hide');
-        }
+            if (osmFeature.website) {
+                var $website = $content.find('[data-website]');
+                $website.attr('href', osmFeature.website);
+                $website.text(osmFeature.website);
+                $website.removeClass('hide');
+            }
+        });
     });
 
     map.once('popupclose', function() {

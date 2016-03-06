@@ -8,4 +8,5 @@ cp -a node_modules/leaflet-routing-machine/dist/*.png assets/vendor/
 cp -a node_modules/leaflet.markercluster/dist/*.css assets/vendor/
 cp -a node_modules/font-awesome/css/*.min.css assets/vendor/
 
-browserify -t hbsfy src/index.js >site.js
+browserify -t hbsfy -x opening_hours -x moment src/index.js >site.js
+browserify -r opening_hours -r moment >module-osm-feature-details.js

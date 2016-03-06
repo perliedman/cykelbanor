@@ -20,6 +20,8 @@
     "leaflet-routing-machine": "^2.6.1",
     "leaflet-underneath": "^1.1.0",
     "leaflet.markercluster": "^0.4.0",
+    "moment": "^2.10.6",
+    "opening_hours": "^3.4.0",
     "reqwest": "^2.0.5",
     "sortablejs": "^1.1.1"
   },
