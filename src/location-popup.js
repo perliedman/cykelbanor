@@ -1,34 +1,84 @@
 var L = require('leaflet'),
     address = require('./address'),
-    addressPopup = require('../templates/address-popup.hbs');
+    getOsmObject = require('./osm-object'),
+    getFeatureDetails = require('./feature-details'),
+    featureDetails = require('../templates/feature-details.hbs'),
+    addressPopup = require('../templates/address-popup.hbs'),
+    popup;
 
 require('leaflet-underneath');
 
-var showFeatureDetails = function(f, map) {
-    var coord = f.geometry.coordinates,
-        ll = [coord[1], coord[0]],
-        marker = L.circleMarker(ll, {radius: 5})
-        .addTo(map)
-        .bindPopup('<h4><i class="maki maki-lg maki-' + f.properties.maki + '"></i>&nbsp;' + f.properties.name + '</h4>')
-        .openPopup();
+var closePopup = function() {
+        // TODO: do this in a nicer way
+        if (popup._map) {
+            popup._map.closePopup(popup);
+        }
+    },
+    addWaypointButtons = function($content, routingControl, latlng) {
+        $content.find('[data-from]').click(function() {
+            routingControl.spliceWaypoints(0, 1, {
+                latLng: latlng,
+                name: name && name.text ? name.text : ''
+            });
+            closePopup();
+        });
+        $content.find('[data-to]').click(function() {
+            routingControl.spliceWaypoints(routingControl.getWaypoints().length - 1, 1, {
+                latLng: latlng,
+                name: name && name.text ? name.text : ''
+            });
+            closePopup();
+        });
+    },
+    showFeatureDetails = function(f, map, routingControl) {
+        var coord = f.geometry.coordinates,
+            ll = L.latLng(coord[1], coord[0]),
+            $content = $(featureDetails(f)),
+            marker = L.circleMarker(ll, {radius: 5})
+                .addTo(map);
+            
+        popup = L.popup({offset: [0, -6]})
+            .setContent($content[0])
+            .setLatLng(ll)
+            .openOn(map);
 
-    map.once('popupclose', function() {
-        map.removeLayer(marker);
-    });
-};
+        addWaypointButtons($content, routingControl, ll);
+
+        getOsmObject('node', f.id - 1000000000000000, function(err, osmFeature) {
+            if (err) {
+                return console.warn(err);
+            }
+
+            getFeatureDetails(osmFeature, function($details) {
+                if ($details) {
+                    var $detailsContainer = $content.find('[data-details]');
+                    $detailsContainer.removeClass('hide');
+                    $detailsContainer.append($details);
+                }
+
+                if (osmFeature.website) {
+                    var $website = $content.find('[data-website]');
+                    $website.attr('href', osmFeature.website);
+                    $website.text(osmFeature.website);
+                    $website.removeClass('hide');
+                }
+            });
+        });
+
+        map.once('popupclose', function() {
+            map.removeLayer(marker);
+        });
+    };
 
 module.exports = function(routingControl, poiLayer, latlng) {
     var $content = $(addressPopup()),
-        popup = L.popup().
-            setLatLng(latlng).
-            setContent($content[0]),
-        closePopup = function() {
-            // TODO: do this in a nicer way
-            if (popup._map) {
-                popup._map.closePopup(popup);
-            }
-        },
         name;
+
+    addWaypointButtons($content, routingControl, latlng);
+
+    popup = L.popup().
+        setLatLng(latlng).
+        setContent($content[0]);
 
     L.Control.Geocoder.nominatim().reverse(latlng, 256 * Math.pow(2, 18), function(r) {
         if (r && r[0]) {
@@ -52,27 +102,12 @@ module.exports = function(routingControl, poiLayer, latlng) {
                 '<i class="maki maki-fw maki-' + r.properties.maki + ' icon"></i>' +
                 '<div class="content">' + r.properties.name + '</div></a>');
             $element.click(function() {
-                showFeatureDetails(r, popup._map);
+                showFeatureDetails(r, popup._map, routingControl);
             });
 
             $nearby.append($element);
         });
-    }, undefined, 200);
-
-    $content.find('[data-from]').click(function() {
-        routingControl.spliceWaypoints(0, 1, {
-            latLng: latlng,
-            name: name && name.text ? name.text : ''
-        });
-        closePopup();
-    });
-    $content.find('[data-to]').click(function() {
-        routingControl.spliceWaypoints(routingControl.getWaypoints().length - 1, 1, {
-            latLng: latlng,
-            name: name && name.text ? name.text : ''
-        });
-        closePopup();
-    });
+    }, undefined, 50);
 
     return popup;
 };
