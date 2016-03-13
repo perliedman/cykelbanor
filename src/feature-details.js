@@ -1,48 +1,21 @@
 var template = require('../templates/osm-feature-details.hbs'),
     Handlebars = require('hbsfy/runtime'),
-    restaurantCuisineI18N = {
-        'indian': 'Indisk restaurang',
-        'pizza': 'Pizza-restaurang',
-        'burger': 'Hamburgerrestaurang',
-        'greek': 'Grekisk restaurang',
-        'turkish': 'Turkisk restaurang',
-        'chinese': 'Kinarestaurang',
-        'vietnamese': 'Vietnamesisk restaurang',
-        'thai': 'Thailändsk restaurang',
-        'asian': 'Asiatisk restaurang',
-        'sushi': 'Sushi-restaurang'
-    },
-    fastfoodCuisineI18N = {
-        'pizza': 'Pizzeria',
-        'burger': 'Hamburgare',
-        'thai': 'Thai-mat'
-    },
-    amenityI18N = {
-        'restaurant': function(f) {
-            var cuisine = restaurantCuisineI18N[f.cuisine];
-            return cuisine ? cuisine : 'Restaurang' + (f.cuisine ? ' (' + f.cuisine + ')' : '');
-        },
-        'fast_food': function(f) {
-            var cuisine = fastfoodCuisineI18N[f.cuisine];
-            return cuisine ? cuisine : 'Snabbmat' + (f.cuisine ? ' (' + f.cuisine + ')' : '');
-        },
-        'cafe': function() { return 'Kafé'; },
-        'veterinary': function() { return 'Veterinär'; },
-        'fuel': function() { return 'Bensinmack'; },
-        'bicycle_rental': function() { return 'Hyrcyklar'; }
-    },
-    shopI18N = {
-        'hardware': function() { return 'Järnaffär'; },
-        'bathroom_furnishing': function() { return 'Badrumsinredning'; },
-        'outdoor': function() { return 'Vildmarksaffär'; },
-        'car_repair': function() { return 'Bilverkstad'; },
-        'clothes': function() { return 'Klädaffär'; },
-        'hairdresser': function() { return 'Frisör'; },
-        'shoes': function() { return 'Skoaffär'; },
-        'confectionery': function() { return 'Godisaffär'; }
-    },
+    tagI18n = require('./tag-i18n'),
     initialUpperCase = function(s) {
         return s.substring(0, 1).toUpperCase() + s.substring(1);
+    },
+    i18n = function(f) {
+        var result;
+        for (var k in tagI18n) {
+            if (f[k]) {
+                result = tagI18n[k][0][f[k]] || tagI18n[k][1];
+                if (result) {
+                    return typeof result === 'string' || result instanceof String ? result : result(f);
+                } else {
+                    return f[k];
+                }
+            }
+        }
     },
     moment,
     openingHours;
@@ -58,15 +31,7 @@ $.getScript = function(src, func) {
 };
 
 Handlebars.registerHelper('osmFeatureDescription', function(f) {
-    var result = '';
-
-    if (f.amenity) {
-        var amenityFn = amenityI18N[f.amenity];
-        result = (amenityFn ? amenityFn(f) : null) || f.amenity;
-    } else if (f.shop) {
-        var shopFn = shopI18N[f.shop];
-        result = (shopFn ? shopFn(f) : null) || f.shop;
-    }
+    var result = i18n(f) || '';
 
     return initialUpperCase(result.replace('_', ' '));
 });
