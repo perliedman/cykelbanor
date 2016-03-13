@@ -11,7 +11,8 @@ var L = require('leaflet'),
     geolocate = require('./geolocate'),
     locationPopup = require('./location-popup'),
     map = L.map('map', {
-        attributionControl: false
+        attributionControl: false,
+        closePopupOnClick: false
     }),
     GeolocateControl = require('./geolocate-control'),
     baselayers = require('./baselayers'),
@@ -58,6 +59,10 @@ state.getOverlays().forEach(function(name) {
 
 new GeolocateControl({ position: 'topleft' }).addTo(map);
 
+var openAddressPopup = function(e) {
+    locationPopup(routingControl, poiLayer, e.latlng).openOn(map);
+};
+
 map
     .on('baselayerchange', function(e) {
         state.setBaseLayer(e.name);
@@ -69,12 +74,17 @@ map
         state.removeOverlay(e.name);
     })
     .on('click', function(e) {
-        if (currentPopup) {
-            map.closePopup(currentPopup);
-            currentPopup = null;
+        if (!currentPopup) {
+            openAddressPopup(e);
         } else {
-            currentPopup = locationPopup(routingControl, poiLayer, e.latlng).openOn(map);
+            map.closePopup(currentPopup);
         }
+    })
+    .on('popupopen', function(e) {
+        currentPopup = e.popup;
+    })
+    .on('popupclose', function() {
+        currentPopup = null;
     });
 
 geolocate(map, function(err, p) {
