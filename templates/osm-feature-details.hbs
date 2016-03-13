@@ -1,3 +1,12 @@
 <div class="meta">{{osmFeatureDescription this}}</div>
 
+{{#if addr:full}}
+    {{addr:full}}
+{{else}}
+    {{#if addr:street}}
+        {{addr:street}} {{addr:housenumber}}<br/>
+        {{addr:postcode}} {{addr:city}}
+    {{/if}}
+{{/if}}
+
 {{osmOpeningHours this}}
