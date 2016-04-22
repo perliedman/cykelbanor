@@ -17,11 +17,19 @@ module.exports = L.Routing.Control.extend({
             routeWhileDragging: true,
             reverseWaypoints: true,
             language: 'sv',
+            showAlternatives: true,
             lineOptions: {
                 styles: [
                     {color: 'black', opacity: 0.3, weight: 11},
                     {color: 'white', opacity: 0.9, weight: 9},
                     {color: 'red', opacity: 1, weight: 3}
+                ]
+            },
+            altLineOptions: {
+                styles: [
+                    {color: 'black', opacity: 0.1, weight: 11},
+                    {color: 'white', opacity: 0.25, weight: 9},
+                    {color: 'blue', opacity: 0.25, weight: 3}
                 ]
             },
             waypoints: initialWaypoints,
