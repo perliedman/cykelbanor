@@ -11,7 +11,7 @@ require('leaflet.icon.glyph');
 module.exports = L.Routing.Control.extend({
     initialize: function(map, initialWaypoints) {
         L.Routing.Control.prototype.initialize.call(this, {
-            router: L.Routing.osrm({serviceUrl: 'http://route.cykelbanor.se/viaroute'}),
+            router: L.Routing.osrm({serviceUrl: 'https://route.cykelbanor.se/viaroute'}),
             //router: L.Routing.osrm({serviceUrl: 'http://localhost:5000/viaroute'}),
             geocoder: L.Control.Geocoder.mapzen('search-KwMCkXI'),
             routeWhileDragging: true,
