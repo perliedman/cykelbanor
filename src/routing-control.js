@@ -71,7 +71,7 @@ module.exports = L.Routing.Control.extend({
                 };
 
             reqwest({
-                url: 'http://data.cykelbanor.se/elevation/geojson',
+                url: 'https://data.cykelbanor.se/elevation/geojson',
                 method: 'post',
                 contentType: 'application/json',
                 data: JSON.stringify(geojson),
