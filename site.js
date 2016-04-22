@@ -28473,7 +28473,7 @@ var reqwest = require('reqwest');
 
 module.exports = function(type, osmId, cb) {
     reqwest({
-        url: 'http://www.openstreetmap.org/api/0.6/' + type + '/' + osmId,
+        url: 'https://www.openstreetmap.org/api/0.6/' + type + '/' + osmId,
         crossOrigin: true,
         type: 'xml'
     }).then(function(data) {
@@ -28543,7 +28543,7 @@ module.exports = {
 var underneath = require('leaflet-underneath'),
     config = require('./config');
 
-module.exports = new underneath('http://{s}.tiles.mapbox.com/v4/mapbox.mapbox-streets-v6/' +
+module.exports = new underneath('https://{s}.tiles.mapbox.com/v4/mapbox.mapbox-streets-v6/' +
     '{z}/{x}/{y}.vector.pbf?access_token=' + config.mapboxToken, {
     layers: ['poi_label'],
     lazy: true,
