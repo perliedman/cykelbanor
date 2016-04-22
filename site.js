@@ -27950,7 +27950,7 @@ var L = require('leaflet'),
     config = require('./config');
 
 module.exports = {
-    'Karta': L.tileLayer('https://a.tiles.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}.png?access_token=' + config.mapboxToken, {
+    'Karta': L.tileLayer('https://a.tiles.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}' + (L.Browser.retina ? '@2x' : '') +'.png?access_token=' + config.mapboxToken, {
         attribution: 'Kartdata &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }),
     'Flygfoto': L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
@@ -28570,11 +28570,19 @@ module.exports = L.Routing.Control.extend({
             routeWhileDragging: true,
             reverseWaypoints: true,
             language: 'sv',
+            showAlternatives: true,
             lineOptions: {
                 styles: [
                     {color: 'black', opacity: 0.3, weight: 11},
                     {color: 'white', opacity: 0.9, weight: 9},
                     {color: 'red', opacity: 1, weight: 3}
+                ]
+            },
+            altLineOptions: {
+                styles: [
+                    {color: 'black', opacity: 0.1, weight: 11},
+                    {color: 'white', opacity: 0.25, weight: 9},
+                    {color: 'blue', opacity: 0.25, weight: 3}
                 ]
             },
             waypoints: initialWaypoints,
