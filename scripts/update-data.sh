@@ -1,6 +1,5 @@
 #!/bin/bash
 
-OSRM_DIR=/home/per/Documents/Projects/osrm-backend/build
 DATA_DIR=/home/per/Documents/geodata
 DATA=$DATA_DIR/sweden.osm.pbf
 
