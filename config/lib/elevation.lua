@@ -11,11 +11,9 @@ function slope_speed(way_info, base_speed, forward)
 
     distance = way_info["distance"]
 
-    if not forward then
+    if forward then
         climb_distance = way_info["climbDistance"]
         desc_distance = way_info["descentDistance"]
-        climb_factor = climb_distance / distance
-        desc_factor = desc_distance / distance
         climb = way_info["climb"]
         descent = way_info["descent"]
     else
@@ -26,6 +24,9 @@ function slope_speed(way_info, base_speed, forward)
         descent = way_info["climb"]
         climb = way_info["descent"]
     end
+
+    climb_factor = climb_distance / distance
+    desc_factor = desc_distance / distance
 
     local remain_factor = 1 - (climb_factor + desc_factor)
     local climb_gradient = climb_distance > 0 and climb / climb_distance / 1000 or 0
