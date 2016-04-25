@@ -11,8 +11,8 @@ require('leaflet.icon.glyph');
 module.exports = L.Routing.Control.extend({
     initialize: function(map, initialWaypoints) {
         L.Routing.Control.prototype.initialize.call(this, {
-            router: new L.Routing.OSRMv1({serviceUrl: 'https://route.cykelbanor.se/route/v1', profile: 'bicycle'}),
-            //router: new L.Routing.OSRMv1({serviceUrl: 'http://localhost:5000/route/v1', profile: 'bicycle'}),
+            //router: new L.Routing.OSRMv1({serviceUrl: 'https://route.cykelbanor.se/route/v1', profile: 'bicycle'}),
+            router: new L.Routing.OSRMv1({serviceUrl: 'http://localhost:5000/route/v1', profile: 'bicycle'}),
             geocoder: L.Control.Geocoder.mapzen('search-KwMCkXI'),
             routeWhileDragging: true,
             reverseWaypoints: true,
@@ -40,7 +40,7 @@ module.exports = L.Routing.Control.extend({
                         glyph: String.fromCharCode(65 + i)
                     }),
                     draggable: true
-                })
+                });
             },
             createGeocoder: L.bind(function(i) {
                 var geocoder = L.Routing.GeocoderElement.prototype.options.createGeocoder.call(this, i, this.getPlan().getWaypoints().length, this.getPlan().options),
