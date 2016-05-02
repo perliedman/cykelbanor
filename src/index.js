@@ -1,4 +1,5 @@
 var L = require('leaflet'),
+    reqwest = require('reqwest'),
     lrm = require('leaflet-routing-machine'),
     lcg = require('leaflet-control-geocoder'),
     eio = require('leaflet-editinosm'),
@@ -11,7 +12,6 @@ var L = require('leaflet'),
     geolocate = require('./geolocate'),
     locationPopup = require('./location-popup'),
     map = L.map('map', {
-        attributionControl: false,
         closePopupOnClick: false
     }),
     GeolocateControl = require('./geolocate-control'),
@@ -44,9 +44,7 @@ var L = require('leaflet'),
 
 L.Icon.Default.imagePath = 'assets/vendor/images';
 
-L.control.attribution({
-    prefix: '<a href="/om/">Om cykelbanor.se</a>'
-}).addTo(map);
+map.attributionControl.setPrefix('<a href="/om/">Om cykelbanor.se</a>');
 new L.Control.EditInOSM({
     position: 'bottomright',
     widget: 'attributionbox'
@@ -114,6 +112,15 @@ geolocate(map, function(err, p) {
     }, {
         timeout: 5000
     });
+
+reqwest({
+    url: 'https://route.cykelbanor.se/meta/timestamp',
+}).then(L.bind(function(resp) {
+    var d = new Date(resp.responseText),
+        s = d.toLocaleDateString('sv-SE');
+    map.attributionControl.setPrefix('<a href="/om/">Om cykelbanor.se</a> | <span title="Cykelbanor uppdaterade ' + s + '">' + s + '</span>');
+}, this));
+
 
 routingControl
     .on('waypointschanged', function() {
