@@ -27815,7 +27815,7 @@ var L = require('leaflet'),
 
 module.exports = {
     'Karta': L.tileLayer('https://a.tiles.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}' + (L.Browser.retina ? '@2x' : '') +'.png?access_token=' + config.mapboxToken, {
-        attribution: 'Kartdata &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        attribution: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }),
     'Flygfoto': L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
         attribution: 'Kartdata &copy; <a href="http://www.esri.com/">Esri</a>, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
@@ -28103,6 +28103,7 @@ module.exports = function(map, cb, options) {
 
 },{"leaflet":62}],72:[function(require,module,exports){
 var L = require('leaflet'),
+    reqwest = require('reqwest'),
     lrm = require('leaflet-routing-machine'),
     lcg = require('leaflet-control-geocoder'),
     eio = require('leaflet-editinosm'),
@@ -28115,7 +28116,6 @@ var L = require('leaflet'),
     geolocate = require('./geolocate'),
     locationPopup = require('./location-popup'),
     map = L.map('map', {
-        attributionControl: false,
         closePopupOnClick: false
     }),
     GeolocateControl = require('./geolocate-control'),
@@ -28148,9 +28148,7 @@ var L = require('leaflet'),
 
 L.Icon.Default.imagePath = 'assets/vendor/images';
 
-L.control.attribution({
-    prefix: '<a href="/om/">Om cykelbanor.se</a>'
-}).addTo(map);
+map.attributionControl.setPrefix('<a href="/om/">Om cykelbanor.se</a>');
 new L.Control.EditInOSM({
     position: 'bottomright',
     widget: 'attributionbox'
@@ -28193,8 +28191,17 @@ map
 
 geolocate(map, function(err, p) {
         if (err) {
-            map.fitBounds(L.latLngBounds([56,9.6],[68,26.6]));
-            return;
+            var z;
+            try {
+                z = map.getZoom();
+            } catch (e) {
+                // Ok, map not initialized
+            }
+
+            if (!z) {
+                map.fitBounds(L.latLngBounds([56,9.6],[68,26.6]));
+                return;
+            }
         }
 
         if (!initialWaypoints || initialWaypoints.length < 2) {
@@ -28210,6 +28217,15 @@ geolocate(map, function(err, p) {
         timeout: 5000
     });
 
+reqwest({
+    url: 'https://route.cykelbanor.se/meta/timestamp',
+}).then(L.bind(function(resp) {
+    var d = new Date(resp.responseText),
+        s = d.toLocaleDateString('sv-SE');
+    map.attributionControl.setPrefix('<a href="/om/">Om cykelbanor.se</a> | <span title="Cykelbanor uppdaterade ' + s + '">' + s + '</span>');
+}, this));
+
+
 routingControl
     .on('waypointschanged', function() {
         state.setWaypoints(routingControl.getWaypoints());
@@ -28217,7 +28233,7 @@ routingControl
 
 userInfo();
 
-},{"./baselayers":66,"./geolocate":71,"./geolocate-control":70,"./location-popup":73,"./overlays":75,"./poi-layer":76,"./routing-control":77,"./state":78,"./user-info":81,"leaflet":62,"leaflet-control-geocoder":32,"leaflet-editinosm":34,"leaflet-routing-machine":38,"sortablejs":64}],73:[function(require,module,exports){
+},{"./baselayers":66,"./geolocate":71,"./geolocate-control":70,"./location-popup":73,"./overlays":75,"./poi-layer":76,"./routing-control":77,"./state":78,"./user-info":81,"leaflet":62,"leaflet-control-geocoder":32,"leaflet-editinosm":34,"leaflet-routing-machine":38,"reqwest":63,"sortablejs":64}],73:[function(require,module,exports){
 var L = require('leaflet'),
     address = require('./address'),
     getOsmObject = require('./osm-object'),
@@ -28457,7 +28473,7 @@ module.exports = L.Routing.Control.extend({
                         glyph: String.fromCharCode(65 + i)
                     }),
                     draggable: true
-                })
+                });
             },
             createGeocoder: L.bind(function(i) {
                 var geocoder = L.Routing.GeocoderElement.prototype.options.createGeocoder.call(this, i, this.getPlan().getWaypoints().length, this.getPlan().options),
