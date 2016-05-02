@@ -89,8 +89,17 @@ map
 
 geolocate(map, function(err, p) {
         if (err) {
-            map.fitBounds(L.latLngBounds([56,9.6],[68,26.6]));
-            return;
+            var z;
+            try {
+                z = map.getZoom();
+            } catch (e) {
+                // Ok, map not initialized
+            }
+
+            if (!z) {
+                map.fitBounds(L.latLngBounds([56,9.6],[68,26.6]));
+                return;
+            }
         }
 
         if (!initialWaypoints || initialWaypoints.length < 2) {
