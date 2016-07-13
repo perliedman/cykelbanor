@@ -21,7 +21,7 @@
     "leaflet-underneath": "^1.1.0",
     "leaflet.icon.glyph": "^0.2.0",
     "leaflet.markercluster": "^0.5.0",
-    "moment": "^2.13.0",
+    "moment": "^2.14.1",
     "opening_hours": "^3.4.0",
     "reqwest": "^2.0.5",
     "sortablejs": "^1.1.1"
