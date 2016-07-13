@@ -12,17 +12,14 @@ module.exports = L.Class.extend({
             width = 320 - margin.left - margin.right,
             height = 80 - margin.top - margin.bottom;
 
-        var x = d3.scale.linear().range([0, width]);
-        var y = d3.scale.linear().range([height, 0]);
+        var x = d3.scaleLinear().range([0, width]);
+        var y = d3.scaleLinear().range([height, 0]);
          
         // Define the axes
-        var xAxis = d3.svg.axis().scale(x)
-            .orient('bottom').ticks(5);
-         
-        var yAxis = d3.svg.axis().scale(y)
-            .orient('left').ticks(5);
+        var xAxis = d3.axisBottom(x).ticks(5);
+        var yAxis = d3.axisLeft(y).ticks(5);
 
-        var valueline = d3.svg.line()
+        var valueline = d3.line()
             .x(function(d) { return x(d.distance); })
             .y(function(d) { return y(d.elevation); });
 
