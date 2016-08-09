@@ -10,5 +10,5 @@ DATA_SLOPE=$DATA"_slope.json"
 PROFILE=./config/bicycle5.lua
 #PROFILE=../osrm-backend/profiles/bicycle.lua
 
-#$OSM_SLOPE --cache_dir $DATA_DIR $DATA_OSM $DATA_SLOPE
+$OSM_SLOPE --cache_dir $DATA_DIR $DATA_OSM $DATA_SLOPE
 $OSRM_DIR/osrm-extract -p $PROFILE $DATA_OSM && $OSRM_DIR/osrm-contract $DATA_OSRM
