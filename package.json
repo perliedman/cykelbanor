@@ -17,7 +17,7 @@
     "leaflet": "^0.7.7",
     "leaflet-control-geocoder": "^1.5.1",
     "leaflet-editinosm": "^0.2.1",
-    "leaflet-routing-machine": "^3.1.0",
+    "leaflet-routing-machine": "^3.1.2",
     "leaflet-underneath": "^1.1.0",
     "leaflet.icon.glyph": "^0.2.0",
     "leaflet.markercluster": "^0.5.0",
