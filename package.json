@@ -12,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "d3": "^4.2.1",
-    "font-awesome": "^4.6.3",
+    "font-awesome": "^4.7.0",
     "handlebars": "~4.0.5",
     "leaflet": "^0.7.7",
     "leaflet-control-geocoder": "^1.5.1",
