@@ -11,7 +11,7 @@
   "author": "Per Liedman <per@liedman.net>",
   "license": "ISC",
   "dependencies": {
-    "d3": "^4.2.1",
+    "d3": "^4.4.2",
     "font-awesome": "^4.6.3",
     "handlebars": "~4.0.5",
     "leaflet": "^0.7.7",
