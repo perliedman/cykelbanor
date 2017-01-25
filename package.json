@@ -31,6 +31,6 @@
     "browserify": "^13.1.0",
     "hbsfy": "^2.7.0",
     "query-overpass": "^1.0.0",
-    "watchify": "^3.7.0"
+    "watchify": "^3.9.0"
   }
 }
