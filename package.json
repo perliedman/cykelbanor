@@ -30,7 +30,7 @@
     "brfs": "^1.1.1",
     "browserify": "^14.0.0",
     "hbsfy": "^2.7.0",
-    "query-overpass": "^1.0.0",
+    "query-overpass": "^1.1.2",
     "watchify": "^3.7.0"
   }
 }
