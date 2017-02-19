@@ -24,7 +24,7 @@
     "moment": "^2.14.1",
     "opening_hours": "^3.4.0",
     "reqwest": "^2.0.5",
-    "sortablejs": "^1.1.1"
+    "sortablejs": "^1.5.0"
   },
   "devDependencies": {
     "brfs": "^1.1.1",
