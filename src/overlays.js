@@ -2,7 +2,7 @@ var L = require('leaflet');
 
 require('leaflet.markercluster');
 
-var MarkerLayer = L.Class.extend({
+var MarkerLayer = L.Layer.extend({
     initialize: function(url, options) {
         L.setOptions(this, options);
         this._url = url;

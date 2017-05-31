@@ -38,8 +38,7 @@ var L = require('leaflet'),
             routingControl.setWaypoints(wps);
         }
     }),
-    poiLayer = require('./poi-layer')
-        .addTo(map),
+    poiLayer = require('./poi-layer')(map),
     currentPopup;
 
 L.Icon.Default.imagePath = 'assets/vendor/images';

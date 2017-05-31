@@ -1,12 +1,14 @@
 var L = require('leaflet'),
     hasGeolocate = navigator.geolocation;
 
+var DEG_TO_RAD = Math.PI / 180;
+
 module.exports = function(map, cb, options) {
     var success = function(p) {
             var lat = p.coords.latitude,
                 lng = p.coords.longitude,
                 latAccuracy = 180 * p.coords.accuracy / 40075017,
-                lngAccuracy = latAccuracy / Math.cos(L.LatLng.DEG_TO_RAD * lat),
+                lngAccuracy = latAccuracy / Math.cos(DEG_TO_RAD * lat),
                 bounds = L.latLngBounds(
                     [lat - latAccuracy, lng - lngAccuracy],
                     [lat + latAccuracy, lng + lngAccuracy]);
