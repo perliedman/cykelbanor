@@ -148,16 +148,17 @@ var query_overpass = require('query-overpass'),
       '68.97137 20.92666 ' +
       '68.94473 20.90445 ' +
       '68.91447 20.90190 ' +
-      '68.90611 20.09723 ';
+      '68.90611 20.09723';
 
-query_overpass(
-    '[out:json][timeout:25];' +
+var query =     '[out:json][timeout:25];' +
     '(' +
     '  node["amenity"="bicycle_rental"](poly:"' + swedenPoly + '");' +
     ');' +
-    'out;', function(error, data) {
+    'out;'
+
+query_overpass(query, function(error, data) {
         if (error) {
-            console.log(error);
+            console.error('Failed:', error, 'query was:', query);
         } else {
             fs.writeFileSync('assets/data/bicycle-rental.json', JSON.stringify(data));
         }
