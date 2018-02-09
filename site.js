@@ -42696,7 +42696,8 @@ var L = require('leaflet'),
     geolocate = require('./geolocate'),
     reqwest = require('reqwest'),
     poiLayer = require('./poi-layer'),
-    locationPopup = require('./location-popup');
+    locationPopup = require('./location-popup'),
+    config = require('./config');
 
 require('leaflet-routing-machine');
 require('leaflet.icon.glyph');
@@ -42772,7 +42773,7 @@ module.exports = L.Routing.Control.extend({
                 };
 
             reqwest({
-                url: 'https://data.cykelbanor.se/elevation/geojson',
+                url: 'https://data.cykelbanor.se/elevation/geojson?access_token=' + config.elevationToken,
                 method: 'post',
                 contentType: 'application/json',
                 data: JSON.stringify(geojson),
@@ -42791,7 +42792,7 @@ module.exports = L.Routing.Control.extend({
     }
 });
 
-},{"./elevation":51,"./geolocate":54,"./location-popup":56,"./poi-layer":59,"leaflet":31,"leaflet-routing-machine":27,"leaflet.icon.glyph":29,"reqwest":36}],61:[function(require,module,exports){
+},{"./config":50,"./elevation":51,"./geolocate":54,"./location-popup":56,"./poi-layer":59,"leaflet":31,"leaflet-routing-machine":27,"leaflet.icon.glyph":29,"reqwest":36}],61:[function(require,module,exports){
 var L = require('leaflet'),
     UrlHash = require('./url-hash');
 
