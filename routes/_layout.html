@@ -1,0 +1,24 @@
+<Nav segment={child.segment}/>
+<Map/>
+
+<main>
+	<svelte:component this={child.component} {...child.props}/>
+</main>
+
+<style>
+	main {
+		position: relative;
+		background-color: none;
+		margin: 0 auto;
+		box-sizing: border-box;
+	}
+</style>
+
+<script>
+	export default {
+		components: {
+			Nav: '../components/Nav.html',
+			Map: '../components/Map.html',
+		}
+	};
+</script>

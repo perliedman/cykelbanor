@@ -1,36 +1,27 @@
 {
-  "name": "cykelbanor",
-  "version": "0.0.0",
-  "description": "Bike routing in Sweden",
-  "main": "index.js",
+  "name": "TODO",
+  "description": "TODO",
+  "version": "0.0.1",
   "scripts": {
-    "install": "scripts/build.sh",
-    "start": "scripts/run.sh",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "sapper dev",
+    "build": "sapper build",
+    "export": "sapper export",
+    "start": "node build",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open",
+    "test": "run-p --race dev cy:run"
   },
-  "author": "Per Liedman <per@liedman.net>",
-  "license": "ISC",
   "dependencies": {
-    "d3": "^4.2.1",
-    "font-awesome": "^4.6.3",
-    "handlebars": "~4.0.5",
-    "leaflet": "^1.0.3",
-    "leaflet-control-geocoder": "^1.5.4",
-    "leaflet-editinosm": "^0.2.1",
-    "leaflet-routing-machine": "^3.2.5",
-    "leaflet-underneath": "^3.0.0",
-    "leaflet.icon.glyph": "^0.2.0",
-    "leaflet.markercluster": "^1.0.5",
-    "moment": "^2.14.1",
-    "opening_hours": "^3.4.0",
-    "reqwest": "^2.0.5",
-    "sortablejs": "^1.1.1"
+    "compression": "^1.7.1",
+    "mapbox-gl": "^0.47.0",
+    "polka": "^0.4.0",
+    "sapper": "^0.15.0",
+    "sirv": "^0.1.1"
   },
   "devDependencies": {
-    "brfs": "^1.1.1",
-    "browserify": "^14.0.0",
-    "hbsfy": "^2.7.0",
-    "query-overpass": "^1.0.0",
-    "watchify": "^3.7.0"
+    "npm-run-all": "^4.1.2",
+    "svelte": "^2.0.0",
+    "svelte-loader": "^2.9.0",
+    "webpack": "^4.7.0"
   }
 }

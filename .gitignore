@@ -1,2 +1,10 @@
-node_modules/
-stxxl.*
+.DS_Store
+node_modules
+/.sapper/
+yarn.lock
+yarn-error.log
+/cypress/screenshots/
+/templates/.*
+/export/
+/build/
+/app/manifest/
