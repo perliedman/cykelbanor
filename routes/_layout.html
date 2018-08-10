@@ -1,5 +1,6 @@
 <Nav segment={child.segment}/>
 <Map/>
+<RoutingControl waypoints="{$waypoints}" />
 
 <main>
 	<svelte:component this={child.component} {...child.props}/>
@@ -15,10 +16,13 @@
 </style>
 
 <script>
+	import RoutingControl from 'routing-components/src/components/Control.html'
+
 	export default {
 		components: {
 			Nav: '../components/Nav.html',
 			Map: '../components/Map.html',
+			RoutingControl
 		}
 	};
 </script>

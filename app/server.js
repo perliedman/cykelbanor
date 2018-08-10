@@ -13,7 +13,8 @@ polka() // You can also use Express
       manifest,
       store: request => new Store({
         center: [11.94, 57.7],
-        zoom: 12
+        zoom: 12,
+        waypoints: []
       })
     })
 	)
