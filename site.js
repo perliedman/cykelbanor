@@ -71658,7 +71658,7 @@ var L = require('leaflet'),
     config = require('./config');
 
 module.exports = {
-    'Karta': L.tileLayer('https://a.tiles.mapbox.com/v4/mapbox.outdoors/{z}/{x}/{y}' + (L.Browser.retina ? '@2x' : '') +'.png?access_token=' + config.mapboxToken, {
+    'Karta': L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/tiles/{z}/{x}/{y}' + (L.Browser.retina ? '@2x' : '') +'?access_token=' + config.mapboxToken, {
         attribution: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }),
     'Flygfoto': L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
